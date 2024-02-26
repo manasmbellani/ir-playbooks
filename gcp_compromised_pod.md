@@ -64,6 +64,7 @@ gke-test-cluster-2-default-pool-dec81310-76c5   Ready    <none>   73m   v1.27.8-
 - [ ] Containment - checked IAM Policy Bindings and disable them
 - [ ] Containment - drain the node.
 - [ ] Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
+- [ ] Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
 
 ## Appendix: Scripts
