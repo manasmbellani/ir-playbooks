@@ -29,7 +29,7 @@ For this scenario, we will require:
 ## Automation
 
 ## Additional TODOs
-- [ ] 
+- [ ] Containment - remove pod labels and network policy to isolate a pod
 - [ ] Containment - checked IAM Policy Bindings and disable them
 - [ ] Containment - drain the node.
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
