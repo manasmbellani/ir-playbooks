@@ -59,10 +59,6 @@ gke-test-cluster-2-default-pool-dec81310-76c5   Ready    <none>   73m   v1.27.8-
 
 ## Automation
 
-## Appendix: Scripts
-
-### deployment.yaml file
-
 ## Additional TODOs
 - [ ] Containment - remove pod labels and network policy to isolate a pod
 - [ ] Containment - checked IAM Policy Bindings and disable them
