@@ -1,7 +1,7 @@
 # Compromised GCP Pod
 
 ## Scenario
-In this document, we run through some general response steps of how to perform an Incident Response and Forensic Process for a container already assumed to be compromised.
+In this document, we run through some general response steps of how to perform an Incident Response and Forensic Process for a GCP pod already assumed to be compromised.
 
 We will endeavour to use CLI commands, where possible, to perform analysis unless it is not possible to use CLI or the information more easily available through a UI.
 
