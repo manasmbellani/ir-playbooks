@@ -13,10 +13,15 @@ We will assume that detections are already in place within pods to indicate that
 
 For this scenario, we will require:
 - Access to a GCP account with sufficient privileges to setup the multi-node Kubernetes cluster in region `us-central1`
-- A GRR setup already by following the steps [here](https://grr-doc.readthedocs.io/en/latest/installing-grr-server/index.html)
-- A GRR docker image
+- A Google Rapid Response (GRR) setup already by following the steps [here](https://grr-doc.readthedocs.io/en/latest/installing-grr-server/index.html)
+- Access to Google Cloud SDK and kubernetes tools (such as `kubectl`)
+- A variety of forensics tools such as docker explorer, etc. listed in the articles below
 
 ## Scenario Setup
+
+To setup the scenario, we deploy a cluster called `test-cluster-1` with running with 2 nodes, and 2 pods `test-pod1` and `test-pod1` in `us-central1` region with the following command:
+```
+```
 
 ## Containment
 
@@ -32,5 +37,6 @@ For this scenario, we will require:
 - [ ] Containment - remove pod labels and network policy to isolate a pod
 - [ ] Containment - checked IAM Policy Bindings and disable them
 - [ ] Containment - drain the node.
+- [ ] Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
 
