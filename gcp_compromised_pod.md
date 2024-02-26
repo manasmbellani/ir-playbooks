@@ -36,6 +36,19 @@ Once the cluster has been setup, we prepare the deploy 2 pods `test-pod1` and `t
 kubectl apply -f scenario_deployment.yaml
 ```
 
+We validate that the scenario is setup using `kubectl`:
+```
+kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+test-pod1-5589d96985-6vccs   1/1     Running   0          5m14s
+test-pod2-fb578cd5c-42k2f    1/1     Running   0          5m14s
+
+kubectl get nodes
+NAME                                            STATUS   ROLES    AGE   VERSION
+gke-test-cluster-2-default-pool-dec81310-6g2c   Ready    <none>   73m   v1.27.8-gke.1067004
+gke-test-cluster-2-default-pool-dec81310-76c5   Ready    <none>   73m   v1.27.8-gke.1067004
+```
+
 ## Containment
 
 ## Eradication
