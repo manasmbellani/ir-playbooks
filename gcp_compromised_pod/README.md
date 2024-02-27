@@ -30,9 +30,8 @@ We invoke cloud shell within the GCP console and attempt to authenticate to the 
 gcloud container clusters get-credentials test-cluster-1 --zone us-central1-c --project citric-snow-362912
 ```
 
-Once the cluster has been setup, we prepare the deploy 2 pods `test-pod1` and `test-pod1` in `us-central1` region with the following command:
+Once the cluster has been setup, we prepare the deploy 2 pods `test-pod1` and `test-pod1` in `us-central1` region using [scenario_deployment.yaml](./scenario_deployment.yaml) with the following command:
 ```
-# See `scenario_deployment.yaml` file in Appendix
 kubectl apply -f scenario_deployment.yaml
 ```
 
@@ -67,48 +66,3 @@ gke-test-cluster-2-default-pool-dec81310-76c5   Ready    <none>   73m   v1.27.8-
 - [ ] Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
 - [ ] Analysis - Include tooling from [osdfir-infrastructure](https://github.com/google/osdfir-infrastructure)
-
-## Appendix: Scripts
-
-### scenario_deployment.yaml
-
-```
-apiVersion: apps/v1 # Kubernetes API version for deployments
-kind: Deployment # Kind of object being defined (Deployment)
-metadata:
-  name: test-pod1 # Name of the deployment
-spec:
-  replicas: 1 # Number of pods to create
-  selector:
-    matchLabels: # Labels to select pods for the deployment
-      app: test-pod1
-  template:
-    metadata:
-      labels: # Labels for the pod
-        app: test-pod1
-    spec:
-      containers:
-      - name: test-pod1 # Name of the container
-        image: ubuntu:latest # Image to use for the container
-        command: ["sleep", "infinity"]
----
-apiVersion: apps/v1 # Kubernetes API version for deployments
-kind: Deployment # Kind of object being defined (Deployment)
-metadata:
-  name: test-pod2 # Name of the deployment
-spec:
-  replicas: 1 # Number of pods to create
-  selector:
-    matchLabels: # Labels to select pods for the deployment
-      app: test-pod2
-  template:
-    metadata:
-      labels: # Labels for the pod
-        app: test-pod2
-    spec:
-      containers:
-      - name: test-pod2 # Name of the container
-        image: ubuntu:latest # Image to use for the container
-        command: ["sleep", "infinity"]
----
-```
