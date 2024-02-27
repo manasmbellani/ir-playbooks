@@ -1,0 +1,38 @@
+apiVersion: apps/v1 # Kubernetes API version for deployments
+kind: Deployment # Kind of object being defined (Deployment)
+metadata:
+  name: test-pod1 # Name of the deployment
+spec:
+  replicas: 1 # Number of pods to create
+  selector:
+    matchLabels: # Labels to select pods for the deployment
+      app: test-pod1
+  template:
+    metadata:
+      labels: # Labels for the pod
+        app: test-pod1
+    spec:
+      containers:
+      - name: test-pod1 # Name of the container
+        image: ubuntu:latest # Image to use for the container
+        command: ["sleep", "infinity"]
+---
+apiVersion: apps/v1 # Kubernetes API version for deployments
+kind: Deployment # Kind of object being defined (Deployment)
+metadata:
+  name: test-pod2 # Name of the deployment
+spec:
+  replicas: 1 # Number of pods to create
+  selector:
+    matchLabels: # Labels to select pods for the deployment
+      app: test-pod2
+  template:
+    metadata:
+      labels: # Labels for the pod
+        app: test-pod2
+    spec:
+      containers:
+      - name: test-pod2 # Name of the container
+        image: ubuntu:latest # Image to use for the container
+        command: ["sleep", "infinity"]
+---
