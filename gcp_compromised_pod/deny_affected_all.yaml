@@ -1,0 +1,11 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-all-affected
+spec:
+  podSelector:
+    matchLabels:
+      status: affected
+  policyTypes:
+  - Ingress
+  - Egress
