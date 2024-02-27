@@ -82,10 +82,28 @@ We check that the labels are correctly applied via `kubectl`:
 $ kubectl describe pods test-pod1-5589d96985-6vccs
 ```
 
-We then create a new network policy to all ingress and egress from the node using a (deny network policy)[./deny_affected_all.yaml]:
+We then create a new network policy to block all ingress and egress from the node using a [deny network policy](./deny_affected_all.yaml) via `kubectl`:
 
 ```
 $ kubectl apply -f ./deny_affected_all.yaml
+```
+
+We identify and label the node to highlight that it is under investigation via `kubectl`
+```
+$ kubectl get pod  test-pod1-5589d96985-6vccs | grep -i "Node:"
+...
+Node:             gke-test-cluster-1-default-pool-ff0c640a-zj5v/10.128.0.37
+...
+$ kubectl label node gke-test-cluster-1-default-pool-ff0c640a-zj5v status=quarantine
+```
+
+We also cordon the node to ensure that no new pods will be created on this node via `kubectl` and validate that scheduling is disabled for this node:
+```
+$ kubectl cordon gke-test-cluster-1-default-pool-ff0c640a-zj5v
+$ kubectl get nodes
+NAME                           READY   STATUS    RESTARTS   AGE
+...
+test-pod2-fb578cd5c-ccxkk      1/1     Running   0          33m
 ```
 
 ## Eradication
@@ -101,6 +119,9 @@ $ kubectl apply -f ./deny_affected_all.yaml
 - [ ] Containment - checked IAM Policy Bindings and disable them
 - [ ] Containment - drain the node.
 - [ ] Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
+- [ ] Containment - snapshot the VM instances
 - [ ] Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
 - [ ] Analysis - Include tooling from [osdfir-infrastructure](https://github.com/google/osdfir-infrastructure)
+- [ ] Analysis - docker explorer
+- [ ] Analysis - kube-forensics
