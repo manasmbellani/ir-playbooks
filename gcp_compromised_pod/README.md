@@ -120,6 +120,7 @@ test-pod2-fb578cd5c-ccxkk      1/1     Running   0          33m
 - [ ] Containment - drain the node.
 - [ ] Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
 - [ ] Containment - snapshot the VM instances
+- [ ] Analysis - [dftimewolf](https://dftimewolf.readthedocs.io/en/latest/getting-started.html)
 - [ ] Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
 - [ ] Analysis - Include tooling from [osdfir-infrastructure](https://github.com/google/osdfir-infrastructure)
