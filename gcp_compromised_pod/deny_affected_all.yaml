@@ -5,7 +5,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      status: affected
+      status: compromised
   policyTypes:
   - Ingress
   - Egress
