@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: test-pod1 # Name of the container
-        image: ubuntu:latest # Image to use for the container
+        image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0 # Image to use for the container
         command: ["sleep", "infinity"]
 ---
 apiVersion: apps/v1 # Kubernetes API version for deployments
@@ -33,6 +33,6 @@ spec:
     spec:
       containers:
       - name: test-pod2 # Name of the container
-        image: ubuntu:latest # Image to use for the container
+        image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0 # Image to use for the container
         command: ["sleep", "infinity"]
 ---
