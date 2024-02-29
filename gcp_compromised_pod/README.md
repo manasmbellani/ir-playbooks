@@ -90,7 +90,7 @@ $ kubectl apply -f ./deny_affected_all.yaml
 
 We identify and label the node to highlight that it is under investigation via `kubectl`
 ```
-$ kubectl get pod  test-pod1-5589d96985-6vccs | grep -i "Node:"
+$ kubectl describe pods test-pod1-5589d96985-6vccs | grep -i "Node:"
 ...
 Node:             gke-test-cluster-1-default-pool-ff0c640a-zj5v/10.128.0.37
 ...
