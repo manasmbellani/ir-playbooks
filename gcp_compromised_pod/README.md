@@ -175,6 +175,7 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 ## Automation
 
 ## Additional TODOs
+- [ ] Preparation - [Falco](https://falco.org/)
 - [ ] Containment - lock down nodes where possible to ensure that there is no connectivity
 - [ ] Containment - checked IAM Policy Bindings on the node and disable them
 - [ ] Containment - drain the node?
