@@ -180,6 +180,7 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 - [ ] Containment - drain the node?
 - [ ] Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
 - [ ] Containment - snapshot the VM instances
+- [ ] Analysis - Investigate [docker container](https://sysdig.com/blog/triaging-malicious-docker-container/)
 - [ ] Analysis - [dftimewolf](https://dftimewolf.readthedocs.io/en/latest/getting-started.html)
 - [ ] Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
