@@ -16,10 +16,11 @@ For this scenario, we will require:
 - A Google Rapid Response (GRR) server setup already by following the steps [here](https://grr-doc.readthedocs.io/en/latest/installing-grr-server/index.html)
 - Access to Google Cloud SDK and kubernetes tools (such as `kubectl`)
 - A variety of forensics tools such as docker explorer, etc. listed in the articles below
+- Firewall rules e.g. SSH port is open (Optional, if live forensics needed)
 
 ## Scenario Setup
 
-To setup the scenario, we deploy a cluster called `test-cluster-1` with running with 3 `e2-medium` nodes in `us-central1-c` zone. Note that the size of the cluster is required to enforce the network policy as described [here](https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy#np_no_effect)
+To setup the scenario, we deploy a cluster called `$CLUSTER_NAME` with running with 3 `e2-medium` nodes in `us-central1-c` zone. Note that the size of the cluster is required to enforce the network policy as described [here](https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy#np_no_effect)
 
 ```
 $ gcloud beta container --project "citric-snow-362912" clusters create "test-cluster-1" --no-enable-basic-auth --cluster-version "1.27.8-gke.1067004" --release-channel "regular" --machine-type "e2-medium" --image-type "COS_CONTAINERD" --disk-type "pd-balanced" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "3" --logging=SYSTEM,WORKLOAD --monitoring=SYSTEM --enable-ip-alias --network "projects/citric-snow-362912/global/networks/default" --subnetwork "projects/citric-snow-362912/regions/us-central1/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --binauthz-evaluation-mode=DISABLED --enable-managed-prometheus --enable-shielded-nodes --node-locations "us-central1-c" --enable-network-policy --location us-central1-c
@@ -106,18 +107,77 @@ NAME                           READY   STATUS    RESTARTS   AGE
 test-pod2-fb578cd5c-ccxkk      1/1     Running   0          33m
 ```
 
-## Eradication
+Check if the node on which the pod was compromised has been cordoned off via `kubectl`:
+```
+$ kubectl describe nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i "unschedulable:"
+$ kubectl get nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i "SchedulingDisabled"
+```
 
 ## Analysis
+Get the logs for the compromised pod via `kubectl`:
+
+```
+kubectl get logs test-pod1-558b84995b-djbkk
+```
+
+### Live Forensics
+
+If SSH access is allowed to the node via VPC firewall rule, we attempt to SSH into the node for live forensics via `gcloud`:
+```
+gcloud compute gke-test-cluster-1-default-pool-fe89d68e-g3fl
+```
+
+We attempt to to get the `container ID` for compromised pod's container via `crictl` or `docker`:
+
+```
+crictl ps | grep -i 'test-pod1'
+docker ps | grep -i 'test-pod1'
+```
+
+Apart from `kubectl`, we can view the logs for container from the node as well via `crictl` or `docker`:
+```
+sudo crictl logs 7d6fdca68f9cf
+sudo docker logs 7d6fdca68f9cf
+```
+
+We can also exec into the running pod with the inbound and outbound network connectivity disabled for this pod:
+```
+crictl exec -it 7d6fdca68f9cf /bin/bash
+docker exec -it 7d6fdca68f9cf /bin/bash
+```
+
+We can also detect changes to the container since creation from the image which can show anomalous file events via `docker`:
+```
+# Command only available in docker, not crictl
+docker diff 7d6fdca68f9cf
+```
+
+Check the memory information to see any anomalous high CPU usage via `docker` or `crictl`: 
+```
+crictl stats 7d6fdca68f9cf
+docker stats 7d6fdca68f9cf
+```
+
+We can then see the processes inside the systems consuming excessive CPU via `docker` or by execing into the container via `crictl`:
+```
+docker top 7d6fdca68f9cf
+crictl exec -it 7d6fdca68f9cf /bin/bash
+> top
+```
+
+
+
+
+## Eradication
 
 ## Recovery
 
 ## Automation
 
 ## Additional TODOs
-- [ ] Containment - remove pod labels and network policy to isolate a pod
-- [ ] Containment - checked IAM Policy Bindings and disable them
-- [ ] Containment - drain the node.
+- [ ] Containment - lock down nodes where possible to ensure that there is no connectivity
+- [ ] Containment - checked IAM Policy Bindings on the node and disable them
+- [ ] Containment - drain the node?
 - [ ] Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
 - [ ] Containment - snapshot the VM instances
 - [ ] Analysis - [dftimewolf](https://dftimewolf.readthedocs.io/en/latest/getting-started.html)
@@ -126,3 +186,4 @@ test-pod2-fb578cd5c-ccxkk      1/1     Running   0          33m
 - [ ] Analysis - Include tooling from [osdfir-infrastructure](https://github.com/google/osdfir-infrastructure)
 - [ ] Analysis - docker explorer
 - [ ] Analysis - kube-forensics
+- [ ] Eradication - drain node?
