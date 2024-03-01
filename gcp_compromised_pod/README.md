@@ -187,5 +187,6 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 - [ ] Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
 - [ ] Analysis - Include tooling from [osdfir-infrastructure](https://github.com/google/osdfir-infrastructure)
 - [ ] Analysis - docker explorer
+- [ ] Analysis - Container Explorer
 - [ ] Analysis - kube-forensics
 - [ ] Eradication - drain node?
