@@ -1,7 +1,7 @@
 # Compromised GCP Pod
 
 ## Scenario
-In this document, we run through some general response steps of how to perform an Incident Response and Forensic Process for a GCP pod already assumed to be compromised.
+In this document, we run through some general response steps of how to perform an Incident Response and Forensic Process for a GCP pod already assumed to be compromised. We will also extend the analysis to the associated GKE node on which pod is running to validate if the node may have been compromised.
 
 We will endeavour to use CLI commands, where possible, to perform analysis unless it is not possible to use CLI or the information more easily available through a UI.
 
@@ -13,10 +13,42 @@ We will assume that detections are already in place within pods to indicate that
 
 For this scenario, we will require:
 - Access to a GCP account with sufficient privileges to setup the multi-node Kubernetes cluster in region `us-central1`
-- A Google Rapid Response (GRR) server setup already by following the steps [here](https://grr-doc.readthedocs.io/en/latest/installing-grr-server/index.html)
+- A forensics instance with Google Rapid Response (GRR) server setup already by following the steps [here](https://grr-doc.readthedocs.io/en/latest/installing-grr-server/index.html) along with other tools
 - Access to Google Cloud SDK and kubernetes tools (such as `kubectl`)
 - A variety of forensics tools such as docker explorer, etc. listed in the articles below
 - Firewall rules e.g. SSH port is open (Optional, if live forensics needed)
+
+## Forensics Instance Setup
+
+In this case, we use `gcloud` to build a compute instance within a separate project 
+
+```
+gcloud compute instances create forensics-instance \
+    --project=citric-snow-362912 \
+    --zone=us-central1-c \
+    --machine-type=e2-medium \
+    --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
+    --maintenance-policy=MIGRATE \
+    --provisioning-model=STANDARD \
+    --create-disk=auto-delete=yes,boot=yes,device-name=forensics-instance,image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20240228,mode=rw,size=20,type=projects/citric-snow-362912/zones/us-central1-c/diskTypes/pd-balanced \
+    --no-shielded-secure-boot \
+    --shielded-vtpm \
+    --shielded-integrity-monitoring \
+    --labels=goog-ec-src=vm_add-gcloud \
+    --reservation-affinity=any
+```
+
+We then SSH into this instance via `gcloud`:
+
+```
+gcloud compute ssh forensics-instance --zone=us-central1-c
+```
+
+We execute the script to install the forensics dependencies such as `container explorer`:
+```
+chmod +x ./install_forensics_deps.sh
+sudo ./install_forensics_deps.sh
+```
 
 ## Scenario Setup
 
@@ -114,6 +146,7 @@ $ kubectl get nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i "Sch
 ```
 
 ## Analysis
+
 Get the logs for the compromised pod via `kubectl`:
 
 ```
@@ -124,7 +157,7 @@ kubectl get logs test-pod1-558b84995b-djbkk
 
 If SSH access is allowed to the node via VPC firewall rule, we attempt to SSH into the node for live forensics via `gcloud`:
 ```
-gcloud compute gke-test-cluster-1-default-pool-fe89d68e-g3fl
+gcloud compute ssh gke-test-cluster-1-default-pool-fe89d68e-g3fl
 ```
 
 We attempt to to get the `container ID` for compromised pod's container via `crictl` or `docker`:
@@ -165,6 +198,32 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 > top
 ```
 
+### Offline Forensics
+
+We will attempt to take a snapshot of the disk on the compute node `gke-test-cluster-1-default-pool-fe89d68e-g3fl`, generate a disk from the node and then connect it to a separate forensics VM compute instance for analysis.
+
+First, set the settingsi in which the GKE node is running via gcloud:
+```
+gcloud config set compute/zone us-central1-c
+gcloud config set compute/region us-central1
+```
+
+We create a snapshot of compute node `gke-test-cluster-1-default-pool-fe89d68e-n7nz` via gcloud:
+```
+gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz --format=json \
+	| jq -r '.name' \
+	| xargs -I {} gcloud beta compute instant-snapshots create forensics-{} --source-disk={}
+```
+
+We build a disk from the snapshot taken for node `gke-test-cluster-1-default-pool-fe89d68e-n7nz` via gcloud:
+
+```
+gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz --format=json \
+	| jq -r '.name' \
+	| xargs -I {} gcloud beta compute disks create forensics-{} \
+  --zone=us-central1-c \
+  --source-instant-snapshot=forensics-{}
+```
 
 
 
