@@ -193,4 +193,5 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 - Analysis - docker explorer
 - Analysis - Container Explorer
 - Analysis - kube-forensics
+- Analysis - Collecting volatile memory from nod https://www.infoq.com/news/2023/07/malicious-behaviour-gke/
 - Eradication - drain node?
