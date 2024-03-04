@@ -145,7 +145,7 @@ $ kubectl describe nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i
 $ kubectl get nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i "SchedulingDisabled"
 ```
 
-## Analysis
+## Collection
 
 Get the logs for the compromised pod via `kubectl`:
 
@@ -243,6 +243,33 @@ gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz 
     | xargs -I {} gcloud compute disks create forensics-{} --image=forensics-{} --image-project=citric-snow-362912 --project=citric-rain-362912
 ```
 
+Once a disk is available in the same project as the forensics instance, we attach the disk via `gcloud`: 
+```
+gcloud compute instances attach-disk forensics-instance \
+  --disk forensics-gke-test-cluster-1-default-pool-fe89d68e-n7nz \
+  --device-name forensicsdiskattachment \
+  --zone us-central1-c
+```
+
+View the attached disks via `lsblk` to identify the attached partition (based on size) and then `mount` the disk. For example, we assume `/dev/sdc1` has the attached disk:
+```
+lsblk
+sudo mkdir /mnt/data
+sudo mount -o ro,noload,noexec /dev/sdc1 /mnt/data
+```
+
+### Analysis
+
+After mounting the disk, we list all the containers from the mount point `/mnt/data` via `container-explorer`:
+```
+sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml list containers
+```
+
+We can also mount all the containers for further analysis:
+```
+sudo mkdir /mnt/container
+sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
+```
 
 ## Eradication
 
