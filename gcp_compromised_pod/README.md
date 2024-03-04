@@ -297,5 +297,6 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 - Analysis - Container Explorer
 - Analysis - kube-forensics
 - Analysis - Collecting volatile memory from nod https://www.infoq.com/news/2023/07/malicious-behaviour-gke/
+- Analysis - Sysdig inspect & capture - https://github.com/draios/sysdig-inspect?tab=readme-ov-file
 - Recovery - Enable Linux Auditd Logging - https://cloud.google.com/kubernetes-engine/docs/how-to/linux-auditd-logging
 - Eradication - drain node?
