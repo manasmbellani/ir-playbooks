@@ -208,16 +208,14 @@ gcloud config set compute/zone us-central1-c
 gcloud config set compute/region us-central1
 ```
 
-We create a snapshot of compute node `gke-test-cluster-1-default-pool-fe89d68e-n7nz` via gcloud:
+If the forensics instance will be in same project and zone as the compromised node, we can create an instant snapshot of compute node `gke-test-cluster-1-default-pool-fe89d68e-n7nz` and build the disk from the instant snapshot via `gcloud`:
 ```
+# Create an instant snapshot
 gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz --format=json \
 	| jq -r '.name' \
-	| xargs -I {} gcloud beta compute instant-snapshots create forensics-{} --source-disk={}
-```
+	| xargs -I {} gcloud beta compute instant-snapshot forensics-{} --source-disk={}
 
-We build a disk from the snapshot taken for node `gke-test-cluster-1-default-pool-fe89d68e-n7nz` via gcloud:
-
-```
+# build the disk to be attached to a forensics instance
 gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz --format=json \
 	| jq -r '.name' \
 	| xargs -I {} gcloud beta compute disks create forensics-{} \
@@ -225,6 +223,25 @@ gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz 
   --source-instant-snapshot=forensics-{}
 ```
 
+If the forensics instance will be in a different project to the compromised node, we need to first create a standard snapshot in the same project with compromised instance, make an image out of this snapshot, and then create a disk in the project with the forensics instance via `gcloud`:
+```
+# Create a standard snapshot from the instance
+gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz --format=json \
+	| jq -r '.name' \
+	| xargs -I {} gcloud beta compute disks create forensics-{} \
+  --zone=us-central1-c \
+  --source-instant-snapshot=forensics-{}
+
+# Create an image from the snapshot
+gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz --format=json \
+	| jq -r '.name' \
+	| xargs -I {} gcloud compute images create forensics-{} --source-snapshot=forensics-{}
+
+# Create the disk from the image into the new project (e.g. citric-rain-362912) which is different from image's project (e.g. citric-snow-362912)
+gcloud compute instances describe gke-test-cluster-1-default-pool-fe89d68e-n7nz --format=json \
+    | jq -r '.name' \
+    | xargs -I {} gcloud compute disks create forensics-{} --image=forensics-{} --image-project=citric-snow-362912 --project=citric-rain-362912
+```
 
 
 ## Eradication
