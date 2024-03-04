@@ -288,12 +288,12 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 - Analysis - Collect image via snapshot / dd
 - Analysis - Collect image via cloud-forensics-utils
 - Analysis - Investigate [docker container](https://sysdig.com/blog/triaging-malicious-docker-container/)
-- Analysis - [dftimewolf](https://dftimewolf.readthedocs.io/en/latest/getting-started.html)
+- Collection - dftimewolf https://dftimewolf.readthedocs.io/en/latest/getting-started.html, https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
 - Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
-- Analysis - attempt debug mode via kubectl as described [here](https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278)
-- Analysis - Include tooling from [osdfir-infrastructure](https://github.com/google/osdfir-infrastructure)
+- Analysis - attempt debug mode via kubectl https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278
+- Analysis - Include tooling from osdfir-infrastructure https://github.com/google/osdfir-infrastructure
+- Analysis - plaso log2timeline https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
 - Analysis - docker explorer
-- Analysis - Container Explorer
 - Analysis - kube-forensics
 - Analysis - Collecting volatile memory from nod https://www.infoq.com/news/2023/07/malicious-behaviour-gke/
 - Analysis - Sysdig inspect & capture - https://github.com/draios/sysdig-inspect?tab=readme-ov-file
