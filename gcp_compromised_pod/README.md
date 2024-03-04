@@ -292,7 +292,8 @@ psteal.py --source /mnt/container/0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fccac
 - Containment - drain the node?
 - Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
 - Containment - snapshot the VM instances
-- Analysis - Collect image via snapshot / dd
+- Analysis - kubectl top command for memory usage https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
+- Analysis - Collect image via snapshot dd
 - Analysis - Collect image via cloud-forensics-utils
 - Analysis - Investigate [docker container](https://sysdig.com/blog/triaging-malicious-docker-container/)
 - Collection - dftimewolf https://dftimewolf.readthedocs.io/en/latest/getting-started.html, https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
