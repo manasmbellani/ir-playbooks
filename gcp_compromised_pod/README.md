@@ -262,13 +262,20 @@ sudo mount -o ro,noload,noexec /dev/sdc1 /mnt/data
 
 After mounting the disk, we list all the containers from the mount point `/mnt/data` via `container-explorer`:
 ```
-sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml list containers
+sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml list containers > /tmp/containers.txt
+# Search for the container ID for a specific container - assume it returns '0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fccacb5c4a4bf9cec26fcf4' for 'test-pod1'
+cat /tmp/containers.txt | grep -i 'test-pod1'
 ```
 
-We can also mount all the containers for further analysis:
+We can also mount all the containers for further analysis via `container-explorer`:
 ```
 sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
+```
+
+We build a timeline for the analysis of the pod via the `psteal` command:
+```
+psteal.py --source /mnt/container/0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fccacb5c4a4bf9cec26fcf4 -o l2tcsv -w /tmp/timeline.csv
 ```
 
 ## Eradication
@@ -292,7 +299,6 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 - Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
 - Analysis - attempt debug mode via kubectl https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278
 - Analysis - Include tooling from osdfir-infrastructure https://github.com/google/osdfir-infrastructure
-- Analysis - plaso log2timeline https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
 - Analysis - docker explorer
 - Analysis - kube-forensics
 - Analysis - Collecting volatile memory from nod https://www.infoq.com/news/2023/07/malicious-behaviour-gke/
