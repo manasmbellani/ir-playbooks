@@ -8,4 +8,4 @@ echo "[*] Installing plaso-tools..."
 sudo add-apt-repository -y universe
 sudo add-apt-repository -y ppa:gift/stable
 sudo apt-get -y update
-sudo apt-get -y install plaso-tools
+sudo apt-get -y install plaso-tools sqlite3
