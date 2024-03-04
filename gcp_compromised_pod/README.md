@@ -287,7 +287,6 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 - Containment - snapshot the VM instances
 - Analysis - Collect image via snapshot / dd
 - Analysis - Collect image via cloud-forensics-utils
-- Analysis - Copy image with disk source snapshot to another project 
 - Analysis - Investigate [docker container](https://sysdig.com/blog/triaging-malicious-docker-container/)
 - Analysis - [dftimewolf](https://dftimewolf.readthedocs.io/en/latest/getting-started.html)
 - Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
