@@ -150,7 +150,7 @@ $ kubectl get nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i "Sch
 Get the logs for the compromised pod via `kubectl`:
 
 ```
-kubectl get logs test-pod1-558b84995b-djbkk
+kubectl logs test-pod1-558b84995b-djbkk
 ```
 
 ### Live Forensics
