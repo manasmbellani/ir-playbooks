@@ -31,7 +31,7 @@ gcloud compute instances create forensics-instance \
     --maintenance-policy=MIGRATE \
     --provisioning-model=STANDARD \
     --create-disk=auto-delete=yes,boot=yes,device-name=forensics-instance,image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20240228,mode=rw,size=50,type=projects/citric-snow-362912/zones/us-central1-c/diskTypes/pd-balanced \
-    --tags=https-server \
+    --tags=http-server,https-server \
     --no-shielded-secure-boot \
     --shielded-vtpm \
     --shielded-integrity-monitoring \
@@ -286,6 +286,22 @@ We consolidate the logs using plaso's `psort` command on `plaso` output file fro
 psort.py -w test.log 20240305T004351-0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fccacb5c4a4bf9cec26fcf4.plaso
 ```
 
+Alternatively, we can use `timesketch` to also visualize the timeline by running the command below and connecting to console as described [here](https://github.com/google/timesketch/blob/master/docs/guides/admin/install.md): 
+
+```
+# Run only the first time to create a user called `timesketch` and set the password 
+sudo docker compose exec timesketch-web tsctl create-user timesketch
+```
+
+We can transfer files to upload to timesketch locally (e.g. to home directory `~`) from forensics-instance if accessing via `gcloud`: 
+```
+gcloud compute scp forensics-instance:~/20240305T004351-0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fccacb5c4a4bf9cec26fcf4.plaso ~ --zone=us-central1-c
+```
+
+When we have completed timeline analysis via `timesketch` we can takedown timesketch infrastructure via `docker-compose` : 
+```
+sudo docker compose down
+```
 ## Eradication
 
 ## Recovery
@@ -310,6 +326,7 @@ psort.py -w test.log 20240305T004351-0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fc
 - Analysis - Include tooling from osdfir-infrastructure https://github.com/google/osdfir-infrastructure
 - Analysis - docker explorer
 - Analysis - kube-forensics
+- Analysis - EAL  https://github.com/lprat/EAL
 - Analysis - Collecting volatile memory from nod https://www.infoq.com/news/2023/07/malicious-behaviour-gke/
 - Analysis - Sysdig inspect & capture - https://github.com/draios/sysdig-inspect?tab=readme-ov-file
 - Recovery - Enable Linux Auditd Logging - https://cloud.google.com/kubernetes-engine/docs/how-to/linux-auditd-logging
