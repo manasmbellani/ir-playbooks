@@ -20,17 +20,17 @@ For this scenario, we will require:
 
 ## Forensics Instance Setup
 
-In this case, we use `gcloud` to build a compute instance within a separate project 
+In this case, we use `gcloud` to build a compute instance within the same project or separate project. We use `e2-standard-4` as the CPU core because visualization tools such as `timesketch` may require slightly higher vCPU, memory and storage.
 
 ```
 gcloud compute instances create forensics-instance \
     --project=citric-snow-362912 \
     --zone=us-central1-c \
-    --machine-type=e2-medium \
+    --machine-type=e2-standard-4 \
     --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
     --maintenance-policy=MIGRATE \
     --provisioning-model=STANDARD \
-    --create-disk=auto-delete=yes,boot=yes,device-name=forensics-instance,image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20240228,mode=rw,size=20,type=projects/citric-snow-362912/zones/us-central1-c/diskTypes/pd-balanced \
+    --create-disk=auto-delete=yes,boot=yes,device-name=forensics-instance,image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20240228,mode=rw,size=50,type=projects/citric-snow-362912/zones/us-central1-c/diskTypes/pd-balanced \
     --no-shielded-secure-boot \
     --shielded-vtpm \
     --shielded-integrity-monitoring \
