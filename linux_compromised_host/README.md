@@ -12,6 +12,12 @@
 
 ## Analysis
 
+Analyse the mounted disk including the type of attached filesystem via `fsstat`: 
+
+```
+fsstat /dev/sdb1
+```
+
 ## Recovery
 
 ## Automation
