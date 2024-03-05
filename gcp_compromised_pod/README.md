@@ -20,7 +20,7 @@ For this scenario, we will require:
 
 ## Forensics Instance Setup
 
-In this case, we use `gcloud` to build a compute instance within the same project or separate project. We use `e2-standard-4` as the CPU core because visualization tools such as `timesketch` may require slightly higher vCPU, memory and storage.
+In this case, we use `gcloud` to build a compute instance within the same project or separate project. 
 
 ```
 gcloud compute instances create forensics-instance \
@@ -31,12 +31,15 @@ gcloud compute instances create forensics-instance \
     --maintenance-policy=MIGRATE \
     --provisioning-model=STANDARD \
     --create-disk=auto-delete=yes,boot=yes,device-name=forensics-instance,image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20240228,mode=rw,size=50,type=projects/citric-snow-362912/zones/us-central1-c/diskTypes/pd-balanced \
+    --tags=https-server \
     --no-shielded-secure-boot \
     --shielded-vtpm \
     --shielded-integrity-monitoring \
     --labels=goog-ec-src=vm_add-gcloud \
     --reservation-affinity=any
 ```
+
+We use `e2-standard-4` as the CPU core because visualization tools such as `timesketch` may require slightly higher vCPU, memory and storage. Also `HTTPS` traffic is enabled for tools like `timesketch` which may require accessible web service.
 
 We then SSH into this instance via `gcloud`:
 
@@ -276,6 +279,11 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 We build a timeline for the analysis of the pod via the `psteal` command:
 ```
 psteal.py --source /mnt/container/0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fccacb5c4a4bf9cec26fcf4 -o l2tcsv -w /tmp/timeline.csv
+```
+
+We consolidate the logs using plaso's `psort` command on `plaso` output file from the previous command: 
+```
+psort.py -w test.log 20240305T004351-0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fccacb5c4a4bf9cec26fcf4.plaso
 ```
 
 ## Eradication
