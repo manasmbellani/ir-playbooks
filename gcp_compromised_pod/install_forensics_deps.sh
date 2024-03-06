@@ -4,9 +4,6 @@ echo "[*] Install basic dev tools..."
 sudo apt-get -y install \
   net-tools
 
-echo "[*] Install sleuthkit for utilities related to disk info..."
-apt-get -y install sleuthkit
-
 echo "[*] Installing container-explorer..."
 wget https://raw.githubusercontent.com/google/container-explorer/main/script/setup.sh -o /tmp/setup.sh
 sudo bash /tmp/setup.sh install
