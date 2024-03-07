@@ -30,3 +30,4 @@ fsstat /dev/sdb1
 - Analysis disktype - provides detailed on partitions
 - Analysis vgdisplay - For volume info
 - Analysis mdadm - --examine detect Raid device (practical linux forensics)
+- Analysis TheSleuthKit - steps to get deleted files 
