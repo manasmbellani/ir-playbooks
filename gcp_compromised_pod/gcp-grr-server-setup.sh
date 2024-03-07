@@ -1,5 +1,5 @@
 #!/bin/bash
-# Based on https://grr-doc.readthedocs.io/en/latest/installing-grr-server/from-release-deb.html
+# Based on Ubuntu 18.04 server, https://grr-doc.readthedocs.io/en/latest/installing-grr-server/from-release-deb.html
 
 echo "[*] Updating apt-get..."
 apt-get -y update
