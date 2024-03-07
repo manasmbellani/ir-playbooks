@@ -29,3 +29,4 @@ fsstat /dev/sdb1
 - Analysis unix-like artifact collector
 - Analysis disktype - provides detailed on partitions
 - Analysis vgdisplay - For volume info
+- Analysis mdadm - --examine detect Raid device (practical linux forensics)
