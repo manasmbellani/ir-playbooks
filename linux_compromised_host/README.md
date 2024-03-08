@@ -29,11 +29,14 @@ mount /dev/$LOOP_DEV /mnt/disk
 
 ## Analysis
 
-Analyse the mounted disk including the type of attached filesystem via `fsstat`: 
+Analyse the mounted disk including the type of attached filesystem via `fsstat` or `dumpe2fs` for (ext2/3/4 volumes): 
 
 ```
 # View the output to see disk type eg. ext4
 fsstat /dev/sdb1
+
+# For ext 2/3/4 volumes
+dumpe2fs /tmp/sdb1.raw
 ```
 
 For extracting deleted files, we list files using `fls` and use `icat` to extract the files and refer to link [here](https://wiki.sleuthkit.org/index.php?title=Fls) for more info on output file types:
