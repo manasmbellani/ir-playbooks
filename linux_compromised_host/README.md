@@ -51,6 +51,11 @@ file /tmp/$INODE_NUMBER.raw
 ls -lah /tmp/$INODE_NUMBER.raw
 ```
 
+We can get more details about the file as well using`$INODE_NUMBER` with `istat`:
+```
+istat /tmp/sdb1.raw $INODE_NUMBER
+```
+
 ## Eradication
 
 ## Recovery
