@@ -10,6 +10,23 @@
 
 ## Collection
 
+Create a copy of the local disk image using `dd` for backup:
+
+```
+dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512
+
+# Alternatively, specify a `count`if we want to have a limited image size
+dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512 count=8192000
+```
+
+In the event that we have to mount the disk, we can use `losetup`:
+```
+# This will return $LOOP_DEV to mount
+losetup --partscan --find --show /tmp/sdb1.raw
+mkdir /mnt/disk
+mount /dev/$LOOP_DEV /mnt/disk
+```
+
 ## Analysis
 
 Analyse the mounted disk including the type of attached filesystem via `fsstat`: 
@@ -18,6 +35,19 @@ Analyse the mounted disk including the type of attached filesystem via `fsstat`:
 # View the output to see disk type eg. ext4
 fsstat /dev/sdb1
 ```
+
+For extracting deleted files, we list files using `fls` and use `icat` to extract the files and refer to link [here](https://wiki.sleuthkit.org/index.php?title=Fls) for more info on output file types:
+```
+fls /tmp/sdb1.raw
+```
+
+To extract a particular file, we use `inode` number displayed above to get the data: 
+```
+icat -r /tmp/sdb1.raw $INODE_NUMBER > /tmp/$INODE_NUMBER.raw
+file /tmp/$INODE_NUMBER.raw
+ls -lah /tmp/$INODE_NUMBER.raw
+```
+
 ## Eradication
 
 ## Recovery
