@@ -44,7 +44,7 @@ For extracting deleted files, we list files using `fls` and use `icat` to extrac
 fls /tmp/sdb1.raw
 ```
 
-To extract a particular file, we use `inode` number displayed above to get the data: 
+To extract a particular file, we use `inode` number displayed above to get the contents of the file via `icat` : 
 ```
 icat -r /tmp/sdb1.raw $INODE_NUMBER > /tmp/$INODE_NUMBER.raw
 file /tmp/$INODE_NUMBER.raw
