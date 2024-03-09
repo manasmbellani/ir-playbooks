@@ -3,7 +3,12 @@
 
 echo "[*] Install basic dev tools..."
 sudo apt-get -y install \
-  net-tools
+  net-tools \
+  python3 \
+  python3-pip
+
+echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
+python3 -m pip install virtualenv
 
 echo "[*] Installing container-explorer..."
 wget https://raw.githubusercontent.com/google/container-explorer/main/script/setup.sh -o /tmp/setup.sh
@@ -22,7 +27,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 sudo apt -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-
 echo "[*] Install timesketch..."
 curl -s -O https://raw.githubusercontent.com/google/timesketch/master/contrib/deploy_timesketch.sh -o /tmp/deploy_timesketch.sh
 chmod 755 /tmp/deploy_timesketch.sh
@@ -31,5 +35,11 @@ sudo /tmp/deploy_timesketch.sh
 cd /opt/timesketch
 sudo docker compose up -d
 
-
-
+echo "[*] Install dftimewolf..."
+git clone https://github.com/log2timeline/dftimewolf.git /opt/dftimewolf
+cd /opt/dftimewolf
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 -m pip install -e .
+deactivate
