@@ -56,6 +56,11 @@ We can get more details about the file as well using`$INODE_NUMBER` with `istat`
 istat /tmp/sdb1.raw $INODE_NUMBER
 ```
 
+We can scan for any malware on the system as well using Neo23x0's Yara signatures if the file is mounted e.g. on `/mnt/disk` via the steps above via `fraken`:
+```
+docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
+```
+
 ## Eradication
 
 ## Recovery
