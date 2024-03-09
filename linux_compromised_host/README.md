@@ -69,6 +69,7 @@ docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fr
 
 ## Additional TODOs
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
+- Collection - Capture linux memory for analysis https://cpuu.hashnode.dev/how-to-perform-memory-forensic-analysis-in-linux-using-volatility-3
 - Analysis - check for `memfd_create` in linux host processes. [Link](https://x.com/CraigHRowland/status/1629780744305295360?s=20)
 - Analysis unix-like artifact collector
 - Analysis disktype - provides detailed on partitions
