@@ -156,59 +156,31 @@ Get the logs for the compromised pod via `kubectl`:
 kubectl logs test-pod1-558b84995b-djbkk
 ```
 
-### Live Forensics
+### Live Collection
 
 If SSH access is allowed to the node via VPC firewall rule, we attempt to SSH into the node for live forensics via `gcloud`:
 ```
 gcloud compute ssh gke-test-cluster-1-default-pool-fe89d68e-g3fl
 ```
 
-We attempt to to get the `container ID` for compromised pod's container via `crictl` or `docker`:
-
-```
-crictl ps | grep -i 'test-pod1'
-docker ps | grep -i 'test-pod1'
-```
-
-Apart from `kubectl`, we can view the logs for container from the node as well via `crictl` or `docker`:
-```
-sudo crictl logs 7d6fdca68f9cf
-sudo docker logs 7d6fdca68f9cf
-```
-
-We can also exec into the running pod with the inbound and outbound network connectivity disabled for this pod:
-```
-crictl exec -it 7d6fdca68f9cf /bin/bash
-docker exec -it 7d6fdca68f9cf /bin/bash
-```
-
-We can also detect changes to the container since creation from the image which can show anomalous file events via `docker`:
-```
-# Command only available in docker, not crictl
-docker diff 7d6fdca68f9cf
-```
-
-Check the memory information to see any anomalous high CPU usage via `docker` or `crictl`: 
-```
-crictl stats 7d6fdca68f9cf
-docker stats 7d6fdca68f9cf
-```
-
-We can then see the processes inside the systems consuming excessive CPU via `docker` or by execing into the container via `crictl`:
-```
-docker top 7d6fdca68f9cf
-crictl exec -it 7d6fdca68f9cf /bin/bash
-> top
-```
-
-### Offline Forensics
+### Offline Collection
 
 We will attempt to take a snapshot of the disk on the compute node `gke-test-cluster-1-default-pool-fe89d68e-g3fl`, generate a disk from the node and then connect it to a separate forensics VM compute instance for analysis.
 
-First, set the settingsi in which the GKE node is running via gcloud:
+First, set the settings in which the GKE node is running via gcloud:
 ```
 gcloud config set compute/zone us-central1-c
 gcloud config set compute/region us-central1
+```
+
+We can leverage `dftimewolf` to automate majority of the manual steps, including creation of the VM that are listed below for offline collection:
+```
+cd /opt/dftimewolf
+source venv/bin/activate
+# Replace incident-id with $INCIDENT_ID
+# Example: dftimewolf gcp_forensics --incident_id test-incident --instances gke-test-cluster-1-default-pool-fe89d68e-n7nz --all_disks --create_analysis_vm --zone us-central1-c citric-snow-362912 citric-snow-362912
+dftimewolf gcp_forensics --incident_id $INCIDENT_ID  --instances $INSTANCE_WITH_DISKS_TO_COPY --all_disks --create_analysis_vm --zone $ANALYSIS_VM_ZONE $PROJECT_WITH_DISKS_TO_COPY ANALYSIS_VM_PROJECT
+deactivate
 ```
 
 If the forensics instance will be in same project and zone as the compromised node, we can create an instant snapshot of compute node `gke-test-cluster-1-default-pool-fe89d68e-n7nz` and build the disk from the instant snapshot via `gcloud`:
@@ -261,7 +233,49 @@ sudo mkdir /mnt/data
 sudo mount -o ro,noload,noexec /dev/sdc1 /mnt/data
 ```
 
-### Analysis
+## Analysis
+
+### Live Analysis
+
+We attempt to to get the `container ID` for compromised pod's container via `crictl` or `docker`:
+
+```
+crictl ps | grep -i 'test-pod1'
+docker ps | grep -i 'test-pod1'
+```
+
+Apart from `kubectl`, we can view the logs for container from the node as well via `crictl` or `docker`:
+```
+sudo crictl logs 7d6fdca68f9cf
+sudo docker logs 7d6fdca68f9cf
+```
+
+We can also exec into the running pod with the inbound and outbound network connectivity disabled for this pod:
+```
+crictl exec -it 7d6fdca68f9cf /bin/bash
+docker exec -it 7d6fdca68f9cf /bin/bash
+```
+
+We can also detect changes to the container since creation from the image which can show anomalous file events via `docker`:
+```
+# Command only available in docker, not crictl
+docker diff 7d6fdca68f9cf
+```
+
+Check the memory information to see any anomalous high CPU usage via `docker` or `crictl`: 
+```
+crictl stats 7d6fdca68f9cf
+docker stats 7d6fdca68f9cf
+```
+
+We can then see the processes inside the systems consuming excessive CPU via `docker` or by execing into the container via `crictl`:
+```
+docker top 7d6fdca68f9cf
+crictl exec -it 7d6fdca68f9cf /bin/bash
+> top
+```
+
+### Offline Analysis
 
 After mounting the disk, we list all the containers from the mount point `/mnt/data` via `container-explorer`:
 ```
