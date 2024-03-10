@@ -30,6 +30,7 @@ deactivate
 ## Recovery
 
 ## TODO
+- Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Analysis Belkasoft Evidence Centre
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
 - Analysis KAPE
