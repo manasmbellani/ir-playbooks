@@ -68,6 +68,7 @@ docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fr
 ## Automation
 
 ## Additional TODOs
+- Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
 - Collection - Capture linux memory for analysis https://cpuu.hashnode.dev/how-to-perform-memory-forensic-analysis-in-linux-using-volatility-3
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
