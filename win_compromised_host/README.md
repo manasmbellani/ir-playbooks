@@ -1,6 +1,7 @@
 # Windows - Compromised Host
 
 ## TODO
+- Collection Belkasoft RAM Capture
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
 - Analysis KAPE
 - Analysis Detect Bitlocker Encryption https://arcpointforensics.medium.com/bitlocker-detection-from-the-command-line-53b3a8df7c9e 
