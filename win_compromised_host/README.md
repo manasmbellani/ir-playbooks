@@ -34,6 +34,7 @@ deactivate
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
 - Analysis KAPE
+- Analysis OpenArk review tools
 - Analysis checj scheduled tasks
 - Analysis Detect RDP Sessions
 - Analysis check network connections
