@@ -44,3 +44,4 @@ deactivate
 - Analysis EDRSilencer Detection https://blog.p1k4chu.com/security-research/adversarial-tradecraft-research-and-detection/edr-silencer-embracing-the-silence
 - Analysis MTCH threat hunt keywords
 - Analysis FOR500 SANS
+- Analysis/Collection - Detect SCCM attacks https://github.com/subat0mik/Misconfiguration-Manager/blob/main/README.md
