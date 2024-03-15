@@ -28,3 +28,11 @@ python3 -m virtualenv venv
 source venv/bin/activate
 python3 setup.py install 
 deactivate
+
+echo "[*] Installing uploadserver..."
+mkdir /opt/uploadserver
+cd /opt/uploadserver
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 -m pip install uploadserver
+deactivate
