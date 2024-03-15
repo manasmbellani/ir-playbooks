@@ -4,6 +4,16 @@
 
 ## Collection
 
+### Pre-requisites
+
+### Forensics Instance Setup
+
+For the Forensics instance, we deploy an Ubuntu 22.04 instance and execute the [script](./install_forensics_deps.sh) which will install all the necessary forensic tools discussed here. Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
+
+### Containment
+
+TBC
+
 ### Live Collection
 
 To collect live RAM, we can leverage the `Belkasoft RAM Capturer` available from download [here](https://belkasoft.com/ram-capturer) and initiate the appropriate x64 bin from a remote USB disk. The memory image is then stored on this remote disk too, say `F:`
