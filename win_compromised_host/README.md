@@ -57,6 +57,7 @@ deactivate
 
 ## TODO
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
+- Collection - winpmem (rekall)
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
 - Analysis KAPE
