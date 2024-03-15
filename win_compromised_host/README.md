@@ -58,6 +58,7 @@ deactivate
 ## TODO
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection - winpmem (rekall)
+- Analysis Volatility Memory Analysis for fun and profit https://www.linkedin.com/posts/kinjalpatel12_memory-analysis-for-fun-and-profitpdf-activity-7170390235028115456-p02R
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
 - Analysis Volatility dllist unusual DLLs (eg stucnet .aslr.dll?)
