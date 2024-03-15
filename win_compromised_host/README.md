@@ -8,6 +8,7 @@
 
 ### Forensics Instance Setup
 
+#### Ubuntu
 For the Forensics instance, we deploy an Ubuntu 22.04 instance and execute the [script](./install_forensics_deps.sh) which will install all the necessary forensic tools discussed here. Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
 
 ### Containment
@@ -27,12 +28,27 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 
 ### Live Analysis
 
-We are able to review the live RAM collected via any of the live collection methods using volatility3 with commands as follows via `volatility` to list current process:
+In this section, we process the live `.raw` memory image file collected via tools such as `DumpIt` or `Belkasoft RAM Capturer` through tools like `volatility3`
+
+#### Process Tree
+
+We are able to review the live `.raw` RAM collected via any of the live collection methods using volatility3 with commands as follows via `volatility3` to list current processes:
 ```
-cd C:\Users\Administrator\Desktop\volatility3
-source venv\Scripts\activate
-python3 .\vol.py -f F:\20240310.mem windows.pslist.PsList
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw windows.pslist.PsList windows.pslist.PsList
 deactivate
+```
+
+We are also able to see the process from live `.raw` RAM as a tree like structure using `volatility3`:
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw windows.pslist.PsList windows.pstree.PsTree
+deactivate
+...
+******* 1244    5220    PsExec.exe      0xcf830d644080  6       -       2       True    2024-03-15 06:19:57.000000      N/A     \Device\HarddiskVolume3\Users\manasbellani\Downloads\SysinternalsSuite\PsExec.exe   PsExec.exe  -s -i cmd.exe       C:\Users\manasbellani\Downloads\SysinternalsSuite\PsExec.exe
+...
 ```
 
 ## Eradication
