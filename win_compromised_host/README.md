@@ -62,6 +62,7 @@ deactivate
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
 - Analysis Volatility dllist unusual DLLs (eg stucnet .aslr.dll?)
 - Analysis KAPE
+- Analysis volatility find+dump injected code malfind
 - Analysis volatility duplicate processes (eg lsass.exe/stuxnet), imageinfo
 - Analysis collect windows logs
 - Analysis OpenArk review tools
