@@ -393,7 +393,6 @@ sudo docker compose down
 - Containment - lock down nodes where possible to ensure that there is no connectivity
 - Containment - checked IAM Policy Bindings on the node and disable them
 - Containment - drain the node?
-- Containment - remove the Workload Identity's IAM Binding permission to restrict access to pod
 - Containment - snapshot the VM instances
 - Analysis - kubectl top command for memory usage https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
 - Analysis - Collect image via snapshot dd
