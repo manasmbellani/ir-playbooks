@@ -88,6 +88,8 @@ gke-test-cluster-2-default-pool-dec81310-76c5   Ready    <none>   73m   v1.27.8-
 
 To contain the compromised pods, we need to start by isolating likely ingress network traffic to the pods if there are any deployed services by editing the unique custom labels added to the pods.
 
+### Update labels
+
 We list the labels applied on the pods via `kubectl`:
 ```
 $ kubectl describe pods test-pod1-5589d96985-6vccs
@@ -98,7 +100,7 @@ Labels:           app=test-pod1
 ...
 ```
 
-We manually remove the `app=test-pod1` and any other labels created by us via `kubectl` which opens an editor to edit the `kubectl` definition. We will keep the `pod-template-hash` label to ensure replicaset is 
+We manually remove the `app=test-pod1` and any other labels created by us via `kubectl` which opens an editor to edit the `kubectl` definition. We will keep the `pod-template-hash` label to ensure replicaset is not affected:
 ```
 $ kubectl edit pods test-pod1-5589d96985-6vccs
 ```
@@ -118,6 +120,8 @@ We check that the labels are correctly applied via `kubectl`:
 $ kubectl describe pods test-pod1-5589d96985-6vccs
 ```
 
+### Create Network Policy
+
 We then create a new network policy to block all ingress and egress from the node using a [deny network policy](./deny_affected_all.yaml) via `kubectl`:
 
 ```
@@ -132,6 +136,7 @@ Node:             gke-test-cluster-1-default-pool-ff0c640a-zj5v/10.128.0.37
 ...
 $ kubectl label node gke-test-cluster-1-default-pool-ff0c640a-zj5v status=quarantine
 ```
+### Cordon node
 
 We also cordon the node to ensure that no new pods will be created on this node via `kubectl` and validate that scheduling is disabled for this node:
 ```
@@ -147,6 +152,66 @@ Check if the node on which the pod was compromised has been cordoned off via `ku
 $ kubectl describe nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i "unschedulable:"
 $ kubectl get nodes gke-test-cluster-1-default-pool-ff0c640a-zj5v | grep -i "SchedulingDisabled"
 ```
+
+### Remove GKE Service Account Permissions and Annotations
+
+We check if [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) is enabled for the GKE cluster via `gcloud`:
+
+```
+# Check for valid workload config - if set, then workload identity is enabled
+gcloud container clusters describe test-cluster-1 --zone=us-central1-c --format='value(workloadIdentityConfig.workloadPool)'
+```
+
+If workload identity is enabled on the GKE server, then we check the deployment `.yaml` files for the compromised app to identify any GKE service accounts might be in use under `spec`. For eg, we have `testsa` specificed as the GKE service account.
+```
+apiVersion: apps/v1 # Kubernetes API version for deployments
+kind: Deployment # Kind of object being defined (Deployment)
+metadata:
+  name: test-pod4 # Name of the deployment
+spec:
+  replicas: 1 # Number of pods to create
+  selector:
+    ...
+  template:
+    ...
+    spec:
+      containers:
+      - ...
+      serviceAccountName: testsa
+      nodeSelector:
+        iam.gke.io/gke-metadata-server-enabled: "true"
+...
+```
+
+We check the annotations assigned to the specific GKE service account `testsa` to identify the GCP IAM service account via `kubectl`. From output of below command, we notice that the GCP IAM service account is `testsa-iam@citric-snow-362912.iam.gserviceaccount.com`
+```
+kubectl describe serviceaccount testsa
+Name:                testsa
+Namespace:           default
+Labels:              <none>
+Annotations:         iam.gke.io/gcp-service-account: testsa-iam@citric-snow-362912.iam.gserviceaccount.com
+...
+```
+
+We remove the annotations for workload identity via `kubectl`
+```
+kubectl patch serviceaccount testsa --type merge -p '{"metadata":{"annotations":{"iam.gke.io/gcp-service-account": null}}}'
+```
+
+To complete containment, we also check and remove IAM policy bindings from GCP IAM service account which can give privileged access which can be reinstated during recovery via `gcloud`:
+```
+# Check IAM policy bindings to identify Service account permissions at project level
+gcloud projects get-iam-policy citric-snow-362912 | grep -A3 -B3 -i testsa-iam@citric-snow-362912.iam.gserviceaccount.com
+
+# Check IAM policy bindings to identify privileged Service account permissions at service account level
+ gcloud iam service-accounts get-iam-policy testsa-iam@citric-snow-362912.iam.gserviceaccount.com
+
+# Remove any privileged permissions (e.g at project level, if we find storage admin permissions)
+gcloud projects remove-iam-policy-binding citric-snow-362912 \
+    --member "serviceAccount:testsa-iam@citric-snow-362912.iam.gserviceaccount.com" \
+    --role "roles/storage.admin"
+```
+
 
 ## Collection
 
