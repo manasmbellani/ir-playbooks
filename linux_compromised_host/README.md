@@ -100,13 +100,13 @@ mount /dev/$LOOP_DEV /mnt/disk
 
 ### Taking memory image (Live)
 
-If we have access to system, we can use `avml` utility from a USB disk (link here) to take an image of the instance:
+If we have access to system, we can use `avml` utility from a USB disk (link [here](https://github.com/microsoft/avml)) to take an image of the instance:
 ```
 cd /opt/avml
 ./avml memory.lime
 ```
 
-We can run the following command on volatility3 to locate the banner and see if we can locate the symbol file using services like [technarchy](https://isf-server.techanarchy.net/). The symbol file can be downloaded and saved to the folder `/opt/volatility3/volatility3/symbols/`
+We can run the following command on volatility3 to locate the banner and see if we can locate the symbol file with the banner on [technarchy](https://isf-server.techanarchy.net/). The symbols file can be downloaded and saved to the folder `/opt/volatility3/volatility3/symbols/`
 
 ```
 cd /opt/volatility3
@@ -115,9 +115,31 @@ python3 vol.py -f memory.lime banners.Banners
 deactivate
 ```
 
+Alternatively, we can generate symbols using from a separate machine based on the same machine image on which we can install additional tools via the commands below. Assuming we are working with a compromised Ubuntu image (steps will vary for other server types), we first need to download the `vmlinux` file, and then use `dwar2json` (link [here](https://github.com/volatilityfoundation/dwarf2json)) to generate the symbols file. 
+
+```
+# We follow steps for Ubuntu here: https://wiki.ubuntu.com/Debug%20Symbol%20Packages to download the debugging symbols,
+# Symbols are then downloaded to /usr/lib/debug/boot
+echo "deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-updates main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-proposed main restricted universe multiverse" | \
+sudo tee -a /etc/apt/sources.list.d/ddebs.list
+apt-get -y update
+apt-get -y install linux-image-$(uname -r)-dbgsym
+
+# Next Generate the symbols file via `dwarf2json` and the `System-map` file located in `/boot` folder
+# Steps taken from: 
+./dwarf2json linux --elf /usr/lib/debug/boot/vmlinux-$(uname -r) --system-map /boot/System.map-$(uname -r) > linux-$(uname -r).json
+
+# Move the generated file to the volatility3 symbols folder
+mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
+```
 
 ## Analysis
 
+### Offline Analysis
+
+#### Show Disk Details
 Analyse the mounted disk including the type of attached filesystem via `fsstat` or `dumpe2fs` for (ext2/3/4 volumes): 
 
 ```
@@ -128,6 +150,7 @@ fsstat /dev/sdb1
 dumpe2fs /tmp/sdb1.raw
 ```
 
+#### Identify and Recover Deleted files
 For extracting deleted files, we list files using `fls` and use `icat` to extract the files and refer to link [here](https://wiki.sleuthkit.org/index.php?title=Fls) for more info on output file types:
 ```
 fls /tmp/sdb1.raw
@@ -145,9 +168,19 @@ We can get more details about the file as well using`$INODE_NUMBER` with `istat`
 istat /tmp/sdb1.raw $INODE_NUMBER
 ```
 
+#### Scan for malware on disk
 We can scan for any malware on the system as well using Neo23x0's Yara signatures if the file is mounted e.g. on `/mnt/disk` via the steps above via `fraken`:
 ```
 docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
+```
+
+#### List running processes on memory
+
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
+deactivate
 ```
 
 ## Eradication
