@@ -168,13 +168,13 @@ We can get more details about the file as well using`$INODE_NUMBER` with `istat`
 istat /tmp/sdb1.raw $INODE_NUMBER
 ```
 
-#### Scan for malware on disk
+#### Scan for malware from disk
 We can scan for any malware on the system as well using Neo23x0's Yara signatures if the file is mounted e.g. on `/mnt/disk` via the steps above via `fraken`:
 ```
 docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
 ```
 
-#### List running processes on memory
+#### List running processes from memory
 
 List running processes `ps` using `volatility3`'s `pslist` command:
 ```
@@ -192,13 +192,23 @@ python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
 deactivate
 ```
 
-#### List commands executed on memory
+#### List commands executed from memory
 
 List bash commands run using `volatility3`'s `bash.Bash` command:
 ```
 cd /opt/volatility3
 source venv/bin/activate
 python3 vol.py -f /root/forensics-instance.lime linux.bash.Bash
+deactivate
+```
+
+#### List running network ports/services from memory
+
+List bash commands run using `volatility3`'s `sockscan.Sockscan` command:
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.sockstat.Sockstat
 deactivate
 ```
 
