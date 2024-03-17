@@ -176,10 +176,29 @@ docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fr
 
 #### List running processes on memory
 
+List running processes `ps` using `volatility3`'s `pslist` command:
 ```
 cd /opt/volatility3
 source venv/bin/activate
 python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
+deactivate
+```
+
+Alternatively, we can also use `volatility3`'s `psaux` command:
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
+deactivate
+```
+
+#### List commands executed on memory
+
+List bash commands run using `volatility3`'s `bash.Bash` command:
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.bash.Bash
 deactivate
 ```
 
