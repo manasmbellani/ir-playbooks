@@ -9,7 +9,12 @@ sudo apt-get -y install \
   git \
   docker \
   wget \
-  golang
+  golang \
+  python-setuptools \
+  build-essential
+
+echo "[*] Install basic python deps..." 
+python3 -m pip install virtualenv
   
 echo "[*] Install sleuthkit for utilities related to disk info..."
 apt-get -y install sleuthkit
@@ -24,6 +29,23 @@ echo "[*] Installing Neo23x0's yara signature base..."
 git clone https://github.com/Neo23x0/signature-base.git /opt/signature-base && \
    cd /opt/signature-base && \
    find /opt/signature-base -type f -not -iname '*.yar' -not -iname '*.yara' -not -iname 'file-type-signatures.txt' -delete
+
+echo "[*] Install volatility2..."
+apt-get -y install python2.7
+git clone https://github.com/volatilityfoundation/volatility.git /opt/volatility
+cd /opt/volatility
+python3 -m virtualenv venv
+source venv/bin/activate
+python2.7 setup.py install
+deactivate
+
+echo "[*] Installing volatility3..."
+git clone https://github.com/volatilityfoundation/volatility3 /opt/volatility3
+cd /opt/volatility3
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 setup.py install 
+deactivate
 
 echo "[*] Installing AVML releases for linux memory capture..."
 mkdir /opt/avml
