@@ -79,6 +79,8 @@ gcloud compute firewall-rules create forensics-contain-deny-inbound-all \
 
 ## Collection
 
+### Taking disk image (Offline)
+
 Create a copy of the local disk image using `dd` for backup:
 
 ```
@@ -95,6 +97,24 @@ losetup --partscan --find --show /tmp/sdb1.raw
 mkdir /mnt/disk
 mount /dev/$LOOP_DEV /mnt/disk
 ```
+
+### Taking memory image (Live)
+
+If we have access to system, we can use `avml` utility from a USB disk (link here) to take an image of the instance:
+```
+cd /opt/avml
+./avml memory.lime
+```
+
+We can run the following command on volatility3 to locate the banner and see if we can locate the symbol file using services like [technarchy](https://isf-server.techanarchy.net/). The symbol file can be downloaded and saved to the folder `/opt/volatility3/volatility3/symbols/`
+
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f memory.lime banners.Banners
+deactivate
+```
+
 
 ## Analysis
 
