@@ -221,6 +221,7 @@ deactivate
 ## Additional TODOs
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
+- Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
 - Analysis OpenArk review tools https://github.com/BlackINT3/OpenArk
 - Analysis - check for `memfd_create` in linux host processes. [Link](https://x.com/CraigHRowland/status/1629780744305295360?s=20)
