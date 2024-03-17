@@ -7,7 +7,9 @@ sudo apt-get -y install \
   python3 \
   python3-pip \
   git \
-  docker
+  docker \
+  wget \
+  golang
   
 echo "[*] Install sleuthkit for utilities related to disk info..."
 apt-get -y install sleuthkit
@@ -22,3 +24,20 @@ echo "[*] Installing Neo23x0's yara signature base..."
 git clone https://github.com/Neo23x0/signature-base.git /opt/signature-base && \
    cd /opt/signature-base && \
    find /opt/signature-base -type f -not -iname '*.yar' -not -iname '*.yara' -not -iname 'file-type-signatures.txt' -delete
+
+echo "[*] Installing AVML releases for linux memory capture..."
+mkdir /opt/avml
+cd /opt/avml
+wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml -O /opt/avml/avml
+chmod +x /opt/avml/avml
+wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml-convert -O /opt/avml/avml-convert
+chmod +x /opt/avml/avml-convert
+wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml-convert -O /opt/avml/avml-convert.exe
+
+echo "[*] Downloading dwarf2json to create volatility symbol files..."
+git clone https://github.com/volatilityfoundation/dwarf2json.git /opt/dwarf2json
+cd /opt/dwarf2json
+go build
+mv dwarf2json /root/go/bin
+chmod +x /root/go/bin/dwarf2json
+
