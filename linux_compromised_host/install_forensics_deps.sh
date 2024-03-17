@@ -38,6 +38,5 @@ echo "[*] Downloading dwarf2json to create volatility symbol files..."
 git clone https://github.com/volatilityfoundation/dwarf2json.git /opt/dwarf2json
 cd /opt/dwarf2json
 go build
-mv dwarf2json /root/go/bin
-chmod +x /root/go/bin/dwarf2json
+chmod +x /opt/dwarf2json/dwarf2json
 
