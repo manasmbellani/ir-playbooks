@@ -150,7 +150,7 @@ fsstat /dev/sdb1
 dumpe2fs /tmp/sdb1.raw
 ```
 
-#### Identify and Recover Deleted files
+#### Identify and Recover Deleted files from disk
 For extracting deleted files, we list files using `fls` and use `icat` to extract the files and refer to link [here](https://wiki.sleuthkit.org/index.php?title=Fls) for more info on output file types:
 ```
 fls /tmp/sdb1.raw
