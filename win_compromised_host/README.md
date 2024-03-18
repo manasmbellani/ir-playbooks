@@ -60,6 +60,7 @@ deactivate
 - Collection winpmem (rekall)
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
+- Analysis Google Chrome LevelDB Notifications https://www.sans.org/blog/google-chrome-platform-notification-analysis/
 - Analysis Evil WMI Event Consumers https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
 - Analysis Volatility Memory Analysis for fun and profit https://www.linkedin.com/posts/kinjalpatel12_memory-analysis-for-fun-and-profitpdf-activity-7170390235028115456-p02R
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
