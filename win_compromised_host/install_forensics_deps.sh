@@ -29,6 +29,9 @@ source venv/bin/activate
 python3 setup.py install 
 deactivate
 
+echo "[*] Installing plyvel..."
+python3 -m pip install plyvel
+
 echo "[*] Installing uploadserver..."
 mkdir /opt/uploadserver
 cd /opt/uploadserver
