@@ -51,6 +51,17 @@ deactivate
 ...
 ```
 
+### Offline Analysis
+
+#### Google Chrome Notifications
+
+If Google Chrome is in use and Notifications are enabled for website, then historical notifications are usually available in the `%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Platform Notifications` as LevelDB Database. Extract the file and determine the clear-text notifications that a user may have received via `strings` or `xxd`. More info available [here](https://www.sans.org/blog/google-chrome-platform-notification-analysis/) and the structure of the LevelDB database is described [here](https://sansorg.egnyte.com/dl/QaoN3qdhig)
+
+```
+strings MANIFEST/*
+strings *.ldb
+```
+
 ## Eradication
 
 ## Recovery
@@ -60,7 +71,6 @@ deactivate
 - Collection winpmem (rekall)
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
-- Analysis Google Chrome LevelDB Notifications https://www.sans.org/blog/google-chrome-platform-notification-analysis/
 - Analysis Evil WMI Event Consumers https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
 - Analysis Volatility Memory Analysis for fun and profit https://www.linkedin.com/posts/kinjalpatel12_memory-analysis-for-fun-and-profitpdf-activity-7170390235028115456-p02R
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
