@@ -11,7 +11,8 @@ sudo apt-get -y install \
   wget \
   golang \
   python-setuptools \
-  build-essential
+  build-essential \
+  unzip
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
