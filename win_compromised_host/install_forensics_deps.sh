@@ -30,7 +30,12 @@ python3 setup.py install
 deactivate
 
 echo "[*] Installing plyvel..."
+mkdir /opt/plyvel
+cd /opt/plyvel
+python3 -m virtualenv venv
+source venv/bin/activate
 python3 -m pip install plyvel
+deactivate
 
 echo "[*] Installing uploadserver..."
 mkdir /opt/uploadserver
