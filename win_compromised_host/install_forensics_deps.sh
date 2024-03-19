@@ -8,7 +8,9 @@ apt-get -y update && \
     python-setuptools \
     build-essential \
     git \
-    unzip
+    unzip \
+    binutils \
+    xxd
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
