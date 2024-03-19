@@ -23,3 +23,22 @@ if (-Not (Test-Path -Path "C:\Users\Administrator\Desktop\opt")) {
     Write-Host "[*] Creating new directory 'opt' in Desktop..."
     New-item -ItemType Directory -Path "C:\Users\Administrator\Desktop\opt"
 }
+
+if (-Not (Test-Path -Path "C:\Users\Administrator\Desktop\opt\python")) {
+    Write-Host "[*] Making directory python..."
+    New-item -ItemType Directory -Path "C:\Users\Administrator\Desktop\opt\python"
+    
+    Write-Host "[*] Downloading python..."
+    $url="https://www.python.org/ftp/python/3.11.3/python-3.11.3-amd64.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "C:\Users\Administrator\Desktop\opt\python\python.exe")
+
+    Write-Host "[*] Installing python..."
+    $command = "C:\Users\Administrator\Desktop\opt\python\python.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0"
+    Invoke-Expression "& $command"
+
+    Write-Host "[*] Sleeping for $SLEEP_TIME seconds until python is installed..."
+    sleep "$SLEEP_TIME"
+
+    Write-Host "[*] Removing python.exe installer...."
+    #Remove-Item -Path "C:\Users\Administrator\Desktop\opt\python\python.exe"
+}
