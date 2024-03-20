@@ -20,46 +20,57 @@ python3 -m pip install virtualenv
 echo "[*] Install sleuthkit for utilities related to disk info..."
 apt-get -y install sleuthkit
 
-echo "[*] Installing fraken from turbinia..."
-git clone https://github.com/google/turbinia /opt/turbinia
-cd /opt/turbinia
-docker pull us-docker.pkg.dev/osdfir-registry/turbinia/release/fraken:latest
-docker tag us-docker.pkg.dev/osdfir-registry/turbinia/release/fraken:latest fraken:latest
+if [ ! -d "/opt/turbinia" ]; then
+  echo "[*] Installing fraken from turbinia..."
+  git clone https://github.com/google/turbinia /opt/turbinia
+  cd /opt/turbinia
+  docker pull us-docker.pkg.dev/osdfir-registry/turbinia/release/fraken:latest
+  docker tag us-docker.pkg.dev/osdfir-registry/turbinia/release/fraken:latest fraken:latest
+fi
 
-echo "[*] Installing Neo23x0's yara signature base..."
-git clone https://github.com/Neo23x0/signature-base.git /opt/signature-base && \
-   cd /opt/signature-base && \
-   find /opt/signature-base -type f -not -iname '*.yar' -not -iname '*.yara' -not -iname 'file-type-signatures.txt' -delete
+if [ ! -d "/opt/signature-base" ]; then
+  echo "[*] Installing Neo23x0's yara signature base..."
+  git clone https://github.com/Neo23x0/signature-base.git /opt/signature-base && \
+     cd /opt/signature-base && \
+     find /opt/signature-base -type f -not -iname '*.yar' -not -iname '*.yara' -not -iname 'file-type-signatures.txt' -delete
+fi
 
-echo "[*] Install volatility2..."
-apt-get -y install python2.7
-git clone https://github.com/volatilityfoundation/volatility.git /opt/volatility
-cd /opt/volatility
-python3 -m virtualenv venv
-source venv/bin/activate
-python2.7 setup.py install
-deactivate
+if [ ! -d "/opt/volatility2" ]; then
+  echo "[*] Install volatility2..."
+  apt-get -y install python2.7
+  git clone https://github.com/volatilityfoundation/volatility.git /opt/volatility
+  cd /opt/volatility
+  python3 -m virtualenv venv
+  source venv/bin/activate
+  python2.7 setup.py install
+  deactivate
+fi
 
-echo "[*] Installing volatility3..."
-git clone https://github.com/volatilityfoundation/volatility3 /opt/volatility3
-cd /opt/volatility3
-python3 -m virtualenv venv
-source venv/bin/activate
-python3 setup.py install 
-deactivate
+if [ ! -d "/opt/volatility3" ]; then
+  echo "[*] Installing volatility3..."
+  git clone https://github.com/volatilityfoundation/volatility3 /opt/volatility3
+  cd /opt/volatility3
+  python3 -m virtualenv venv
+  source venv/bin/activate
+  python3 setup.py install 
+  deactivate
+fi
 
-echo "[*] Installing AVML releases for linux memory capture..."
-mkdir /opt/avml
-cd /opt/avml
-wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml -O /opt/avml/avml
-chmod +x /opt/avml/avml
-wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml-convert -O /opt/avml/avml-convert
-chmod +x /opt/avml/avml-convert
-wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml-convert -O /opt/avml/avml-convert.exe
+if [ ! -d "/opt/avml" ]; then 
+  echo "[*] Installing AVML releases for linux memory capture..."
+  mkdir /opt/avml
+  cd /opt/avml
+  wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml -O /opt/avml/avml
+  chmod +x /opt/avml/avml
+  wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml-convert -O /opt/avml/avml-convert
+  chmod +x /opt/avml/avml-convert
+  wget https://github.com/microsoft/avml/releases/download/v0.13.0/avml-convert -O /opt/avml/avml-convert.exe
+fi
 
-echo "[*] Downloading dwarf2json to create volatility symbol files..."
-git clone https://github.com/volatilityfoundation/dwarf2json.git /opt/dwarf2json
-cd /opt/dwarf2json
-go build
-chmod +x /opt/dwarf2json/dwarf2json
-
+if [ ! -d "/opt/dwarf2json" ]; then
+  echo "[*] Downloading dwarf2json to create volatility symbol files..."
+  git clone https://github.com/volatilityfoundation/dwarf2json.git /opt/dwarf2json
+  cd /opt/dwarf2json
+  go build
+  chmod +x /opt/dwarf2json/dwarf2json
+fi
