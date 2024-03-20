@@ -61,3 +61,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\WMIExplorer")) {
     Write-Host '[*] Removing WMIExplorer zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\WMIExplorer\WMIExplorer.zip"
 }
+
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\wmi-parser")) {
+    Write-Host "[*] Making directory wmi-parser..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\wmi-parser"
+
+    Write-Host "[*] Downloading wmi-parser..."
+    $url =  "https://github.com/woanware/wmi-parser/releases/download/v0.0.2/wmi-parser.v0.0.2.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\wmi-parser\wmi-parser.zip")
+
+    Write-Host "[*] Extracting WMIExplorer zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\wmi-parser\wmi-parser.zip" -DestinationPath "$INSTALL_LOCATION\wmi-parser"
+
+    Write-Host '[*] Removing wmi-parser zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\WMIExplorer\wmi-parser.zip"
+}
+
+
