@@ -74,3 +74,9 @@ if [ ! -d "/opt/dwarf2json" ]; then
   go build
   chmod +x /opt/dwarf2json/dwarf2json
 fi
+
+if [ ! -d "/opt/WMI_Forensics" ]; then
+  echo "[*] Cloning WMI_Forensics..."
+  git clone https://github.com/davidpany/WMI_Forensics /opt/WMI_Forensics
+  cd /opt/WMI_Forensics
+fi
