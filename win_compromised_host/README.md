@@ -38,7 +38,9 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 #### WMI Event Consumers Analysis
 
-To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers.
+To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
+
+Alternatively, SystInternals `AutoRuns` can be used to detect WMI consumers and filters from the WMI tab.
 
 ### Offline Analysis
 
@@ -77,6 +79,8 @@ To detect [malicious event consumers](https://medium.com/threatpunter/detecting-
 .\wmi-parser.exe -i C:\Users\manasbellani\Downloads\Repository\OBJECTS.DATA
 ```
 
+If Sysmon is installed, then WMI Event Consumers will also appear in the sysmon logs in Event ID 19, 20, 21 as explained [here](https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96)
+
 #### Google Chrome Notifications
 
 If Google Chrome is in use and Notifications are enabled for website, then historical notifications are usually available in the `%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Platform Notifications` as LevelDB Database. Extract the file and determine the clear-text notifications that a user may have received via `strings` or `xxd`. More info available [here](https://www.sans.org/blog/google-chrome-platform-notification-analysis/), [here](https://www.linkedin.com/pulse/investigating-abusive-push-notification-browsers-chrome-jimmy-remy/) and the structure of the LevelDB database is described [here](https://sansorg.egnyte.com/dl/QaoN3qdhig)
@@ -95,8 +99,9 @@ strings *.ldb
 - Collection winpmem (rekall)
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
+- Collection Using `chainsaw` to detect wmi event consumers https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96
 - Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
-- Analysis Evil WMI Event Consumers https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96, https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
+- Analysis Evil WMI Event Consumers , https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
 - Analysis Volatility Memory Analysis for fun and profit https://www.linkedin.com/posts/kinjalpatel12_memory-analysis-for-fun-and-profitpdf-activity-7170390235028115456-p02R
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
