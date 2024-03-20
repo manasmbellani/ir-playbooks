@@ -38,7 +38,7 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 #### WMI Event Consumers Analysis
 
-To detect malicious event consumers, we can use `WMIExplorer` to examine the current machine's WMI Event Consumers
+To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers.
 
 ### Offline Analysis
 
@@ -69,6 +69,13 @@ deactivate
 
 #### Disk Analysis
 
+#### WMI Event Consumers Analysis
+
+To detect [malicious event consumers](https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96), we can use `wmi-parser` to examine the current machine's WMI Event Consumers which could be both filtering and consuming WMI events (malicious indicators). The files are available in `C:\WINDOWS\system32\wbem\Repository\OBJECTS.DATA` OR `C:\WINDOWS\system32\wbem\Repository\FS\OBJECTS.DATA` folders.
+
+```
+.\wmi-parser.exe -i C:\Users\manasbellani\Downloads\Repository\OBJECTS.DATA
+```
 
 #### Google Chrome Notifications
 
@@ -89,7 +96,7 @@ strings *.ldb
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
-- Analysis Evil WMI Event Consumers https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
+- Analysis Evil WMI Event Consumers https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96, https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
 - Analysis Volatility Memory Analysis for fun and profit https://www.linkedin.com/posts/kinjalpatel12_memory-analysis-for-fun-and-profitpdf-activity-7170390235028115456-p02R
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
