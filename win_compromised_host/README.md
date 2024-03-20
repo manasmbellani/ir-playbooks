@@ -8,6 +8,10 @@
 
 ### Forensics Instance Setup
 
+#### Windows
+
+TBC
+
 #### Ubuntu
 For the Forensics instance, we deploy an Ubuntu 22.04 instance and execute the [script](./install_forensics_deps.sh) which will install all the necessary forensic tools discussed here. Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
 
@@ -27,6 +31,15 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 ## Analysis
 
 ### Live Analysis
+
+
+#### WMI Event Consumers Analysis
+
+To detect malicious event consumers, use WMIExplorer to open the current computer
+
+### Offline Analysis
+
+#### Memory Analysis
 
 In this section, we process the live `.raw` memory image file collected via tools such as `DumpIt` or `Belkasoft RAM Capturer` through tools like `volatility3`
 
@@ -51,7 +64,8 @@ deactivate
 ...
 ```
 
-### Offline Analysis
+#### Disk Analysis
+
 
 #### Google Chrome Notifications
 
