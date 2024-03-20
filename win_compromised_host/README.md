@@ -10,7 +10,9 @@
 
 #### Windows
 
-TBC
+For the Forensics instance, we deploy a Windows instance and execute the [script](./InstallForensicsDeps.ps1) which will install all the necessary forensic tools discussed here. The script can also be modified to install most dependencies on a USB stick instead by editing the `INSTALL_LOCATION` variable.
+
+Live memory images or disk images taken from the compromised instance can then be attached to the instance for analysis. Alternatively, USB sticks can be attached to the instance for live analysis.
 
 #### Ubuntu
 For the Forensics instance, we deploy an Ubuntu 22.04 instance and execute the [script](./install_forensics_deps.sh) which will install all the necessary forensic tools discussed here. Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
@@ -32,10 +34,11 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 
 ### Live Analysis
 
+In case of live analysis, we have ability to connect a USB stick to the contained instance with tools running on the USB stick. 
 
 #### WMI Event Consumers Analysis
 
-To detect malicious event consumers, use WMIExplorer to open the current computer
+To detect malicious event consumers, we can use `WMIExplorer` to examine the current machine's WMI Event Consumers
 
 ### Offline Analysis
 
