@@ -42,3 +42,19 @@ if (-Not (Test-Path -Path "C:\Users\Administrator\Desktop\opt\python")) {
     Write-Host "[*] Removing python.exe installer...."
     #Remove-Item -Path "C:\Users\Administrator\Desktop\opt\python\python.exe"
 }
+
+
+if (-Not (Test-Path -Path "C:\Users\Administrator\Desktop\opt\WMIExplorer")) {
+    Write-Host "[*] Making directory WMIExplorer..."
+    New-item -ItemType Directory -Path "C:\Users\Administrator\Desktop\opt\WMIExplorer"
+
+    Write-Host "[*] Downloading WMIExplorer..."
+    $url =  "https://github.com/vinaypamnani/wmie2/releases/download/v2.0.0.2/WmiExplorer_2.0.0.2.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "C:\Users\Administrator\Desktop\opt\WMIExplorer\WMIExplorer.zip")
+
+    Write-Host "[*] Extracting WMIExplorer zip file..."
+    Expand-Archive -Path "C:\Users\Administrator\Desktop\opt\WMIExplorer\WMIExplorer.zip" -DestinationPath "C:\Users\Administrator\Desktop\opt\WMIExplorer"
+
+    Write-Host '[*] Removing WMIExplorer zip file...'
+    Remove-Item -Path "C:\Users\Administrator\Desktop\opt\WMIExplorer\WMIExplorer.zip"
+}
