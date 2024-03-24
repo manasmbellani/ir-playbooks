@@ -100,6 +100,7 @@ strings *.ldb
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Using `chainsaw` to detect wmi event consumers https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96
+- Analysis Arsenal Image Mounter
 - Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
 - Analysis Evil WMI Event Consumers , https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
 - Analysis Volatility Memory Analysis for fun and profit https://www.linkedin.com/posts/kinjalpatel12_memory-analysis-for-fun-and-profitpdf-activity-7170390235028115456-p02R
