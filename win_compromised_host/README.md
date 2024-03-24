@@ -1,10 +1,6 @@
 # Windows - Compromised Host
 
-## Containment
-
-## Collection
-
-### Pre-requisites
+## Pre-requisites
 
 ### Forensics Instance Setup
 
@@ -17,9 +13,11 @@ Live memory images or disk images taken from the compromised instance can then b
 #### Ubuntu
 For the Forensics instance, we deploy an Ubuntu 22.04 instance and execute the [script](./install_forensics_deps.sh) which will install all the necessary forensic tools discussed here. Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
 
-### Containment
+## Containment
 
 TBC
+
+## Collection
 
 ### Live Collection
 
