@@ -104,6 +104,7 @@ strings *.ldb
 - Collection winpmem (rekall)
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
+- Containment GCP Firewall
 - Analysis Arsenal Image Mounter
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
 - Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
