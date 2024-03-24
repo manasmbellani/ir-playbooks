@@ -225,6 +225,7 @@ deactivate
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
 - Collection dc3dd for disk image
 - Analysis Arsenal Image Mounter
+- Analysis use /etc/fstab,systemd to detect swap and bulk_extractor to parse swap files
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
 - Analysis OpenArk review tools https://github.com/BlackINT3/OpenArk
 - Analysis - check for `memfd_create` in linux host processes. [Link](https://x.com/CraigHRowland/status/1629780744305295360?s=20)
