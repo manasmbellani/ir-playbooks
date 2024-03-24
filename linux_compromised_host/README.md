@@ -225,6 +225,7 @@ deactivate
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
 - Collection dc3dd for disk image
 - Analysis Arsenal Image Mounter
+- Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
 - Analysis OpenArk review tools https://github.com/BlackINT3/OpenArk
 - Analysis - check for `memfd_create` in linux host processes. [Link](https://x.com/CraigHRowland/status/1629780744305295360?s=20)
 - Analysis unix-like artifact collector
