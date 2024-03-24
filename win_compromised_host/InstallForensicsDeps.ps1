@@ -86,10 +86,24 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\chainsaw")) {
     $url =  "https://github.com/WithSecureLabs/chainsaw/releases/download/v2.8.1/chainsaw_x86_64-pc-windows-msvc.zip"
     (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\chainsaw\chainsaw.zip")
 
-    Write-Host "[*] Extracting chain zip file..."
+    Write-Host "[*] Extracting chainsaw zip file..."
     Expand-Archive -Path "$INSTALL_LOCATION\chainsaw\chainsaw.zip" -DestinationPath "$INSTALL_LOCATION\chainsaw"
 
     Write-Host '[*] Removing chainsaw zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\chainsaw\chainsaw.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\sysinternals")) {
+    Write-Host "[*] Making directory sysinternals..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\sysinternals"
+
+    Write-Host "[*] Downloading sysinternals..."
+    $url =  "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\sysinternals\sysinternals.zip")
+
+    Write-Host "[*] Extracting sysinternals zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\sysinternals\sysinternals.zip" -DestinationPath "$INSTALL_LOCATION\sysinternals"
+
+    Write-Host '[*] Removing sysinternals zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\sysinternals\sysinternals.zip"
+}
