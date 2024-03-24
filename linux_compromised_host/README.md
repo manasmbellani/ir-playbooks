@@ -224,7 +224,7 @@ deactivate
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
 - Collection dc3dd for disk image
-- recovery OsQuery 
+- Analysis Arsenal Image Mounter
 - Analysis OpenArk review tools https://github.com/BlackINT3/OpenArk
 - Analysis - check for `memfd_create` in linux host processes. [Link](https://x.com/CraigHRowland/status/1629780744305295360?s=20)
 - Analysis unix-like artifact collector
@@ -233,3 +233,4 @@ deactivate
 - Analysis mdadm - --examine detect Raid device (practical linux forensics)
 - Analysis TheSleuthKit fls - steps to get deleted files
 - Analysis - Volatility commands for analysis https://cpuu.hashnode.dev/how-to-perform-memory-forensic-analysis-in-linux-using-volatility-3
+- recovery OsQuery
