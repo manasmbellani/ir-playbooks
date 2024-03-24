@@ -124,3 +124,4 @@ strings *.ldb
 - Analysis FOR500 SANS
 - Analysi Coercer / NTLM Relay detection https://www.linkedin.com/pulse/petitpotam-dfscoerce-ntlm-relay-attack-detection-debashis-pal?utm_source=share&utm_medium=member_ios&utm_campaign=share_via
 - Analysis/Collection - Detect SCCM attacks https://github.com/subat0mik/Misconfiguration-Manager/blob/main/README.md
+- Recovery OsQuery
