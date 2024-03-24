@@ -40,7 +40,7 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
 
-Alternatively, SystInternals `AutoRuns` can be used to detect WMI consumers and filters from the WMI tab.
+Alternatively, SystInternals `AutoRuns` can be used to detect WMI consumers, filters from the WMI tab and also delete them.
 
 ### Offline Analysis
 
@@ -106,7 +106,6 @@ strings *.ldb
 - Collection winpmem (rekall)
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
-- Collection Using `chainsaw` to detect wmi event consumers https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96
 - Analysis Arsenal Image Mounter
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
 - Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
