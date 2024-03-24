@@ -78,4 +78,18 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\wmi-parser")) {
     Remove-Item -Path "$INSTALL_LOCATION\WMIExplorer\wmi-parser.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\chainsaw")) {
+    Write-Host "[*] Making directory chainsaw..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\chainsaw"
+
+    Write-Host "[*] Downloading chainsaw..."
+    $url =  "https://github.com/WithSecureLabs/chainsaw/releases/download/v2.8.1/chainsaw_x86_64-pc-windows-msvc.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\chainsaw\chainsaw.zip")
+
+    Write-Host "[*] Extracting chain zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\chainsaw\chainsaw.zip" -DestinationPath "$INSTALL_LOCATION\chainsaw"
+
+    Write-Host '[*] Removing chainsaw zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\chainsaw\chainsaw.zip"
+}
 
