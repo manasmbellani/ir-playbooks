@@ -1,0 +1,258 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_5",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "id": "port_5_to_port_8",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "id": "port_8_to_port_11",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "id": "port_11_to_port_12",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
+                },
+                {
+                    "id": "port_12_to_port_1",
+                    "sourceNode": "12",
+                    "sourcePort": "12_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                }
+            ],
+            "hash": "84fb55eb2d5150993563b3b51741d9294bdb130d",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 20,
+                    "y": 0
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 20,
+                    "y": 740
+                },
+                "11": {
+                    "data": {
+                        "action": "get file",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "get auditd rules file",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "SSH",
+                        "connectorConfigs": [
+                            "forensics-instance"
+                        ],
+                        "connectorId": "d37aa7fe-c973-44ee-a164-2ca5bf321b1f",
+                        "connectorVersion": "v1",
+                        "functionId": 2,
+                        "functionName": "get_auditd_rules_file",
+                        "id": "11",
+                        "parameters": {
+                            "file_path": "/etc/audit/audit.rules",
+                            "ip_hostname": "34.67.88.64"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "file_path"
+                            },
+                            {
+                                "data_type": "string",
+                                "field": "ip_hostname"
+                            }
+                        ],
+                        "tab": "byConnector",
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 444
+                },
+                "12": {
+                    "data": {
+                        "action": "get file",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "get audit logs",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "SSH",
+                        "connectorConfigs": [
+                            "forensics-instance"
+                        ],
+                        "connectorId": "d37aa7fe-c973-44ee-a164-2ca5bf321b1f",
+                        "connectorVersion": "v1",
+                        "functionId": 3,
+                        "functionName": "get_audit_logs",
+                        "id": "12",
+                        "parameters": {
+                            "file_path": "/var/log/audit/audit.log",
+                            "ip_hostname": "34.67.88.64"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "file_path"
+                            },
+                            {
+                                "data_type": "string",
+                                "field": "ip_hostname"
+                            }
+                        ],
+                        "tab": "byConnector",
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 592
+                },
+                "5": {
+                    "data": {
+                        "action": "execute program",
+                        "actionType": "generic",
+                        "advanced": {
+                            "customName": "list var log files",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "SSH",
+                        "connectorConfigs": [
+                            "forensics-instance"
+                        ],
+                        "connectorId": "d37aa7fe-c973-44ee-a164-2ca5bf321b1f",
+                        "connectorVersion": "v1",
+                        "functionId": 2,
+                        "functionName": "list_var_log_files",
+                        "id": "5",
+                        "parameters": {
+                            "command": "find /var/log -ipath \"*auth*\" 2>/dev/null | tr -s \"\\n\" \",\"",
+                            "ip_hostname": "34.67.88.64"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "ip_hostname"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 148
+                },
+                "8": {
+                    "data": {
+                        "action": "get file",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "get auth log file",
+                            "customNameId": 0,
+                            "description": "get auth.log file which contains authentication attempts",
+                            "join": []
+                        },
+                        "connector": "SSH",
+                        "connectorConfigs": [
+                            "forensics-instance"
+                        ],
+                        "connectorId": "d37aa7fe-c973-44ee-a164-2ca5bf321b1f",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "get_auth_log_file",
+                        "id": "8",
+                        "parameters": {
+                            "file_path": "/var/log/auth.log",
+                            "ip_hostname": "34.67.88.64"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "file_path"
+                            },
+                            {
+                                "data_type": "string",
+                                "field": "ip_hostname"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "8",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 296
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.10",
+        "version": "6.1.1.211"
+    },
+    "create_time": "2024-03-25T15:27:18.380174+00:00",
+    "draft_mode": false,
+    "labels": [
+        "events"
+    ],
+    "tags": []
+}
