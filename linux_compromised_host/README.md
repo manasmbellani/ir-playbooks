@@ -212,6 +212,16 @@ python3 vol.py -f /root/forensics-instance.lime linux.sockstat.Sockstat
 deactivate
 ```
 
+### Disk Analysis
+
+#### Check auditd logs
+
+Check check if `auditd` is enabled and the logs are being logged in `auditd`:
+
+```
+/var/log/audit/audit.log
+```
+
 ## Eradication
 
 ## Recovery
