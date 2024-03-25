@@ -106,6 +106,7 @@ strings *.ldb
 - Collection dc3dd disk image
 - Containment GCP Firewall
 - Analysis Arsenal Image Mounter
+- Analysis Windows Event Log analysis via sysmon/powershell, also some interesting event types available monitoring https://amr-git-dot.github.io/forensic%20investigation/EventLog_Analysis/
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
 - Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
 - Analysis Evil WMI Event Consumers , https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
