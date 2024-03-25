@@ -236,6 +236,7 @@ Check check if `auditd` is enabled and the logs are being logged in `auditd`:
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
 - Collection dc3dd for disk image
 - Analysis Arsenal Image Mounter
+- Analysis Luks volumes detect via cryptsetup luksdump, magic bytes, cryptsetup luksopen commands
 - Analysis Use file to detect hibernated disks
 - Analysis use /etc/fstab,systemd to detect swap and bulk_extractor to parse swap files
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
