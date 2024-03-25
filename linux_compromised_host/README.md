@@ -214,12 +214,13 @@ deactivate
 
 ### Disk Analysis
 
-#### Check auditd logs
+#### Check auditd logs, rules
 
 Check check if `auditd` is enabled and the logs are being logged in `auditd`:
 
 ```
 /var/log/audit/audit.log
+/etc/audit/audit.rules
 ```
 
 ## Eradication
