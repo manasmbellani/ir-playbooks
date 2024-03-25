@@ -216,11 +216,30 @@ deactivate
 
 #### Check auditd logs, rules
 
-Check check if `auditd` is enabled and the logs are being logged in `auditd`:
+Check if `auditd` is enabled and the logs are being logged in `auditd`:
 
 ```
 /var/log/audit/audit.log
+/var/log/messages
+/var/log/syslog
 /etc/audit/audit.rules
+```
+
+#### Check cron scheduled tasks
+
+Check cron scheduled tasks:
+
+```
+/var/log/cron.log
+```
+
+
+#### Check linux authentication attempts
+
+Check authentication attempts via `auth.log`:
+
+```
+/var/log/auth.log
 ```
 
 ## Eradication
