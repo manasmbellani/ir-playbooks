@@ -258,6 +258,7 @@ Check authentication attempts via `auth.log`:
 - Analysis Arsenal Image Mounter
 - Analysis Luks volumes detect via cryptsetup luksdump, magic bytes, cryptsetup luksopen commands
 - Analysis Use file to detect hibernated disks
+- Analysis Use trid to analyse files
 - Analysis use /etc/fstab,systemd to detect swap and bulk_extractor to parse swap files
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
 - Analysis OpenArk review tools https://github.com/BlackINT3/OpenArk
