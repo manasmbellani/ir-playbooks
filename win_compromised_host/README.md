@@ -105,7 +105,8 @@ strings *.ldb
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Containment GCP Firewall
-- Analysis recover deleted files via Autopsy (Embedded File Extractor) plugin
+- Analysis Recover deleted files via Autopsy (Embedded File Extractor) plugin
+- Analysis Use plaso create windows timeline https://notes.qazeer.io/dfir/tools/plaso
 - Analysis Arsenal Image Mounter
 - Analysis Windows Event Log analysis via sysmon/powershell, also some interesting event types available monitoring https://amr-git-dot.github.io/forensic%20investigation/EventLog_Analysis/
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
