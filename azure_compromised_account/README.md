@@ -7,3 +7,4 @@
 - Analysis Check Illicit Consent Grant
 - Analysis Check Oauth app hijack - Look for "Update application – Certificates and secrets management" in Azure AD Audit / Entra logs
 - Analysis Check Device Code Grant
+- Analysis attack and defend AzureAD https://x.com/directoryranger/status/1772258018266091622?s=46&t=WvGY79Umt5enRwgCbi4TQQ
