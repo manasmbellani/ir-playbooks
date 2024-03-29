@@ -4,7 +4,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Containment GCP Firewall
-- Analysis Add detection for EDRaser
+- Analysis Add detection for Safebreach-labs/EDRaser on github
 - Analysis Recover deleted files via Autopsy (Embedded File Extractor) plugin
 - Analysis Use plaso create windows timeline https://notes.qazeer.io/dfir/tools/plaso
 - Analysis use mactime to create windows timeline
