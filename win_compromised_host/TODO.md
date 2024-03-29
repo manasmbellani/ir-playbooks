@@ -1,0 +1,38 @@
+# TODO
+- Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
+- Collection winpmem (rekall)
+- Collection FTK Imager fisk image
+- Collection dc3dd disk image
+- Containment GCP Firewall
+- Analysis Add detection for EDRaser
+- Analysis Recover deleted files via Autopsy (Embedded File Extractor) plugin
+- Analysis Use plaso create windows timeline https://notes.qazeer.io/dfir/tools/plaso
+- Analysis use mactime to create windows timeline
+- Analysis Arsenal Image Mounter
+- Analysis Windows Event Log analysis via sysmon/powershell, also some interesting event types available monitoring https://amr-git-dot.github.io/forensic%20investigation/EventLog_Analysis/
+- Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
+- Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
+- Analysis Evil WMI Event Consumers , https://www.sans.org/blog/finding-evil-wmi-event-consumers-with-disk-forensics/?utm_medium=Social&utm_source=LinkedIn&utm_campaign=DFIR%20CaseLeads%20Newsletter
+- Analysis Volatility Memory Analysis for fun and profit https://www.linkedin.com/posts/kinjalpatel12_memory-analysis-for-fun-and-profitpdf-activity-7170390235028115456-p02R
+- Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
+- Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
+- Analysis Volatility dllist unusual DLLs (eg stucnet .aslr.dll?)
+- Analysis KAPE
+- Analysis get windows version winver
+- Analysis get windows version systeminfo
+- Analysis volatility find+dump injected code malfind
+- Analysis volatility duplicate processes (eg lsass.exe/stuxnet), imageinfo
+- Analysis collect windows logs
+- Analysis OpenArk review tools
+- Analysis check scheduled tasks
+- Analysis Detect RDP Sessions
+- Analysis check network connections
+- Analysis Check powershell code execution
+- Analysis Detect Bitlocker Encryption https://arcpointforensics.medium.com/bitlocker-detection-from-the-command-line-53b3a8df7c9e 
+- Analysis PCAParse http://windowsir.blogspot.com/2024/02/pcaparse.html?m=1
+- Analysis EDRSilencer Detection https://blog.p1k4chu.com/security-research/adversarial-tradecraft-research-and-detection/edr-silencer-embracing-the-silence
+- Analysis MTCH threat hunt keywords
+- Analysis FOR500 SANS
+- Analysi Coercer / NTLM Relay detection https://www.linkedin.com/pulse/petitpotam-dfscoerce-ntlm-relay-attack-detection-debashis-pal?utm_source=share&utm_medium=member_ios&utm_campaign=share_via
+- Analysis/Collection - Detect SCCM attacks https://github.com/subat0mik/Misconfiguration-Manager/blob/main/README.md
+- Recovery OsQuery
