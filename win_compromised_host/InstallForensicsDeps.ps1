@@ -108,6 +108,16 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\sysinternals")) {
     Remove-Item -Path "$INSTALL_LOCATION\sysinternals\sysinternals.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\ExtractUsnJrnl64")) {
+    Write-Host "[*] Making directory ExtractUsnJrnl64..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\ExtractUsnJrnl64"
+
+    Write-Host "[*] Downloading ExtractUsnJrnl64..."
+    $url =  "https://github.com/jschicht/ExtractUsnJrnl/raw/master/ExtractUsnJrnl64.exe"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\ExtractUsnJrnl64\ExtractUsnJrnl64.exe")
+}
+
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\UsnJrnl2Csv")) {
     Write-Host "[*] Making directory UsnJrnl2Csv..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\UsnJrnl2Csv"
