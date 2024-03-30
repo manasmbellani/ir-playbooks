@@ -408,4 +408,5 @@ sudo docker compose down
 - Analysis - Collecting volatile memory from nod https://www.infoq.com/news/2023/07/malicious-behaviour-gke/
 - Analysis - Sysdig inspect & capture - https://github.com/draios/sysdig-inspect?tab=readme-ov-file
 - Recovery - Enable Linux Auditd Logging - https://cloud.google.com/kubernetes-engine/docs/how-to/linux-auditd-logging
+- Recovery - Install an EDR e.g. Falco https://falco.org/docs/getting-started/falco-kubernetes-quickstart/
 - Eradication - drain node?
