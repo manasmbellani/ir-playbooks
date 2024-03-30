@@ -40,13 +40,11 @@ To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the
 
 Alternatively, SysInternals `AutoRuns` can be used to detect WMI consumers, filters from the WMI tab and also delete them.
 
-#### Extract Usn Journal ($J)
+#### Check Usn Journal ($J)
 
 See `Extract Usn Journal ($J)` in `Disk Analysis` section below
 
-### Offline Analysis
-
-#### Memory Analysis
+### Offline / Memory Analysis
 
 In this section, we process the live `.raw` memory image file collected via tools such as `DumpIt` or `Belkasoft RAM Capturer` through tools like `volatility3`
 
@@ -100,7 +98,7 @@ strings *.ldb
 ```
 
 
-#### Extract Usn Journal ($J)
+#### Check created and deleted files via Usn Journal ($J)
 
 Extract the USB Journal which can contain useful information about created and deleted files as described [here](https://x.com/inversecos/status/1453588917337268233?s=20)
 ```
