@@ -4,6 +4,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Containment GCP Firewall
+- Analysis UsnJrnl analysis via velociraptor https://docs.velociraptor.app/blog/2020/2020-11-13-the-windows-usn-journal-f0c55c9010e/
 - Analysis Various tools for Forensic Analysis https://svch0st.medium.com/forensics-tools-by-windows-artefact-cheat-sheet-9517fd1d6e45
 - Analysis Add detection for Safebreach-labs/EDRaser on github
 - Analysis Recover deleted files via Autopsy (Embedded File Extractor) plugin
