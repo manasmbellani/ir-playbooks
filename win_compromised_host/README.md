@@ -38,7 +38,11 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
 
-Alternatively, SystInternals `AutoRuns` can be used to detect WMI consumers, filters from the WMI tab and also delete them.
+Alternatively, SysInternals `AutoRuns` can be used to detect WMI consumers, filters from the WMI tab and also delete them.
+
+#### Extract Usn Journal ($J)
+
+See `Extract Usn Journal ($J)` in `Disk Analysis` section below
 
 ### Offline Analysis
 
@@ -93,6 +97,19 @@ If Google Chrome is in use and Notifications are enabled for website, then histo
 ```
 strings MANIFEST/*
 strings *.ldb
+```
+
+
+#### Extract Usn Journal ($J)
+
+Extract the USB Journal which can contain useful information about created and deleted files as described [here](https://x.com/inversecos/status/1453588917337268233?s=20)
+```
+.\ExtractUsnJrnl64.exe /DevicePath:C: /OutputPath:C:\Windows\Temp
+```
+
+Parse the USN Journal for CSV output: 
+```
+.\UsnJrnl2Csv64.exe /UsnJrnlFile:C:\Windows\Temp\UsnJrnl_$J.bin
 ```
 
 ## Eradication
