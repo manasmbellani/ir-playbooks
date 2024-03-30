@@ -34,15 +34,13 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 
 In case of live analysis, we have ability to connect a USB stick to the contained instance with tools running on the USB stick. 
 
+Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
+
 #### WMI Event Consumers Analysis
 
 To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
 
 Alternatively, SysInternals `AutoRuns` can be used to detect WMI consumers, filters from the WMI tab and also delete them.
-
-#### Check Usn Journal ($J)
-
-See `Extract Usn Journal ($J)` in `Disk Analysis` section below
 
 ### Offline / Memory Analysis
 
@@ -69,7 +67,7 @@ deactivate
 ...
 ```
 
-#### Disk Analysis
+### Offline / Disk Analysis
 
 #### WMI Event Consumers Analysis
 
