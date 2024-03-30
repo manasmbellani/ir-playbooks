@@ -9,6 +9,7 @@
 - Analysis Use plaso create windows timeline https://notes.qazeer.io/dfir/tools/plaso
 - Analysis use mactime to create windows timeline
 - Analysis Arsenal Image Mounter
+- Analysis Reconstructing powershell scripts https://news.sophos.com/en-us/2022/03/29/reconstructing-powershell-scripts-from-multiple-windows-event-logs/
 - Analysis Windows Event Log analysis via sysmon/powershell, also some interesting event types available monitoring https://amr-git-dot.github.io/forensic%20investigation/EventLog_Analysis/
 - Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
 - Analysis Recreate OneDrive Folders OneDriveExplorer https://github.com/Beercow/OneDriveExplorer
