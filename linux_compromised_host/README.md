@@ -269,4 +269,5 @@ Check authentication attempts via `auth.log`:
 - Analysis mdadm - --examine detect Raid device (practical linux forensics)
 - Analysis TheSleuthKit fls - steps to get deleted files
 - Analysis - Volatility commands for analysis https://cpuu.hashnode.dev/how-to-perform-memory-forensic-analysis-in-linux-using-volatility-3
-- recovery OsQuery
+- recovery OsQuery 
+- recovery falco https://falco.org/docs/getting-started/falco-linux-quickstart/
