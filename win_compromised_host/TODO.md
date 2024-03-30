@@ -4,6 +4,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Containment GCP Firewall
+- Analysis check if multiple trusts involved `(event.code:4624 OR event.code:4768 OR event.code:4769)` and observe domains returned
 - Analysis dfir mitre tactics various forensics techniques https://ondrej-sramek.gitbook.io/security/forensics/untitled
 - Analysis dfir mitre tactics registry keys detection https://s0cm0nkey.gitbook.io/s0cm0nkeys-security-reference-guide/dfir-digital-forensics-and-incident-response/windows-dfir-check-by-mitre-tactic
 - Analysis UsnJrnl analysis via velociraptor https://docs.velociraptor.app/blog/2020/2020-11-13-the-windows-usn-journal-f0c55c9010e/
