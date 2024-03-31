@@ -255,6 +255,8 @@ Check authentication attempts via `auth.log`:
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
 - Collection dc3dd for disk image
 - Analysis Check hidden dirs in home dir eg `~/.cache`, `~/.config`
+- Analysis cron logs and cron tasks - `/etc/cron.*`, `/var/log/cron.log`
+- Analysis check rsyslog .conf files - `/etc/rsyslog.d/50-default.conf`
 - Analysis Get installed packages from linux https://github.com/clausing/scripts/blob/master/linux-pkgs.sh
 - Analysis Arsenal Image Mounter
 - Analysis use dump2efs to detect encryption
