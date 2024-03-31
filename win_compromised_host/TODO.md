@@ -11,6 +11,7 @@
 - Analysis Various tools for Forensic Analysis https://svch0st.medium.com/forensics-tools-by-windows-artefact-cheat-sheet-9517fd1d6e45
 - Analysis Add detection for Safebreach-labs/EDRaser on github
 - Analysis recover deleted files via reclaime in Windows ReFS
+- Analysis recover deleted files via photorec
 - Analysis Recover deleted files via Autopsy (Embedded File Extractor) plugin
 - Analysis Use plaso create windows timeline https://notes.qazeer.io/dfir/tools/plaso
 - Analysis use mactime to create windows timeline
