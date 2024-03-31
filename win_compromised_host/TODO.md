@@ -4,6 +4,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Containment GCP Firewall
+- Analysis MPLogfile for analysis https://www.crowdstrike.com/blog/how-to-use-microsoft-protection-logging-for-forensic-investigations/
 - Analysis Add techniques from practical windows forensics "O'Reilly"
 - Analysis check if multiple trusts involved `(event.code:4624 OR event.code:4768 OR event.code:4769)` and observe domains returned
 - Analysis dfir mitre tactics various forensics techniques https://ondrej-sramek.gitbook.io/security/forensics/untitled
