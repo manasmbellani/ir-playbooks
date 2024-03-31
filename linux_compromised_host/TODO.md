@@ -1,0 +1,29 @@
+# Additional TODOs
+- Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
+- Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
+- Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
+- Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
+- Collection dc3dd for disk image
+- Analysis Add techniques from Hal Pomeranz's course https://ia802901.us.archive.org/33/items/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics.pdf
+- Analysis Check hidden dirs in home dir eg `~/.cache`, `~/.config`
+- Analysis cron logs and cron tasks - `/etc/cron.*`, `/var/log/cron.log`
+- Analysis check rsyslog .conf files - `/etc/rsyslog.d/50-default.conf`
+- Analysis Get installed packages from linux https://github.com/clausing/scripts/blob/master/linux-pkgs.sh
+- Analysis Arsenal Image Mounter
+- Analysis use dump2efs to detect encryption
+- Analysis use ecryptfs2john to crack encryption
+- Analysis Luks volumes detect via cryptsetup luksdump, magic bytes, cryptsetup luksopen commands
+- Analysis Use file to detect hibernated disks
+- Analysis Use trid to analyse files
+- Analysis use /etc/fstab,systemd to detect swap and bulk_extractor to parse swap files
+- Analysis Sleuthkit disk analysis mmstat,mmls,fsstat,fls,mactime
+- Analysis OpenArk review tools https://github.com/BlackINT3/OpenArk
+- Analysis - check for `memfd_create` in linux host processes. [Link](https://x.com/CraigHRowland/status/1629780744305295360?s=20)
+- Analysis unix-like artifact collector
+- Analysis disktype - provides detailed on partitions
+- Analysis vgdisplay - For volume info
+- Analysis mdadm - --examine detect Raid device (practical linux forensics)
+- Analysis TheSleuthKit fls - steps to get deleted files
+- Analysis - Volatility commands for analysis https://cpuu.hashnode.dev/how-to-perform-memory-forensic-analysis-in-linux-using-volatility-3
+- recovery OsQuery 
+- recovery falco https://falco.org/docs/getting-started/falco-linux-quickstart/
