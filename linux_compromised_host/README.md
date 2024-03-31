@@ -256,6 +256,8 @@ Check authentication attempts via `auth.log`:
 - Collection dc3dd for disk image
 - Analysis Get installed packages from linux https://github.com/clausing/scripts/blob/master/linux-pkgs.sh
 - Analysis Arsenal Image Mounter
+- Analysis use dump2efs to detect encryption
+- Analysis use ecryptfs2john to crack encryption
 - Analysis Luks volumes detect via cryptsetup luksdump, magic bytes, cryptsetup luksopen commands
 - Analysis Use file to detect hibernated disks
 - Analysis Use trid to analyse files
