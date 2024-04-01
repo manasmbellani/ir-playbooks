@@ -132,3 +132,20 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\UsnJrnl2Csv")) {
     Write-Host '[*] Removing UsnJrnl2Csv zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\UsnJrnl2Csv\UsnJrnl2Csv.zip"
 }
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\TurnedOnTimesView")) {
+    Write-Host "[*] Making directory TurnedOnTimesView..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\TurnedOnTimesView"
+
+    Write-Host "[*] Downloading TurnedOnTimesView..."
+    $url =  "https://www.nirsoft.net/utils/turnedontimesview.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\TurnedOnTimesView\TurnedOnTimesView.zip")
+
+    Write-Host "[*] Extracting TurnedOnTimesView zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\TurnedOnTimesView\TurnedOnTimesView.zip" -DestinationPath "$INSTALL_LOCATION\TurnedOnTimesView"
+
+    Write-Host '[*] Removing TurnedOnTimesView zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\TurnedOnTimesView\TurnedOnTimesView.zip"
+}
+
+
