@@ -69,12 +69,16 @@ deactivate
 
 ### Offline / Disk Analysis
 
+In this section, we discuss a number of ways that information can be gathered from 
+
 #### WMI Event Consumers Analysis
+
+##### via wmi-parser / chainsaw
 
 To detect [malicious event consumers](https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96), we can use `wmi-parser` to examine the current machine's WMI Event Consumers which could be both filtering and consuming WMI events (malicious indicators). The files are available in `C:\WINDOWS\system32\wbem\Repository\OBJECTS.DATA` OR `C:\WINDOWS\system32\wbem\Repository\FS\OBJECTS.DATA` folders.
 
 ```
-.\wmi-parser.exe -i C:\Users\manasbellani\Downloads\Repository\OBJECTS.DATA
+.\wmi-parser.exe -i $PATH_TO_REPOSITORY\Repository\OBJECTS.DATA
 ```
 
 If Sysmon is installed, then WMI Event Consumers will also appear in the sysmon logs in Event ID 19, 20, 21 as explained [here](https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96). These can be detected in Windows logs using `chainsaw`
@@ -88,6 +92,8 @@ If Sysmon is installed, then WMI Event Consumers will also appear in the sysmon 
 
 #### Google Chrome Notifications
 
+##### via strings
+
 If Google Chrome is in use and Notifications are enabled for website, then historical notifications are usually available in the `%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Platform Notifications` as LevelDB Database. Extract the file and determine the clear-text notifications that a user may have received via `strings` or `xxd`. More info available [here](https://www.sans.org/blog/google-chrome-platform-notification-analysis/), [here](https://www.linkedin.com/pulse/investigating-abusive-push-notification-browsers-chrome-jimmy-remy/) and the structure of the LevelDB database is described [here](https://sansorg.egnyte.com/dl/QaoN3qdhig)
 
 ```
@@ -95,10 +101,11 @@ strings MANIFEST/*
 strings *.ldb
 ```
 
+#### Check created and deleted files 
 
-#### Check created and deleted files via Usn Journal ($J)
+##### via Usn Journal ($J)
 
-Extract the USB Journal which can contain useful information about created and deleted files as described [here](https://x.com/inversecos/status/1453588917337268233?s=20)
+Extract the USN Journal which can contain useful information about created and deleted files as described [here](https://x.com/inversecos/status/1453588917337268233?s=20)
 ```
 .\ExtractUsnJrnl64.exe /DevicePath:C: /OutputPath:C:\Windows\Temp
 ```
@@ -107,6 +114,16 @@ Parse the USN Journal for CSV output:
 ```
 .\UsnJrnl2Csv64.exe /UsnJrnlFile:C:\Windows\Temp\UsnJrnl_$J.bin
 ```
+
+#### Build a wordlist for Extracting password encrypted files
+
+##### via bulk_extractor
+
+The command below will create a wordlist from disk data (can be offline images such as E01, .raw volatility images) which could be used for testing files that are encrypted
+```
+bulk_extractor -E wordlist -o /tmp/bulk_extractor $DISK_PATH
+```
+The above command creates a `wordlist_dedup_1.txt` which can be used for brute-forcing. More info is available [here](https://www.raedts.biz/forensics/building-wordlists-forensic-images/).
 
 ## Eradication
 
