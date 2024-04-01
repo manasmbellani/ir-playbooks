@@ -246,7 +246,7 @@ Check authentication attempts via `auth.log`:
 
 ##### via bulk_extractor
 
-See [here](https://github.com/manasmbellani/ir-playbooks/blob/master/win_compromised_host/README.md#via-bulk_extractor) for more info.
+See [here](https://github.com/manasmbellani/ir-playbooks/blob/master/win_compromised_host/README.md#build-a-wordlist-for-extracting-password-encrypted-files) for more info.
 
 ## Eradication
 
