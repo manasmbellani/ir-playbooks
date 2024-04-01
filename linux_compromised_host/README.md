@@ -242,6 +242,12 @@ Check authentication attempts via `auth.log`:
 /var/log/auth.log
 ```
 
+#### Build a wordlist for Extracting password encrypted files
+
+##### via bulk_extractor
+
+See [here](https://github.com/manasmbellani/ir-playbooks/blob/master/win_compromised_host/README.md#via-bulk_extractor) for more info.
+
 ## Eradication
 
 ## Recovery
