@@ -68,6 +68,9 @@ echo "[*] Cloning WMI_Forensics..."
 git clone https://github.com/davidpany/WMI_Forensics /opt/WMI_Forensics
 cd /opt/WMI_Forensics
 
+echo "[*] Installing dc3dd..."
+apt-get -y install dc3dd
+
 echo "[*] Installing bulk-extractor..."
 apt-get -y install bulk-extractor
 
