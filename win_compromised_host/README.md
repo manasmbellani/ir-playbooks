@@ -125,6 +125,16 @@ bulk_extractor -E wordlist -o /tmp/bulk_extractor $DISK_PATH
 ```
 The above command creates a `wordlist_dedup_1.txt` which can be used for brute-forcing. More info is available [here](https://www.raedts.biz/forensics/building-wordlists-forensic-images/).
 
+#### Detect time the system was turned on / off (timeline)
+
+##### via TurnedOnTimesView
+
+Capture the `System.evtx` file from `C:\Windows\System32\winevt\Logs` from the disk and store it in a new folder. Launch Nirsoft's `TurnedOnTimesView` utility > Options > Advanced Options > Select `Data Source` as `External Disk` > Point to the folder where `System.evtx` is added.
+
+The times for start-up and shutdown are displayed for the system. Select all entries and copy/paste them to an .xlsx file for analysis. 
+
+More info is [here](https://www.raedts.biz/forensics/find-system-powered/)
+
 ## Eradication
 
 ## Recovery
