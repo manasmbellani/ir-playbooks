@@ -81,7 +81,14 @@ gcloud compute firewall-rules create forensics-contain-deny-inbound-all \
 
 ### Taking disk image (Offline)
 
-Create a copy of the local disk image using `dd` for backup:
+#### via dd
+Check the mount points first via `mount`, `df` to identify the dev mount for disk to take image of is attached:
+```
+df -h
+mount
+```
+
+Once the `/dev/sdxx` is identified, create a copy of the local disk image using `dd` for backup:
 
 ```
 dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512
@@ -90,6 +97,15 @@ dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512
 dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512 count=8192000
 ```
 
+#### via dc3dd
+
+```
+dc3dd if=/dev/sda1 of=/tmp/image.dd hash=sha256 hlog=/tmp/hash.log log=/tmp/image.log
+```
+
+### Mounting image
+
+#### via losetup
 In the event that we have to mount the disk, we can use `losetup`:
 ```
 # This will return $LOOP_DEV to mount
