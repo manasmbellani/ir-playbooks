@@ -4,6 +4,10 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Containment GCP Firewall
+- Analysis Look for interesting files created eg for ElasticSearch:
+```
+_index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (winlog.event_data.TargetFilename: "C:\\ProgramData\\*" OR winlog.event_data.TargetFilename: "C:\\Users\\alice\\AppData\\Local\\Packages\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\Prefetch\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\System32\\*" OR winlog.event_data.TargetFilename: "D:\\CollectGuestLogsTemp\\*" OR winlog.event_data.TargetFilename:"C:\\Users\\alice\\AppData\\Local\\Microsoft\\*")
+```
 - Analysis MPLogfile for analysis https://www.crowdstrike.com/blog/how-to-use-microsoft-protection-logging-for-forensic-investigations/
 - Analysis Add techniques from practical windows forensics "O'Reilly"
 - Analysis check if multiple trusts involved `(event.code:4624 OR event.code:4768 OR event.code:4769)` and observe domains returned
