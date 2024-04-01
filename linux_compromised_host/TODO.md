@@ -4,7 +4,6 @@
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
 - Collection dumpit-linux https://github.com/MagnetForensics/dumpit-linux
-- Collection dc3dd for disk image
 - Analysis Add techniques from Hal Pomeranz's course https://ia802901.us.archive.org/33/items/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics.pdf
 - Analysis Check hidden dirs in home dir eg `~/.cache`, `~/.config`
 - Analysis cron logs and cron tasks - `/etc/cron.*`, `/var/log/cron.log`
