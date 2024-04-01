@@ -5,6 +5,7 @@
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
 - Containment GCP Firewall
+- Analysis hiberfil.sys, pagefile.sys https://www.hackingarticles.in/forensic-investigation-pagefile-sys/
 - Analysis Look for interesting files created via sysmon eg for ElasticSearch:
 ```
 _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (winlog.event_data.TargetFilename: "C:\\ProgramData\\*" OR winlog.event_data.TargetFilename: "C:\\Users\\alice\\AppData\\Local\\Packages\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\Prefetch\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\System32\\*" OR winlog.event_data.TargetFilename: "D:\\CollectGuestLogsTemp\\*" OR winlog.event_data.TargetFilename:"C:\\Users\\alice\\AppData\\Local\\Microsoft\\*")
