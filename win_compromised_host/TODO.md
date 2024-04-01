@@ -6,7 +6,6 @@
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
 - Containment GCP Firewall
 - Analysis Detect startup and shutdown times via TurnedOnTimesViewer https://www.raedts.biz/forensics/find-system-powered/
-- Analysis Generate wordlist for encrypted passwords via bulk_extractor https://www.raedts.biz/forensics/building-wordlists-forensic-images/
 - Analysis Look for interesting files created via sysmon eg for ElasticSearch:
 ```
 _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (winlog.event_data.TargetFilename: "C:\\ProgramData\\*" OR winlog.event_data.TargetFilename: "C:\\Users\\alice\\AppData\\Local\\Packages\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\Prefetch\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\System32\\*" OR winlog.event_data.TargetFilename: "D:\\CollectGuestLogsTemp\\*" OR winlog.event_data.TargetFilename:"C:\\Users\\alice\\AppData\\Local\\Microsoft\\*")
