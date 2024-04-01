@@ -5,6 +5,7 @@
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
 - Containment GCP Firewall
+- Analysis Detect startup and shutdown times via TurnedOnTimesViewer https://www.raedts.biz/forensics/find-system-powered/
 - Analysis Generate wordlist for encrypted passwords via bulk_extractor https://www.raedts.biz/forensics/building-wordlists-forensic-images/
 - Analysis Look for interesting files created via sysmon eg for ElasticSearch:
 ```
