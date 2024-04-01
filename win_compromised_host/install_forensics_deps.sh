@@ -47,3 +47,6 @@ python3 -m virtualenv venv
 source venv/bin/activate
 python3 -m pip install uploadserver
 deactivate
+
+echo "[*] Installing bulk-extractor..."
+apt-get -y install bulk-extractor
