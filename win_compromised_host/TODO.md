@@ -5,6 +5,7 @@
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
 - Containment GCP Firewall
+- USB Forensics
 - Analysis ProxyNotShell Detection https://www.securonix.com/blog/proxynotshell-revisited/, https://www.logpoint.com/en/blog/proxynotshell-detecting-exploitation-of-zero-day-exchange-server-vulnerabilities/
 - Analysis DFIR Cheatsheet by Jai Minton https://www.jaiminton.com/cheatsheet/DFIR/#disable-remote-printing-printnightmare-rce-mitigation
 - Analysis hiberfil.sys, pagefile.sys https://www.hackingarticles.in/forensic-investigation-pagefile-sys/
