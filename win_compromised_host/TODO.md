@@ -5,6 +5,8 @@
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
 - Containment GCP Firewall
+- Analysis Detect Windows File share events `eventid:5140`
+- Analysis Detect SID History Injection attack (see sigma) https://github.com/NVISOsecurity/sigma-public/blob/master/rules/windows/builtin/win_susp_add_sid_history.yml 
 - Analysis USB Forensics
 - Analysis ProxyNotShell Detection https://www.securonix.com/blog/proxynotshell-revisited/, https://www.logpoint.com/en/blog/proxynotshell-detecting-exploitation-of-zero-day-exchange-server-vulnerabilities/
 - Analysis DFIR Cheatsheet by Jai Minton https://www.jaiminton.com/cheatsheet/DFIR/#disable-remote-printing-printnightmare-rce-mitigation
