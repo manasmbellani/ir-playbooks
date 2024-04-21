@@ -75,7 +75,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\wmi-parser")) {
     Expand-Archive -Path "$INSTALL_LOCATION\wmi-parser\wmi-parser.zip" -DestinationPath "$INSTALL_LOCATION\wmi-parser"
 
     Write-Host '[*] Removing wmi-parser zip file...'
-    Remove-Item -Path "$INSTALL_LOCATION\WMIExplorer\wmi-parser.zip"
+    Remove-Item -Path "$INSTALL_LOCATION\wmi-parser\wmi-parser.zip"
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\chainsaw")) {
