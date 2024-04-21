@@ -1,5 +1,9 @@
 # Windows - Compromised Host
 
+This playbook describes the steps to perform containment, analysis and recovery on a compromised Windows instance. Please note that it is assumed that the forensics and test instances are being deployed in a Google Cloud (GCP) environment, hence `gcloud` commands are provided for deploying, containing instances. 
+
+The exact same concepts can be applied for other environments.
+
 ## Pre-requisites
 
 ### Forensics Instance Setup
@@ -20,13 +24,24 @@ gcloud compute instances create windows-forensics-instance \
     --service-account=507227860050-compute@developer.gserviceaccount.com \
     --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
     --create-disk=auto-delete=yes,boot=yes,device-name=instance-20240421-220752,image=projects/windows-cloud/global/images/windows-server-2022-dc-v20240415,mode=rw,size=60,type=projects/citric-snow-362912/zones/us-central1-c/diskTypes/pd-balanced \
+    --tags=rdp-server \
     --no-shielded-secure-boot \
     --shielded-vtpm \
     --shielded-integrity-monitoring \
     --labels=goog-ec-src=vm_add-gcloud \
     --reservation-affinity=any
-
 ```
+
+Ensure that access to RDP port is enabled via the network tag `rdp-server` to be able to connect to the instance:
+```
+gcloud compute firewall-rules create rdp-server \
+    --network "default" \
+    --direction ingress \
+    --allow=tcp:3389 \
+    --target-tags=rdp-server \
+    --description "Allow RDP port 3389 for accessing Windows servers"
+```
+
 Execute the [script](./InstallForensicsDeps.ps1) which will install all the necessary forensic tools discussed here. The script can also be modified to install most dependencies on a USB stick instead by editing the `INSTALL_LOCATION` variable.
 
 Live memory images or disk images taken from the compromised instance can then be attached to the instance for analysis. Alternatively, USB sticks can be attached to the instance for live analysis.
