@@ -5,6 +5,11 @@
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
 - Containment GCP Firewall
+- Analysis Detect cred theft via LSASS
+- Analysis Detect NTDS Access
+- Analysis Detect DCSync Attack
+- Analysis Detect Golden, diamond, silver tickets
+- Analysis Detect ADCS Abuse
 - Analysis Extract browser passwords from external path https://www.nirsoft.net/utils/chromepass.html
 - Analysis Detect Windows File share events `eventid:5140`
 - Analysis Detect SID History Injection attack (see sigma) https://github.com/NVISOsecurity/sigma-public/blob/master/rules/windows/builtin/win_susp_add_sid_history.yml 
