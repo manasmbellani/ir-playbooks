@@ -32,7 +32,8 @@ _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (wi
 - Analysis UsnJrnl analysis via velociraptor https://docs.velociraptor.app/blog/2020/2020-11-13-the-windows-usn-journal-f0c55c9010e/
 - Analysis Various tools for Forensic Analysis https://svch0st.medium.com/forensics-tools-by-windows-artefact-cheat-sheet-9517fd1d6e45
 - Analysis Add detection for Safebreach-labs/EDRaser on github
-- Analysis Recover deleted files via volumr shadow copy and mklink+vssadmin from disk images. "Windows Forensics Cookbook"
+- Analysis Recover deleted files via volume shadow copy and mklink+vssadmin from disk images. "Windows Forensics Cookbook"
+- Analysis View VSS via nirsoft's volumeshadowcopy
 - Analysis recover deleted files via reclaime in Windows ReFS
 - Analysis recover deleted files via photorec
 - Analysis Recover deleted files via Autopsy (Embedded File Extractor) plugin
