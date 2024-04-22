@@ -394,6 +394,7 @@ sudo docker compose down
 - Containment - checked IAM Policy Bindings on the node and disable them
 - Containment - drain the node?
 - Containment - snapshot the VM instances
+- Analysis - Various forensics tool, containment mechanisms - https://cloudyforensics.medium.com/
 - Analysis - kubectl top command for memory usage https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
 - Analysis - Collect image via snapshot dd
 - Analysis - Collect image via cloud-forensics-utils
