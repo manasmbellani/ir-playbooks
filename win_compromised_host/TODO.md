@@ -1,10 +1,10 @@
 # TODO
+- Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection winpmem (rekall)
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
-- Containment GCP Firewall
 - Analysis Detect SCCM site abuse
 - Analysis Detect cred theft via LSASS
 - Analysis Detect NTDS Access
