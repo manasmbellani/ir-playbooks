@@ -1,2 +1,2 @@
 # TODO
-- Analysis various tools - https://github.com/toniblyx/my-arsenal-of-aws-security-tools
+- Analysis various tools from tonyblix - https://github.com/toniblyx/my-arsenal-of-aws-security-tools
