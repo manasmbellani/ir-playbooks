@@ -148,4 +148,18 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\TurnedOnTimesView")) {
     Remove-Item -Path "$INSTALL_LOCATION\TurnedOnTimesView\TurnedOnTimesView.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\chainsaw")) {
+    Write-Host "[*] Making directory chainsaw..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\chainsaw"
+    
+    Write-Host "[*] Downloading chainsaw..."
+    $url="https://github.com/WithSecureLabs/chainsaw/releases/download/v2.9.0/chainsaw_x86_64-pc-windows-msvc.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\chainsaw\chainsaw.zip")
+
+    Write-Host "[*] Extracting chainsaw zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\usnjrnl_rewind\chainsaw.zip" -DestinationPath "$INSTALL_LOCATION\chainsaw"
+
+    Write-Host '[*] Removing chainsaw zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\chainsaw\chainsaw.zip"
+}
 
