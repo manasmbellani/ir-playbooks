@@ -20,6 +20,8 @@ For this scenario, we will require:
 
 ## Forensics Instance Setup
 
+### Ubuntu
+
 In this case, we use `gcloud` to build a compute instance within the same project or separate project. 
 
 ```
