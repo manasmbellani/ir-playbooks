@@ -18,7 +18,7 @@ echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
 python3 -m pip install virtualenv
 
 echo "[*] Installing container-explorer..."
-wget https://raw.githubusercontent.com/google/container-explorer/main/script/setup.sh -o /tmp/setup.sh
+wget https://raw.githubusercontent.com/google/container-explorer/main/script/setup.sh -O /tmp/setup.sh
 sudo bash /tmp/setup.sh install
 
 echo "[*] Installing plaso-tools..."
