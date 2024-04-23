@@ -12,6 +12,7 @@
 - Analysis Detect DCSync Attack
 - Analysis Detect Golden, diamond, silver tickets
 - Analysis Detect ADCS Abuse
+- Analysis Parse NTDS.dit file via ntdsdissector - https://github.com/synacktiv/ntdissector
 - Analysis Extract browser passwords from external path https://www.nirsoft.net/utils/chromepass.html
 - Analysis Detect Windows File share events `eventid:5140` via chainsaw
 - Analysis analyse srum and shimcache to build timelines via chainsaw
