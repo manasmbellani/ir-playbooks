@@ -2,16 +2,17 @@
 # Script to be run on Ubuntu 22.04 instance
 
 echo "[*] Install basic dev tools..."
-sudo apt-get -y install \
-  net-tools \
-  python3 \
-  python3-pip \
-  python-setuptools \
-  build-essential \
-  git \
-  unzip \
-  binutils \
-  xxd
+apt-get -y update && \
+  apt-get -y install \
+    net-tools \
+    python3 \
+    python3-pip \
+    python-setuptools \
+    build-essential \
+    git \
+    unzip \
+    binutils \
+    xxd
 
 echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
 python3 -m pip install virtualenv
