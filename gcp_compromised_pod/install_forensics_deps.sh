@@ -36,7 +36,7 @@ sudo apt -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 echo "[*] Install timesketch..."
-curl -s -O https://raw.githubusercontent.com/google/timesketch/master/contrib/deploy_timesketch.sh -o /tmp/deploy_timesketch.sh
+curl -sL https://raw.githubusercontent.com/google/timesketch/master/contrib/deploy_timesketch.sh -o /tmp/deploy_timesketch.sh
 chmod 755 /tmp/deploy_timesketch.sh
 cd /opt
 sudo /tmp/deploy_timesketch.sh
