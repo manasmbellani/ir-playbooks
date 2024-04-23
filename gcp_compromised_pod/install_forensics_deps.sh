@@ -20,6 +20,7 @@ python3 -m pip install virtualenv
 echo "[*] Installing container-explorer..."
 wget https://raw.githubusercontent.com/google/container-explorer/main/script/setup.sh -O /tmp/setup.sh
 sudo bash /tmp/setup.sh install
+rm /tmp/setup.sh
 
 echo "[*] Installing plaso-tools..."
 sudo add-apt-repository -y universe
