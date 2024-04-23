@@ -47,7 +47,7 @@ Connect via RDP to the Forensics instance and launch Powershell as an Administra
 Live memory images or disk images taken from the compromised instance can then be attached to the instance for analysis. Alternatively, USB sticks can be attached to the instance for live analysis.
 
 #### Ubuntu
-For the Forensics instance, we deploy an Ubuntu 22.04 instance and execute the [script](./install_forensics_deps.sh) which will install all the necessary forensic tools discussed here. Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
+For the Forensics instance, we deploy an Ubuntu 22.04 instance by following the steps [here](../gcp_compromised_pod#ubuntu). Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
 
 ## Containment
 
