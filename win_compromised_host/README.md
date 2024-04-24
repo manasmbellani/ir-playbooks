@@ -82,21 +82,39 @@ Alternatively, SysInternals `AutoRuns` can be used to detect WMI consumers, filt
 
 In this section, we process the live `.raw` memory image file collected via tools such as `DumpIt` or `Belkasoft RAM Capturer` through tools like `volatility3`
 
-#### Process Tree
+#### Operating System Information / Banners
+
+##### via volatility2 / imageinfo
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem imageinfo
+deactivate
+```
+
+##### via volatility3 / banners.Banners
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem banners.Banners
+deactivate
+```
+
+#### Process Tree / Process Listing
+
+##### via volatility3 / pslist
 
 We are able to review the live `.raw` RAM collected via any of the live collection methods using volatility3 with commands as follows via `volatility3` to list current processes:
 ```
-cd /opt/volatility3
-source venv/bin/activate
-python3 vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw windows.pslist.PsList windows.pslist.PsList
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw windows.pslist.PsList
 deactivate
 ```
 
 We are also able to see the process from live `.raw` RAM as a tree like structure using `volatility3`:
 ```
-cd /opt/volatility3
-source venv/bin/activate
-python3 vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw windows.pslist.PsList windows.pstree.PsTree
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw windows.pstree.PsTree
 deactivate
 ...
 ******* 1244    5220    PsExec.exe      0xcf830d644080  6       -       2       True    2024-03-15 06:19:57.000000      N/A     \Device\HarddiskVolume3\Users\manasbellani\Downloads\SysinternalsSuite\PsExec.exe   PsExec.exe  -s -i cmd.exe       C:\Users\manasbellani\Downloads\SysinternalsSuite\PsExec.exe
@@ -174,4 +192,3 @@ More info is [here](https://www.raedts.biz/forensics/find-system-powered/)
 ## Eradication
 
 ## Recovery
-
