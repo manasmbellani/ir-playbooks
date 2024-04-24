@@ -43,7 +43,7 @@ gcloud compute instances create forensics-instance \
 
 We use `e2-standard-4` as the CPU core because visualization tools such as `timesketch` may require slightly higher vCPU, memory and storage. Also `HTTPS` traffic is enabled for tools like `timesketch` which may require accessible web service.
 
-We then SSH into this instance via `gcloud`:
+We then SSH into this instance via `gcloud` and note the default username that we SSH into (defined as `$USERNAME`):
 
 ```
 gcloud compute ssh forensics-instance --zone=us-central1-c
@@ -53,6 +53,11 @@ We execute the script to install the forensics dependencies such as `container e
 ```
 chmod +x ./install_forensics_deps.sh
 sudo ./install_forensics_deps.sh
+```
+
+To setup RDP, setup the password for the user USERNAME:
+```
+passwd $USERNAME
 ```
 
 ## Scenario Setup
