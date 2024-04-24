@@ -131,7 +131,25 @@ deactivate
 ...
 ```
 
-#### Get Directory Table Base (DTB) for a process or kernel
+#### Get Directory Table Base (DTB) for a process
+
+See [here](#get-directory-table-base-dtb-for-a-kernel) for info on what DTB is
+
+##### via volatility2 / volshell
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem volshell -p 880 
+deactivate
+```
+
+#### Get Directory Table Base (DTB) for a kernel
+
+DTB converts the physical address to virtual addresses
+
+##### via volatility2 / imageinfo
+
+See [here](#via-volatility2--imageinfo)
 
 ##### via volatility3 / windows.info.Info
 
