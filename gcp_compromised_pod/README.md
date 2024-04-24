@@ -33,7 +33,7 @@ gcloud compute instances create forensics-instance \
     --maintenance-policy=MIGRATE \
     --provisioning-model=STANDARD \
     --create-disk=auto-delete=yes,boot=yes,device-name=forensics-instance,image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20240228,mode=rw,size=50,type=projects/citric-snow-362912/zones/us-central1-c/diskTypes/pd-balanced \
-    --tags=http-server,https-server \
+    --tags=http-server,https-server,rdp-server \
     --no-shielded-secure-boot \
     --shielded-vtpm \
     --shielded-integrity-monitoring \
