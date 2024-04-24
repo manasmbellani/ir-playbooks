@@ -84,6 +84,14 @@ In this section, we process the live `.raw` memory image file collected via tool
 
 #### Operating System Information / Banners
 
+##### via volatility3 / windows.info.Info
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem windows.info.Info
+deactivate
+```
+
 ##### via volatility2 / imageinfo
 
 ```
