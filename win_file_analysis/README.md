@@ -8,9 +8,9 @@ Refer to the forensics servers setup [here](../gcp_compromised_pod/install_foren
 
 ## Techniques
 
-## Network Analysis
+### Network Analysis
 
-### via wireshark
+#### via wireshark
 
 ```
 wireshark
