@@ -131,6 +131,12 @@ deactivate
 ...
 ```
 
+#### Get Directory Table Base (DTB) for a process or kernel
+
+##### via volatility3 / windows.info.Info
+
+See [here](#via-volatility3--windowsinfoinfo)
+
 ### Offline / Disk Analysis
 
 In this section, we discuss a number of ways that information can be gathered from 
