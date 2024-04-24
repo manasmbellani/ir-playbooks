@@ -63,6 +63,10 @@ taken from: https://brandefense.io/top-ransomware-groups-and-monitoring-techniqu
 torbrowser-launcher
 ```
 
+#### via onion browser / orbot mobile apps
+
+Install `Onion Browser` and `Orbot` Mobile Apps
+
 ### Ransomware Decryption Tools
 
 #### via github.com/ragnarok_decryptor
