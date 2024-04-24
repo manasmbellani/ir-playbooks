@@ -26,6 +26,14 @@ https://id-ransomware.malwarehunterteam.com/
 
 https://www.nomoreransom.org/crypto-sheriff.php?lang=en
 
+#### via google search
+
+can identify the ransomware type just by searching parts of README message on Google Search
+
+#### via github search
+
+can identify the ransomware type just by searching parts of README message on Github
+
 ### Ransomware Decryption Tools
 
 #### via cryptosheriff
@@ -46,11 +54,4 @@ provides a list of various free websites which can be used for decryption for di
 
 https://www.upguard.com/blog/how-to-decrypt-ransomware
 
-#### via google search
-
-can identify the ransomware type just by searching parts of README message on Google Search
-
-#### via github search
-
-can identify the ransomware type just by searching parts of README message on Github
 
