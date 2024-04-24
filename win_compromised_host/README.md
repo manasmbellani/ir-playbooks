@@ -139,13 +139,47 @@ See [here](#get-directory-table-base-dtb-for-a-kernel) for info on what DTB is
 
 ```
 source /opt/volatility2/venv/bin/activate
-python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem volshell -p 880 
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/randev/RanDev.vmem volshell -p 880 
+deactivate
+```
+
+#### Command Lines
+
+##### via volatility2 / cmdscan
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/randev/RanDev.vmem cmdscan
+deactivate
+```
+
+##### via volatility2 / consoles
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/randev/RanDev.vmem consoles
+deactivate
+```
+
+##### via volatility3 / cmdline
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem windows.cmdline.CmdLine
 deactivate
 ```
 
 #### Get Directory Table Base (DTB) for a kernel
 
 DTB converts the physical address to virtual addresses
+
+##### via volatility2 / kpcrscan
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw kpcrscan
+deactivate
+```
 
 ##### via volatility2 / imageinfo
 
