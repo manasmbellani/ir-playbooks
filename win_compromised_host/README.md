@@ -195,7 +195,26 @@ See [here](#via-volatility3--windowsinfoinfo)
 
 ```
 source /opt/volatility2/venv/bin/activate
-python3 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/TEST-WIN-INSTAN-20240315-062005.raw malfind
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/TEST-WIN-INSTAN-20240315-062005.raw malfind
+deactivate
+```
+
+#### Extract Files from image
+
+##### via volatility3 / dumpfiles
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dumpfiles --virtaddr 0xa001c401ed40
+deactivate
+```
+
+##### via volatility2 / dumpfiles
+
+```
+# Use address from filescan to extract the address
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dumpfiles --profile=Win7SP1x86_23418 -Q 0x000000003f4bca20 -D ./dumpfiles -u
 deactivate
 ```
 
