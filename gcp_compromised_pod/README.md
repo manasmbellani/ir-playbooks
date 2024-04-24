@@ -60,6 +60,8 @@ To setup RDP, setup the password for the user USERNAME:
 passwd $USERNAME
 ```
 
+Use `firefox` and RDP to access the websites via the username and password set via `passwd` as described in the steps above.
+
 ## Scenario Setup
 
 To setup the scenario, we deploy a cluster called `$CLUSTER_NAME` with running with 3 `e2-medium` nodes in `us-central1-c` zone. Note that the size of the cluster is required to enforce the network policy as described [here](https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy#np_no_effect)
