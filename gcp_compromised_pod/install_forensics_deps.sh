@@ -13,7 +13,8 @@ apt-get -y update && \
     unzip \
     binutils \
     xxd \
-    sudo
+    sudo \
+    wireshark
 
 echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
 python3 -m pip install virtualenv
