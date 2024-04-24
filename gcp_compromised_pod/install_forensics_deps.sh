@@ -15,6 +15,7 @@ apt-get -y update && \
     xxd \
     sudo \
     wireshark \
+    firefox \
     xrdp
 
 echo "[*] Enabling RDP service to start at beginning via xrdp..."
