@@ -24,6 +24,7 @@ sudo systemctl enable xrdp --now
 update-rc.d xrdp defaults
 
 echo "[*] Adding bugfix for torbrowser-launcher..."
+# Taken from: https://askubuntu.com/questions/1445050/updating-tor-screwed-up-my-client-download-error-404
 sudo sed -i 's|self.language =.*|self.language = "ALL"|g' /usr/lib/python3/dist-packages/torbrowser_launcher/common.py
 
 echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
