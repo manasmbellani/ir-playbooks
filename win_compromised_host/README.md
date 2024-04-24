@@ -189,6 +189,16 @@ See [here](#via-volatility2--imageinfo)
 
 See [here](#via-volatility3--windowsinfoinfo)
 
+#### Detect code injections / malware / hidden DLLs running in processes
+
+##### via volatility2 / malfind
+
+```
+source /opt/volatility2/venv/bin/activate
+python3 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/TEST-WIN-INSTAN-20240315-062005.raw malfind
+deactivate
+```
+
 ### Offline / Disk Analysis
 
 In this section, we discuss a number of ways that information can be gathered from 
