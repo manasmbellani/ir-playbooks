@@ -12,7 +12,8 @@ apt-get -y update && \
     git \
     unzip \
     binutils \
-    xxd
+    xxd \
+    sudo
 
 echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
 python3 -m pip install virtualenv
@@ -42,6 +43,7 @@ cd /opt
 sudo /tmp/deploy_timesketch.sh
 cd /opt/timesketch
 sudo docker compose up -d
+sudo docker compose down
 
 echo "[*] Install dftimewolf..."
 git clone https://github.com/log2timeline/dftimewolf.git /opt/dftimewolf
