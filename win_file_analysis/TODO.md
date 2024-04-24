@@ -1,8 +1,4 @@
-# Windows File Analysis
-
-## Common
-
-### TODO
+# TODO
 
 - Static Analysis yara rules via yara
 - Static Analysis strings
