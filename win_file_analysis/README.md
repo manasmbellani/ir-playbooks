@@ -34,7 +34,40 @@ can identify the ransomware type just by searching parts of README message on Go
 
 can identify the ransomware type just by searching parts of README message on Github
 
+### Determine Ransomware site links
+
+#### via ransom watch
+
+Provides links to ransomware links and posts
+
+https://ransomwatch.telemetry.ltd/
+
+Code based on: https://github.com/joshhighet/ransomwatch
+
+#### via darkfeed.io / ransomwiki
+
+https://darkfeed.io/ransomwiki/
+
+#### via twitter / ransomwatcher
+
+https://twitter.com/ransomwatcher
+  
+taken from: https://brandefense.io/top-ransomware-groups-and-monitoring-techniques/
+
 ### Ransomware Decryption Tools
+
+#### via github.com/ragnarok_decryptor
+
+Decryption fo rangarok ransomware
+
+https://filebin.net/4jhdz2i306dpgvyh
+https://github.com/manasmbellani/ragnarok_decrypter
+
+#### via github/Cisco-Talos for tesladecrypt
+
+Decryption for teslacrypt encrypted files
+
+https://github.com/Cisco-Talos/TeslaDecrypt/releases/tag/1.0
 
 #### via cryptosheriff
 
