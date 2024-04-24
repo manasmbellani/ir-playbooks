@@ -119,6 +119,8 @@ python3 /opt/volatility3/vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw win
 deactivate
 ```
 
+##### via volatility3 / pstree
+
 We are also able to see the process from live `.raw` RAM as a tree like structure using `volatility3`:
 ```
 source /opt/volatility3/venv/bin/activate
