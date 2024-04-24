@@ -16,6 +16,7 @@ apt-get -y update && \
     sudo \
     wireshark \
     firefox \
+    torbrowser-launcher \
     xrdp
 
 echo "[*] Enabling RDP service to start at beginning via xrdp..."
