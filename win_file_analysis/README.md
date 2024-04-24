@@ -54,6 +54,15 @@ https://twitter.com/ransomwatcher
   
 taken from: https://brandefense.io/top-ransomware-groups-and-monitoring-techniques/
 
+### Monitoring Ransomware sites / actors
+
+#### via torbrowser_launcher
+
+```
+# Launch as default user
+torbrowser-launcher
+```
+
 ### Ransomware Decryption Tools
 
 #### via github.com/ragnarok_decryptor
