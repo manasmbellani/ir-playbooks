@@ -23,6 +23,9 @@ echo "[*] Enabling RDP service to start at beginning via xrdp..."
 sudo systemctl enable xrdp --now
 update-rc.d xrdp defaults
 
+echo "[*] Adding bugfix for torbrowser-launcher..."
+sudo sed -i 's|self.language =.*|self.language = "ALL"|g' /usr/lib/python3/dist-packages/torbrowser_launcher/common.py
+
 echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
 python3 -m pip install virtualenv
 
