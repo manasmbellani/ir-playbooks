@@ -14,7 +14,12 @@ apt-get -y update && \
     binutils \
     xxd \
     sudo \
-    wireshark
+    wireshark \
+    xrdp
+
+echo "[*] Enabling RDP service to start at beginning via xrdp..."
+sudo systemctl enable xrdp --now
+update-rc.d xrdp defaults
 
 echo "[*] Installing pip's virtualenv for sandboxing python3 deps..."
 python3 -m pip install virtualenv
