@@ -18,6 +18,8 @@ wireshark
 
 ### Ransomware type detection
 
+Use `firefox` to access the various websites below
+
 #### via ID Ransomware website
 
 https://id-ransomware.malwarehunterteam.com/
