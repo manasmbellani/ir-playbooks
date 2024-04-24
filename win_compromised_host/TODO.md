@@ -5,6 +5,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis add detection techniques from Jai Minton's cheatsheet https://www.jaiminton.com/cheatsheet/DFIR/#
 - Analysis detect various techniques from red team notes - https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/shadow-credentials
 - Analysis Detect SCCM site abuse
 - Analysis Detect cred theft via LSASS
