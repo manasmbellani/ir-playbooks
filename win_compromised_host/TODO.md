@@ -5,6 +5,11 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis Detect Remote Logins via Windows Event Logs' 4624 (type 3 / type 10)
+- Analysis Detect ROP Binary Attacks via Windows Defender Logs' `Microsoft-Windows-Security-Mitigations/UserMode` https://amr-git-dot.github.io/forensic%20investigation/EventLog_Analysis/#service-manipulation
+- Analysis Detect Brute-force attacks via Windows Event Logs (4625)
+- Analysis Detect service manipulation via Sysmon Event ID by looking for sc.exe invocation
+- Analysis Detect office phishing via Sysmon Event ID 1 for child processes spawned from Word/Excel 
 - Analysis techniques from Microsoft IR guide https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf
 - Analysis add detection techniques from Jai Minton's cheatsheet https://www.jaiminton.com/cheatsheet/DFIR/#
 - Analysis detect various techniques from red team notes - https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/shadow-credentials
