@@ -10,7 +10,8 @@
 - Analysis detect various techniques from red team notes - https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/shadow-credentials
 - Analysis Detect SCCM site abuse
 - Analysis Detect cred theft from LSASS via process creation (sysmon/1), process requested handle (windows/4663,4656), process handle (sysmom/10), process read memory (EDR)
-- Analysis Detect NTDS Access 
+- Analysis Detect NTDS Access through lolbas via sysmon/1: https://lolbas-project.github.io/#ntds
+- Analysis Detect Detect lolbas usage vis sysmon/1: https://lolbas-project.github.io/
 - Analysis Detect DCSync Attack
 - Analysis Detect Golden, diamond, silver tickets
 - Analysis Detect ADCS Abuse
