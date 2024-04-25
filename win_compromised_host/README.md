@@ -108,6 +108,20 @@ python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem banne
 deactivate
 ```
 
+#### Get supported volatility profiles
+
+##### via volatility2 / info
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --info
+deactivate
+```
+
+##### via volatility2 website
+
+See https://github.com/volatilityfoundation/volatility/wiki/2.6-Win-Profiles
+
 #### Process Tree / Process Listing
 
 ##### via volatility3 / pslist
