@@ -141,6 +141,18 @@ python3 /opt/volatility3/vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw win
 deactivate
 ```
 
+##### via volatility2 / psxview
+
+Can also help detect hidden processes
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/randev/RanDev.vmem psxview
+deactivate
+```
+
+More info: https://www.oreilly.com/library/view/digital-forensics-and/9781787288683/4732c6ac-0f3c-44b9-bce8-949352ed3755.xhtml
+
 ##### via volatility3 / pstree
 
 We are also able to see the process from live `.raw` RAM as a tree like structure using `volatility3`:
