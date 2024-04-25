@@ -9,8 +9,8 @@
 - Analysis add detection techniques from Jai Minton's cheatsheet https://www.jaiminton.com/cheatsheet/DFIR/#
 - Analysis detect various techniques from red team notes - https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/shadow-credentials
 - Analysis Detect SCCM site abuse
-- Analysis Detect cred theft via LSASS
-- Analysis Detect NTDS Access
+- Analysis Detect cred theft from LSASS via process creation (sysmon/1), process requested handle (windows/4663,4656), process handle (sysmom/10), process read memory (EDR)
+- Analysis Detect NTDS Access 
 - Analysis Detect DCSync Attack
 - Analysis Detect Golden, diamond, silver tickets
 - Analysis Detect ADCS Abuse
