@@ -100,6 +100,14 @@ python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem ima
 deactivate
 ```
 
+##### via volatility2 / kdbgscan
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem kdbgscan
+deactivate
+```
+
 ##### via volatility3 / banners.Banners
 
 ```
