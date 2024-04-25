@@ -233,6 +233,10 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/TEST-WIN-INSTAN
 deactivate
 ```
 
+##### via volatility2 / psxview
+
+See [here](#via-volatility2--psxview)
+
 #### Extract Files from image
 
 ##### via volatility3 / dumpfiles
