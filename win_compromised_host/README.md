@@ -256,6 +256,25 @@ python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dum
 deactivate
 ```
 
+#### Dump processes
+
+##### via volatility3 / dumpfiles
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem windows.dumpfiles.DumpFiles --pid 8883
+deactivate
+```
+
+##### via volatility2 / procdump
+
+```
+source /opt/volatility2/venv/bin/activate
+mkdir ./dumpfiles
+python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem procdump --pid 8883 --dump-dir=$(pwd)/dumpfiles
+deactivate
+```
+
 ### Offline / Disk Analysis
 
 In this section, we discuss a number of ways that information can be gathered from 
