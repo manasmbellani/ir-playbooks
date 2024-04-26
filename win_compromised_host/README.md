@@ -271,7 +271,7 @@ deactivate
 ```
 source /opt/volatility2/venv/bin/activate
 mkdir ./dumpfiles
-python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem procdump --pid 8883 --dump-dir=$(pwd)/dumpfiles
+python2.7 /opt/volatility2/vol.py --profile=Win7SP1x86_23418 -f ~/vulnhub/letsdefend/randev/RanDev.vmem procdump --pid 8883 --dump-dir=$(pwd)/dumpfiles
 deactivate
 ```
 
