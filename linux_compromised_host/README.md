@@ -185,6 +185,8 @@ istat /tmp/sdb1.raw $INODE_NUMBER
 ```
 
 #### Scan for malware from disk
+
+##### via fraken
 We can scan for any malware on the system as well using Neo23x0's Yara signatures if the file is mounted e.g. on `/mnt/disk` via the steps above via `fraken`:
 ```
 docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
@@ -232,6 +234,8 @@ deactivate
 
 #### Check auditd logs, rules
 
+##### via auditd logs
+
 Check if `auditd` is enabled and the logs are being logged in `auditd`:
 
 ```
@@ -243,6 +247,8 @@ Check if `auditd` is enabled and the logs are being logged in `auditd`:
 
 #### Check cron scheduled tasks
 
+##### via cron logs
+
 Check cron scheduled tasks:
 
 ```
@@ -252,10 +258,28 @@ Check cron scheduled tasks:
 
 #### Check linux authentication attempts
 
+##### via auth.log
+
 Check authentication attempts via `auth.log`:
 
 ```
 /var/log/auth.log
+```
+
+#### Check Splunk UI Authentication Attempts
+
+Assuming Splunk is running on the system, then login attempts to Splunk UI can be determined
+
+##### via Splunk auth logs
+
+```
+/opt/splunk/var/log/splunk/audit.log
+```
+
+##### via Splunk _audit index Search
+
+```
+index=_audit sourcetype=audittrail user=* action=log*
 ```
 
 #### Build a wordlist for Extracting password encrypted files
