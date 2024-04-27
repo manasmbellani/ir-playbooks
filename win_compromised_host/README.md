@@ -486,6 +486,12 @@ Following registries are present in `C:\Users\$USERNAME`:
 Following registries are present in `C:\Users\$USERNAME\AppData\Local\Microsoft\Windows`:
 - UsrClass.dat
 
+#### Get Device timezone
+
+##### via Registry / System
+
+See `System/CurrentControlSet/Control/TimeZoneInformation`
+
 #### Build a wordlist for Extracting password encrypted files
 
 ##### via bulk_extractor
