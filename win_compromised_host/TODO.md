@@ -19,7 +19,9 @@
 - Analysis Detect NTDS Access through lolbas via sysmon/1: https://lolbas-project.github.io/#ntds
 - Analysis Detect Detect lolbas usage vis sysmon/1: https://lolbas-project.github.io/
 - Analysis Detect DCSync Attack
-- Analysis Detect Golden, diamond, silver tickets
+- Analysis Detect Golden Ticket via Windows Event Logs - 4769 (TGS ticket) without 4768 (TGT requested), elevated perms detection via 4627 (Group membership), klist validation via Rebeus
+- Analysis Detect Diamond tickets via windows event logs with unusual lifespan such as Kerberos ticket  10 years?
+- Analysis detect silver tickets
 - Analysis Detect ADCS Abuse
 - Analysis Parse NTDS.dit file via ntdsdissector - https://github.com/synacktiv/ntdissector
 - Analysis Extract browser passwords from external path https://www.nirsoft.net/utils/chromepass.html
