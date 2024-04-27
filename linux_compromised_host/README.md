@@ -153,19 +153,9 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
-### Live Analysis
+### Look for Message of the Day (MOTD) Persistence
 
-#### List process Tree
-
-##### via ps
-
-```
-ps -auxwf
-```
-
-#### Look for Message of the Day (MOTD) Persistence
-
-##### via ps / Parent Process ID 1
+#### via ps / Parent Process ID 1
 
 Since scripts in `update-motd.d` have to end for SSH shell to start, then any long running processes that from running a malicious script in `/etc/update-motd.d` would have a parent PID of 1 (default when a process's parent ends)
 
@@ -179,9 +169,10 @@ ps -auxwf
 
 Taken from [here](https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd)
 
-### Offline Analysis
+### Show Disk Details
 
-#### Show Disk Details
+#### via fsstat / dumpe2fs
+
 Analyse the mounted disk including the type of attached filesystem via `fsstat` or `dumpe2fs` for (ext2/3/4 volumes): 
 
 ```
@@ -192,7 +183,10 @@ fsstat /dev/sdb1
 dumpe2fs /tmp/sdb1.raw
 ```
 
-#### Identify and Recover Deleted files from disk
+### Identify and Recover Deleted files from disk
+
+#### via fls / icat
+
 For extracting deleted files, we list files using `fls` and use `icat` to extract the files and refer to link [here](https://wiki.sleuthkit.org/index.php?title=Fls) for more info on output file types:
 ```
 fls /tmp/sdb1.raw
@@ -210,23 +204,24 @@ We can get more details about the file as well using`$INODE_NUMBER` with `istat`
 istat /tmp/sdb1.raw $INODE_NUMBER
 ```
 
-#### Scan for malware from disk
+### Scan for malware from disk
 
-##### via fraken
+#### via fraken
+
 We can scan for any malware on the system as well using Neo23x0's Yara signatures if the file is mounted e.g. on `/mnt/disk` via the steps above via `fraken`:
 ```
 docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
 ```
 
-#### List process Tree
+### List process Tree
 
-##### via ps
+#### via ps
 
 ```
 ps -auxwf
 ```
 
-##### via volatility3 / pstree
+#### via volatility3 / pstree
 
 ```
 cd /opt/volatility3
@@ -235,7 +230,9 @@ python3 vol.py -f /root/forensics-instance.lime linux.pstree.PsTree
 deactivate
 ```
 
-#### List running processes from memory
+### List running processes from memory
+
+#### via volatility3 / pslist
 
 List running processes `ps` using `volatility3`'s `pslist` command:
 ```
@@ -245,6 +242,8 @@ python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
 deactivate
 ```
 
+#### via volatility3 / psaux
+
 Alternatively, we can also use `volatility3`'s `psaux` command:
 ```
 cd /opt/volatility3
@@ -253,7 +252,9 @@ python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
 deactivate
 ```
 
-#### List commands executed from memory
+### List commands executed from memory
+
+#### via volatility3 / bash
 
 List bash commands run using `volatility3`'s `bash.Bash` command:
 ```
@@ -263,7 +264,9 @@ python3 vol.py -f /root/forensics-instance.lime linux.bash.Bash
 deactivate
 ```
 
-#### List running network ports/services from memory
+### List running network ports/services from memory
+
+#### via volatility3 / sockscan
 
 List bash commands run using `volatility3`'s `sockscan.Sockscan` command:
 ```
@@ -273,11 +276,9 @@ python3 vol.py -f /root/forensics-instance.lime linux.sockstat.Sockstat
 deactivate
 ```
 
-### Disk Analysis
+### Check auditd logs, rules
 
-#### Check auditd logs, rules
-
-##### via auditd logs
+#### via auditd logs
 
 Check if `auditd` is enabled and the logs are being logged in `auditd`:
 
@@ -288,9 +289,9 @@ Check if `auditd` is enabled and the logs are being logged in `auditd`:
 /etc/audit/audit.rules
 ```
 
-#### Check cron scheduled tasks
+### Check cron scheduled tasks
 
-##### via cron logs
+#### via cron logs
 
 Check cron scheduled tasks:
 
@@ -299,9 +300,9 @@ Check cron scheduled tasks:
 ```
 
 
-#### Check linux authentication attempts
+### Check linux authentication attempts
 
-##### via auth.log
+#### via auth.log
 
 Check authentication attempts via `auth.log`:
 
@@ -309,25 +310,25 @@ Check authentication attempts via `auth.log`:
 /var/log/auth.log
 ```
 
-#### Check Splunk UI Authentication Attempts
+### Check Splunk UI Authentication Attempts
 
 Assuming Splunk is running on the system, then login attempts to Splunk UI can be determined
 
-##### via Splunk auth logs
+#### via Splunk auth logs
 
 ```
 /opt/splunk/var/log/splunk/audit.log
 ```
 
-##### via Splunk _audit index Search
+#### via Splunk _audit index Search
 
 ```
 index=_audit sourcetype=audittrail user=* action=log*
 ```
 
-#### Look for Message of the Day (MOTD) Scripts
+### Look for Message of the Day (MOTD) Scripts
 
-##### via /etc/update-motd.d/ file
+#### via /etc/update-motd.d/ file
 
 Scripts listed in these files executed as root on boot time and can be used for persistence
 
@@ -345,9 +346,9 @@ Typical file names:
 
 https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd
 
-#### Build a wordlist for Extracting password encrypted files
+### Build a wordlist for Extracting password encrypted files
 
-##### via bulk_extractor
+#### via bulk_extractor
 
 See [here](https://github.com/manasmbellani/ir-playbooks/blob/master/win_compromised_host/README.md#build-a-wordlist-for-extracting-password-encrypted-files) for more info.
 
