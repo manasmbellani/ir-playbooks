@@ -153,22 +153,6 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
-### Look for Message of the Day (MOTD) Persistence
-
-#### via ps / Parent Process ID 1
-
-Since scripts in `update-motd.d` have to end for SSH shell to start, then any long running processes that from running a malicious script in `/etc/update-motd.d` would have a parent PID of 1 (default when a process's parent ends)
-
-```
-# Check where parent process ID is 1
-ps -efj
-
-# Alternatively, for a process tree
-ps -auxwf
-```
-
-Taken from [here](https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd)
-
 ### Show Disk Details
 
 #### via fsstat / dumpe2fs
@@ -325,6 +309,22 @@ Assuming Splunk is running on the system, then login attempts to Splunk UI can b
 ```
 index=_audit sourcetype=audittrail user=* action=log*
 ```
+
+### Look for Message of the Day (MOTD) Persistence
+
+#### via ps / Parent Process ID 1
+
+Since scripts in `update-motd.d` have to end for SSH shell to start, then any long running processes that from running a malicious script in `/etc/update-motd.d` would have a parent PID of 1 (default when a process's parent ends)
+
+```
+# Check where parent process ID is 1
+ps -efj
+
+# Alternatively, for a process tree
+ps -auxwf
+```
+
+Taken from [here](https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd)
 
 ### Look for Message of the Day (MOTD) Scripts
 
