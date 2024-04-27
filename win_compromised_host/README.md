@@ -470,6 +470,22 @@ Parse the USN Journal for CSV output:
 .\UsnJrnl2Csv64.exe /UsnJrnlFile:C:\Windows\Temp\UsnJrnl_$J.bin
 ```
 
+#### Windows Registry Paths
+
+Following registries present in `C:\Windows\System32\config`:
+- SAM
+- SYSTEM
+- SECURITY
+- SOFTWARE
+- DEFAULT
+- COMPONENTS
+
+Following registries are present in `C:\Users\$USERNAME`:
+- NTUSER.DAT
+
+Following registries are present in `C:\Users\$USERNAME\AppData\Local\Microsoft\Windows`:
+- UsrClass.dat
+
 #### Build a wordlist for Extracting password encrypted files
 
 ##### via bulk_extractor
