@@ -192,6 +192,23 @@ We can scan for any malware on the system as well using Neo23x0's Yara signature
 docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
 ```
 
+#### List process Tree
+
+##### via ps
+
+```
+ps -auxwf
+```
+
+##### via volatility3 / pstree
+
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.pstree.PsTree
+deactivate
+```
+
 #### List running processes from memory
 
 List running processes `ps` using `volatility3`'s `pslist` command:
@@ -281,6 +298,42 @@ Assuming Splunk is running on the system, then login attempts to Splunk UI can b
 ```
 index=_audit sourcetype=audittrail user=* action=log*
 ```
+
+#### Look for Message of the Day (MOTD) Scripts
+
+##### via /etc/update-motd.d/ file
+
+Scripts listed in these files executed as root on boot time and can be used for persistence
+
+```
+ls -l /etc/update-motd.d/
+```
+
+Typical file names:
+```
+00-header
+91-release-upgrade
+90-updates-available
+98-reboot-required
+```
+
+https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd
+
+#### Look for Message of the Day (MOTD) Persistence
+
+##### via ps / Parent Process ID 1
+
+Since scripts in `update-motd.d` have to end for SSH shell to start, then any long running processes that from running a malicious script in `/etc/update-motd.d` would have a parent PID of 1 (default when a process's parent ends)
+
+```
+# Check where parent process ID is 1
+ps -efj
+
+# Alternatively, for a process tree
+ps -auxwf
+```
+
+Taken from [here](https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd)
 
 #### Build a wordlist for Extracting password encrypted files
 
