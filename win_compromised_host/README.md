@@ -177,13 +177,96 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/
 deactivate
 ```
 
+#### Network Connections / Sockets
+
+##### via volatility2 / netscan
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem netscan
+deactivate
+```
+
+##### via volatility2 / netstat
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem netstat
+deactivate
+```
+
+
+##### via volatility3 / netscan
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.netscan
+deactivate
+```
+
+##### via volatility3 / netstat
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.netstat
+deactivate
+```
+
+##### via volatility2 / connscan
+
+Windows XP/2003 specific
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem connscan
+deactivate
+```
+
+##### via volatility2 / sockscan
+
+Windows XP/2003 specific
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem sockscan
+deactivate
+```
+
+##### via volatility2 / sockets
+
+Windows XP/2003 specific
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem sockets
+deactivate
+```
+
+##### via volatility2 / connections
+
+Windows XP/2003 specific
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem connections
+deactivate
+```
+
 #### Command Lines
 
 ##### via volatility2 / cmdscan
 
 ```
 source /opt/volatility2/venv/bin/activate
-python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/randev/RanDev.vmem cmdscan
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/RanDev.vmem cmdscan
+deactivate
+```
+
+##### via volatility2 / cmdline
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/RanDev.vmem cmdline
 deactivate
 ```
 
@@ -191,7 +274,7 @@ deactivate
 
 ```
 source /opt/volatility2/venv/bin/activate
-python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/randev/RanDev.vmem consoles
+python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/RanDev.vmem consoles
 deactivate
 ```
 
@@ -199,7 +282,7 @@ deactivate
 
 ```
 source /opt/volatility3/venv/bin/activate
-python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem windows.cmdline.CmdLine
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.cmdline.CmdLine
 deactivate
 ```
 
