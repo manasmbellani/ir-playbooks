@@ -486,6 +486,20 @@ Following registries are present in `C:\Users\$USERNAME`:
 Following registries are present in `C:\Users\$USERNAME\AppData\Local\Microsoft\Windows`:
 - UsrClass.dat
 
+#### Export Registry to file
+
+##### via RegRipper
+
+Saves registry as .txt file
+
+#### Extract Deleted Registry Keys
+
+##### via RegExplorer
+
+Ensure that Options > Recover Deleted keys/values is selected
+
+The deleted keys/values then appaar in the left-hand navigation pane as unassociated records
+
 #### Get Device timezone
 
 ##### via Registry / System
