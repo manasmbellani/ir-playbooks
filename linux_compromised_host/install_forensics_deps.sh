@@ -6,13 +6,16 @@ sudo apt-get -y install \
   net-tools \
   python3 \
   python3-pip \
+  python2-dev \
   git \
   docker \
   wget \
   golang \
   python-setuptools \
   build-essential \
-  unzip
+  unzip \
+  curl \
+  yara
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
@@ -38,6 +41,10 @@ git clone https://github.com/volatilityfoundation/volatility.git /opt/volatility
 cd /opt/volatility2
 python3 -m virtualenv venv
 source venv/bin/activate
+curl -s https://bootstrap.pypa.io/pip/2.7/get-pip.py -o /tmp/get-pip.py
+python2.7 /tmp/get-pip.py
+rm /tmp/get-pip.py
+python2.7 -m pip install distorm3 pycrypto openpyxl Pillow
 python2.7 setup.py install
 deactivate
 
