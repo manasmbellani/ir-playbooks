@@ -34,7 +34,7 @@ can identify the ransomware type just by searching parts of README message on Go
 
 can identify the ransomware type just by searching parts of README message on Github
 
-### Determine Ransomware site links
+### Determine Ransomware site links / victims
 
 #### via ransom watch
 
@@ -53,6 +53,14 @@ https://darkfeed.io/ransomwiki/
 https://twitter.com/ransomwatcher
   
 taken from: https://brandefense.io/top-ransomware-groups-and-monitoring-techniques/
+
+#### via telegram / ransomwatch
+
+https://t.me/ransomwatcher
+
+#### via ransom.wiki
+
+https://ransom.wiki
 
 ### Monitoring Ransomware sites / actors
 
