@@ -34,8 +34,8 @@ git clone https://github.com/Neo23x0/signature-base.git /opt/signature-base && \
 
 echo "[*] Install volatility2..."
 apt-get -y install python2.7
-git clone https://github.com/volatilityfoundation/volatility.git /opt/volatility
-cd /opt/volatility
+git clone https://github.com/volatilityfoundation/volatility.git /opt/volatility2
+cd /opt/volatility2
 python3 -m virtualenv venv
 source venv/bin/activate
 python2.7 setup.py install
