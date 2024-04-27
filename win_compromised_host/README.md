@@ -252,7 +252,7 @@ deactivate
 ```
 # Use address from filescan to extract the address
 source /opt/volatility2/venv/bin/activate
-python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dumpfiles --profile=Win7SP1x86_23418 -Q 0x000000003f4bca20 -D ./dumpfiles -u
+python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dumpfiles --profile=Win10x64_19041 -Q 0x000000003f4bca20 -D ./dumpfiles -u
 deactivate
 ```
 
@@ -260,6 +260,7 @@ deactivate
 
 ##### via volatility3 / dumpfiles
 
+Command also dumps DLLs for a process
 ```
 source /opt/volatility3/venv/bin/activate
 python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem windows.dumpfiles.DumpFiles --pid 8883
@@ -271,7 +272,70 @@ deactivate
 ```
 source /opt/volatility2/venv/bin/activate
 mkdir ./dumpfiles
-python2.7 /opt/volatility2/vol.py --profile=Win7SP1x86_23418 -f ~/vulnhub/letsdefend/randev/RanDev.vmem procdump --pid 8883 --dump-dir=$(pwd)/dumpfiles
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem procdump --pid 7916 --dump-dir=$(pwd)/dumpfiles
+deactivate
+```
+
+##### via volatility3 / pslist
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.pslist.PsList --dump --pid 7916
+deactivate
+```
+
+#### Get the DLLs for a process
+
+##### via volatility2 / dlllist
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem dllist -p 7916
+deactivate
+```
+
+##### via volatility3 / dlllist
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.dlllist.DllList --pid 7916
+deactivate
+```
+
+#### Get File Handles opened by process
+
+##### via volatility2 / handles
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem handles --pid 7916
+deactivate
+```
+
+##### via volatility3 / handles
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.handles.Handles --pid 7916
+deactivate
+```
+
+#### Dump process memory
+
+##### via volatility2 / memdump
+
+```
+source /opt/volatility2/venv/bin/activate
+mkdir ./dumpfiles
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem memdump --pid 7916 --dump-dir=$(pwd)/dumpfiles
+deactivate
+```
+
+##### via volatility3 / memmap
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.memmap.Memmap --dump --pid 7916
 deactivate
 ```
 
