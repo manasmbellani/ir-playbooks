@@ -1,6 +1,8 @@
 # Azure - Compromised Account 
 
 ## TODO
+- Containment Review Microsoft IR Playbooks
+- Containment Review forwarding rules
 - Analysis Check all user logins in Azure
 - Analysis Microsoft-Extractor-Suite
 - Analysis EnrichedAuditLogs with source IPs, and lower latency for sharepoint logs  https://www.invictus-ir.com/news/the-mystery-of-the-enrichedoffice365auditlogs-solved
