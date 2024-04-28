@@ -537,6 +537,66 @@ dir /b /s C:\Windows\System32 | findstr /I "\.log"
 dir /b /s C:\Windows\System32 | findstr /I "\.txt" | findstr /I log
 ```
 
+
+### List Windows Registry Keys
+
+
+#### via volatility2 / hivelist
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem hivelist
+deactivate
+```
+
+#### via volatility3 / hivelist
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.registry.hivelist.HiveList
+deactivate
+```
+
+### Print specific registry key
+
+#### via volatility3 / printkey
+
+```
+# Use offset from hive list to dump correct registry
+source /opt/volatility3/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem printkey -K "Software\Microsoft\Windows\CurrentVersion" -o 0xffffb50579465000 
+deactivate
+```
+
+#### via volatility3 / printkey
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem printkey -o 0xb50579ead000 -k 
+deactivate
+```
+
+### dump Windows Registry Keys
+
+#### via volatility2 / hivedump
+
+```
+# Read the registry using the virtual address from hivelist
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem hivedump -o 0xffffb50579ead000
+deactivate
+```
+
+#### via volatility3 / hivelist
+
+Filter using the output from `hivelist` command [here]([#via-volatility3--hivelist))
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.registry.hivelist.HiveList --filter "Work\ntuser.dat" --dump
+deactivate
+```
+
 ### WMI Event Consumers Analysis
 
 #### via wmi-parser / chainsaw
