@@ -341,11 +341,27 @@ See [here](#via-volatility3--windowsinfoinfo)
 
 ### Detect code injections / malware / hidden DLLs running in processes
 
-#### via volatility2 / malfind
+#### via volatility3 / malfind
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.malfind
+deactivate
+```
+
+#### via volatility2 / yarascan
 
 ```
 source /opt/volatility2/venv/bin/activate
-python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/TEST-WIN-INSTAN-20240315-062005.raw malfind
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem yarascan -y $YARA_RULE_FILE
+deactivate
+```
+
+#### via volatility3 / yarascan
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem yarascan.YaraScan --yara-file $YARA_RULE_FILE
 deactivate
 ```
 
