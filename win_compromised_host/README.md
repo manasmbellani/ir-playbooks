@@ -421,6 +421,12 @@ deactivate
 
 Look for any applications running as servers and that could be exploited
 
+#### via wmic
+
+```
+wmic product get name, version
+```
+
 #### via Program Folders
 
 Possible Locations:
@@ -442,6 +448,16 @@ Get-WmiObject -Class Win32_Product
 
 Common location for logs:
 - Minecraft: `C:\Users\LetsDefend\Desktop\Minecraft Server 1.12.2\logs`
+
+#### via dir / C: / System32 logs
+
+```
+# Look for .log file extension
+dir /b /s C:\Windows\System32 | findstr /I "\.log"
+
+# Look for .txt files which could be logs
+dir /b /s C:\Windows\System32 | findstr /I "\.txt" | findstr /I log
+```
 
 ### WMI Event Consumers Analysis
 
