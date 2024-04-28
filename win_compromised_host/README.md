@@ -535,6 +535,27 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.memmap.Memmap --dum
 deactivate
 ```
 
+### Look for Recently Executed Applications
+
+#### via volatility2 / userassist
+
+Detects GUI Programs run on the System
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem userassist
+deactivate
+```
+
+#### via volatility3 / userassist
+
+Detects GUI Programs run on the System
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.registry.userassist.UserAssist
+deactivate
+```
+
 ### Check for installed applications 
 
 Look for any applications running as servers and that could be exploited
