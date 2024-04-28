@@ -23,7 +23,7 @@
 - Analysis Detect Golden Ticket via Windows Event Logs - 4769 (TGS ticket) without 4768 (TGT requested), elevated perms detection via 4627 (Group membership), klist validation via Rebeus
 - Analysis Detect Diamond tickets via windows event logs with unusual lifespan such as Kerberos ticket  10 years?
 - Analysis detect silver tickets
-- Analysis Detect ADCS Abuse
+- Analysis Detect ADCS theft Abuse via windows event logs for key operation access (security/5058, security/5061), key operation export (security/5059), cert backup (security/4876, security/4877), object access (security/4663 if sacl enabled)
 - Analysis Parse NTDS.dit file via ntdsdissector - https://github.com/synacktiv/ntdissector
 - Analysis Extract browser passwords from external path https://www.nirsoft.net/utils/chromepass.html
 - Analysis Detect Windows File share events `eventid:5140` via chainsaw
