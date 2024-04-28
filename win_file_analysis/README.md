@@ -36,6 +36,12 @@ can identify the ransomware type just by searching parts of README message on Gi
 
 ### Determine Ransomware site links / victims
 
+#### via ransomware.live
+
+Provides a screenshot of the Ransomware sites
+
+https://ransomware.live
+
 #### via ransom watch
 
 Provides links to ransomware links and posts
@@ -61,6 +67,12 @@ https://t.me/ransomwatcher
 #### via ransom.wiki
 
 https://ransom.wiki
+
+### Screenshot of Live Ransomware website
+
+#### via Ransomware live
+
+See here
 
 ### Monitoring Ransomware sites / actors
 
