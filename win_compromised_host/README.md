@@ -464,6 +464,18 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.handles.Handles --p
 deactivate
 ```
 
+### Build a timeline
+
+#### via volatility3 / timeliner.Timeliner
+
+Runs all volatility3 modules to ensure that timeline is built
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem timeliner.Timeliner
+deactivate
+```
+
 ### Dump process memory
 
 #### via volatility2 / memdump
