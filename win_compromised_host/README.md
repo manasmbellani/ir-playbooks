@@ -340,6 +340,28 @@ python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dum
 deactivate
 ```
 
+### List kernel modules
+
+#### via volatility3 / windows.modules
+
+Command also dumps kernel modules for a process
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.modules.Modules
+deactivate
+```
+
+#### via volatility3 / windows.modscan
+
+Command also dumps kernel modules for a process
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.modscan
+deactivate
+```
+
 ### Dump processes
 
 #### via volatility3 / dumpfiles
