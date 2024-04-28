@@ -256,6 +256,16 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
+### Listing files
+
+#### via volatility3 / filescan
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.filescan.FileScan
+deactivate
+```
+
 ### Command Lines
 
 #### via volatility2 / cmdscan
