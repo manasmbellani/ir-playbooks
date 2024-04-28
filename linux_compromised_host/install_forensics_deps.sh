@@ -53,6 +53,7 @@ git clone https://github.com/volatilityfoundation/volatility3 /opt/volatility3
 cd /opt/volatility3
 python3 -m virtualenv venv
 source venv/bin/activate
+python3 -m pip install -r requirements.txt
 python3 -m pip install capstone
 python3 setup.py install 
 deactivate
