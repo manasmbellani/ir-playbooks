@@ -72,19 +72,15 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
-#### WMI Event Consumers Analysis
+### WMI Event Consumers Analysis
 
 To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
 
 Alternatively, SysInternals `AutoRuns` can be used to detect WMI consumers, filters from the WMI tab and also delete them.
 
-### Offline / Memory Analysis
+### Operating System Information / Banners
 
-In this section, we process the live `.raw` memory image file collected via tools such as `DumpIt` or `Belkasoft RAM Capturer` through tools like `volatility3`
-
-#### Operating System Information / Banners
-
-##### via volatility3 / windows.info.Info
+#### via volatility3 / windows.info.Info
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -92,7 +88,7 @@ python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem windo
 deactivate
 ```
 
-##### via volatility2 / imageinfo
+#### via volatility2 / imageinfo
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -100,7 +96,7 @@ python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem ima
 deactivate
 ```
 
-##### via volatility2 / kdbgscan
+#### via volatility2 / kdbgscan
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -108,7 +104,7 @@ python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem kdb
 deactivate
 ```
 
-##### via volatility3 / banners.Banners
+#### via volatility3 / banners.Banners
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -116,9 +112,9 @@ python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem banne
 deactivate
 ```
 
-#### Get supported volatility profiles
+### Get supported volatility profiles
 
-##### via volatility2 / info
+#### via volatility2 / info
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -126,13 +122,13 @@ python2.7 /opt/volatility2/vol.py --info
 deactivate
 ```
 
-##### via volatility2 website
+#### via volatility2 website
 
 See https://github.com/volatilityfoundation/volatility/wiki/2.6-Win-Profiles
 
-#### Process Tree / Process Listing
+### Process Tree / Process Listing
 
-##### via volatility3 / pslist
+#### via volatility3 / pslist
 
 We are able to review the live `.raw` RAM collected via any of the live collection methods using volatility3 with commands as follows via `volatility3` to list current processes:
 ```
@@ -141,7 +137,7 @@ python3 /opt/volatility3/vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw win
 deactivate
 ```
 
-##### via volatility2 / psxview
+#### via volatility2 / psxview
 
 Can also help detect hidden processes
 
@@ -153,7 +149,7 @@ deactivate
 
 More info: https://www.oreilly.com/library/view/digital-forensics-and/9781787288683/4732c6ac-0f3c-44b9-bce8-949352ed3755.xhtml
 
-##### via volatility3 / pstree
+#### via volatility3 / pstree
 
 We are also able to see the process from live `.raw` RAM as a tree like structure using `volatility3`:
 ```
@@ -165,11 +161,11 @@ deactivate
 ...
 ```
 
-#### Get Directory Table Base (DTB) for a process
+### Get Directory Table Base (DTB) for a process
 
 See [here](#get-directory-table-base-dtb-for-a-kernel) for info on what DTB is
 
-##### via volatility2 / volshell
+#### via volatility2 / volshell
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -177,9 +173,9 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/
 deactivate
 ```
 
-#### Network Connections / Sockets
+### Network Connections / Sockets
 
-##### via volatility2 / netscan
+#### via volatility2 / netscan
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -187,7 +183,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility2 / netstat
+#### via volatility2 / netstat
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -195,8 +191,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-
-##### via volatility3 / netscan
+#### via volatility3 / netscan
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -204,7 +199,7 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.netscan
 deactivate
 ```
 
-##### via volatility3 / netstat
+#### via volatility3 / netstat
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -212,7 +207,7 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.netstat
 deactivate
 ```
 
-##### via volatility2 / connscan
+#### via volatility2 / connscan
 
 Windows XP/2003 specific
 
@@ -222,7 +217,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility2 / sockscan
+#### via volatility2 / sockscan
 
 Windows XP/2003 specific
 
@@ -232,7 +227,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility2 / sockets
+#### via volatility2 / sockets
 
 Windows XP/2003 specific
 
@@ -242,7 +237,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility2 / connections
+#### via volatility2 / connections
 
 Windows XP/2003 specific
 
@@ -252,9 +247,9 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-#### Command Lines
+### Command Lines
 
-##### via volatility2 / cmdscan
+#### via volatility2 / cmdscan
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -262,7 +257,7 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/RanDev.vmem cmd
 deactivate
 ```
 
-##### via volatility2 / cmdline
+#### via volatility2 / cmdline
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -270,7 +265,7 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/RanDev.vmem cmd
 deactivate
 ```
 
-##### via volatility2 / consoles
+#### via volatility2 / consoles
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -278,7 +273,7 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/RanDev.vmem con
 deactivate
 ```
 
-##### via volatility3 / cmdline
+#### via volatility3 / cmdline
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -286,11 +281,11 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.cmdline.CmdLine
 deactivate
 ```
 
-#### Get Directory Table Base (DTB) for a kernel
+### Get Directory Table Base (DTB) for a kernel
 
 DTB converts the physical address to virtual addresses
 
-##### via volatility2 / kpcrscan
+#### via volatility2 / kpcrscan
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -298,17 +293,17 @@ python3 /opt/volatility3/vol.py -f /root/TEST-WIN-INSTAN-20240315-062005.raw kpc
 deactivate
 ```
 
-##### via volatility2 / imageinfo
+#### via volatility2 / imageinfo
 
 See [here](#via-volatility2--imageinfo)
 
-##### via volatility3 / windows.info.Info
+#### via volatility3 / windows.info.Info
 
 See [here](#via-volatility3--windowsinfoinfo)
 
-#### Detect code injections / malware / hidden DLLs running in processes
+### Detect code injections / malware / hidden DLLs running in processes
 
-##### via volatility2 / malfind
+#### via volatility2 / malfind
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -316,13 +311,13 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f /root/TEST-WIN-INSTAN
 deactivate
 ```
 
-##### via volatility2 / psxview
+#### via volatility2 / psxview
 
 See [here](#via-volatility2--psxview)
 
-#### Extract Files from image
+### Extract Files from image
 
-##### via volatility3 / dumpfiles
+#### via volatility3 / dumpfiles
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -330,7 +325,7 @@ python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dumpf
 deactivate
 ```
 
-##### via volatility2 / dumpfiles
+#### via volatility2 / dumpfiles
 
 ```
 # Use address from filescan to extract the address
@@ -339,9 +334,9 @@ python2.7 /opt/volatility2/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem dum
 deactivate
 ```
 
-#### Dump processes
+### Dump processes
 
-##### via volatility3 / dumpfiles
+#### via volatility3 / dumpfiles
 
 Command also dumps DLLs for a process
 ```
@@ -350,7 +345,7 @@ python3 /opt/volatility3/vol.py -f ~/vulnhub/letsdefend/randev/RanDev.vmem windo
 deactivate
 ```
 
-##### via volatility2 / procdump
+#### via volatility2 / procdump
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -359,7 +354,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility3 / pslist
+#### via volatility3 / pslist
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -367,9 +362,9 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.pslist.PsList --dum
 deactivate
 ```
 
-#### Get the DLLs for a process
+### Get the DLLs for a process
 
-##### via volatility2 / dlllist
+#### via volatility2 / dlllist
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -377,7 +372,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility3 / dlllist
+#### via volatility3 / dlllist
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -385,9 +380,9 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.dlllist.DllList --p
 deactivate
 ```
 
-#### Get File Handles opened by process
+### Get File Handles opened by process
 
-##### via volatility2 / handles
+#### via volatility2 / handles
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -395,7 +390,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility3 / handles
+#### via volatility3 / handles
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -403,9 +398,9 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.handles.Handles --p
 deactivate
 ```
 
-#### Dump process memory
+### Dump process memory
 
-##### via volatility2 / memdump
+#### via volatility2 / memdump
 
 ```
 source /opt/volatility2/venv/bin/activate
@@ -414,7 +409,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-##### via volatility3 / memmap
+#### via volatility3 / memmap
 
 ```
 source /opt/volatility3/venv/bin/activate
@@ -422,39 +417,35 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.memmap.Memmap --dum
 deactivate
 ```
 
-#### Check for installed applications 
+### Check for installed applications 
 
 Look for any applications running as servers and that could be exploited
 
-##### via Program Folders
+#### via Program Folders
 
 Possible Locations:
 - C:\Program Files
 - C:\Program Files (x86)
 - C:\Program data
 
-##### via powershell
+#### via powershell
 
 ```
 Get-WmiObject -Class Win32_Product
 ```
 
-#### Check various Installed Application Logs
+### Check various Installed Application Logs
 
 - Can provide indications of any exploits especially for running servers such as TightVNC, Mail servers, etc.
 
-##### via Program Files 
+#### via Program Files 
 
 Common location for logs:
 - Minecraft: `C:\Users\LetsDefend\Desktop\Minecraft Server 1.12.2\logs`
 
-### Offline / Disk Analysis
+### WMI Event Consumers Analysis
 
-In this section, we discuss a number of ways that information can be gathered from 
-
-#### WMI Event Consumers Analysis
-
-##### via wmi-parser / chainsaw
+#### via wmi-parser / chainsaw
 
 To detect [malicious event consumers](https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96), we can use `wmi-parser` to examine the current machine's WMI Event Consumers which could be both filtering and consuming WMI events (malicious indicators). The files are available in `C:\WINDOWS\system32\wbem\Repository\OBJECTS.DATA` OR `C:\WINDOWS\system32\wbem\Repository\FS\OBJECTS.DATA` folders.
 
@@ -471,9 +462,9 @@ If Sysmon is installed, then WMI Event Consumers will also appear in the sysmon 
 .\chainsaw.exe search -t 'Event.System.EventID: =21' -t 'Event.System.Channel: Microsoft-Windows-Sysmon/Operational' C:\Windows\System32\winevt\Logs
 ```
 
-#### Google Chrome Notifications
+### Google Chrome Notifications
 
-##### via strings
+#### via strings
 
 If Google Chrome is in use and Notifications are enabled for website, then historical notifications are usually available in the `%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Platform Notifications` as LevelDB Database. Extract the file and determine the clear-text notifications that a user may have received via `strings` or `xxd`. More info available [here](https://www.sans.org/blog/google-chrome-platform-notification-analysis/), [here](https://www.linkedin.com/pulse/investigating-abusive-push-notification-browsers-chrome-jimmy-remy/) and the structure of the LevelDB database is described [here](https://sansorg.egnyte.com/dl/QaoN3qdhig)
 
@@ -482,9 +473,9 @@ strings MANIFEST/*
 strings *.ldb
 ```
 
-#### Check created and deleted files 
+### Check created and deleted files 
 
-##### via Usn Journal ($J)
+#### via Usn Journal ($J)
 
 Extract the USN Journal which can contain useful information about created and deleted files as described [here](https://x.com/inversecos/status/1453588917337268233?s=20)
 ```
@@ -496,7 +487,7 @@ Parse the USN Journal for CSV output:
 .\UsnJrnl2Csv64.exe /UsnJrnlFile:C:\Windows\Temp\UsnJrnl_$J.bin
 ```
 
-#### Windows Registry Paths
+### Windows Registry Paths
 
 Following registries present in `C:\Windows\System32\config`:
 - SAM
@@ -512,29 +503,29 @@ Following registries are present in `C:\Users\$USERNAME`:
 Following registries are present in `C:\Users\$USERNAME\AppData\Local\Microsoft\Windows`:
 - UsrClass.dat
 
-#### Export Registry to file
+### Export Registry to file
 
-##### via RegRipper
+#### via RegRipper
 
 Saves registry as .txt file
 
-#### Extract Deleted Registry Keys
+### Extract Deleted Registry Keys
 
-##### via RegExplorer
+#### via RegExplorer
 
 Ensure that Options > Recover Deleted keys/values is selected
 
 The deleted keys/values then appaar in the left-hand navigation pane as unassociated records
 
-#### Get Device timezone
+### Get Device timezone
 
-##### via Registry / System
+#### via Registry / System
 
 See `System/CurrentControlSet/Control/TimeZoneInformation`
 
-#### Build a wordlist for Extracting password encrypted files
+### Build a wordlist for Extracting password encrypted files
 
-##### via bulk_extractor
+#### via bulk_extractor
 
 The command below will create a wordlist from disk data (can be offline images such as E01, .raw volatility images) which could be used for testing files that are encrypted
 ```
@@ -542,9 +533,9 @@ bulk_extractor -E wordlist -o /tmp/bulk_extractor $DISK_PATH
 ```
 The above command creates a `wordlist_dedup_1.txt` which can be used for brute-forcing. More info is available [here](https://www.raedts.biz/forensics/building-wordlists-forensic-images/).
 
-#### Detect time the system was turned on / off (timeline)
+### Detect time the system was turned on / off (timeline)
 
-##### via TurnedOnTimesView
+#### via TurnedOnTimesView
 
 Capture the `System.evtx` file from `C:\Windows\System32\winevt\Logs` from the disk and store it in a new folder. Launch Nirsoft's `TurnedOnTimesView` utility > Options > Advanced Options > Select `Data Source` as `External Disk` > Point to the folder where `System.evtx` is added.
 
