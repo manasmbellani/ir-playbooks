@@ -266,6 +266,25 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.filescan.FileScan
 deactivate
 ```
 
+
+#### via volatility3 / mftscan
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.mftscan.MFTScan
+deactivate
+```
+
+### Look for altnerate data stream (ADS) files
+
+#### via volatility3 / mftscan.ADS
+
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.mftscan.ADS
+deactivate
+```
+
 ### Command Lines
 
 #### via volatility2 / cmdscan
