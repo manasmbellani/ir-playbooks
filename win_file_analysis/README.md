@@ -72,7 +72,7 @@ https://ransom.wiki
 
 #### via Ransomware live
 
-See here
+See [here](#via-ransomwarelive)
 
 ### Monitoring Ransomware sites / actors
 
