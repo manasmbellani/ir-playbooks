@@ -66,7 +66,7 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 
 ## Analysis
 
-### Live Analysis
+This section covers a variety of techniques which can be used for both live and offline analysis.
 
 In case of live analysis, we have ability to connect a USB stick to the contained instance with tools running on the USB stick. 
 
@@ -421,6 +421,32 @@ source /opt/volatility3/venv/bin/activate
 python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.memmap.Memmap --dump --pid 7916
 deactivate
 ```
+
+#### Check for installed applications 
+
+Look for any applications running as servers and that could be exploited
+
+##### via Program Folders
+
+Possible Locations:
+- C:\Program Files
+- C:\Program Files (x86)
+- C:\Program data
+
+##### via powershell
+
+```
+Get-WmiObject -Class Win32_Product
+```
+
+#### Check various Installed Application Logs
+
+- Can provide indications of any exploits especially for running servers such as TightVNC, Mail servers, etc.
+
+##### via Program Files 
+
+Common location for logs:
+- Minecraft: `C:\Users\LetsDefend\Desktop\Minecraft Server 1.12.2\logs`
 
 ### Offline / Disk Analysis
 
