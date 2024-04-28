@@ -8,5 +8,6 @@ Typical steps in an Incident Response lifecycle:
 - Containment
 - Collection
 - Analysis/Forensics
+- Eradication
 - Recovery
 - Lessons Learnt
