@@ -266,12 +266,27 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.filescan.FileScan
 deactivate
 ```
 
-
 #### via volatility3 / mftscan
 
 ```
 source /opt/volatility3/venv/bin/activate
 python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.mftscan.MFTScan
+deactivate
+```
+
+#### via volatility2 / filescan
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem filescan
+deactivate
+```
+
+#### via volatility2 / mftparser
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem mftparser
 deactivate
 ```
 
@@ -415,6 +430,15 @@ source /opt/volatility3/venv/bin/activate
 python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.modscan
 deactivate
 ```
+
+#### via volatility2 / modscan
+
+```
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem modscan
+deactivate
+```
+
 
 ### Dump processes
 
