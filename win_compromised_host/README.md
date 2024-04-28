@@ -149,6 +149,15 @@ deactivate
 
 More info: https://www.oreilly.com/library/view/digital-forensics-and/9781787288683/4732c6ac-0f3c-44b9-bce8-949352ed3755.xhtml
 
+#### via volatility3 / psscan
+
+Able to also find hidden processes unlinked from rootkits
+```
+source /opt/volatility3/venv/bin/activate
+python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.psscan.PsScan
+deactivate
+```
+
 #### via volatility3 / pstree
 
 We are also able to see the process from live `.raw` RAM as a tree like structure using `volatility3`:
