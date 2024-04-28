@@ -315,6 +315,12 @@ deactivate
 
 See [here](#via-volatility2--psxview)
 
+#### via sysmon logs / Process Create (Event ID 1)
+
+Check the parent process in Sysmon Logs for suspicious Process Create (Event ID 1) events such as `cmd.exe`, `powershell.exe`, `nc.exe`, etc. and look at unusual parent process such as `word.exe`, `.jar` files, etc.
+
+Taken from [LetsDefend Log4J's RCE exercise](https://files-ld.s3.us-east-2.amazonaws.com/Alert-Reports/Log4j_RCE_Detected.pdf)
+
 ### Extract Files from image
 
 #### via volatility3 / dumpfiles
