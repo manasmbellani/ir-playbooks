@@ -3,6 +3,7 @@
 ## TODO
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
+- Analysis Detect Azure Password Read attempt https://x.com/nathanmcnulty/status/1785071752609141137?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Check all user logins in Azure
 - Analysis Microsoft-Extractor-Suite
 - Analysis EnrichedAuditLogs with source IPs, and lower latency for sharepoint logs  https://www.invictus-ir.com/news/the-mystery-of-the-enrichedoffice365auditlogs-solved
