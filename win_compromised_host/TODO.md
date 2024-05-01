@@ -5,6 +5,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis dump bitlocker keys from EntraID - https://x.com/nathanmcnulty/status/1785094215749476722?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis add Windows artefacts from Qazeer https://notes.qazeer.io/dfir/windows/_artefacts_overview
 - Analysis Detect varioys technuques from Samuel r's detections https://github.com/Sam0x90/CB-Threat-Hunting
 - Analysis Detect Remote Logins via Windows Event Logs' 4624 (type 3 / type 10)
