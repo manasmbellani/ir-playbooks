@@ -14,7 +14,8 @@
       *[EventData[Data[@Name='ObjectName'] and (Data='C:\test.txt')]]
     </Select>
   </Query>
-</QueryList>```
+</QueryList>
+```
 - Analysis dump bitlocker keys from EntraID - https://x.com/nathanmcnulty/status/1785094215749476722?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis add Windows artefacts from Qazeer https://notes.qazeer.io/dfir/windows/_artefacts_overview
 - Analysis Detect varioys technuques from Samuel r's detections https://github.com/Sam0x90/CB-Threat-Hunting
