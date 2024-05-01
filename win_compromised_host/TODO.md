@@ -5,6 +5,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis Detect DLL Hijacking via sysmon (Event ID 7 Image Loaded) logs where DLL is unsigned and loaded from unusual locations
 - Analysis Detect managed (.NET running code) via process hacker (green) - injection of `clr.dll` and `clrjit.dll` DLLs (Sysmon Event ID 7)
 - Analysis filtering events in events viewer via XML
 ```<QueryList>
