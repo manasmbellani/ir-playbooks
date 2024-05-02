@@ -3,6 +3,7 @@
 ## TODO
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
+- Analysis Techniques for investigating Azure activity https://techcommunity.microsoft.com/t5/microsoft-security-experts-blog/hunting-in-azure-subscriptions/ba-p/4125875
 - Analysis Detect Azure Password Read attempt https://x.com/nathanmcnulty/status/1785071752609141137?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Check all user logins in Azure
 - Analysis Microsoft-Extractor-Suite
