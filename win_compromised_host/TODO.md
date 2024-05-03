@@ -100,3 +100,4 @@ _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (wi
 - Analysis/Collection - Detect SCCM attacks https://github.com/subat0mik/Misconfiguration-Manager/blob/main/README.md
 - Recovery Enable Credential Guard to prevent lsass memory dumping leading to creds
 - Recovery OsQuery
+- Recovery LDAP Queries for offensive and Defensive Operations https://www.politoinc.com/post/ldap-queries-for-offensive-and-defensive-operations
