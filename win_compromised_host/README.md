@@ -758,6 +758,18 @@ The times for start-up and shutdown are displayed for the system. Select all ent
 
 More info is [here](https://www.raedts.biz/forensics/find-system-powered/)
 
+### Searching Windows Logs
+
+#### via powershell / Get-WinEvent
+
+```
+Get-ChildItem -Path . | Select-Object -ExpandProperty Name | %{ Get-WinEvent -Path $_ } | Where-Object { $_.ID -eq "4799" }
+```
+
+#### via chainsaw
+
+See example [here](#via-wmi-parser--chainsaw)
+
 ## Eradication
 
 ## Recovery
