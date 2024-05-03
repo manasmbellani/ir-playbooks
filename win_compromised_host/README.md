@@ -763,7 +763,11 @@ More info is [here](https://www.raedts.biz/forensics/find-system-powered/)
 #### via powershell / Get-WinEvent
 
 ```
-Get-ChildItem -Path . | Select-Object -ExpandProperty Name | %{ Get-WinEvent -Path $_ } | Where-Object { $_.ID -eq "4799" }
+Get-ChildItem -Path . | Select-Object -ExpandProperty Name | %{ Get-WinEvent -Path $_ } | Where-Object { $ _.ID -eq "4799" }
+
+# Detect Process Access Sysmon (Event ID 10) Logs where Lsass is accessed
+$events = Get-WinEvent -Path .\LsassDump.evtx |Where-Object {$_.ID -eq 10}
+$events |Where-Object {$_.Properties[8].Value -Like '*Lsass*'} |Format-List
 ```
 
 #### via chainsaw
