@@ -5,6 +5,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis Detect DPAPI Backup key detection https://www.dsinternals.com/en/dpapi-backup-key-theft-auditing/
 - Analysis Detect Browser Theft via Windows Audit Logging https://security.googleblog.com/2024/04/detecting-browser-data-theft-using.html
 - Analysis Detect DLL Hijacking via sysmon (Event ID 7 Image Loaded) logs where DLL is unsigned and loaded from unusual locations
 - Analysis Detect managed (.NET running code) via process hacker (green) - injection of `clr.dll` and `clrjit.dll` DLLs (Sysmon Event ID 7)
