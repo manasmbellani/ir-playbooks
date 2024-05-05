@@ -84,7 +84,6 @@ _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (wi
 - Analysis RDP Bitmap Cache Files `C:\Users\CyberJunkie\AppData\Local\Microsoft\Terminal Server Client\Cache`, https://github.com/ANSSI-FR/bmc-tools
 - Analysis [Azure CLI Forensic](https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html?m=1)
 - Analysis Volatility dllist unusual DLLs (eg stucnet .aslr.dll?)
-- Analysis KAPE
 - Analysis get windows version winver
 - Analysis get windows version systeminfo
 - Analysis volatility find+dump injected code malfind
