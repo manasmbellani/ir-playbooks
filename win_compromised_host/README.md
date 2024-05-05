@@ -72,6 +72,8 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 
 #### via Kroll (KAPE)
 
+KAPE can also be run from a USB stick as described [here](https://threatintelligencelab.com/tools/step-by-step-guide-to-forensically-acquiring-logs-with-kape/#:~:text=Insert%20USB%20Drive%3A%20Plug%20the,selecting%20%E2%80%9C%20Run%20as%20Administrator%20%E2%80%9C.)
+
 ```
 cd C:\Users\Administrator\Desktop\opt\kape\KAP 
 .\kape.exe --sync
