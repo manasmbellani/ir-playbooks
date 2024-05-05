@@ -169,5 +169,5 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\velociraptor")) {
     
     Write-Host "[*] Downloading velociraptor..."
     $url="https://github.com/Velocidex/velociraptor/releases/download/v0.7.1/velociraptor-v0.7.1-1-windows-amd64.exe"
-    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\velociraptor.exe")
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\velociraptor\velociraptor.exe")
 }
