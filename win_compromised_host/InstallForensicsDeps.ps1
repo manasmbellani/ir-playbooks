@@ -157,7 +157,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\chainsaw")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\chainsaw\chainsaw.zip")
 
     Write-Host "[*] Extracting chainsaw zip file..."
-    Expand-Archive -Path "$INSTALL_LOCATION\usnjrnl_rewind\chainsaw.zip" -DestinationPath "$INSTALL_LOCATION\chainsaw"
+    Expand-Archive -Path "$INSTALL_LOCATION\chainsaw\chainsaw.zip" -DestinationPath "$INSTALL_LOCATION\chainsaw"
 
     Write-Host '[*] Removing chainsaw zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\chainsaw\chainsaw.zip"
@@ -171,3 +171,20 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\velociraptor")) {
     $url="https://github.com/Velocidex/velociraptor/releases/download/v0.7.1/velociraptor-v0.7.1-1-windows-amd64.exe"
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\velociraptor\velociraptor.exe")
 }
+
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\kape")) {
+    Write-Host "[*] Making directory kape..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\kape"
+    
+    Write-Host "[*] Downloading kape..."
+    $url="https://github.com/manasmbellani/splunkfiles/raw/master/kp.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\kape\kape.zip")
+
+    Write-Host "[*] Extracting kape zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\kape\kape.zip" -DestinationPath "$INSTALL_LOCATION\kape"
+
+    Write-Host '[*] Removing kape zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\kape\kape.zip"
+}
+
