@@ -55,14 +55,36 @@ TBC
 
 ## Collection
 
-### Live Collection
+### Collect Live RAM 
+
+#### via Belkasoft
 
 To collect live RAM, we can leverage the `Belkasoft RAM Capturer` available from download [here](https://belkasoft.com/ram-capturer) and initiate the appropriate x64 bin from a remote USB disk. The memory image is then stored on this remote disk too, say `F:`
+
+#### via DumpIT
 
 Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` as part of its `Comae Toolkit` available [here](https://www.magnetforensics.com/resources/magnet-dumpit-for-windows/) to collect live RAM from the compromised host for analysis.
 ```
 .\DumpIt.exe
 ```
+
+### Collect Disk Artifacts
+
+#### via Kroll (KAPE)
+
+```
+cd C:\Users\Administrator\Desktop\opt\kape\KAP 
+.\kape.exe --sync
+
+# Perform most important file collection on a disk to a specific destination. Leverage .\gkape.exe to build the command (without 'Flush' ideally)
+.\kape.exe --tsource C: --tdest C:\Windows\Temp --target !SANS_Triage --gui
+```
+
+### Mount Disks
+
+#### via FTK Imager
+
+Can be used to mount both physical (e.g. E01) and logical disks
 
 ## Analysis
 
