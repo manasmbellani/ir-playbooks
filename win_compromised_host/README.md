@@ -516,6 +516,13 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem timeliner.Timeliner
 deactivate
 ```
 
+#### via Autopsy
+
+Use Tools > Timeline Analysis option to view the timeline. Additionally, it is possible to select `Linear` or `Logarithmic` scale to view the timeline. 
+To see the details, switch from Mode `Counts` to `Details` in Autopsy.
+
+A tutorial of using `Autopsy`'s timeline analysis is available [here](https://www.sleuthkit.org/autopsy/timeline.php)
+
 ### Dump process memory
 
 #### via volatility2 / memdump
