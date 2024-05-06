@@ -5,6 +5,7 @@
 - Collection FTK Imager fisk image
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis detect dhcp administrators group abuse priv esc https://x.com/directoryranger/status/1787223247169147306?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Detect hidden scheduled tasks via https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/
 - Analysis review results of Joshua pager's resources https://github.com/bouj33boy/Domain-Persistence-Detection-Triage-and-Recovery-SO-CON-2024
 - Analysis Detect DPAPI Backup key detection which encrypts everything in DC  if not rebuilding DC https://www.dsinternals.com/en/dpapi-backup-key-theft-auditing/
