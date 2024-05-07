@@ -6,6 +6,7 @@
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
 - collection kapefiles via velociraptor
 - collection windows memory acquisition vis velociraptor
+- Analysis Build timeline via regripper
 - Analysis use ads zone identifier to determine the download location for a file (ZoneID=3 for files downloaded from internet)
 - Analysis Recover deleted files via Autopsy
 - Analysis use chain saw to hunt for sigma rules `chainsaw_x86_64-pc-windows-msvc.exe hunt "..\kapefiles\auto\C%3A\Windows\System32\winevt\Logs" -s sigma/ --mapping mappings/sigma-event-logs-all.yml -r rules/ --csv --output output_csv`
