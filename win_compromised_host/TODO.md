@@ -102,6 +102,7 @@ _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (wi
 - Analysis collect windows logs
 - Analysis OpenArk review tools
 - Analysis check scheduled tasks via windows event logs: security 4698, task scheduler 106 - https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/
+- Analysis Check scheduled task via c:/windows/stystem32/tasks
 - Analysis Detect RDP Sessions
 - Analysis check network connections
 - Analysis Check powershell code execution
