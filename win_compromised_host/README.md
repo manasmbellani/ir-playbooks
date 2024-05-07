@@ -74,6 +74,15 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 "C:\Program Files\AccessData\FTK Imager\FTK Imager.exe" > File > Capture Memory > Select Destination Path (e.g. C:\Windows\TEMP) > Include Pagefile.sys
 ```
 
+#### via velocirpator
+
+```
+cd C:\Users\Administrator\Desktop\opt\velociraptor
+velociraptor.exe gui
+```
+
+Access GUI via https://127.0.0.1:8889, and leverage `Windows.Memory.Acquisition` to collect memory. Uses `winpmem` in the background to collect live memory.
+
 ### Collect Disk Image
 
 #### via FTK Imager
@@ -100,6 +109,10 @@ cd C:\Users\Administrator\Desktop\opt\kape\KAPE
 ```
 
 See [FTK Imager](#via-ftk-imager) for more information on how to create disk images (AD1) .
+
+#### via velociraptor
+
+Follow the steps [here](#via-velocirpator) to launch velociraptor > start `Hunt` on targets via `Windows.KapeFiles.Targets` to collect Kapefiles > Select `_SANS_Triage`
 
 ### Mount Disks
 
