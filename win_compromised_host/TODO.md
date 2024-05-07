@@ -4,6 +4,8 @@
 - Collection winpmem (rekall)
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- collection kapefiles via velociraptor
+- collection windows memory acquisition vis velociraptor
 - Analysis Add processing of programs from prefetch folder for file path, execution counts etc
 - Analysis Add shimcache windows execution artifact
 - Analysis Add amcache database processing as it can also contain windows hash
