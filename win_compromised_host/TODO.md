@@ -4,6 +4,11 @@
 - Collection winpmem (rekall)
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis Add processing of programs from prefetch folder for file path, execution counts etc
+- Analysis Add shimcache windows execution artifact
+- Analysis Add amcache database processing as it can also contain windows hash
+- Analysis parse userassist registry key for parsing SHA hashes
+- Analysis parse runMRU lists for windows file path executions 
 - Analysis Add tips/tricks from guidance for incident responders https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf
 - Analysis detect dhcp administrators group abuse priv esc https://x.com/directoryranger/status/1787223247169147306?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Detect hidden scheduled tasks via https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/
