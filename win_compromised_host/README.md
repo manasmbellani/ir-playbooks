@@ -68,6 +68,17 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 .\DumpIt.exe
 ```
 
+### Collect Disk Image
+
+#### via FTK Imager
+
+Can be used to create various disk types such as Raw Image (`dd`), Smart, E01 (Autopsy/Encase compatible) and AFF.
+```
+"C:\Program Files\AccessData\FTK Imager\FTK Imager.exe" > File > Create Disk Image > Physical Drive
+```
+
+For folders (e.g. `Kape` disk artifacts below ), can create `AD1` type disk image
+
 ### Collect Disk Artifacts
 
 #### via Kroll (KAPE)
@@ -75,12 +86,14 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 KAPE can also be run from a USB stick as described [here](https://threatintelligencelab.com/tools/step-by-step-guide-to-forensically-acquiring-logs-with-kape/#:~:text=Insert%20USB%20Drive%3A%20Plug%20the,selecting%20%E2%80%9C%20Run%20as%20Administrator%20%E2%80%9C.)
 
 ```
-cd C:\Users\Administrator\Desktop\opt\kape\KAP 
+cd C:\Users\Administrator\Desktop\opt\kape\KAPE
 .\kape.exe --sync
 
 # Perform most important file collection on a disk to a specific destination. Leverage .\gkape.exe to build the command (without 'Flush' ideally)
 .\kape.exe --tsource C: --tdest C:\Windows\Temp --target !SANS_Triage --gui
 ```
+
+See [FTK Imager](#via-kroll-kape) for more information on how to create disk images (AD1) .
 
 ### Mount Disks
 
