@@ -93,7 +93,7 @@ cd C:\Users\Administrator\Desktop\opt\kape\KAPE
 .\kape.exe --tsource C: --tdest C:\Windows\Temp --target !SANS_Triage --gui
 ```
 
-See [FTK Imager](#via-kroll-kape) for more information on how to create disk images (AD1) .
+See [FTK Imager](#via-ftk-imager) for more information on how to create disk images (AD1) .
 
 ### Mount Disks
 
