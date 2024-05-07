@@ -373,9 +373,12 @@ deactivate
 
 ```
 $FolderToCheck="C:\Users\manasbellani"
-$Outfile="C:\Windows\Temp\ads.txt"
-Get-ChildItem -Path -Recurse $FolderToCheck | %{Write-Host "Reading ADS for file: $_" | Out-File -Append $Outfile ; Get-Content $_ -Stream Zone.Identifier -ErrorAction SilentlyContinue  | Out-File -Append $Outfile }
+Get-ChildItem -Path -Recurse $FolderToCheck | %{Write-Host "Reading ADS for file: $_"; Get-Content $_ -Stream Zone.Identifier -ErrorAction SilentlyContinue}
 ```
+
+#### via Autopsy 
+
+Filter for `.Zone.Identifer` files especially in Downloads folder in Autopsy
 
 ### Command Lines
 
