@@ -68,6 +68,12 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 .\DumpIt.exe
 ```
 
+#### via FTK Imager
+
+```
+"C:\Program Files\AccessData\FTK Imager\FTK Imager.exe" > File > Capture Memory > Select Destination Path (e.g. C:\Windows\TEMP) > Include Pagefile.sys
+```
+
 ### Collect Disk Image
 
 #### via FTK Imager
