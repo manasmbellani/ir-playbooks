@@ -8,7 +8,6 @@
 - collection windows memory acquisition vis velociraptor
 - Analysis Build timeline via regripper https://www.forensicfocus.com/articles/a-guide-to-regripper-and-the-art-of-timeline-building/
 - Analysis use ads zone identifier to determine the download location for a file (ZoneID=3 for files downloaded from internet) `view ADS data via powershell: Get-Content * -Stream Zone.Identifier -ErrorAction SilentlyContinue`
-- Analysis Recover deleted files via Autopsy
 - Analysis use chain saw to hunt for sigma rules `chainsaw_x86_64-pc-windows-msvc.exe hunt "..\kapefiles\auto\C%3A\Windows\System32\winevt\Logs" -s sigma/ --mapping mappings/sigma-event-logs-all.yml -r rules/ --csv --output output_csv`
 - Analysis Add processing of programs from prefetch folder for file path, execution counts etc
 - Analysis Add shimcache windows execution artifact
