@@ -74,6 +74,16 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 "C:\Program Files\AccessData\FTK Imager\FTK Imager.exe" > File > Capture Memory > Select Destination Path (e.g. C:\Windows\TEMP) > Include Pagefile.sys
 ```
 
+#### via winpmem
+
+```
+# Run as administrator for x64 system
+C:\Users\Administrator\Desktop\opt\winpmem\winpmem_mini_x64_rc2.exe C:\Windows\Temp\physmem.raw
+
+# Run as administrator for x86 system
+C:\Users\Administrator\Desktop\opt\winpmem\winpmem_mini_x86.exe C:\Windows\Temp\physmem.raw
+```
+
 #### via velocirpator
 
 Access GUI via https://127.0.0.1:8889, and leverage `Windows.Memory.Acquisition` to collect memory. Uses `winpmem` in the background to collect live memory.
