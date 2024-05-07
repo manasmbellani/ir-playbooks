@@ -188,3 +188,15 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\kape")) {
     Remove-Item -Path "$INSTALL_LOCATION\kape\kape.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\winpmem")) {
+    Write-Host "[*] Making directory winpmem..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\winpmem"
+    
+    Write-Host "[*] Downloading winpmem x64..."
+    $url="https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/winpmem_mini_x64_rc2.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\winpmem\winpmem_mini_x64_rc2.exe")
+
+    Write-Host "[*] Downloading winpmem x86..."
+    $url="https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/winpmem_mini_x86.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\winpmem\winpmem_mini_x86.exe")
+}
