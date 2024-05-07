@@ -76,12 +76,15 @@ Alternatively, we can also leverage `DumpIt.exe` provided by `Magnet Forensics` 
 
 #### via velocirpator
 
+Access GUI via https://127.0.0.1:8889, and leverage `Windows.Memory.Acquisition` to collect memory. Uses `winpmem` in the background to collect live memory.
+
+##### deploying velocirpator 
+
+In GUI Mode:
 ```
 cd C:\Users\Administrator\Desktop\opt\velociraptor
 velociraptor.exe gui
 ```
-
-Access GUI via https://127.0.0.1:8889, and leverage `Windows.Memory.Acquisition` to collect memory. Uses `winpmem` in the background to collect live memory.
 
 ### Collect Disk Image
 
@@ -112,7 +115,7 @@ See [FTK Imager](#via-ftk-imager) for more information on how to create disk ima
 
 #### via velociraptor
 
-Follow the steps [here](#via-velocirpator) to launch velociraptor > start `Hunt` on targets via `Windows.KapeFiles.Targets` to collect Kapefiles > Select `_SANS_Triage`
+Follow the steps [here](##deploying-velocirpator) to launch velociraptor > start `Hunt` on targets via `Windows.KapeFiles.Targets` to collect Kapefiles > Select `_SANS_Triage`
 
 ### Mount Disks
 
