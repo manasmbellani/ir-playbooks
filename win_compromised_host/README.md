@@ -369,6 +369,14 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.mftscan.ADS
 deactivate
 ```
 
+#### via powershell
+
+```
+$FolderToCheck="C:\Users\manasbellani"
+$Outfile="C:\Windows\Temp\ads.txt"
+Get-ChildItem -Path -Recurse $FolderToCheck | %{Write-Host "Reading ADS for file: $_" | Out-File -Append $Outfile ; Get-Content $_ -Stream Zone.Identifier -ErrorAction SilentlyContinue  | Out-File -Append $Outfile }
+```
+
 ### Command Lines
 
 #### via volatility2 / cmdscan
