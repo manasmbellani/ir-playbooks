@@ -34,6 +34,15 @@ Get-AzLog -StartTime 2024-05-08
 $logs | ConvertTo-Json
 ```
 
+### Extract Microsoft 365 Unified Access Logs (UAL)
+
+#### via Microsoft-Extractor-Suite
+
+```
+Connect-M365
+Get-UALAll -UserIds manasbellani@testgcpbusiness12345.onmicrosoft.com -StartDate 2024-05-08 -Output JSON
+```
+
 ## Eradication
 
 ## Recovery
