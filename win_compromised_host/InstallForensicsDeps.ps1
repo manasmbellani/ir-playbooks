@@ -1,6 +1,7 @@
 <#
     .SYNOPSIS
     Install forensics dependencies on the Windows server such as Windows Server 2016 to be used for forensics purposes
+    Run in Windows Powershell v5.1
 #>
 
 # Sleep Time (in seconds)
@@ -249,6 +250,9 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite")) {
 
     Write-Host '[*] Removing Microsoft-Extractor-Suite zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip"
+
+    Write-Host "[*] Installing Microsoft-Extractor-Suite via powershell..."
+    Install-Module Microsoft-Extractor-Suite
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Analyzer-Suite")) {
