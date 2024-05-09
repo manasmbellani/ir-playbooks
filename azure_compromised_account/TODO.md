@@ -1,6 +1,7 @@
 # Azure - Compromised Account 
 
 ## TODO
+- Pre-req link azure to Microsoft 365 https://learn.microsoft.com/en-us/answers/questions/1494434/i-have-azure-and-i-have-just-registered-with-m365
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
 - Analysis Review Azure detection rules for common threats https://www.splunk.com/en_us/blog/security/hunting-m365-invaders-blue-team-s-guide-to-initial-access-vectors.html
