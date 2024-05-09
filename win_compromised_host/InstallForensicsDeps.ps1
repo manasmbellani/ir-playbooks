@@ -22,35 +22,35 @@ if (Test-Path -Path ".\setup.secrets.env") {
     Write-Host "[!] No setup.secrets.env file found"
 }
 
-Write-Host "[*] Installing AzureAD module..."
+Write-Host "[*] Checking if we need to install AzureAD module..."
 if (-Not (Get-InstalledModule -Name AzureAd )) {
     Write-Host "[*] Installing 'AzureAD' module..."
     #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     Install-Module -Name AzureAd -Force -Confirm:$false
 }
 
-Write-Host "[*] Installing Microsoft.Graph module..."
+Write-Host "[*] Checking if we need to install Microsoft.Graph module..."
 if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
     Write-Host "[*] Installing 'Microsoft.Graph' module..."
     #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     Install-Module -Name Microsoft.Graph -Force -Confirm:$false
 }
 
-Write-Host "[*] Installing ExchangeOnlineManagement module..."
+Write-Host "[*] Checking if we need to install ExchangeOnlineManagement module..."
 if (-Not (Get-InstalledModule -Name ExchangeOnlineManagement )) {
     Write-Host "[*] Installing 'ExchangeOnlineManagement' module..."
     #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     Install-Module -Name ExchangeOnlineManagement -Force -Confirm:$false
 }
 
-Write-Host "[*] Installing Az module..."
+Write-Host "[*] Checking if we need to install Az module..."
 if (-Not (Get-InstalledModule -Name Az )) {
     Write-Host "[*] Installing 'Az' module..."
     #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
     Install-Module -Name Az -Force -Confirm:$false
 }
 
-Write-Host "[*] Installing AzureADPreview module..."
+Write-Host "[*] Checking if we need to install AzureADPreview module..."
 if (-Not (Get-InstalledModule -Name AzureADPreview )) {
     Write-Host "[*] Installing 'AzureADPreview' module..."
     #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -234,4 +234,49 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\winpmem")) {
     Write-Host "[*] Downloading winpmem x86..."
     $url="https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/winpmem_mini_x86.exe"
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\winpmem\winpmem_mini_x86.exe")
+}
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite")) {
+    Write-Host "[*] Making directory Microsoft-Extractor-Suite..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite"
+    
+    Write-Host "[*] Downloading kape..."
+    $url="https://github.com/invictus-ir/Microsoft-Extractor-Suite/archive/refs/heads/main.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip")
+
+    Write-Host "[*] Extracting Microsoft-Extractor-Suite zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip" -DestinationPath "$INSTALL_LOCATION\Microsoft-Extractor-Suite"
+
+    Write-Host '[*] Removing Microsoft-Extractor-Suite zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip"
+}
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite")) {
+    Write-Host "[*] Making directory Microsoft-Extractor-Suite..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite"
+    
+    Write-Host "[*] Downloading Microsoft-Extractor-Suite..."
+    $url="https://github.com/invictus-ir/Microsoft-Extractor-Suite"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip")
+
+    Write-Host "[*] Extracting Microsoft-Extractor-Suite zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip" -DestinationPath "$INSTALL_LOCATION\Microsoft-Extractor-Suite"
+
+    Write-Host '[*] Removing Microsoft-Extractor-Suite zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip"
+}
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Analyzer-Suite")) {
+    Write-Host "[*] Making directory Microsoft-Analyzer-Suite..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Microsoft-Analyzer-Suite"
+    
+    Write-Host "[*] Downloading Microsoft-Analyzer-Suite..."
+    $url="https://github.com/evild3ad/Microsoft-Analyzer-Suite/archive/refs/heads/main.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Analyzer-Suite.zip")
+
+    Write-Host "[*] Extracting Microsoft-Extractor-Suite zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Analyzer-Suite.zip" -DestinationPath "$INSTALL_LOCATION\Microsoft-Analyzer-Suite"
+
+    Write-Host '[*] Removing Microsoft-Analyzer-Suite zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Analyzer-Suite.zip"
 }
