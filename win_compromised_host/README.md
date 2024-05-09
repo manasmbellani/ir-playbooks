@@ -325,6 +325,23 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
+### Determine installed powershell version
+
+#### via powershell / Get-Host
+
+```
+Get-Host | Select-Object Version
+```
+
+https://learn.microsoft.com/en-us/powershell/module/azuread/connect-azuread?view=azureadps-2.0
+
+#### via registry key
+
+```
+reg query HKLM\Software\Microsoft\PowerShell\1\PowerShellEngine
+reg query HKLM\Software\Microsoft\PowerShell\3\PowerShellEngine
+```
+
 ### Listing files
 
 #### via volatility3 / filescan
