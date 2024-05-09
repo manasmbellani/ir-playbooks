@@ -251,21 +251,6 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite")) {
     Remove-Item -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip"
 }
 
-if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite")) {
-    Write-Host "[*] Making directory Microsoft-Extractor-Suite..."
-    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite"
-    
-    Write-Host "[*] Downloading Microsoft-Extractor-Suite..."
-    $url="https://github.com/invictus-ir/Microsoft-Extractor-Suite"
-    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip")
-
-    Write-Host "[*] Extracting Microsoft-Extractor-Suite zip file..."
-    Expand-Archive -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip" -DestinationPath "$INSTALL_LOCATION\Microsoft-Extractor-Suite"
-
-    Write-Host '[*] Removing Microsoft-Extractor-Suite zip file...'
-    Remove-Item -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite.zip"
-}
-
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Analyzer-Suite")) {
     Write-Host "[*] Making directory Microsoft-Analyzer-Suite..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\Microsoft-Analyzer-Suite"
