@@ -2,6 +2,7 @@
 
 ## TODO
 - Pre-req link azure to Microsoft 365 https://learn.microsoft.com/en-us/answers/questions/1494434/i-have-azure-and-i-have-just-registered-with-m365
+- Pre-req Enable Azure Sentinel https://learn.microsoft.com/en-us/azure/sentinel/quickstart-onboard
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
 - Analysis Review steps to respond to compromised apps  https://x.com/reprise_99/status/1787615544180711710?s=46&t=WvGY79Umt5enRwgCbi4TQQ
