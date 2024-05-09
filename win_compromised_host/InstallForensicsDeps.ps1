@@ -22,6 +22,41 @@ if (Test-Path -Path ".\setup.secrets.env") {
     Write-Host "[!] No setup.secrets.env file found"
 }
 
+Write-Host "[*] Installing AzureAD module..."
+if (-Not (Get-InstalledModule -Name AzureAd )) {
+    Write-Host "[*] Installing 'AzureAD' module..."
+    #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Install-Module -Name AzureAd -Force -Confirm:$false
+}
+
+Write-Host "[*] Installing Microsoft.Graph module..."
+if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
+    Write-Host "[*] Installing 'Microsoft.Graph' module..."
+    #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Install-Module -Name Microsoft.Graph -Force -Confirm:$false
+}
+
+Write-Host "[*] Installing ExchangeOnlineManagement module..."
+if (-Not (Get-InstalledModule -Name ExchangeOnlineManagement )) {
+    Write-Host "[*] Installing 'ExchangeOnlineManagement' module..."
+    #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Install-Module -Name ExchangeOnlineManagement -Force -Confirm:$false
+}
+
+Write-Host "[*] Installing Az module..."
+if (-Not (Get-InstalledModule -Name Az )) {
+    Write-Host "[*] Installing 'Az' module..."
+    #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Install-Module -Name Az -Force -Confirm:$false
+}
+
+Write-Host "[*] Installing AzureADPreview module..."
+if (-Not (Get-InstalledModule -Name AzureADPreview )) {
+    Write-Host "[*] Installing 'AzureADPreview' module..."
+    #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Install-Module -Name AzureADPreview -Force -Confirm:$false
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION")) {
     Write-Host "[*] Creating new directory 'opt' in Desktop..."
     New-item -ItemType Directory -Path "C:\Users\Administrator\Desktop\opt"
