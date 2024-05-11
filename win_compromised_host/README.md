@@ -51,7 +51,39 @@ For the Forensics instance, we deploy an Ubuntu 22.04 instance by following the 
 
 ## Containment
 
-TBC
+### Disconnect from wired networks
+
+Remove ethernet cables AND other accessories e.g. desktop extenders which may have ethernet cables connected  to them.
+
+### Disable IP networks
+
+#### via netsh
+
+List all the network interfaces
+
+```
+netsh interface show interface
+```
+
+Disable the specific network interaces
+
+```
+netsh interface set interface $INTERFACE_NAME admin=disabled
+```
+
+### Remove wireless networks
+
+#### via netsh
+
+Forget wireless networks
+
+```
+# Windows 10
+netsh wlan delete profile name=* i=*
+
+# OS earlier than Windows 10
+netsh wlan delete profile *
+```
 
 ## Collection
 
