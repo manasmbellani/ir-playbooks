@@ -420,7 +420,7 @@ python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem 
 deactivate
 ```
 
-### Look for altnerate data stream (ADS) files
+### Look for Alternate Data Streams (ADS) files
 
 #### via volatility3 / mftscan.ADS
 
@@ -434,7 +434,7 @@ deactivate
 
 ```
 $FolderToCheck="C:\Users\manasbellani"
-Get-ChildItem -Path -Recurse $FolderToCheck | %{Write-Host "Reading ADS for file: $_"; Get-Content $_ -Stream Zone.Identifier -ErrorAction SilentlyContinue}
+Get-ChildItem  -Recurse -Path $FolderToCheck | %{$ads = Get-Content $_.FullName -Stream Zone.Identifier -ErrorAction SilentlyContinue; if ($ads) { Write-Host "ADS for file " $_.FullName ": $ads"} }
 ```
 
 #### via Autopsy 
