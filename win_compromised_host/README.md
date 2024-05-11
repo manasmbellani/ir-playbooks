@@ -71,6 +71,18 @@ Disable the specific network interaces
 netsh interface set interface $INTERFACE_NAME admin=disabled
 ```
 
+#### via powershell / Get-NetAdapter
+
+List the network adapters:
+```
+Get-NetAdapter
+```
+
+Disable the specific network adapters:
+```
+Disable-NetAdapter -Name "$ADAPTER_NAME" -Confirm:$false
+```
+
 ### Forget wireless networks
 
 #### via netsh
