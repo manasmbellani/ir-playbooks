@@ -51,12 +51,12 @@ if (-Not (Get-InstalledModule -Name Az )) {
     Install-Module -Name Az -Force -Confirm:$false
 }
 
-Write-Host "[*] Checking if we need to install AzureADPreview module..."
-if (-Not (Get-InstalledModule -Name AzureADPreview )) {
-    Write-Host "[*] Installing 'AzureADPreview' module..."
-    #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-    Install-Module -Name AzureADPreview -Force -Confirm:$false
-}
+# Write-Host "[*] Checking if we need to install AzureADPreview module..."
+# if (-Not (Get-InstalledModule -Name AzureADPreview )) {
+#     Write-Host "[*] Installing 'AzureADPreview' module..."
+#     #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+#     Install-Module -Name AzureADPreview -Force -Confirm:$false
+# }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION")) {
     Write-Host "[*] Creating new directory 'opt' in Desktop..."
@@ -268,4 +268,19 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\Microsoft-Analyzer-Suite")) {
 
     Write-Host '[*] Removing Microsoft-Analyzer-Suite zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\Microsoft-Extractor-Suite\Microsoft-Analyzer-Suite.zip"
+}
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\sigma")) {
+    Write-Host "[*] Making directory sigma..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\sigma"
+    
+    Write-Host "[*] Downloading sigma..."
+    $url="https://github.com/SigmaHQ/sigma/archive/refs/heads/master.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\sigma\sigma.zip")
+
+    Write-Host "[*] Extracting sigma zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\sigma\sigma.zip" -DestinationPath "$INSTALL_LOCATION\sigma"
+
+    Write-Host '[*] Removing sigma zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\sigma\sigma.zip"
 }
