@@ -71,7 +71,7 @@ Disable the specific network interaces
 netsh interface set interface $INTERFACE_NAME admin=disabled
 ```
 
-### Remove wireless networks
+### Forget wireless networks
 
 #### via netsh
 
