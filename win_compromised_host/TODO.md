@@ -3,6 +3,7 @@
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis Detect RPC attacks activity via RPC Firewall https://github.com/ACE-Responder/rpcfirewall-extended-telemetry
 - Analysis review user accounts via net and registry keys
 - Analysis network shares enumeration detection via windows event logs - https://www.splunk.com/en_us/blog/security/sharing-is-not-caring-hunting-for-file-share-discovery.html
 - Analysis Detect various details about live collection vis memprocfs https://blog.cyber5w.com/anomalies-hunting-in-windows-memory-dump
