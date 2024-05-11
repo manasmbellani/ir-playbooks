@@ -60,7 +60,19 @@ if (-Not (Get-InstalledModule -Name Az )) {
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION")) {
     Write-Host "[*] Creating new directory 'opt' in Desktop..."
-    New-item -ItemType Directory -Path "C:\Users\Administrator\Desktop\opt"
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION"
+}
+
+If (-Not (Test-Path "$INSTALL_LOCATION\flag-disable-windows-defender")) {
+    Write-Host "[*] Making flag-disable-windows-defender to state that Windows defender has been disabled..."
+    New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-disable-windows-defender"
+
+    Write-Host "[*] Disabling Windows Defender Scanning Settings..."
+    Set-MpPreference -DisableRealTimeMonitoring $true
+    Set-MpPreference -DisableBehaviorMonitoring $true
+    Set-MpPreference -DisableArchiveScanning $true
+    Set-MpPreference -MAPSReporting Disabled
+    Set-MpPreference -SubmitSamplesConsent 0
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\python")) {
