@@ -1,5 +1,7 @@
 # TODO
 - Containment GCP Firewall
+- Containment list and disable all network interfaces bis netsh - copilot
+- Contain forget all netsh wlan profiles via netsh - netsh
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
