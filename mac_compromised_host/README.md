@@ -2,6 +2,7 @@
 
 ## TODO
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
+- Collection via automactc https://github.com/Crowdstrike/automactc
 - Analysis Review launchd jobs https://www.launchd.info/
 - Analysis Apollo https://github.com/mac4n6/APOLLO
 - Analysis automactc https://github.com/CrowdStrike/automactc
