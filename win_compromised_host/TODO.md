@@ -3,6 +3,7 @@
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis Detect rust apps ef rustredops https://github.com/joaoviictorti/RustRedOps
 - Analysis Detect various lsass dump attempts - Analysis Detect various lsass dump attempts https://www.microsoft.com/en-us/security/blog/2022/10/05/detecting-and-preventing-lsass-credential-dumping-attacks/
 - Analysis Detect RPC attacks activity via RPC Firewall https://github.com/ACE-Responder/rpcfirewall-extended-telemetry
 - Analysis review user accounts via net and registry keys
