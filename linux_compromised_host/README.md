@@ -236,7 +236,7 @@ python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
 deactivate
 ```
 
-### List commands executed from memory
+### List commands executed
 
 #### via volatility3 / bash
 
@@ -248,6 +248,13 @@ python3 vol.py -f /root/forensics-instance.lime linux.bash.Bash
 deactivate
 ```
 
+#### via journalctl
+
+Parse the journal files in `/var/log/journal`:
+
+```
+journalctl --file  /var/log/journal/993ae8921ac5f23a34cd3a99b9ba8ce6/system.journal -o verbose
+```
 ### List running network ports/services from memory
 
 #### via volatility3 / sockscan
