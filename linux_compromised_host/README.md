@@ -197,6 +197,36 @@ We can scan for any malware on the system as well using Neo23x0's Yara signature
 docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
 ```
 
+### Users with privileged access
+
+#### via sudoers
+
+```
+cat /etc/sudoers
+```
+
+#### via passwd
+
+Look for users with lower UID e.g. 0
+
+```
+cat /etc/passwd
+```
+
+### Users
+
+#### via passwd
+
+See [here](#via-passwd)
+
+### User's Group Membership
+
+#### via group
+
+```
+cat /etc/group
+```
+
 ### List process Tree
 
 #### via ps
