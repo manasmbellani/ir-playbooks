@@ -3,6 +3,7 @@
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
 - Collection Encrypted Disk Detector to detect encrypted disks https://www.magnetforensics.com/resources/encrypted-disk-detector/, https://www.raedts.biz/forensics/should-you-pull-the-plug/
+- Analysis Detect various lsass dump attempts - Analysis Detect various lsass dump attempts https://www.microsoft.com/en-us/security/blog/2022/10/05/detecting-and-preventing-lsass-credential-dumping-attacks/
 - Analysis Detect RPC attacks activity via RPC Firewall https://github.com/ACE-Responder/rpcfirewall-extended-telemetry
 - Analysis review user accounts via net and registry keys
 - Analysis network shares enumeration detection via windows event logs - https://www.splunk.com/en_us/blog/security/sharing-is-not-caring-hunting-for-file-share-discovery.html
@@ -114,6 +115,7 @@ _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (wi
 - Analysis FOR500 SANS
 - Analysi Coercer / NTLM Relay detection https://www.linkedin.com/pulse/petitpotam-dfscoerce-ntlm-relay-attack-detection-debashis-pal?utm_source=share&utm_medium=member_ios&utm_campaign=share_via
 - Analysis/Collection - Detect SCCM attacks https://github.com/subat0mik/Misconfiguration-Manager/blob/main/README.md
+- Recovery prevent various lsass dump attempts - Analysis Detect various lsass dump attempts https://www.microsoft.com/en-us/security/blog/2022/10/05/detecting-and-preventing-lsass-credential-dumping-attacks/
 - Recovery Enable Credential Guard to prevent lsass memory dumping leading to creds
 - Recovery OsQuery
 - Recovery LDAP Queries for offensive and Defensive Operations https://www.politoinc.com/post/ldap-queries-for-offensive-and-defensive-operations
