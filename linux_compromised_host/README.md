@@ -256,6 +256,11 @@ Parse the journal files in `/var/log/journal`:
 # Focus on SYSLOG_IDENTIFIER for event type and CMDLINE for command lines executed
 journalctl --file  /var/log/journal/993ae8921ac5f23a34cd3a99b9ba8ce6/system.journal -o verbose
 ```
+
+#### via user directory's hidden files
+
+Files such as `~/.zsh_history`, `~/.bash_history` can contain past commands run by user
+
 ### List running network ports/services from memory
 
 #### via volatility3 / sockscan
