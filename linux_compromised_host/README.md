@@ -257,6 +257,12 @@ Parse the journal files in `/var/log/journal`:
 journalctl --file  /var/log/journal/993ae8921ac5f23a34cd3a99b9ba8ce6/system.journal -o verbose
 ```
 
+### Build timeline
+
+#### via journalctl
+
+See [here](#via-journalctl)
+
 #### via user directory's hidden files
 
 Files such as `~/.zsh_history`, `~/.bash_history` can contain past commands run by user
