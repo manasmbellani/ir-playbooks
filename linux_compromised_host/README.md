@@ -387,6 +387,18 @@ ps -auxwf
 
 Taken from [here](https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd)
 
+### Look for ssh authorized keys
+
+As described [here](https://cyberkhalid.github.io/posts/ssh-persist/), SSH may have authorized keys which can be used for pentesting
+
+Locate the Authorized Keys:
+```
+find /home  -ipath "*authorized_keys*"
+find /root  -ipath "*authorized_keys*"
+```
+
+Look for any suspicious `command` parameter in the `authorized_keys` file. See [here](https://serverfault.com/q/718317) for more details.
+
 ### Look for Message of the Day (MOTD) Scripts
 
 #### via /etc/update-motd.d/ file
