@@ -244,6 +244,18 @@ python3 vol.py -f /root/forensics-instance.lime linux.pstree.PsTree
 deactivate
 ```
 
+### Detect environment variables for process
+
+#### via `proc` folder
+
+See `/proc/$PID/environ`
+
+### Get executable binary for process
+
+#### via `proc` folder
+
+See `/proc/$PID/exe`
+
 ### List running processes
 
 #### via volatility3 / pslist
