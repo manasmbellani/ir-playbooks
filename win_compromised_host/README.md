@@ -475,6 +475,12 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.cmdline.CmdLine
 deactivate
 ```
 
+#### via registry / RunMRU
+
+```
+HKEY_USERS\$SID\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
+```
+
 ### Get Directory Table Base (DTB) for a kernel
 
 DTB converts the physical address to virtual addresses
