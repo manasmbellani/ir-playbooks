@@ -477,6 +477,8 @@ deactivate
 
 #### via registry / RunMRU
 
+Captures command lines run via the `Run` dialog box in Windows
+
 ```
 HKEY_USERS\$SID\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 ```
