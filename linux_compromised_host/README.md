@@ -213,7 +213,7 @@ Look for users with lower UID e.g. 0
 cat /etc/passwd
 ```
 
-### Users
+### List Users
 
 #### via passwd
 
@@ -297,6 +297,28 @@ Parse the journal files in `/var/log/journal`:
 ```
 # Focus on SYSLOG_IDENTIFIER for event type and CMDLINE for command lines executed
 journalctl --file  /var/log/journal/993ae8921ac5f23a34cd3a99b9ba8ce6/system.journal -o verbose
+```
+
+### List System timer scheduled tasks
+
+Timers allow users to schedule tasks similar to cron jobs
+
+See [here](https://righteousit.com/2024/05/05/systemd-timers/) for more details
+
+#### via systemctl
+
+```
+systemctl list-timers -l --all
+```
+
+#### via local file locations
+
+```
+/usr/lib/systemd/system/*.{timer,service}
+/etc/systemd/system
+$HOME/.config/systemd
+[/var]/run/systemd/transient/*.{timer,service}
+[/var]/run/user/*/systemd/transient/*.{timer,service}
 ```
 
 ### Build timeline
