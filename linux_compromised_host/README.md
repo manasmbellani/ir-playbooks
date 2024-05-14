@@ -87,6 +87,14 @@ gcloud compute firewall-rules create forensics-contain-deny-inbound-all \
 /usr/bin/linpmem -v  -m --format raw --output /tmp/mem.raw
 ```
 
+#### via dumpitforlinux
+
+this will create the memory image in the local folder:
+```
+cd /tmp
+/opt/dumpit-linux/target/release/dumpitforlinux --raw
+```
+
 ### Taking disk image (Offline)
 
 #### via dd
