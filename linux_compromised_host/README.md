@@ -212,7 +212,10 @@ Can be used to get deleted executables / binaries:
 # Identify the specific process ID
 cd /proc/10047/
 # Identify from the header the initial address e.g. 0x56218f564000
+# Also calculate the length and update count in the dd command below 
 head -1 maps
+
+# Ensure that dd command is appropriately updated for length
 dd if=mem bs=1 skip=$((0x56218f564000)) count=1000 of=/tmp/exec2
 ```
 
