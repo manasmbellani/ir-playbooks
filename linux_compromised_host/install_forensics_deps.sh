@@ -93,4 +93,5 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash
 echo "[*] Installing dumpit-linux and generating binary using rust..."
 git clone https://github.com/MagnetForensics/dumpit-linux /opt/dumpit-linux
 cd /opt/dumpit-linux
+apt-get -y install pkg-config liblzma-dev
 ~/.cargo/bin/cargo build --release
