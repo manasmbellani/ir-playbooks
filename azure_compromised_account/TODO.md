@@ -6,6 +6,7 @@
 - Pre-req link microsoft 365 to azure https://learn.microsoft.com/en-us/microsoft-365/enterprise/azure-integration?view=o365-worldwide
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
+- Analysis Use techniques from ahhhzure labs https://github.com/gladstomych/AHHHZURE
 - Analysis Detect exfiltration attempts for Azure environment https://x.com/ericazelic/status/1789380566921474124?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Review steps to respond to compromised apps  https://x.com/reprise_99/status/1787615544180711710?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Review Azure detection rules for common threats https://www.splunk.com/en_us/blog/security/hunting-m365-invaders-blue-team-s-guide-to-initial-access-vectors.html
