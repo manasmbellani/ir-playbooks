@@ -205,6 +205,17 @@ We can get more details about the file as well using`$INODE_NUMBER` with `istat`
 istat /tmp/sdb1.raw $INODE_NUMBER
 ```
 
+#### via dd / proc
+
+Can be used to get deleted executables / binaries:
+```
+# Identify the specific process ID
+cd /proc/10047/
+# Identify from the header the initial address e.g. 0x56218f564000
+head -1 maps
+dd if=mem bs=1 skip=$((0x56218f564000)) count=1000 of=/tmp/exec2
+```
+
 ### Scan for malware from disk
 
 #### via fraken
