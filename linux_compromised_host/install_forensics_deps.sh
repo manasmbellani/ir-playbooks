@@ -73,6 +73,10 @@ cd /opt/dwarf2json
 go build
 chmod +x /opt/dwarf2json/dwarf2json
 
+echo "[*] Downloading linpmem..."
+curl -sL https://github.com/Velocidex/c-aff4/releases/download/v3.3.rc3/linpmem-v3.3-rc3.3-rc2 -o /usr/bin/linpmem
+chmod +x /usr/bin/linpmem
+
 echo "[*] Cloning WMI_Forensics..."
 git clone https://github.com/davidpany/WMI_Forensics /opt/WMI_Forensics
 cd /opt/WMI_Forensics
