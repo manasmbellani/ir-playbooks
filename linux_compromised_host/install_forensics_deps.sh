@@ -87,3 +87,10 @@ apt-get -y install dc3dd
 echo "[*] Installing bulk-extractor..."
 apt-get -y install bulk-extractor
 
+echo "[*] Installing rust, cargo..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash
+
+echo "[*] Installing dumpit-linux and generating binary using rust..."
+git clone https://github.com/MagnetForensics/dumpit-linux /opt/dumpit-linux
+cd /opt/dumpit-linux
+~/.cargo/bin/cargo build --release
