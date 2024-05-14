@@ -79,6 +79,14 @@ gcloud compute firewall-rules create forensics-contain-deny-inbound-all \
 
 ## Collection
 
+### Memory Acquisition 
+
+#### via linpmem 
+
+```
+/usr/bin/linpmem -v  -m --format raw --output /tmp/mem.raw
+```
+
 ### Taking disk image (Offline)
 
 #### via dd
@@ -102,6 +110,7 @@ dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512 count=8192000
 ```
 dc3dd if=/dev/sda1 of=/tmp/image.dd hash=sha256 hlog=/tmp/hash.log log=/tmp/image.log
 ```
+
 
 ### Mounting image
 
