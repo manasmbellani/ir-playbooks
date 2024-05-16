@@ -74,6 +74,7 @@
 ```
 _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (winlog.event_data.TargetFilename: "C:\\ProgramData\\*" OR winlog.event_data.TargetFilename: "C:\\Users\\alice\\AppData\\Local\\Packages\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\Prefetch\\*" OR winlog.event_data.TargetFilename: "C:\\Windows\\System32\\*" OR winlog.event_data.TargetFilename: "D:\\CollectGuestLogsTemp\\*" OR winlog.event_data.TargetFilename:"C:\\Users\\alice\\AppData\\Local\\Microsoft\\*")
 ```
+- Analysis usb activity via windows logs Application and Services Logs > Microsoft > Windows > DriverFrameworks-UserMode > Operational
 - Analysis add USB Forensics from LetsDefend
 - Analysis Add BTFM checks https://github.com/tom0li/collection-document/blob/master/Blue%20Team%20Field%20Manual.pdf
 - Analysis MPLogfile for analysis https://www.crowdstrike.com/blog/how-to-use-microsoft-protection-logging-for-forensic-investigations/
