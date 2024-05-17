@@ -49,6 +49,14 @@ Live memory images or disk images taken from the compromised instance can then b
 #### Ubuntu
 For the Forensics instance, we deploy an Ubuntu 22.04 instance by following the steps [here](../gcp_compromised_pod#ubuntu). Live memory images or disk images taken from the compromised instance can then be attached to this instance for analysis
 
+### Scenario Setup
+
+To setup the scenario which can be explored, we deploy a Windows server and enable Sysmon with it using the sysmon config file available [here](https://gist.github.com/manasmbellani/1baccb274e6deae15befd0a736ad8f36/raw/sample-sysmon-config.xml)
+
+```
+C:\Users\Administrator\Desktop\opt\sysinternals\Sysmon64.exe -accepteula -i C:\Users\Administrator\Desktop\opt\sysmon-config\sample-sysmon-config.xml
+```
+
 ## Containment
 
 ### Disconnect from wired networks
@@ -194,6 +202,25 @@ This section covers a variety of techniques which can be used for both live and 
 In case of live analysis, we have ability to connect a USB stick to the contained instance with tools running on the USB stick. 
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
+
+### Clear Windows Event Logs
+
+#### via Windows Event Logs
+
+```
+Channel: System
+EventID: 104 (System Log File was cleared)
+```
+
+### Detect Lsass Dumping
+
+#### via Windows Event Logs / Sysmon Event ID 10
+
+```
+Channel: Microsoft-Windows-Sysmon/Operational
+EventID: 10 (Process Accessed)
+TargetImage: C:\Windows\System32\lsass.exe
+```
 
 ### WMI Event Consumers Analysis
 
