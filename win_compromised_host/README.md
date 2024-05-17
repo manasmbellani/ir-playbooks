@@ -177,6 +177,16 @@ Follow the steps [here](##deploying-velocirpator) to launch velociraptor > start
 
 Can be used to mount both physical (e.g. E01) and logical disks
 
+### Detect Encrypted Disks
+
+#### via Magnet Forensics' Encrypted Disk Detector
+
+Good to know if disks are encrypted beforehand during collection steps since encrypted disks may lose more volatile data than non-encrypted disks as described [here](https://www.raedts.biz/forensics/should-you-pull-the-plug/)
+
+```
+C:\Users\Administrator\Desktop\opt\encrypted-disk-detector\encrypted-disk-detector.exe
+```
+
 ## Analysis
 
 This section covers a variety of techniques which can be used for both live and offline analysis.
