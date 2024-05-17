@@ -75,6 +75,21 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-disable-windows-defender")) {
     Set-MpPreference -SubmitSamplesConsent 0
 }
 
+If (-Not (Test-Path "$INSTALL_LOCATION\flag-powershell-logging")) {
+    Write-Host "[*] Making flag-powershell-logging to state that powershell logging has been configured..."
+    New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-powershell-logging"
+
+    Write-Host "[*] Enabling Module Logging..."
+    New-Item -Path "Registry::HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell" -Force
+    New-Item -Path "Registry::HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ModuleLogging" -Force
+    New-Item -Path "Registry::HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ModuleLogging\ModuleNames" -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ModuleLogging\ModuleNames" -Name "*" -Value "*" -PropertyType "String" -Force
+    
+    Write-Host "[*] Enabling Scriptblock Logging..."
+    New-Item -Path "Registry::HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging" -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging" -Name "EnableScriptBlockLogging" -Value "1" -PropertyType "DWORD" -Force
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\python")) {
     Write-Host "[*] Making directory python..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\python"
