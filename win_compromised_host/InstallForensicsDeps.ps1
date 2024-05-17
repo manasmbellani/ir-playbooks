@@ -306,4 +306,20 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\encrypted-disk-detector")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\encrypted-disk-detector\encrypted-disk-detector.exe")
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\FullEventLogView")) {
+    Write-Host "[*] Making directory FullEventLogView..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\FullEventLogView"
+    
+    Write-Host "[*] Downloading FullEventLogView..."
+    $url="https://github.com/manasmbellani/splunkfiles/raw/master/FullEventLogView.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\FullEventLogView\FullEventLogView.exe")
+}
 
+if (-Not (Test-Path "$INSTALL_LOCATION\sysmon-config")) {
+    Write-Host "[*] Making directory sysmon-config..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\sysmon-config"
+    
+    Write-Host "[*] Downloading sysmon-config..."
+    $url = "https://gist.github.com/manasmbellani/1baccb274e6deae15befd0a736ad8f36/raw/sample-sysmon-config.xml"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\sysmon-config\sample-sysmon-config.xml")
+}
