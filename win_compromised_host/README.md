@@ -541,7 +541,7 @@ Taken from [LetsDefend Log4J's RCE exercise](https://files-ld.s3.us-east-2.amazo
 
 #### via chainsaw / sigma
 
-Detects any unusual activity from loaded sigma rules
+Detects any unusual activity from loaded sigma rules. More examples available [here](https://github.com/WithSecureLabs/chainsaw?tab=readme-ov-file#command-examples-1)
 ```
 C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\chainsaw.exe hunt C:\Windows\Temp\Logs -s C:\Users\Administrator\Desktop\opt\sigma\sigma-master -r C:\Users\Administrator\Desktop\opt\sigma\sigma-master\rules --mapping C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\mappings\sigma-event-logs-all.yml --csv --output C:\Windows\Temp\out.csv
 ```
