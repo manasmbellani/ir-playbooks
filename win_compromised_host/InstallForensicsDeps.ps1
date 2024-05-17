@@ -296,3 +296,14 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\sigma")) {
     Write-Host '[*] Removing sigma zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\sigma\sigma.zip"
 }
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\encrypted-disk-detector")) {
+    Write-Host "[*] Making directory encrypted-disk-detector..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\encrypted-disk-detector"
+    
+    Write-Host "[*] Downloading encrypted-disk-detector..."
+    $url="https://github.com/manasmbellani/splunkfiles/raw/master/encrypted-disk-detector.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\encrypted-disk-detector\encrypted-disk-detector.exe")
+}
+
+
