@@ -539,6 +539,13 @@ Check the parent process in Sysmon Logs for suspicious Process Create (Event ID 
 
 Taken from [LetsDefend Log4J's RCE exercise](https://files-ld.s3.us-east-2.amazonaws.com/Alert-Reports/Log4j_RCE_Detected.pdf)
 
+#### via chainsaw / sigma
+
+Detects any unusual activity from loaded sigma rules
+```
+C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\chainsaw.exe hunt C:\Windows\Temp\Logs -s C:\Users\Administrator\Desktop\opt\sigma\sigma-master -r C:\Users\Administrator\Desktop\opt\sigma\sigma-master\rules --mapping C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\mappings\sigma-event-logs-all.yml --csv --output C:\Windows\Temp\out.csv
+```
+
 ### Extract Files from image
 
 #### via volatility3 / dumpfiles
