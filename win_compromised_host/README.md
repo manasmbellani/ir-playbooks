@@ -216,6 +216,24 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect Disabling Windows Defender
+
+#### via Windows Event Logs / Sysmon / Registry
+
+The `Image` field for the log below shows the process attempting to disable Defender RealTime Monitoring
+```
+Channel: Microsoft-Windows-Sysmon/Operational
+EventID: 13 (Registry value set)
+TargetObject: HKLM\SOFTWARE\Microsoft\Windows Defender\Real-Time Protection\DisableRealtimeMonitoring
+```
+
+```
+Channel: Microsoft-Windows-Sysmon/Operational
+EventID: 13 (Registry value set)
+TargetObject: HKLM\SOFTWARE\Microsoft\Windows Defender\Spynet\SpyNetReporting
+```
+
+
 ### Clear Windows Event Logs
 
 #### via Windows Event Logs
