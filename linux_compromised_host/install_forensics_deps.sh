@@ -114,3 +114,7 @@ curl -sL https://out7.hex-rays.com/files/idafree84_linux.run -o /tmp/idafree84_l
 chmod +x /tmp/idafree84_linux.run
 /tmp/idafree84_linux.run
 rm /tmp/idafree84_linux.run
+
+echo "[*] Installing Ghidra via snap..."
+apt-get -y install snapd
+snap install ghidra
