@@ -34,6 +34,12 @@ strings -eL bin.exe
 exiftool img.jpeg
 ```
 
+### Look for paths within binaries
+
+#### via strings
+
+Search using [strings](#via-strings) and look for `/home`, `/root`, `Users`, `Desktop`, `pdb` which can reveal the developer's name
+
 ### Look for embedded binaries
 
 #### via binwalk
@@ -46,7 +52,7 @@ binwalk bin.exe
 
 #### via strings / grep
 
-Run `strings` as described [here](#via-strings) and look for keywords such as `rust` 
+Run `strings` as described [here](#via-strings) and look for keywords such as `rustc` 
 
 ### Decompile App
 
@@ -64,6 +70,14 @@ Select View > Linear
 Select Raw > Linear > Disassembly View
 ```
 /opt/binaryninja/binaryninja/binaryninja bin.exe
+```
+
+#### via Ghidra
+
+Window > Dissemble main 
+
+```
+ghidra
 ```
 
 ### Ransomware type detection
