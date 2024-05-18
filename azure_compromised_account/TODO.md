@@ -6,6 +6,7 @@
 - Pre-req link microsoft 365 to azure https://learn.microsoft.com/en-us/microsoft-365/enterprise/azure-integration?view=o365-worldwide
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
+- Analysis detect azure ad pivoting https://trustedsec.com/blog/azure-ad-kerberos-tickets-pivoting-to-the-cloud
 - Analysis Look for Azure misconfigs https://securitycafe.ro/2022/04/29/pentesting-azure-recon-techniques/
 - Analysis use KQL Queries fir threat hunting and detections https://www.amazon.com/Definitive-Guide-KQL-operations-defending/dp/0138293384?crid=1NFU7JMYVJF4W&dib=eyJ2IjoiMSJ9.x-10caI14tdYvIgggqktbS2QSLb5hSBFjNQDE6RKjtxD2hAo0HVbkD6vn2B_0SBNB8sGGOKlXffJoVQMUf1yfAB_qKFID8Fk5-E9UZnxqgjVqfCrTcmn8gKHfDnpshGvA0UM0-r1Ck0zUQJS60qkdjjVAC5QwCqWAa3U51bcRdSWj0Ol5frlvqgVZE2XF9Q56HtX5rGDnqwYqko7rZ2QiGygZDiaCxqeqFIdWuE3XTg.pruSVH9lLi23jKIMHMpPVYaBR5K3RJh4TGRQ6N6cYC4&dib_tag=se&keywords=rod+trent&qid=1715799861&sprefix=,aps,124&sr=8-1&linkCode=sl1&tag=buzzmanagement&linkId=91af4c6ba2c9e242b6487c530a8aae45&language=en_US&ref_=as_li_ss_tl
 - Analysis Use techniques from ahhhzure labs https://github.com/gladstomych/AHHHZURE
