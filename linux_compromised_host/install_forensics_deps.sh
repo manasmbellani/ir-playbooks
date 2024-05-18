@@ -107,3 +107,10 @@ mkdir /opt/binaryninja
 cd /opt/binaryninja
 curl -sL https://cdn.binary.ninja/installers/binaryninja_free_linux.zip -o /opt/binaryninja/binaryninja.zip
 unzip /opt/binaryninja/binaryninja.zip
+
+echo "[*] Installing IDA Pro..."
+cd /tmp
+curl -sL https://out7.hex-rays.com/files/idafree84_linux.run -o /tmp/idafree84_linux.run
+chmod +x /tmp/idafree84_linux.run
+/tmp/idafree84_linux.run
+rm /tmp/idafree84_linux.run
