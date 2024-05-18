@@ -15,7 +15,9 @@ sudo apt-get -y install \
   build-essential \
   unzip \
   curl \
-  yara
+  yara \
+  xfce4 \
+  xfce4-goodies
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
