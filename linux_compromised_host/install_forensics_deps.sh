@@ -90,6 +90,9 @@ apt-get -y install dc3dd
 echo "[*] Installing bulk-extractor..."
 apt-get -y install bulk-extractor
 
+echo "[*] Installing binwalk..."
+apt-get -y install binwalk
+
 echo "[*] Installing rust, cargo..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash
 
