@@ -42,6 +42,30 @@ exiftool img.jpeg
 binwalk bin.exe
 ```
 
+### Detect programming language
+
+#### via strings / grep
+
+Run `strings` as described [here](#via-strings) and look for keywords such as `rust` 
+
+### Decompile App
+
+#### via IDA Pro
+
+View > Show Disassembly
+
+```
+/opt/idafree-8.4/ida64
+```
+
+#### via binary ninja
+
+Select View > Linear
+Select Raw > Linear > Disassembly View
+```
+/opt/binaryninja/binaryninja/binaryninja bin.exe
+```
+
 ### Ransomware type detection
 
 #### via ID Ransomware website
