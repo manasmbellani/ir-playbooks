@@ -17,7 +17,8 @@ sudo apt-get -y install \
   curl \
   yara \
   xfce4 \
-  xfce4-goodies
+  xfce4-goodies \
+  exiftool
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
