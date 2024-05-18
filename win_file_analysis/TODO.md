@@ -6,9 +6,6 @@ $rules = Get-ChildItem C:\Users\johndoe\Desktop\yara-4.3.2-2150-win64\rules | Se
 foreach ($rule in $rules) {C:\Users\johndoe\Desktop\yara-4.3.2-2150-win64\yara64.exe C:\Users\johndoe\Desktop\yara-4.3.2-2150-win64\rules\$($rule.Name) C:\Users\johndoe\Desktop\pid.3648.dmp}
 ```
 - Static Analysis for reverse engineering Rust app
-- Static Analysis strings
-- Static Analysis Look for exif data in images
-- Static Analysis Look for bins via binwalk
 - Static Analysis decompilation via Dogbolt's Decompiler Explorer: https://dogbolt.org/?id=20529e0a-a2d1-4aa4-8932-3bcc7fb847c9#Hex-Rays=1321
 - Static Analysis Decrypt sourcedefender encrypted files via sourcerestorer https://github.com/Lazza/SourceRestorer
 - Static Analysis Analyse malicious OneNote documents https://github.com/knight0x07/OneNoteAnalyzer
