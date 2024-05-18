@@ -101,3 +101,9 @@ git clone https://github.com/MagnetForensics/dumpit-linux /opt/dumpit-linux
 cd /opt/dumpit-linux
 apt-get -y install pkg-config liblzma-dev
 ~/.cargo/bin/cargo build --release
+
+echo "[*] Installing binary ninja disassembler..." 
+mkdir /opt/binaryninja
+cd /opt/binaryninja
+curl -sL https://cdn.binary.ninja/installers/binaryninja_free_linux.zip -o /opt/binaryninja/binaryninja.zip
+unzip /opt/binaryninja/binaryninja.zip
