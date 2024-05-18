@@ -16,6 +16,32 @@ Refer to the forensics servers setup [here](../gcp_compromised_pod/install_foren
 wireshark
 ```
 
+### Analyse interesting strings in binary 
+
+#### via strings
+
+```
+strings bin.exe
+strings -el bin.exe
+strings -eL bin.exe
+```
+
+### Look for exif data
+
+#### via exiftool
+
+```
+exiftool img.jpeg
+```
+
+### Look for embedded binaries
+
+#### via binwalk
+
+```
+binwalk bin.exe
+```
+
 ### Ransomware type detection
 
 #### via ID Ransomware website
@@ -91,7 +117,7 @@ Install `Onion Browser` and `Orbot` Mobile Apps
 
 #### via github.com/ragnarok_decryptor
 
-Decryption fo rangarok ransomware
+Decryption for rangarok ransomware
 
 https://filebin.net/4jhdz2i306dpgvyh
 https://github.com/manasmbellani/ragnarok_decrypter
