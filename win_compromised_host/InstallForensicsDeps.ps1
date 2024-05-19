@@ -2,6 +2,9 @@
     .SYNOPSIS
     Install forensics dependencies on the Windows server such as Windows Server 2016 to be used for forensics purposes
     Run in Windows Powershell v5.1
+
+    Additional Steps:
+        * If 
 #>
 
 # Sleep Time (in seconds)
@@ -339,6 +342,19 @@ if (-Not (Test-Path "$INSTALL_LOCATION\sysmon-config")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\sysmon-config\sample-sysmon-config.xml")
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\dotnet-install")) {
+    Write-Host "[*] Making directory dotnet-install..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\dotnet-install"
+    
+    Write-Host "[*] Downloading dotnet-install.ps1..."
+    $url="https://dot.net/v1/dotnet-install.ps1"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\dotnet-install\dotnet-install.ps1")
+
+    Write-Host "[*] Installing dotnet 6..."
+    cd C:\Users\Administrator\Desktop\opt\dotnet-install
+    & .\dotnet-install.ps1 -Version 6.0    
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\EZTools")) {
     Write-Host "[*] Making directory EZTools..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\EZTools"
@@ -355,7 +371,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\EZTools")) {
 
     Write-Host '[*] Downloading all Eric Zimmerman forensics tools...'
     cd "$INSTALL_LOCATION\EZTools"
-    .\Get-ZimmermanTools.ps1 -Dest . -NetVersion 4
+    .\Get-ZimmermanTools.ps1 -Dest .
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline")) {
