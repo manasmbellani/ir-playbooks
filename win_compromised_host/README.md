@@ -747,6 +747,12 @@ To see the details, switch from Mode `Counts` to `Details` in Autopsy.
 
 A tutorial of using `Autopsy`'s timeline analysis is available [here](https://www.sleuthkit.org/autopsy/timeline.php)
 
+#### via Eric Zimmerman's EvtxECmd
+
+```
+C:\Users\Administrator\Desktop\opt\EZTools\EvtxECmd\EvtxECmd.exe -d C:\Windows\System32\winevt\Logs --csv C:\Windows\Temp --csvf timeline.csv
+```
+
 ### Dump process memory
 
 #### via volatility2 / memdump
