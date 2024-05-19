@@ -40,6 +40,8 @@ exiftool img.jpeg
 
 Search using [strings](#via-strings) and look for `/home`, `/root`, `Users`, `Desktop`, `pdb` which can reveal the developer's name
 
+See example for [rust](https://www.binarydefense.com/resources/blog/digging-through-rust-to-find-gold-extracting-secrets-from-rust-malware/)
+
 ### Look for embedded binaries
 
 #### via binwalk
