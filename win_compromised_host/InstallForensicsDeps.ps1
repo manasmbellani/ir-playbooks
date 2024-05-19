@@ -354,8 +354,8 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\EZTools")) {
     Remove-Item -Path "$INSTALL_LOCATION\EZTools\EZTools.zip"
 
     Write-Host '[*] Downloading all Eric Zimmerman forensics tools...'
-    cd .\Get-ZimmermanTools.ps1 -Dest .
-    .\Get-ZimmermanTools.ps1 -Dest .
+    cd "$INSTALL_LOCATION\EZTools"
+    .\Get-ZimmermanTools.ps1 -Dest . -NetVersion 4
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline")) {
