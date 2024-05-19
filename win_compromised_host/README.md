@@ -1021,6 +1021,10 @@ $events |Where-Object {$_.Properties[8].Value -Like '*Lsass*'} |Format-List
 
 See example [here](#via-wmi-parser--chainsaw)
 
+#### via Eric Zimmerman's evtxecmd
+
+See [EvtxEcmd](#via-eric-zimmermans-evtxecmd)
+
 ## Eradication
 
 ## Recovery
