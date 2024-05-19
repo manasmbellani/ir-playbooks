@@ -3,6 +3,7 @@
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
+- Analysis detect secretsdump detection of credentials with/without touching disk https://github.com/fortra/impacket/pull/1698
 - Analysis Using DSQuery, ldapsearch to view LDAP https://posts.specterops.io/an-introduction-to-manual-active-directory-querying-with-dsquery-and-ldapsearch-84943c13d7eb
 - Analysis detect impacket wmipersist  https://threathunt.blog/impacket-part-2/
 - Analysis Detect AD enumeration via adalanche https://lsecqt.github.io/Red-Teaming-Army/active-directory/enumeration/visualizing-acls-with-adalanche/
