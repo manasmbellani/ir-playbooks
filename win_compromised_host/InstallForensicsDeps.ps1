@@ -374,6 +374,11 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\EZTools")) {
     .\Get-ZimmermanTools.ps1 -Dest .
 }
 
+if ( -Not (Get-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").GetValue("ShowSecondsInSystemClock")) { 
+	Write-Host "[*] Setting ShowSecondsInSystemClock value to ensure that seconds are visible..." 
+	New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value "1" -PropertyType DWORD
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline")) {
     Write-Host "[*] Making directory WindowsEventsToCSVTimeline..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline"
