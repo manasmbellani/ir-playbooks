@@ -233,6 +233,18 @@ EventID: 13 (Registry value set)
 TargetObject: HKLM\SOFTWARE\Microsoft\Windows Defender\Spynet\SpyNetReporting
 ```
 
+### Detect Blocking of Windows Defender
+
+#### via Windows Event Logs 
+
+Check the `Rule ID`, `Rule Name` and `Application Path` - ensure that it is not an AV related path e.g. `C:\Program Files\Windows Defender Advanced Threat Protection\SenseCncProxy.exe`
+
+```
+Channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+Event ID: 2097 (A rule has been added to the Windows Defender Firewall exception list.)
+```
+
+Taken from [here](https://github.com/LearningKijo/ResearchDev/blob/main/DEV/DEV03-FirewallTampering/Dev03-FirewallTampering.md)
 
 ### Clear Windows Event Logs
 
