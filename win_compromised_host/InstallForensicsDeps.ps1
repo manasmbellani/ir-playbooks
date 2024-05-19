@@ -339,6 +339,24 @@ if (-Not (Test-Path "$INSTALL_LOCATION\sysmon-config")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\sysmon-config\sample-sysmon-config.xml")
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\EZTools")) {
+    Write-Host "[*] Making directory EZTools..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\EZTools"
+    
+    Write-Host "[*] Downloading EZTools..."
+    $url="https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\EZTools\EZTools.zip")
+
+    Write-Host "[*] Extracting EZTools zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\EZTools\EZTools.zip" -DestinationPath "$INSTALL_LOCATION\EZTools"
+
+    Write-Host '[*] Removing EZTools zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\EZTools\EZTools.zip"
+
+    Write-Host '[*] Downloading all Eric Zimmerman forensics tools...'
+    cd .\Get-ZimmermanTools.ps1 -Dest .
+    .\Get-ZimmermanTools.ps1 -Dest .
+}
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline")) {
     Write-Host "[*] Making directory WindowsEventsToCSVTimeline..."
