@@ -3,7 +3,6 @@
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
 - Analysis Using DSQuery, ldapsearch to view LDAP https://posts.specterops.io/an-introduction-to-manual-active-directory-querying-with-dsquery-and-ldapsearch-84943c13d7eb
-- Analysis Add detections for AV tampering, file detonations https://github.com/LearningKijo/ResearchDev
 - Analysis detect impacket wmipersist  https://threathunt.blog/impacket-part-2/
 - Analysis Detect AD enumeration via adalanche https://lsecqt.github.io/Red-Teaming-Army/active-directory/enumeration/visualizing-acls-with-adalanche/
 - Analysis Detect various compromises via 0x13cubed guides  https://training.13cubed.com/downloads
