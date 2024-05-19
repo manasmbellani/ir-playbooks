@@ -338,3 +338,19 @@ if (-Not (Test-Path "$INSTALL_LOCATION\sysmon-config")) {
     $url = "https://gist.github.com/manasmbellani/1baccb274e6deae15befd0a736ad8f36/raw/sample-sysmon-config.xml"
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\sysmon-config\sample-sysmon-config.xml")
 }
+
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline")) {
+    Write-Host "[*] Making directory WindowsEventsToCSVTimeline..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline"
+    
+    Write-Host "[*] Downloading WindowsEventsToCSVTimeline..."
+    $url = "https://github.com/piesecurity/WindowsEventsToCSVTimeline/archive/refs/heads/master.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\WindowsEventsToCSVTimeline\WindowsEventsToCSVTimeline.zip")
+
+    Write-Host "[*] Extracting WindowsEventsToCSVTimeline zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline\WindowsEventsToCSVTimeline.zip" -DestinationPath "$INSTALL_LOCATION\WindowsEventsToCSVTimeline"
+
+    Write-Host '[*] Removing WindowsEventsToCSVTimeline zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline\WindowsEventsToCSVTimeline.zip"
+}
