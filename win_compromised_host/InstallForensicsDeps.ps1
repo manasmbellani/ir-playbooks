@@ -4,7 +4,7 @@
     Run in Windows Powershell v5.1
 
     Additional Steps:
-        * If 
+        * If error of .net6 from EZ Tools, open one of the binaries and install .NET version via the dialog box shown
 #>
 
 # Sleep Time (in seconds)
