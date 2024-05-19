@@ -1,4 +1,5 @@
 # TODO
+- Pre-requisite setup win logging https://x.com/directoryranger/status/1791838805810409742?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
