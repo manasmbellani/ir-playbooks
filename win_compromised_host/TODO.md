@@ -3,6 +3,7 @@
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
+- Analysis Detect SCCM attacks https://swisskyrepo.github.io/InternalAllTheThings/active-directory/deployment-sccm/
 - Analysis Detect password reset after expiry via various methods https://www.n00py.io/2021/09/resetting-expired-passwords-remotely/
 - Analysis detect secretsdump detection of credentials with/without touching disk https://github.com/fortra/impacket/pull/1698
 - Analysis Using DSQuery, ldapsearch to view LDAP https://posts.specterops.io/an-introduction-to-manual-active-directory-querying-with-dsquery-and-ldapsearch-84943c13d7eb
