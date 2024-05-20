@@ -18,7 +18,8 @@ sudo apt-get -y install \
   yara \
   xfce4 \
   xfce4-goodies \
-  exiftool
+  exiftool \
+  nmap
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
