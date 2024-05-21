@@ -817,6 +817,8 @@ deactivate
 
 #### via shimcache / eric zimmerman's appcompatcacheparser
 
+Registry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompatibility\AppcompatCache`
+
 ```
 C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
 ```
