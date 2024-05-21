@@ -396,28 +396,3 @@ sudo docker compose down
 
 ## Automation
 
-## Additional TODOs
-- Preparation - [Falco](https://falco.org/)
-- Preparation - Falco Sidekick
-- Containment - lock down nodes where possible to ensure that there is no connectivity
-- Containment - checked IAM Policy Bindings on the node and disable them
-- Containment - drain the node?
-- Containment - snapshot the VM instances
-- Analysis GCP useful commands https://www.linkedin.com/posts/cdoman_google-cloud-incident-response-cheatsheet-ugcPost-7138886546291597313-JyYR?utm_source=share&utm_medium=member_ios
-- Analysis - Various forensics tool, containment mechanisms - https://cloudyforensics.medium.com/
-- Analysis - kubectl top command for memory usage https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
-- Analysis - Collect image via snapshot dd
-- Analysis - Collect image via cloud-forensics-utils
-- Analysis - Investigate [docker container](https://sysdig.com/blog/triaging-malicious-docker-container/)
-- Collection - dftimewolf https://dftimewolf.readthedocs.io/en/latest/getting-started.html, https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
-- Analysis - Get Pod events via kubectl: `kubectl events --for pod/$POD_NAME`
-- Analysis - attempt debug mode via kubectl https://stackoverflow.com/questions/64698328/add-sidecar-container-to-running-pods/77017278#77017278
-- Analysis - Include tooling from osdfir-infrastructure https://github.com/google/osdfir-infrastructure
-- Analysis - docker explorer
-- Analysis - kube-forensics
-- Analysis - EAL  https://github.com/lprat/EAL
-- Analysis - Collecting volatile memory from nod https://www.infoq.com/news/2023/07/malicious-behaviour-gke/
-- Analysis - Sysdig inspect & capture - https://github.com/draios/sysdig-inspect?tab=readme-ov-file
-- Recovery - Enable Linux Auditd Logging - https://cloud.google.com/kubernetes-engine/docs/how-to/linux-auditd-logging
-- Recovery - Install an EDR e.g. Falco https://falco.org/docs/getting-started/falco-kubernetes-quickstart/
-- Eradication - drain node?
