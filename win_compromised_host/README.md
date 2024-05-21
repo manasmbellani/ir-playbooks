@@ -815,6 +815,12 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.registry.userassist
 deactivate
 ```
 
+#### via shimcache / eric zimmerman's appcompatcacheparser
+
+```
+C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
+```
+
 ### Check for installed applications 
 
 Look for any applications running as servers and that could be exploited
