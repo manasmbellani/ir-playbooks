@@ -20,7 +20,6 @@
 - Analysis Detect the current auditing policy `auditpol /get /category:*`
 - Analysis Build timeline via regripper https://www.forensicfocus.com/articles/a-guide-to-regripper-and-the-art-of-timeline-building/
 - Analysis Add processing of programs from prefetch folder for file path, execution counts etc
-- Analysis Add shimcache windows execution artifact
 - Analysis Add amcache database processing as it can also contain windows hash
 - Analysis parse userassist registry key for parsing SHA hashes
 - Analysis parse runMRU lists for windows file path executions 
