@@ -5,6 +5,8 @@
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
 - Analysis enumeration via linux-smart-enumeration https://github.com/diego-treitos/linux-smart-enumeration
 - Analysis Review all techniques in linux cheatsheet https://www.defensive-security.com/storage/uploads/Advanced%20Linux%20Detection%20and%20Forensics%20Cheatsheet%20by%20Defensive%20Security.pdf
+- Analysis Review app and versions in use via grype, syft (see pentest_playbooks > code_review)
+- Analysis Review app logs via journalctl to detect attacks like Log4j `sudo journalctl -u spring-boot-application`
 - Analysis Add Linux Threat Hunting arifacts from pberba's github.io page https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd
 - Analysis Add artifacts from TazWake guide  https://www.linkedin.com/pulse/linux-ir-key-forensic-artifacts-incident-responders-taz-wake-asmbe
 - Analysis Add techniques from Hal Pomeranz's course https://ia802901.us.archive.org/33/items/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics.pdf
