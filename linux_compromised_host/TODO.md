@@ -3,6 +3,7 @@
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
+- Analysis look for matching /proc/PID comm, cmdline, exe to detect masquerade 
 - Analysis enumeration via linux-smart-enumeration https://github.com/diego-treitos/linux-smart-enumeration
 - Analysis Review all techniques in linux cheatsheet https://www.defensive-security.com/storage/uploads/Advanced%20Linux%20Detection%20and%20Forensics%20Cheatsheet%20by%20Defensive%20Security.pdf
 - Analysis Review app and versions in use via grype, syft (see pentest_playbooks > code_review)
