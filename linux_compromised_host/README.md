@@ -279,6 +279,8 @@ deactivate
 
 #### via `proc` folder
 
+Leaks various interesting artifacts such as Client IP, command in case of SSH
+
 See `/proc/$PID/environ`
 
 ### Get executable binary for process
