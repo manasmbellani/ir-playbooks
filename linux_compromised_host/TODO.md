@@ -3,6 +3,7 @@
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
+- Analysis detect network traffic via lsof, ss -0bp, cat /proc stack, /proc fd commands
 - Analysis Detect Linux timestompinng https://www.inversecos.com/2022/08/detecting-linux-anti-forensics.html?m=1
 - Analysis identify all the newly modified files via find, volatility
 - Analysis look for malware via empty environ file or histfile environ var
