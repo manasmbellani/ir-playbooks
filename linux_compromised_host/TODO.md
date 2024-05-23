@@ -3,6 +3,7 @@
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
+- Analysis identify all the newly modified files via find, volatility
 - Analysis look for malware via empty environ file or histfile environ var
 - Analysis Look for deleted files in /proc/PID exe and also use `cp` to copy the binary
 - Analysis look for matching /proc/PID comm, cmdline, exe to detect masquerade 
