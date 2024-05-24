@@ -103,6 +103,11 @@ cd /opt/dumpit-linux
 apt-get -y install pkg-config liblzma-dev
 ~/.cargo/bin/cargo build --release
 
+echo "[*] Installing yara-x..."
+git clone https://github.com/VirusTotal/yara-x /opt/yara-x
+cd /opt/yara-x
+~/.cargo/bin/cargo build --release
+
 echo "[*] Installing binary ninja disassembler..." 
 mkdir /opt/binaryninja
 cd /opt/binaryninja
