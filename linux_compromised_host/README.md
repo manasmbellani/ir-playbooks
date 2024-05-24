@@ -476,6 +476,13 @@ https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistenc
 
 ### Check for packet sniffing
 
+#### via lsof 
+
+```
+# Look for 'pack' type=RAW_SOCK
+lsof -a -i4 -i6 -itcp
+```
+
 #### via ss
 
 Look for very long BPF filters and linked to processes that shouldn't have network activity
