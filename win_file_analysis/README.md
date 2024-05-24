@@ -186,4 +186,20 @@ provides a list of various free websites which can be used for decryption for di
 
 https://www.upguard.com/blog/how-to-decrypt-ransomware
 
+### Detect Malware signatures
+
+#### via yara-x
+
+```
+# For scanning /tmp folder with Yara rules from /opt/signature-base
+find /opt/signature-base -type f | xargs -I ARG /opt/yara-x/target/release/yr scan ARG /tmp
+```
+
+#### via yara
+
+```
+# For scanning /tmp folder with Yara rules from /opt/signature-base
+find /opt/signature-base -type f | xargs -I ARG yara ARG /tmp/
+```
+
 
