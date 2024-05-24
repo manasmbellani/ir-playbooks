@@ -108,6 +108,15 @@ git clone https://github.com/VirusTotal/yara-x /opt/yara-x
 cd /opt/yara-x
 ~/.cargo/bin/cargo build --release
 
+echo "[*] Installing Loki and signature base..."
+git clone https://github.com/Neo23x0/Loki /opt/loki
+cd /opt/loki
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 -m pip install colorama yara-python psutil rfc5424-logging-handler netaddr
+python3 loki-upgrader.py
+deactivate
+
 echo "[*] Installing binary ninja disassembler..." 
 mkdir /opt/binaryninja
 cd /opt/binaryninja
