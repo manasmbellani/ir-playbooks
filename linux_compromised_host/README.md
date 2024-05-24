@@ -474,6 +474,16 @@ Typical file names:
 
 https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd
 
+### Check for packet sniffing
+
+#### via ss
+
+Look for very long BPF filters and linked to processes that shouldn't have network activity
+
+```
+ss -0bp
+```
+
 ### Build a wordlist for Extracting password encrypted files
 
 #### via bulk_extractor
