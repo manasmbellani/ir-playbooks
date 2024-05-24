@@ -188,6 +188,13 @@ https://www.upguard.com/blog/how-to-decrypt-ransomware
 
 ### Detect Malware signatures
 
+#### via loki
+
+```
+# Scan files in /tmp/ directory
+python3 /opt/loki/loki.py -p /tmp
+```
+
 #### via yara-x
 
 ```
