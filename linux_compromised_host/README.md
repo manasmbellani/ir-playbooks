@@ -474,7 +474,22 @@ Typical file names:
 
 https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd
 
-### Check for packet sniffing
+### Detect timestomping
+
+#### via tracker3 DB
+
+This can detect times changed via the `touch` command. Check the `FileSystem.db` database for `<filename>` that needs to be checked for timestomping:
+
+```
+sqlite3 /home/<user>/.cache/tracker3/files/ .dump | grep <filename>
+
+# Use this command for `date` 
+date -d @$TIMESTAMP
+```
+
+More info [here](https://www.inversecos.com/2022/08/detecting-linux-anti-forensics.html?m=1)
+
+### Check for network activity
 
 #### via lsof 
 
@@ -483,9 +498,27 @@ https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistenc
 lsof -a -i4 -i6 -itcp
 ```
 
+#### via /proc ... /fd
+
+Look for `socket` based file descriptors to observe network activity.
+
+```
+ls -l /proc/$PID/fd | grep -i socket
+```
+
+#### via /proc ... /stack
+
+Monitor the proc `stack` for network connectivity. Look for `sock_recvmsg` for network connectivity
+
+```
+watch -n 0.5 cat /proc/1338/stack
+```
+
+### Check for packet sniffing
+
 #### via ss
 
-Look for very long BPF filters and linked to processes that shouldn't have network activity
+Look for very long BPF filters and linked to process ID that shouldn't have network activity
 
 ```
 ss -0bp
