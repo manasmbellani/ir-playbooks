@@ -1,7 +1,7 @@
 # TODO
 - Pre-requisite setup win logging via yamatosecurity config https://github.com/Yamato-Security/EnableWindowsLogSettings
 - Containment GCP Firewall
-- Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
+- Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
 - Collection dc3dd disk image
 - Analysis Detect Windows Defender disabled via no-defender https://github.com/es3n1n/no-defender
 - Analysis Detect malicious one note files https://micahbabinski.medium.com/detecting-onenote-one-malware-delivery-407e9321ecf0
