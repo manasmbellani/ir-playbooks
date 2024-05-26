@@ -4,12 +4,23 @@
 
 ## Pre-requisites
 
+### Deploy auditd config 
+
+We deploy best practice auditd configuration on a test linux instance for monitoring changes from [here](https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules) by copying this config to `/etc/audit/rules.d/audit.rules` 
+
+We then run the following command to restart auditd and validate that it is applied:
+
+```
+systemctl restart auditd
+
+auditctl -l
+```
+
 ## Scenario Setup
 
 ## Containment
 
 Containment of an instance depends on the technology in use which can be used for containment.
-
 
 ### Disable from wired networks
 
