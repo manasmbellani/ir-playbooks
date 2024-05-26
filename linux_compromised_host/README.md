@@ -527,6 +527,14 @@ date -d @$TIMESTAMP
 
 More info [here](https://www.inversecos.com/2022/08/detecting-linux-anti-forensics.html?m=1)
 
+#### via auditd
+
+Assuming auditd is available, search the logs
+
+```
+grep -i touch /var/log/audit/audit.log
+```
+
 #### via stat
 
 Weak detection, but could still give an indicator during timeline via `Birth` and `Change` fields, especially if `Access` and `Modify` timestamps are way-off
