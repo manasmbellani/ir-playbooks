@@ -19,7 +19,8 @@ sudo apt-get -y install \
   xfce4 \
   xfce4-goodies \
   exiftool \
-  nmap
+  nmap \
+  auditd
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
