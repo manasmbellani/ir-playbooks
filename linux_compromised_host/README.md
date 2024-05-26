@@ -10,6 +10,10 @@
 
 Containment of an instance depends on the technology in use which can be used for containment.
 
+### Disable from wired networks
+
+Steps are the same as described [here](win_compromised_host#disconnect-from-wired-networks)
+
 ### Contain GCP Compute VM via GCP firewall 
 
 The following set of commands can be used to create a network tag called `forensics-contain` which allow specific GCP inbound / outbound services but exclude all others. 
