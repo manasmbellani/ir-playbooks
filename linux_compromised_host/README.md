@@ -10,9 +10,32 @@
 
 Containment of an instance depends on the technology in use which can be used for containment.
 
+
 ### Disable from wired networks
 
 Steps are the same as described [here](../win_compromised_host#disconnect-from-wired-networks)
+
+### Disable Bluetooth Network
+
+Check if bluetooth is running:
+```
+hcitool dev
+service bluetooth status
+systemctl status bluetooth.service
+```
+
+
+#### via service
+
+```
+service bluetooth stop
+```
+
+#### via systemctl
+
+```
+systemctl stop bluetooth.service
+```
 
 ### Contain GCP Compute VM via GCP firewall 
 
