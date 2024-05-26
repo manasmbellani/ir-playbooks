@@ -4,7 +4,6 @@
 - Collection - Creating Disk image via dd / usb https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
 - Analysis Review various linux forensics tools https://github.com/xiosec/Computer-forensics
-- Analysis Detect Linux timestompinng https://www.inversecos.com/2022/08/detecting-linux-anti-forensics.html?m=1
 - Analysis identify all the newly modified files via find, volatility
 - Analysis look for malware via empty environ file or histfile environ var
 - Analysis Look for deleted files in /proc/PID exe and also use `cp` to copy the binary
