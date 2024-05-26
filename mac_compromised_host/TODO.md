@@ -1,7 +1,7 @@
 # MAC Compromised Host
 
 ## TODO
-- Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
+- Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
 - Collection via automactc https://github.com/Crowdstrike/automactc
 - Analysis Review launchd jobs https://www.launchd.info/
 - Analysis Apollo https://github.com/mac4n6/APOLLO
