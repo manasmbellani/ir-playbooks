@@ -2,6 +2,10 @@
 
 ## Containment
 
+### Disable from wired networks
+
+Steps are the same as described [here](win_compromised_host#disconnect-from-wired-networks)
+
 ### Disable BlueTooth
 
 #### via UI > System Settings
