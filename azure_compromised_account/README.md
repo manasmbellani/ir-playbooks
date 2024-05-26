@@ -14,6 +14,18 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 ## Analysis
 
+### Extract Emails for analysis
+
+#### via powershell / Office 365 Compliance Portal / PurView
+
+Leverage the script [here](Invoke-ComplianceSearch.ps1) to run Office 365 email searches
+
+#### via Office 365 Compliance Portal 
+
+Login to the [portal](https://compliance.microsoft.com/) > eDiscovery > Standard > Create case.
+
+Leverage the following [link](https://learn.microsoft.com/en-us/purview/ediscovery-keyword-queries-and-search-conditions) to create the content search for Compliance.
+
 ### Extract Activity Logs
 
 #### via Microsoft-Extractor-Suite
