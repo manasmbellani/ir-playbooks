@@ -527,6 +527,16 @@ date -d @$TIMESTAMP
 
 More info [here](https://www.inversecos.com/2022/08/detecting-linux-anti-forensics.html?m=1)
 
+#### via stat
+
+Weak detection, but could still give an indicator during timeline via `Birth` and `Change` fields, especially if `Access` and `Modify` timestamps are way-off
+
+```
+stat test.txt
+```
+
+https://www.inversecos.com/2022/08/detecting-linux-anti-forensics.html?m=1
+
 ### Check for network activity
 
 #### via lsof 
