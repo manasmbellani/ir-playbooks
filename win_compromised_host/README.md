@@ -118,6 +118,12 @@ netsh wlan delete profile name=* i=*
 netsh wlan delete profile *
 ```
 
+### Disable BlueTooth Networks
+
+#### via UI
+
+Find option in the task bar to disable bluetooth network.
+
 ## Collection
 
 ### Collect Live RAM 
