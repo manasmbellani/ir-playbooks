@@ -214,11 +214,11 @@ Good to know if disks are encrypted beforehand during collection steps since enc
 C:\Users\Administrator\Desktop\opt\encrypted-disk-detector\encrypted-disk-detector.exe
 ```
 
-## Export Emails for Analysis
+### Export Emails for Analysis
 
 Assuming the compromise could have started using phishing emails.
 
-### for Office 365
+#### for Office 365
 
 Refer to this [link](../azure_compromised_account/README.md#extract-emails-for-analysis) for details on how to export emails for analysis e.g. in case of phishing sites.
 
