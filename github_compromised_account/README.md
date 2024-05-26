@@ -55,10 +55,37 @@ curl -L \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/orgs/$github_org/invitations/$github_invitation_id
 ```
-
+  
 ## Collection
 
 ## Analysis
+
+
+### List SSH Signing Keys for user
+
+#### via curl
+
+```
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Basic $auth_token" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/users/$github_username/ssh_signing_keys
+```
+
+### List SSH Keys for the user
+
+User can leverage these keys to clone repositories. These cannot be removed by the owner, so one may have to ensure that access is not available for the account.
+
+#### via curl
+
+```
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Basic $auth_token" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/users/$github_username/keys
+```
 
 ## Eradication
 
