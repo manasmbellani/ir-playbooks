@@ -157,6 +157,18 @@ dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512 count=8192000
 dc3dd if=/dev/sda1 of=/tmp/image.dd hash=sha256 hlog=/tmp/hash.log log=/tmp/image.log
 ```
 
+### Artifacts Collection
+
+#### via fasir_artifacts
+
+To quickly contain main set of artifacts for analysis (similar to KAPE)
+
+```
+cd /opt/fastir_artifacts
+source venv/bin/activate
+python3 fastir_artifacts.py -o /tmp/fastirartefacts
+deactivate
+```
 
 ### Mounting image
 
