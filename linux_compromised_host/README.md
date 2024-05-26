@@ -4,6 +4,8 @@
 
 ## Pre-requisites
 
+## Scenario Setup
+
 ### Deploy auditd config 
 
 We deploy best practice auditd configuration on a test linux instance for monitoring changes from [here](https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules) by copying this config to `/etc/audit/rules.d/audit.rules` 
@@ -15,8 +17,6 @@ systemctl restart auditd
 
 auditctl -l
 ```
-
-## Scenario Setup
 
 ## Containment
 
