@@ -12,7 +12,7 @@ Containment of an instance depends on the technology in use which can be used fo
 
 ### Disable from wired networks
 
-Steps are the same as described [here](win_compromised_host#disconnect-from-wired-networks)
+Steps are the same as described [here](../win_compromised_host#disconnect-from-wired-networks)
 
 ### Contain GCP Compute VM via GCP firewall 
 
