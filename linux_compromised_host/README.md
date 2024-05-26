@@ -533,6 +533,7 @@ Assuming auditd is available, search the logs
 
 ```
 grep -i touch /var/log/audit/audit.log
+grep -i timedatectl /var/log/audit/audit.log
 ```
 
 #### via stat
