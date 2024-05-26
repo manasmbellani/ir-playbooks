@@ -21,7 +21,8 @@ After performing the steps below, remember to disable the Wifi adapter
 # Identify the WIFI adapter
 sudo networksetup -listallhardwareports
 # List all the wireless networks
-sudo networksetup -listpreferredwirelessnetworks en0
+# Example:sudo networksetup -listpreferredwirelessnetworks en0
+sudo networksetup -listpreferredwirelessnetworks $ADAPTER_NAME
 # Disable the specific wifi network 
 sudo networksetup -removepreferredwirelessnetwork en0 $WIFI
 ```
