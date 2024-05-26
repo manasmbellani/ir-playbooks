@@ -3,6 +3,7 @@
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts
 - Collection dc3dd disk image
+- Analysis Detect Windows Defender disabled via no-defender https://github.com/es3n1n/no-defender
 - Analysis Detect malicious one note files https://micahbabinski.medium.com/detecting-onenote-one-malware-delivery-407e9321ecf0
 - Analysis Detect SCCM attacks https://swisskyrepo.github.io/InternalAllTheThings/active-directory/deployment-sccm/
 - Analysis Detect password reset after expiry via various methods https://www.n00py.io/2021/09/resetting-expired-passwords-remotely/
