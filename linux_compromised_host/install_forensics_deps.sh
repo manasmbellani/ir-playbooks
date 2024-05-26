@@ -134,3 +134,13 @@ rm /tmp/idafree84_linux.run
 echo "[*] Installing Ghidra via snap..."
 apt-get -y install snapd
 snap install ghidra
+
+echo "[*] Installing fastir-artifacts..."
+git clone https://github.com/OWNsecurity/fastir_artifacts /opt/fastir_artifacts
+cd /opt/fastir_artifacts
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+deactivate
+
+
