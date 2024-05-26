@@ -38,14 +38,26 @@ curl -L \
   -H "Authorization: Basic $auth_token" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/user/blocks/$username_to_block
+```
 
+#### via UI
+
+`Profile Photo > Settings > Access > Moderation > Blocked Users`
+
+### Cancel failed organization invitations
+
+#### via curl / Github REST API
+
+```
 # List any existing invitations for users for the organization and identify ones that may belong to he user
 curl -L \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Basic $auth_token" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/orgs/$github_org/failed_invitations
+```
 
+```
 # Cancel any invitations to the user by ID (get ID from output above e.g. '34397904')
 github_invitation_id=...
 curl -L \
@@ -55,7 +67,11 @@ curl -L \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/orgs/$github_org/invitations/$github_invitation_id
 ```
-  
+
+### via UI
+
+Profile > Your Organizations > Select Organization > People > Invitations
+
 ## Collection
 
 ## Analysis
