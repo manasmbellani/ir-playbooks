@@ -1,0 +1,6 @@
+# TODO
+
+- Pre-requisite Setup vmware esxi lab https://www.altaro.com/vmware/vsphere-home-lab-free/#m4
+- Pre-requisite Download and install VMWare Workstation and ESXI ISO image https://archive.org/details/vmware-esxi-7
+- Analysis Review guide on investigating VMware esxi forensics https://www.reddit.com/r/computerforensics/comments/otyr4r/is_there_any_esxi_forensic_guideblogtalk/
+- Analysis Review https://blogs.vmware.com/explore/2024/02/13/how-to-procect-esxi-and-vsphere-from-ransomware/
