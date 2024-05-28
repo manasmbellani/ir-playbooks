@@ -112,6 +112,20 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\python")) {
     #Remove-Item -Path "$INSTALL_LOCATION\python\python.exe"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\dc3dd")) {
+    Write-Host "[*] Making directory dc3dd..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\dc3dd"
+
+    Write-Host "[*] Downloading dc3dd-windows.zip..."
+    $url =  "https://github.com/manasmbellani/splunkfiles/raw/master/dc3dd-windows.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\dc3dd\dc3dd-windows.zip")
+
+    Write-Host "[*] Extracting dc3dd-windows .zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\dc3dd\dc3dd-windows.zip" -DestinationPath "$INSTALL_LOCATION\dc3dd"
+
+    Write-Host '[*] Removing dc3dd-windows.zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\dc3dd\dc3dd-windows.zip"
+}
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\WMIExplorer")) {
     Write-Host "[*] Making directory WMIExplorer..."
