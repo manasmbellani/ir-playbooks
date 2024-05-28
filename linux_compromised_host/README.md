@@ -243,24 +243,51 @@ dumpe2fs /tmp/sdb1.raw
 
 ### Identify and Recover Deleted files from disk
 
+#### via Sleuthkit / mmls / fsstat / istat / fls
+
+First, examine the partitions of the raw disk via mmls
+
+```
+mmls 10-ntfs-disk.dd 
+```
+
+Then use `fsstat` command to get the files listing specifying the correct start sector from previous command to get useful like OEM, Volume Name, Version, File System Type, etc.
+
+```
+fsstat -f ntfs -o 0000096390 10-ntfs-disk.dd 
+```
+
+We use `fls` command to get the inode number about the file and all files listing in the image
+
+```
+fls -l -f ntfs -o 0000096390 10-ntfs-disk.dd 
+```
+
+We can now use `istat` command to get information about the file
+
+```
+istat -f ntfs -o 0000096390 10-ntfs-disk.dd  "0-128-1"
+```
+
+We get the file via `icat`
+
+```
+icat -f ntfs -o 0000096390 10-ntfs-disk.dd  "0-128-1" > /tmp/mft-file.raw
+```
+
+Examine the file structure
+```
+file /tmp/mft-file.raw
+xxd /tmp/mft-file.raw
+```
+
+Taken from [here](https://www.therootuser.com/2017/11/recover-deleted-files-using-sleuthkit/) and [here](https://wiki.sleuthkit.org/index.php?title=Fls)
+
+Note the relevant partition where data might be present.
+
 #### via fls / icat
 
-For extracting deleted files, we list files using `fls` and use `icat` to extract the files and refer to link [here](https://wiki.sleuthkit.org/index.php?title=Fls) for more info on output file types:
-```
-fls /tmp/sdb1.raw
-```
-
-To extract a particular file, we use `inode` number displayed above to get the contents of the file via `icat` : 
-```
-icat -r /tmp/sdb1.raw $INODE_NUMBER > /tmp/$INODE_NUMBER.raw
-file /tmp/$INODE_NUMBER.raw
-ls -lah /tmp/$INODE_NUMBER.raw
-```
-
-We can get more details about the file as well using`$INODE_NUMBER` with `istat`:
-```
-istat /tmp/sdb1.raw $INODE_NUMBER
-```
+See [above](#via-sleuthkit--mmls--fsstat--istat--fls)
 
 #### via dd / proc
 
