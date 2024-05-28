@@ -178,6 +178,18 @@ Can be used to create various disk types such as Raw Image (`dd`), Smart, E01 (A
 
 For folders (e.g. `Kape` disk artifacts below ), can create `AD1` type disk image
 
+#### via dc3dd
+
+Identify the `PHYSICALDRIVE` image identifier to create disk of using FTK Imager [here](#via-ftk-imager)
+
+Run `dc3dd` command to take an image to specified folder:
+
+```
+C:\Users\Administrator\Desktop\opt\dc3dd\dc3dd-dcfl-win7-64-7-2-641\dc3dd.exe if=\\.\PHYSICALDRIVE0 of=C:\Windows\Temp\disk.dd hash=sha256 log=C:\Windows\Temp\disk.log
+```
+
+Taken from [here](https://www.forensicfocus.com/articles/windows-drive-acquisition/)
+
 ### Collect Disk Artifacts
 
 #### via Kroll (KAPE)
