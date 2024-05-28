@@ -414,6 +414,12 @@ See [here](#via-journalctl)
 
 Files such as `~/.zsh_history`, `~/.bash_history` can contain past commands run by user
 
+in case of `/bin/zsh`, we also have `~/.zsh_sessions` folder which contain the `.history` file and `.session` file. 
+Session file contains a command for readable timestamp for when the history file was created. 
+Whereas `.history` file contains the specific commands that were opened. 
+
+Taken from [here](https://x.com/malmoeb/status/1794973569287410103)
+
 ### List running network ports/services from memory
 
 #### via volatility3 / sockscan
