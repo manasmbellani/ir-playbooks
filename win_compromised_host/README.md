@@ -180,7 +180,7 @@ For folders (e.g. `Kape` disk artifacts below ), can create `AD1` type disk imag
 
 #### via dc3dd
 
-Identify the `PHYSICALDRIVE` image identifier to create disk of using FTK Imager [here](#via-ftk-imager)
+Identify the `PHYSICALDRIVE` image identifier to create disk of using FTK Imager [here](#via-ftk-imager-1)
 
 Run `dc3dd` command to take an image to specified folder:
 
