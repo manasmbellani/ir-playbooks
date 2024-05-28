@@ -18,6 +18,13 @@ systemctl restart auditd
 auditctl -l
 ```
 
+### Sample Disk Images
+
+A number of sample disk images can be obtained from the links below:
+
+- https://datasets.fbreitinger.de/datasets/
+- https://dftt.sourceforge.net/test10/index.html
+
 ## Containment
 
 Containment of an instance depends on the technology in use which can be used for containment.
