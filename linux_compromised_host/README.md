@@ -18,7 +18,7 @@ systemctl restart auditd
 auditctl -l
 ```
 
-### Sample Disk Images
+### Sample Disk DD Images
 
 A number of sample disk images can be obtained from the links below:
 
