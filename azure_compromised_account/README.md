@@ -18,7 +18,7 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 #### via Azure AD Sign-in Logs
 
-Under https://portal.azure.com > `Sign-In Logs` > Look for unusual `Status=Interrupted` events (indicate that perhaps MFA did not go through?)
+Under https://portal.azure.com > `Sign-In Logs` > Look for unusual `Status=Interrupted` or `Status=Failure` events (indicate that perhaps MFA did not go through or password was incorrect)
 
 Tested via `Spray365` tool
 
