@@ -4,7 +4,6 @@
 - Pre-req link azure to Microsoft 365 https://learn.microsoft.com/en-us/answers/questions/1494434/i-have-azure-and-i-have-just-registered-with-m365
 - Pre-req Enable Azure Sentinel https://learn.microsoft.com/en-us/azure/sentinel/quickstart-onboard
 - Pre-req link microsoft 365 to azure https://learn.microsoft.com/en-us/microsoft-365/enterprise/azure-integration?view=o365-worldwide
-- Analysis Detect Brute force attack via spray365 https://x.com/directoryranger/status/1793710460975686057?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
 - Analysis Evading Token Access Protection via Conditional Policies https://rootsecdev.medium.com/evading-token-protection-for-entraid-m365-2024-edition-b0827407b6f5
