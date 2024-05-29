@@ -14,6 +14,14 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 ## Analysis
 
+### Detect password brute-force / spraying
+
+#### via Azure AD Sign-in Logs
+
+Under https://portal.azure.com > `Sign-In Logs` > Look for unusual `Status=Interrupted` events (indicate that perhaps MFA did not go through?)
+
+Tested via `Spray365` tool
+
 ### Extract Emails for analysis
 
 #### via powershell / Office 365 Compliance Portal / PurView
