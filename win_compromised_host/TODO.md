@@ -2,6 +2,7 @@
 - Pre-requisite setup win logging via yamatosecurity config https://github.com/Yamato-Security/EnableWindowsLogSettings
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
+- Analysis Detect powerlessshell.py https://x.com/c0axx/status/1795632536795984037?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Detect shells created as critical users such as SYSTEM/ADMINISTRATOR/ High priv uses to detect exploits https://x.com/decoder_it/status/1795475356134109193?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Detect Ldap telemetry via silketw https://www.mdsec.co.uk/2024/02/active-directory-enumeration-for-red-teams/
 - Analysis Detect Windows Defender disabled via no-defender https://github.com/es3n1n/no-defender
