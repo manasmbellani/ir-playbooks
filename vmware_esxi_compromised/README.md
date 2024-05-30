@@ -8,6 +8,8 @@ Follow the setup steps [here](https://www.wintips.org/how-to-install-vmware-esxi
 
 A version of VMWare ESXi is available for download [here](https://archive.org/details/ESXi6.7)
 
+Use [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) for SSH connectivity 
+
 ### Enable SSH
 
 #### via ESXi UI
@@ -30,10 +32,31 @@ More details about different VMWare log types defined [here](https://docs.vmware
 
 ## Analysis
 
-### Check SSH Enabled
+### Check kernel settings
 
-#### 
+#### via esxcli
+
+Can show settings for `execInstalledOnly` and `secure boot` which are important as explained [here](https://www.truesec.com/hub/blog/secure-your-vmware-esxi-hosts-against-ransomware)
 ```
+esxcli system settings kernel list
+```
+
+### Check if SSH was Enabled
+
+#### via VMWare ESXI UI
+
+Shown on the Host page
+
+#### via VMWare ESXI UI / Manage 
+
+Manage > Services > TMSH-SSH, is it running?
+
+#### via esxi logs
+
+Shown in `vobd.log` or `hostd.log` logs
+
+```
+grep -r -n -i "SSH Access" /var/log 
 ```
 
 ### Check Authentication Attempts
