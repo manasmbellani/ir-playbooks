@@ -74,7 +74,7 @@ Captures the IP and the username leveraged for connection to SSH
 ```
 cat /var/log/auth.log
 
-grep -r -n -i "session opened" /var/log
+grep -r -n -i E "authentication failure|session opened" /var/log
 ```
 
 #### via web UI / /var/log/hostd.log
