@@ -6,20 +6,18 @@
 
 #### via curl / Github REST API
 
-Generate the github personal access token as the user that is the owner for the organization
+Generate the github personal access token as the user that is the owner for the organization.
 
 ```
 github_org=...
 github_username=...
-github_pat=...
+github_token=...
 username_to_block=...
-
-auth_token=$(echo -n "$github_username:$github_pat" | base64)
 
 # List blocked users
 curl -L \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Basic $auth_token" \
+  -H "Authorization: Basic $github_token" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/user/blocks
 
@@ -27,7 +25,7 @@ curl -L \
 curl -L \
   -X DELETE \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Basic $auth_token" \
+  -H "Authorization: Basic $github_token" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/orgs/$github_org/memberships/$username_to_block
 
@@ -35,7 +33,7 @@ curl -L \
 curl -L \
   -X PUT \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Basic $auth_token" \
+  -H "Authorization: Basic $github_token" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/user/blocks/$username_to_block
 ```
@@ -74,8 +72,23 @@ Profile > Your Organizations > Select Organization > People > Invitations
 
 ## Collection
 
-## Analysis
+### Collect Logs
 
+#### via Github API Logs
+
+Replace `$organization` with Github token - this will provide 100 pages and 
+```
+# Call this again with the specified cursor returned in response
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $github_token" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "https://api.github.com/orgs/$organization/audit-log?per_page=100&include=all" | tee /tmp/out.json
+```
+
+Taken from [here](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/orgs?apiVersion=2022-11-28#get-the-audit-log-for-an-organization)
+
+## Analysis
 
 ### List SSH Signing Keys for user
 
