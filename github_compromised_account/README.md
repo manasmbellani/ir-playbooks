@@ -74,9 +74,13 @@ Profile > Your Organizations > Select Organization > People > Invitations
 
 ### Collect Logs
 
+#### via Github UI
+
+Visit the Organization > Settings > Archive > Logs > Audit Logs
+
 #### via Github API Logs
 
-Replace `$organization` with Github token - this will provide 100 pages and 
+Replace `$organization` with Github token - this will provide 100 items per page.
 ```
 # Call this again with the specified cursor returned in response
 curl -L \
