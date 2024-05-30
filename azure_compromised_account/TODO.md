@@ -6,6 +6,7 @@
 - Pre-req link microsoft 365 to azure https://learn.microsoft.com/en-us/microsoft-365/enterprise/azure-integration?view=o365-worldwide
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
+- Collectiom Forensic Artifacts from Office 365 the-cloud-sleuth-extrwcting-forensic-artifacts-office-365
 - Analysis Evading Token Access Protection via Conditional Policies https://rootsecdev.medium.com/evading-token-protection-for-entraid-m365-2024-edition-b0827407b6f5
 - Analysis Review Azure host cli forensics https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html
 - Analysis Look for apps trusted by the email account in case of BEC https://x.com/svch0st/status/1792567933828506035?s=46&t=WvGY79Umt5enRwgCbi4TQQ
