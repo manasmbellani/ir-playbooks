@@ -101,6 +101,8 @@ esxcli vm process list
 
 ### Check installed VIBs
 
+For any unusual / malicious installed software packages
+
 #### via esxcli
 
 ```
