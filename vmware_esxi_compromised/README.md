@@ -59,6 +59,12 @@ Shown in `vobd.log` or `hostd.log` logs as `SSH Access has been enabled` and the
 grep -r -n -i "SSH Access" /var/log 
 ```
 
+### Check if authentication via domain
+
+#### via logs
+
+Login attempts appear as `DOMAIN\Administrator` OR `Administrator@corp.local` which contain domain name
+
 ### Check Authentication Attempts
 
 #### via SSH / /var/log/auth.log
@@ -69,6 +75,13 @@ Captures the IP and the username leveraged for connection to SSH
 cat /var/log/auth.log
 
 grep -r -n -i "session opened" /var/log
+```
+
+#### via web UI / /var/log/hostd.log
+
+Shows the authentication attempts to the VMWare ESXI web browser e.g. `User root@192.168.56.101 logged in as <User-Agent>`
+```
+grep -r -n -i "logged in as" /var/log/hostd.log
 ```
 
 ### Check shell commands executed
