@@ -24,9 +24,17 @@ Taken from [here](https://www.serversaustralia.com.au/articles/virtualisation/vm
 
 ### Check Authentication Attempts
 
-### Check shell commands executed
-
 #### via /var/log/auth.log
+
+Captures the IP and the username leveraged for connection to SSH
+
 ```
 cat /var/log/auth.log
+```
+
+### Check shell commands executed
+
+#### via /var/log/shell.log
+```
+cat /var/log/shell.log
 ``` 
