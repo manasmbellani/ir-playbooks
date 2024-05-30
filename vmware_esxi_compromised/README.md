@@ -20,6 +20,14 @@ Taken from [here](https://www.serversaustralia.com.au/articles/virtualisation/vm
 
 ## Collection
 
+### Collect Logs
+
+Collect all logs from the following locations: 
+- `/var/log`
+- `find /var/run -ipath "*log*"`
+
+More details about different VMWare log types defined [here](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-832A2618-6B11-4A28-9672-93296DA931D0.html)
+
 ## Analysis
 
 ### Check Authentication Attempts
