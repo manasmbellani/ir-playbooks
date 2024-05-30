@@ -98,3 +98,11 @@ cat /var/log/shell.log
 ```
 esxcli vm process list
 ```
+
+### Check installed VIBs
+
+#### via esxcli
+
+```
+esxcli software vib list
+```
