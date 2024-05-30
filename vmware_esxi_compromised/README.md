@@ -53,7 +53,7 @@ Manage > Services > TMSH-SSH, is it running?
 
 #### via esxi logs
 
-Shown in `vobd.log` or `hostd.log` logs
+Shown in `vobd.log` or `hostd.log` logs as `SSH Access has been enabled` and the time SSH connectivity was enabled
 
 ```
 grep -r -n -i "SSH Access" /var/log 
@@ -61,12 +61,14 @@ grep -r -n -i "SSH Access" /var/log
 
 ### Check Authentication Attempts
 
-#### via /var/log/auth.log
+#### via SSH / /var/log/auth.log
 
 Captures the IP and the username leveraged for connection to SSH
 
 ```
 cat /var/log/auth.log
+
+grep -r -n -i "session opened" /var/log
 ```
 
 ### Check shell commands executed
