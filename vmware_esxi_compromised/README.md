@@ -90,3 +90,11 @@ grep -r -n -i "logged in as" /var/log/hostd.log
 ```
 cat /var/log/shell.log
 ``` 
+
+### Check running VMs
+
+#### via esxcli
+
+```
+esxcli vm process list
+```
