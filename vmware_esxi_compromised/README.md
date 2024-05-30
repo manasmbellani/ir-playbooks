@@ -6,7 +6,7 @@
 
 Follow the setup steps [here](https://www.wintips.org/how-to-install-vmware-esxi-on-virtualbox/) to install VMWare ESXi in Virtualbox for testing purposes
 
-A version of VMWare ESXi is available here
+A version of VMWare ESXi is available for download [here](https://archive.org/details/ESXi6.7)
 
 ### Enable SSH
 
