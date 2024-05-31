@@ -2,6 +2,7 @@
 - Pre-requisite setup win logging via yamatosecurity config https://github.com/Yamato-Security/EnableWindowsLogSettings
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
+- Analysis use Plaso to build timeline on windows https://www.forensics-matters.com/2020/10/17/forensics-timeline-using-plaso-for-windows/
 - Analysis Detect serrlabelprivilege exploit https://decoder.cloud/2024/05/30/abusing-the-serelabelprivilege/
 - Analysis detect mythic https://x.com/its_a_feature_/status/1795871240185417747?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Detect powerlessshell.py https://x.com/c0axx/status/1795632536795984037?s=46&t=WvGY79Umt5enRwgCbi4TQQ
