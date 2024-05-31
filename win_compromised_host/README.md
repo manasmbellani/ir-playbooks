@@ -242,6 +242,19 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect authentication attempts indicating credential dumping
+
+#### via Windows Event Logs / Sysmon
+
+Can be used to detect tools like `go-secdump` used for dumping various credentials like LSA, SAM.
+
+```
+Event ID: 18 (Pipe Connected)
+Channel: Microsoft-Windows-Sysmon/Operational
+PipeName: \ntsvcs OR \winreg
+EventType: connect
+```
+
 ### Identify and Recover Deleted files
 
 See [here](../linux_compromised_host#identify-and-recover-deleted-files-from-disk)
