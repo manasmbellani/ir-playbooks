@@ -229,6 +229,14 @@ mkdir /mnt/disk /mnt/windows_data
 mmls  /mnt/disk/ewf1
 mount -t ntfs-3g -o loop,ro,show_sys_files,stream_interface=windows,offset=$((1*512)) /mnt/disk/ewf1 /mnt/windows_mount
 ```
+
+To unmount:
+
+```
+umount /mnt/windows_mount
+umount /mnt/disk
+```
+
 Taken from [here](https://dfirmadness.com/mounting-case001-e01-files/)
 
 ### Detect Encrypted Disks
