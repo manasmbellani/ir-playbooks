@@ -828,6 +828,17 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem timeliner.Timeliner
 deactivate
 ```
 
+#### via plaso
+
+Assuming `dd` / `E01` image has been taken and mounted on linux host with name `charlie-work-usb....`:
+
+```
+# Build an SQLITE timeline
+docker run --rm -v /tmp:/data -v $(pwd):/in -it log2timeline/plaso log2timeline.py /in/charlie-work-usb-2009-12-11.e01  --storage_file /data/log2timeline.data
+# Convert format to CSV
+docker run --rm -v /tmp:/data -v $(pwd):/in -it log2timeline/plaso psort.py -w /data/log2timeline.csv /data/log2timeline.data
+```
+
 #### via Autopsy
 
 Use Tools > Timeline Analysis option to view the timeline. Additionally, it is possible to select `Linear` or `Logarithmic` scale to view the timeline. 
