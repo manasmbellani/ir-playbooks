@@ -329,6 +329,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\sigma")) {
     Remove-Item -Path "$INSTALL_LOCATION\sigma\sigma.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\plaso")) {
+    Write-Host "[*] Making directory plaso..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\plaso"
+    
+    Write-Host "[*] Downloading plaso..."
+    $url="https://github.com/log2timeline/plaso/releases/download/20240308/plaso-20240308.tar.gz"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\plaso\plaso.zip")
+
+    Write-Host "[*] Extracting plaso zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\plaso\plaso.zip" -DestinationPath "$INSTALL_LOCATION\plaso"
+
+    Write-Host '[*] Removing plaso zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\plaso\plaso.zip"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\encrypted-disk-detector")) {
     Write-Host "[*] Making directory encrypted-disk-detector..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\encrypted-disk-detector"
