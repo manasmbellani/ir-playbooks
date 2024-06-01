@@ -143,4 +143,5 @@ source venv/bin/activate
 python3 -m pip install -r requirements.txt
 deactivate
 
-
+echo "[*] Installing ewfmount..."
+apt-get -y remove libewf && apt-get -y install ewf-tools
