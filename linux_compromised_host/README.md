@@ -24,6 +24,8 @@ A number of sample disk images can be obtained from the links below:
 
 - https://datasets.fbreitinger.de/datasets/
 - https://dftt.sourceforge.net/test10/index.html
+- https://cfreds.nist.gov/all/NIST/HackingCase
+- https://github.com/BitCurator/bitcurator-access-webtools/blob/main/disk-images/mixed/charlie-work-usb-2009-12-11.E01
 
 ## Containment
 
@@ -41,7 +43,6 @@ hcitool dev
 service bluetooth status
 systemctl status bluetooth.service
 ```
-
 
 #### via service
 
