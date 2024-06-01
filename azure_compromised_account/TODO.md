@@ -7,6 +7,8 @@
 - Containment Review Microsoft IR Playbooks
 - Containment Review forwarding rules
 - Collectiom Forensic Artifacts from Office 365 the-cloud-sleuth-extrwcting-forensic-artifacts-office-365
+- Analysis link entra id to Log Analytics workspace KQL https://learn.microsoft.com/en-us/entra/identity/monitoring-health/tutorial-configure-log-analytics-workspace
+- Analysis Implement basic entra id monitoring https://securediam.com/f/entra-id-monitoring---are-you-doing-the-basics-part-3
 - Analysis Detect EntraID Of365 compromise (Cloud identity abuse leading to Office 365 Exfiltration attack) detection https://github.com/LearningKijo/ResearchDev?tab=readme-ov-file
 - Analysis Evading Token Access Protection via Conditional Policies https://rootsecdev.medium.com/evading-token-protection-for-entraid-m365-2024-edition-b0827407b6f5
 - Analysis Review Azure host cli forensics https://www.inversecos.com/2023/03/azure-command-line-forensics-host-based.html
