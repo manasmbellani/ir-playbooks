@@ -145,3 +145,12 @@ deactivate
 
 echo "[*] Installing ewfmount..."
 apt-get -y remove libewf && apt-get -y install ewf-tools
+
+echo "[*] Installing plaso after ewfmount..."
+add-apt-repository universe
+add-apt-repository ppa:gift/stable
+apt-get -y update
+apt-get -y install plaso-tools
+
+
+
