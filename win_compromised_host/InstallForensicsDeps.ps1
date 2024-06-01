@@ -351,13 +351,23 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\plaso")) {
     
     Write-Host "[*] Downloading plaso..."
     $url="https://github.com/log2timeline/plaso/releases/download/20240308/plaso-20240308.tar.gz"
-    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\plaso\plaso.zip")
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\plaso\plaso.tar.gz")
 
-    Write-Host "[*] Extracting plaso zip file..."
-    Expand-Archive -Path "$INSTALL_LOCATION\plaso\plaso.zip" -DestinationPath "$INSTALL_LOCATION\plaso"
+    Write-Host "[*] Extracting plaso tar.gz file via 7z..."
+    $zipFilePath = "$INSTALL_LOCATION\plaso\plaso.tar.gz"
+    $destinationPath = "C:\Users\Administrator\Desktop\opt\plaso"
+    $command = """C:\Program Files\7-zip\7z.exe"" -o$destinationPath x $zipFilePath"
+    Invoke-Expression "& $command"
+
+    Write-Host "[*] Extracting plaso tar file via 7z..."
+    $zipFilePath = "$INSTALL_LOCATION\plaso\plaso-*.tar"
+    $destinationPath = "C:\Users\Administrator\Desktop\opt\plaso"
+    $command = """C:\Program Files\7-zip\7z.exe"" -o$destinationPath x $zipFilePath"
+    Invoke-Expression "& $command"
 
     Write-Host '[*] Removing plaso zip file...'
-    Remove-Item -Path "$INSTALL_LOCATION\plaso\plaso.zip"
+    Remove-Item -Path "$INSTALL_LOCATION\plaso\plaso.tar.gz"
+    Remove-Item -Path "$INSTALL_LOCATION\plaso\plaso-*.tar"
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\encrypted-disk-detector")) {
