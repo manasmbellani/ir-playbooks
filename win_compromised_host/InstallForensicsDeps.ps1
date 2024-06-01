@@ -112,6 +112,22 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\python")) {
     #Remove-Item -Path "$INSTALL_LOCATION\python\python.exe"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\7zip")) {
+    Write-Host "[*] Making directory 7zip..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\7zip"
+
+    Write-Host "[*] Downloading 7zip .exe..."
+    $url = "https://www.7-zip.org/a/7z2201-x64.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\7zip\7z2201-x64.exe")
+
+    Write-Host "[*] Installing 7zip..."
+    $command = "$INSTALL_LOCATION\7zip\7z2201-x64.exe /S"
+    Invoke-Expression "& $command"
+
+    Write-Host "[*] Sleeping for $SLEEP_TIME seconds until 7zip is installed..."
+    sleep "$SLEEP_TIME"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\dc3dd")) {
     Write-Host "[*] Making directory dc3dd..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\dc3dd"
