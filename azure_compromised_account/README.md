@@ -14,6 +14,18 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 ## Analysis
 
+### Show Microsoft 365 Enterprise Plan
+
+#### via Graph API
+
+```
+Connect-Graph -Scopes Organization.Read.All
+$licenses.SkuPartNumber | Format-List
+$licenses.ServicePlans
+```
+
+https://learn.microsoft.com/en-us/microsoft-365/enterprise/view-licenses-and-services-with-microsoft-365-powershell?view=o365-worldwide
+
 ### Detect password brute-force / spraying
 
 #### via Azure AD UI / Sign-in Logs
