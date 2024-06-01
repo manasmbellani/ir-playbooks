@@ -2,6 +2,10 @@
 
 ## Pre-requisites
 
+### Setup KQL Search Environment for Azure Entra ID
+
+Setup a Log Analytics workspace in [Azure Portal](https://portal.azure.com) and forward logs via Diagnostics Settings in [Microsoft Entra Admin Center](https://entra.microsoft.com) by following this guide [here](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/tutorial-configure-log-analytics-workspace)
+
 ### Setup Windows Forensic Instance
 
 Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics instance included with dependencies to perform forensics for Azure.
@@ -13,6 +17,24 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 ## Collection
 
 ## Analysis
+
+### List Microsoft Security alerts (e.g. DLP alerts)
+
+#### via Graph API cmdlets
+
+List alerts such as Microsoft Compliance / Purview DLP alerts
+
+```
+ Connect-MgGraph -Scopes `
+         "SecurityActions.ReadWrite.All", `
+         "SecurityEvents.ReadWrite.All", `
+         "Policy.Read.All", `
+         "Application.ReadWrite.All"
+
+Get-MgSecurityAlert
+```
+
+https://helloitsliam.com/2021/10/15/using-the-microsoft-graph-powershell-for-security-alerts/
 
 ### Show Microsoft 365 Enterprise Plan
 
