@@ -66,9 +66,31 @@ curl -L \
   https://api.github.com/orgs/$github_org/invitations/$github_invitation_id
 ```
 
-### via UI
+#### via UI
 
 Profile > Your Organizations > Select Organization > People > Invitations
+
+### Remove SSH Keys or SSH signing keys
+
+#### via curl / Github REST API
+
+Note that keys can only be executed by authenticated users via the UI (this didn't appear to work)
+
+```
+curl -L \
+  -X DELETE \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $auth_token" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/user/keys/$key_id
+
+curl -L \
+  -X DELETE \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $auth_token" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/user/ssh_signing_keys/$key_id
+```
 
 ## Collection
 
