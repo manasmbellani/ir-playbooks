@@ -4,7 +4,9 @@
 
 ### Setup KQL Search Environment for Azure Entra ID
 
-Setup a Log Analytics workspace in [Azure Portal](https://portal.azure.com) and forward logs via Diagnostics Settings in [Microsoft Entra Admin Center](https://entra.microsoft.com) by following this guide [here](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/tutorial-configure-log-analytics-workspace)
+Setup a Log Analytics workspace in [Azure Portal](https://portal.azure.com) and forward logs via Diagnostics Settings in [Microsoft Entra Admin Center](https://entra.microsoft.com) by following this guide [here](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/tutorial-configure-log-analytics-workspace).
+
+Wait for 15 minutes and then Logs are visible under [Microsoft Entra Admin Center](https://entra.microsoft.com) > Identity > Monitoring & Health > Log Analytics
 
 ### Setup Windows Forensic Instance
 
