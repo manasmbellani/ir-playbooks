@@ -216,6 +216,21 @@ Follow the steps [here](##deploying-velocirpator) to launch velociraptor > start
 
 Can be used to mount both physical (e.g. E01) and logical disks
 
+#### via linux / ewfmount
+
+Can be used to mount disk in Linux host
+
+```
+ewfmount charlie-work-usb-2009-12-11.e01 /mnt/disk
+
+mkdir /mnt/disk /mnt/windows_data
+
+# Find sector where NTFS partition starts (this is *512 bytes)
+mmls  /mnt/disk/ewf1
+mount -t ntfs-3g -o loop,ro,show_sys_files,stream_interface=windows,offset=$((1*512)) /mnt/disk/ewf1 /mnt/windows_mount
+```
+Taken from [here](https://dfirmadness.com/mounting-case001-e01-files/)
+
 ### Detect Encrypted Disks
 
 #### via Magnet Forensics' Encrypted Disk Detector
