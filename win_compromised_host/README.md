@@ -838,6 +838,7 @@ docker run --rm -v /tmp:/data -v $(pwd):/in -it log2timeline/plaso log2timeline.
 # Convert format to CSV
 docker run --rm -v /tmp:/data -v $(pwd):/in -it log2timeline/plaso psort.py -w /data/log2timeline.csv /data/log2timeline.data
 ```
+taken from [here](https://www.forensics-matters.com/2020/10/17/forensics-timeline-using-plaso-for-windows/)
 
 #### via Autopsy
 
