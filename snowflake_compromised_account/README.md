@@ -10,7 +10,7 @@ Login as `ACCOUNTADMIN` > Users & Roles > Select the user > `Disable User`
 
 ### Restrict SnowFlake account to network IP ranges
 
-#### via Network Policy
+#### via Network Policy / Network Rules
 
 Taken from [here](https://docs.snowflake.com/en/user-guide/network-policies#about-network-policies)
 
