@@ -17,14 +17,17 @@ Look for any unusual SQL queries which return large volumes of data.
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY ORDER BY BYTES_WRITTEN_TO_RESULT DESC;
 ```
 
-### Get login history
+### Get login history and sessions
 
-#### via SQL / LOGIN_HISTORY table
+#### via SQL / LOGIN_HISTORY table / SESSIONS table
 
 Search for unusual login attempts e.g. from unusual IPs. 
 
 ```
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.LOGIN_HISTORY;
+
+# Contains the indication of the app used via CLIENT_ENVIRONMENT column
+select * FROM SNOWFLAKE.ACCOUNT_USAGE.SESSIONS;
 ```
 
 ### List the users
