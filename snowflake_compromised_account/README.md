@@ -52,6 +52,54 @@ Taken from [here](https://docs.snowflake.com/en/user-guide/network-policies#abou
 
 ## Analysis
 
+### Privilege Escalation Actions
+
+#### via SQL  / QUERY_HISTORY table
+
+```
+select user_name || ' granted the ' || role_name || ' role on ' || end_time ||' [' || query_text ||']' as Grants
+   from query_history where execution_status = 'SUCCESS'
+   and query_type = 'GRANT' and
+   query_text ilike '%grant%accountadmin%to%'
+   order by end_time desc;
+```
+
+```
+SELECT
+    query_text,
+    user_name,
+    role_name,
+    start_time,
+    end_time
+  FROM snowflake.account_usage.query_history
+    WHERE execution_status = 'SUCCESS'
+      AND query_type NOT in ('SELECT')
+      AND (query_text ILIKE '%create role%'
+          OR query_text ILIKE '%manage grants%'
+          OR query_text ILIKE '%create integration%'
+          OR query_text ILIKE '%alter integration%'
+          OR query_text ILIKE '%create share%'
+          OR query_text ILIKE '%create account%'
+          OR query_text ILIKE '%monitor usage%'
+          OR query_text ILIKE '%ownership%'
+          OR query_text ILIKE '%drop table%'
+          OR query_text ILIKE '%drop database%'
+          OR query_text ILIKE '%create stage%'
+          OR query_text ILIKE '%drop stage%'
+          OR query_text ILIKE '%alter stage%'
+          OR query_text ILIKE '%create user%'
+          OR query_text ILIKE '%alter user%'
+          OR query_text ILIKE '%drop user%'
+          OR query_text ILIKE '%create_network_policy%'
+          OR query_text ILIKE '%alter_network_policy%'
+          OR query_text ILIKE '%drop_network_policy%'
+          OR query_text ILIKE '%copy%'
+          )
+  ORDER BY end_time desc;
+```
+
+Taken from [here](https://community.snowflake.com/s/article/Communication-ID-0108977-Additional-Information)
+
 ### External Network Connections from Queries
 
 Each row represents a query made to a procedure or UDF that makes external access requests.
