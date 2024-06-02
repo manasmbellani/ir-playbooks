@@ -8,6 +8,36 @@
 
 Login as `ACCOUNTADMIN` > Users & Roles > Select the user > `Disable User`
 
+#### via SQL Query
+
+```
+set user_name = "SUSPECTED_USER";
+ALTER USER IDENTIFIER($user_name) SET DISABLED = TRUE
+```
+
+Taken from [here](https://community.snowflake.com/s/article/Communication-ID-0108977-Additional-Information)
+
+### Reset User Password
+
+#### via UI
+
+Login as `ACCOUNTADMIN` > Users & Roles > Modify User
+
+#### via SQL Query
+
+```
+ALTER USER IDENTIFIER($user_name) RESET PASSWORD;
+```
+
+### Unset SSH Keys
+
+#### via SQL Query
+
+```
+ALTER USER IDENTIFIER($user_name) UNSET RSA_PUBLIC_KEY;
+ALTER USER IDENTIFIER($user_name) UNSET RSA_PUBLIC_KEY_2;
+```
+
 ### Restrict SnowFlake account to network IP ranges
 
 #### via Network Policy / Network Rules
