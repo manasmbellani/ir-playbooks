@@ -12,11 +12,25 @@ Login as `ACCOUNTADMIN` > Users & Roles > Select the user > `Disable User`
 
 ## Analysis
 
+### View Excessive Cost by Day
+
+#### via SQL / METERING_HISTORY table
+
+```
+SELECT 
+    DATE_TRUNC('DAY', START_TIME) AS day,
+    SUM(CREDITS_USED) AS daily_credits_used
+FROM 
+    SNOWFLAKE.ACCOUNT_USAGE.METERING_HISTORY
+GROUP BY 
+    DATE_TRUNC('DAY', START_TIME)
+```
+
 ### Get objects accessed
 
 Provides some indication of the objects / files modified due to SQL Queries run and how they were run (eg SQL Worksheet)
 
-#### via SQL / ACCESS_HISTORY
+#### via SQL / ACCESS_HISTORY table
 ```
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.ACCESS_HISTORY;
 ```
