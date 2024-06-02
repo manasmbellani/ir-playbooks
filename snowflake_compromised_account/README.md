@@ -6,6 +6,15 @@
 
 ## Analysis
 
+### Get objects accessed
+
+Provides some indication of the objects / files modified due to SQL Queries run and how they were run (eg SQL Worksheet)
+
+#### via SQL / ACCESS_HISTORY
+```
+select * FROM SNOWFLAKE.ACCOUNT_USAGE.ACCESS_HISTORY;
+```
+
 ### Get the SQL queries run
 
 Look for any unusual SQL queries which return large volumes of data.
