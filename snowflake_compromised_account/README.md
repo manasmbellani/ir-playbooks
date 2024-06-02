@@ -13,6 +13,7 @@ Look for any unusual SQL queries which return large volumes of data.
 #### via SQL / QUERY_HISTORY table
 
 ```
+# QUERY_TEXT has the specific query run
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY ORDER BY BYTES_WRITTEN_TO_RESULT DESC;
 ```
 
