@@ -29,6 +29,8 @@ Login as `ACCOUNTADMIN` > Users & Roles > Modify User
 ALTER USER IDENTIFIER($user_name) RESET PASSWORD;
 ```
 
+Taken from [here](https://community.snowflake.com/s/article/Communication-ID-0108977-Additional-Information)
+
 ### Unset SSH Keys
 
 #### via SQL Query
@@ -37,6 +39,8 @@ ALTER USER IDENTIFIER($user_name) RESET PASSWORD;
 ALTER USER IDENTIFIER($user_name) UNSET RSA_PUBLIC_KEY;
 ALTER USER IDENTIFIER($user_name) UNSET RSA_PUBLIC_KEY_2;
 ```
+
+Taken from [here](https://community.snowflake.com/s/article/Communication-ID-0108977-Additional-Information)
 
 ### Restrict SnowFlake account to network IP ranges
 
