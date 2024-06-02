@@ -52,6 +52,18 @@ Taken from [here](https://docs.snowflake.com/en/user-guide/network-policies#abou
 
 ## Analysis
 
+### External Network Connections from Queries
+
+Each row represents a query made to a procedure or UDF that makes external access requests.
+
+#### via SQL / EXTERNAL_ACCESS_HISTORY table
+
+```
+SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.EXTERNAL_ACCESS_HISTORY;
+```
+
+Taken from [here](https://community.snowflake.com/s/article/Communication-ID-0108977-Additional-Information), [here](https://docs.snowflake.com/en/release-notes/2024/8_00#account-usage-new-external-access-history-view)
+
 ### View Excessive Cost by Day
 
 #### via SQL / METERING_HISTORY table
