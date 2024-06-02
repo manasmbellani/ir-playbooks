@@ -15,7 +15,7 @@ Provides some indication of the objects / files modified due to SQL Queries run 
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.ACCESS_HISTORY;
 ```
 
-### Get the SQL queries run
+### Get the SQL queries run including unusual queries
 
 Look for any unusual SQL queries which return large volumes of data.
 
@@ -24,7 +24,18 @@ Look for any unusual SQL queries which return large volumes of data.
 ```
 # QUERY_TEXT has the specific query run
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY ORDER BY BYTES_WRITTEN_TO_RESULT DESC;
+
+# SQL Queries that return unusually high data volume
+select * FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY WHERE NOT DATABASE_NAME IS NULL ORDER BY BYTES_WRITTEN_TO_RESULT DESC;
+
+# SQL Queries that scans unusually high data volume
+select * FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY WHERE NOT DATABASE_NAME IS NULL ORDER BY BYTES_SCANNED DESC;
+
+# SQL Query to detect if attempts were made to copy data into a database e.g. to external s3 bucket
+select * FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY WHERE LOWER(QUERY_TEXT) LIKE '%copy into%'
 ```
+
+Taken from [here](https://www.mitiga.io/blog/tactical-guide-to-threat-hunting-in-snowflake-environments)
 
 ### Get login history and sessions
 
