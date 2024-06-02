@@ -3,7 +3,6 @@
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
 - Analysis Detect ADCS Abuse https://labs.lares.com/adcs-exploits-investigations-pt2/
-- Analysis use Plaso to build timeline on windows https://www.forensics-matters.com/2020/10/17/forensics-timeline-using-plaso-for-windows/
 - Analysis Detect Windows Timestomp via ntimestomp https://www.inversecos.com/2022/04/defence-evasion-technique-timestomping.html
 - Analysis Use Eric Zimmerman's MFTECmd with mactime for parsing $MFT for timeline
 - Analysis Detect serrlabelprivilege exploit https://decoder.cloud/2024/05/30/abusing-the-serelabelprivilege/
