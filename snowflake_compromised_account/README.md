@@ -40,7 +40,7 @@ ALTER USER IDENTIFIER($user_name) UNSET RSA_PUBLIC_KEY;
 ALTER USER IDENTIFIER($user_name) UNSET RSA_PUBLIC_KEY_2;
 ```
 
-Taken from [here](https://community.snowflake.com/s/article/Communication-ID-0108977-Additional-Information)
+Taken from [here](https://community.snowflake.com/s/article/Communication-ID-0108977-Additional-Information), [here](https://docs.snowflake.com/en/user-guide/key-pair-auth)
 
 ### Restrict SnowFlake account to network IP ranges
 
