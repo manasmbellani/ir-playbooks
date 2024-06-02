@@ -10,8 +10,6 @@
 
 #### via SQL / LOGIN_HISTORY table
 
-##### 
-
 Search for unusual login attempts e.g. from unusual IPs. 
 
 ```
