@@ -265,6 +265,16 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect Timestomping / Filesystem time changes
+
+#### via sysmon 
+
+```
+# Image attribute lists full path of the process that changed timestamp and TargetFileName lists the Filename
+EventID: 2 (File Creation Time changed)
+Channel: Microsoft-Windows-Sysmon/Operational
+```
+
 ### Detect authentication attempts indicating credential dumping
 
 #### via Windows Event Logs / Sysmon
