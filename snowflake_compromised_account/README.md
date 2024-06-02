@@ -2,6 +2,12 @@
 
 ## Containment
 
+### Disable user 
+
+#### via UI
+
+Login as `ACCOUNTADMIN` > Users & Roles > Select the user > `Disable User`
+
 ## Collection
 
 ## Analysis
@@ -49,6 +55,12 @@ select * FROM SNOWFLAKE.ACCOUNT_USAGE.LOGIN_HISTORY;
 # Contains the indication of the app used via CLIENT_ENVIRONMENT column
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.SESSIONS;
 ```
+
+#### via UI
+
+Login as `ACCOUNTADMIN` > Users & Roles > `Last Login`
+
+Login as `ACCOUNTADMIN` > Security > `Sessions`
 
 ### List the users
 
