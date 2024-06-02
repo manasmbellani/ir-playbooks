@@ -69,3 +69,13 @@ select * FROM SNOWFLAKE.ACCOUNT_USAGE.USERS;
 # Use SQL Worksheet to run this SQL query
 select * FROM SNOWFLAKE.ACCOUNT_USAGE.GRANTS_TO_USERS;
 ```
+
+## Eradication
+
+## Recovery
+
+### Enable MFA
+
+#### via UI
+
+Login to the Snowflake tenant > Click on Username > My Profile > Multi-Factor Authentication
