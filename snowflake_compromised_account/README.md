@@ -6,6 +6,16 @@
 
 ## Analysis
 
+### Get the SQL queries run
+
+Look for any unusual SQL queries which return large volumes of data.
+
+#### via SQL / QUERY_HISTORY table
+
+```
+select * FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY ORDER BY BYTES_WRITTEN_TO_RESULT DESC;
+```
+
 ### Get login history
 
 #### via SQL / LOGIN_HISTORY table
