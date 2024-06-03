@@ -1105,6 +1105,7 @@ Taken from [here](https://www.inversecos.com/2022/04/defence-evasion-technique-t
 #### LogFileParser / $LogFile
 
 ```
+# Use EZViewer to view the generate log file
 cd C:\Users\Administrator\Desktop\opt\LogFileParser
 .\LogFileParser64.exe /LogFileFile:'C:\Windows\Temp\C\$LogFile' /OutputPath:C:\Windows\Temp\ /Separator:","
 ```
