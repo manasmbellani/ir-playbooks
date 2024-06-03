@@ -1,7 +1,7 @@
 # TODO
 
 - Collection Take ESXI Image as per SANS https://www.sans.org/blog/how-to-digital-forensic-imaging-in-vmware-esxi/, https://medium.com/@erendogukan/create-basic-network-attached-storage-on-windows-10-5a755fabd6fe
-- Collection Use scp for copying forensics images
+- Collection Use ssh, scp for copying sound forensics images https://csilinux.com/simplifying-ssh-secure-remote-access-and-digital-investigations/
 - Analysis Use PowerCLI for analysis https://www.techrepublic.com/article/how-to-manage-esxi-hosts-remotely-with-powercli/, Install: https://www.youtube.com/watch?v=snttlJfhviE
 - Analysis use PowerCLI to execute checks for unsigned binaries https://knowledge.broadcom.com/external/article?legacyId=89619
 - Analysis Review guide on investigating VMware esxi forensics as per reddit guide https://www.reddit.com/r/computerforensics/comments/otyr4r/is_there_any_esxi_forensic_guideblogtalk/
