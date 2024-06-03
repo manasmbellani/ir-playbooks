@@ -1089,6 +1089,13 @@ As described [here](https://superuser.com/a/577272), the `$Logfile` is a special
 C:\Users\Administrator\Desktop\opt\EZTools\net6\MFTECmd.exe -f "E:\C\$LogFile" --csv C:\Windows\Temp --csvf Logfile.csv
 ```
 
+#### LogFileParser / $LogFile
+
+```
+cd C:\Users\Administrator\Desktop\opt\LogFileParser
+.\LogFileParser64.exe /LogFileFile:'C:\Windows\Temp\C\$LogFile' /OutputPath:C:\Windows\Temp\
+```
+
 #### via fsutil
 
 ```
