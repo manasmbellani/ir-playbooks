@@ -78,6 +78,15 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-disable-windows-defender")) {
     Set-MpPreference -SubmitSamplesConsent 0
 }
 
+If (-Not (Test-Path "$INSTALL_LOCATION\flag-enable-ssh")) {
+    Write-Host "[*] Making flag-enable-ssh to state that SSH has been enabled..."
+    New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-enable-ssh"
+
+    Write-Host "[*] Enabling SSH..."
+    $command="dism /online /Add-Capability /CapabilityName:OpenSSH.Client~~~~0.0.1.0"
+    Invoke-Expression "& $command"
+}
+
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-powershell-logging")) {
     Write-Host "[*] Making flag-powershell-logging to state that powershell logging has been configured..."
     New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-powershell-logging"
