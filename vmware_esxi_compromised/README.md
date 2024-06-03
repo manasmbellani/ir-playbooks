@@ -26,7 +26,7 @@ Taken from [here](https://www.serversaustralia.com.au/articles/virtualisation/vm
 
 #### via ssh / dd
 
-First suspend the VM in 
+First suspend the VM via VMWare ESXI UI or vSphere console
 
 Assuming SSH has been enabled as per [above](#enable-ssh), we snapshot the VMs from `/vmfs/volumes/datastore1` folder.
 
@@ -46,11 +46,13 @@ ssh /tmp/$VM_NAME/vmware.log
 ssh /tmp/$VM_NAME/$VM_NAME.vmdk
 ```
 
-Now, take a copy of the image via `dd` and open the captured image in forensic tools like FTK Imager.
+Now, take a copy of the image via `dd` and open the captured image in forensic tools like FTK Imager. Files from suspended VMs like `.vmss` can be analysed via forensic tools like volatility [here](https://github.com/volatilityfoundation/volatility/wiki/VMware-Snapshot-File)
 
 ```
 dd if=/tmp/$VM_NAME/$VM_NAME.vmdk of=/tmp/$VM_NAME/$VM_NAME-copy.vmdk
 ```
+
+Note: Remember to disable SSH again if it wasn't enabled in the first place. 
 
 Taken from [here](https://www.sans.org/blog/how-to-digital-forensic-imaging-in-vmware-esxi/)
 
