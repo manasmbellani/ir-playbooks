@@ -1097,7 +1097,7 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\MFTECmd.exe -f "E:\C\$LogFile" -
 
 ```
 cd C:\Users\Administrator\Desktop\opt\LogFileParser
-.\LogFileParser64.exe /LogFileFile:'C:\Windows\Temp\C\$LogFile' /OutputPath:C:\Windows\Temp\
+.\LogFileParser64.exe /LogFileFile:'C:\Windows\Temp\C\$LogFile' /OutputPath:C:\Windows\Temp\ /Separator:","
 ```
 
 #### via fsutil
