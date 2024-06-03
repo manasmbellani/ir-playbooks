@@ -267,7 +267,7 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 ### Detect Timestomping / Filesystem time changes
 
-#### via sysmon 
+#### via sysmon / windows event logs
 
 Use `powershell` to display the creation, modification, accessed dates
 
@@ -280,6 +280,10 @@ Get-Item -Path C:\Windows\Temp\test.txt | Format-List
 EventID: 2 (File Creation Time changed)
 Channel: Microsoft-Windows-Sysmon/Operational
 ```
+
+### via various methods for created and deleted files
+
+See [here](#check-created-and-deleted-files)
 
 ### Detect authentication attempts indicating credential dumping
 
