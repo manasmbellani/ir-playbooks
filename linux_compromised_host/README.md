@@ -228,6 +228,15 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Files Recently Changed
+
+#### via find
+
+```
+# In last 3 days
+find -ctime -3
+```
+
 ### Show Disk Details
 
 #### via fsstat / dumpe2fs
