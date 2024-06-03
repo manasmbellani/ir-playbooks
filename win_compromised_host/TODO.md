@@ -3,7 +3,6 @@
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
 - Analysis Detect ADCS Abuse https://labs.lares.com/adcs-exploits-investigations-pt2/
-- Analysis add $LogFile parser https://github.com/jschicht/LogFileParser
 - Analysis Use Eric Zimmerman's MFTECmd with mactime for parsing $MFT for timeline
 - Analysis Detect serrlabelprivilege exploit https://decoder.cloud/2024/05/30/abusing-the-serelabelprivilege/
 - Analysis detect mythic https://x.com/its_a_feature_/status/1795871240185417747?s=46&t=WvGY79Umt5enRwgCbi4TQQ
