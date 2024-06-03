@@ -128,6 +128,22 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\7zip")) {
     sleep "$SLEEP_TIME"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\Git")) {
+    Write-Host "[*] Making directory Git..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Git"
+
+    Write-Host "[*] Downloading git.exe..."
+    Invoke-WebRequest "https://github.com/git-for-windows/git/releases/download/v2.34.1.windows.1/Git-2.34.1-64-bit.exe" -OutFile "$INSTALL_LOCATION\git.exe"
+
+    Write-Host "[*] Installing git.exe..."
+    $cmd = "$INSTALL_LOCATION\Git\git.exe /SILENT /NORESTART"
+    Invoke-Expression "& $cmd"
+
+    Write-Host "[*] Adding Git bin's path to PATH environment var..."
+    [Environment]::SetEnvironmentVariable("PATH", "$env:PATH;C:\Program Files\Git\cmd", "User")
+
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\dc3dd")) {
     Write-Host "[*] Making directory dc3dd..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\dc3dd"
