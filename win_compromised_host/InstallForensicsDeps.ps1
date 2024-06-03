@@ -345,6 +345,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\sigma")) {
     Remove-Item -Path "$INSTALL_LOCATION\sigma\sigma.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\LogFileParser")) {
+    Write-Host "[*] Making directory LogFileParser..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\LogFileParser"
+    
+    Write-Host "[*] Downloading LogFileParser..."
+    $url="https://github.com/jschicht/LogFileParser/releases/download/v2.0.0.51/LogFileParser_v2.0.0.51.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\LogFileParser\LogFileParser.zip")
+
+    Write-Host "[*] Extracting LogFileParser zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\LogFileParser\LogFileParser.zip" -DestinationPath "$INSTALL_LOCATION\LogFileParser"
+
+    Write-Host '[*] Removing LogFileParser zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\LogFileParser\LogFileParser.zip"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\plaso")) {
     Write-Host "[*] Making directory plaso..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\plaso"
