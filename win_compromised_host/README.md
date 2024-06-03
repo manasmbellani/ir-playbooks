@@ -1079,7 +1079,7 @@ As described [here](https://superuser.com/a/577272), the `$Logfile` is a special
 
 ```
 # Assumed that Kape used to obtain $Extend/$J (via SANS Triage)
-C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$Extend\$J" --csv C:\Windows\Temp --csvf MFT-J.csv
+C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$LogFile" --csv C:\Windows\Temp --csvf Logfile.csv
 ```
 
 #### via fsutil
