@@ -1,4 +1,4 @@
-# Windows File Analysis
+# File Analysis
 
 ## Forensics Server Setup
 
@@ -6,7 +6,7 @@
 
 Refer to the forensics servers setup [here](../gcp_compromised_pod/install_forensics_deps.sh) 
 
-## Techniques
+## Common
 
 ### Network Analysis
 
@@ -208,5 +208,21 @@ find /opt/signature-base -type f | xargs -I ARG /opt/yara-x/target/release/yr sc
 # For scanning /tmp folder with Yara rules from /opt/signature-base
 find /opt/signature-base -type f | xargs -I ARG yara ARG /tmp/
 ```
+
+### View file
+
+#### via EZViewer
+
+for .doc, .docx, .xls, .xlsx, .txt, .log, .rtf, .otd, .htm, .html, .mht, .csv, and .pdf.
+
+```
+C:\Users\Administrator\Desktop\opt\EZTools\net6\EZViewer\EZViewer.exe > Select file to open
+```
+
+## Windows .exe
+
+## Macbook .app
+
+## Linux
 
 
