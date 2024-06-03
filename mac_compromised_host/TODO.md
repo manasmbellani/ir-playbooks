@@ -7,4 +7,3 @@
 - Analysis Apollo https://github.com/mac4n6/APOLLO
 - Analysis automactc https://github.com/CrowdStrike/automactc
 - Analysis Apple Unified Logs for Airdropped files - http://www.mac4n6.com/blog/2020/6/5/analysis-of-apple-unified-logs-quarantine-edition-entry-11-airdropping-some-knowledge
-- Anslysis Mac app analysis via work's mac assessment triage such as vellam, net triage
