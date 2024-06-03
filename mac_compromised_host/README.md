@@ -35,4 +35,12 @@ Steps listed above can be performed via `System Settings` > `Network` >  `Wifi`
 
 ## Analysis
 
+### Files changed recently
+
+#### via find
+
+```
+find . -ctime -1d
+```
+
 ## Recovery
