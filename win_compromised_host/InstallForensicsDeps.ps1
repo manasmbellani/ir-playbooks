@@ -112,6 +112,25 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\python")) {
     #Remove-Item -Path "$INSTALL_LOCATION\python\python.exe"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\OpenHashTab")) {
+    Write-Host "[*] Making directory OpenHashTab..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\OpenHashTab"
+    
+    Write-Host "[*] Downloading OpenHashTab..."
+    $url="https://github.com/namazso/OpenHashTab/releases/download/v3.0.4/OpenHashTab_setup.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\OpenHashTab\OpenHashTab_setup.exe")
+
+    Write-Host "[*] Installing OpenHashTab..."
+    $command = "$INSTALL_LOCATION\OpenHashTab\OpenHashTab_setup.exe /SILENT /NORESTART /ALLUSERS" 
+    Invoke-Expression "& $command"
+
+    Write-Host "[*] Sleeping for $SLEEP_TIME seconds until python is installed..."
+    sleep "$SLEEP_TIME"
+
+    Write-Host "[*] Removing OpenHashTab installer...."
+    Remove-Item -Path "$INSTALL_LOCATION\OpenHashTab\OpenHashTab_setup.exe"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\7zip")) {
     Write-Host "[*] Making directory 7zip..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\7zip"
