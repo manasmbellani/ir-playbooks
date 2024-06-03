@@ -269,6 +269,12 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 #### via sysmon 
 
+Use `powershell` to display the creation, modification, accessed dates
+
+```
+Get-Item -Path C:\Windows\Temp\test.txt | Format-List
+```
+
 ```
 # Image attribute lists full path of the process that changed timestamp and TargetFileName lists the Filename
 EventID: 2 (File Creation Time changed)
