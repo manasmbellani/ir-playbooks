@@ -1057,6 +1057,22 @@ Parse the USN Journal for CSV output:
 .\UsnJrnl2Csv64.exe /UsnJrnlFile:C:\Windows\Temp\UsnJrnl_$J.bin
 ```
 
+#### via Kape / MFTECmd
+
+Use Kape as described [here](#via-kroll-kape) to collect `$EXTEND\$J`
+```
+# Assumed that Kape used to obtain $Extend/$J (via SANS Triage)
+C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$Extend\$J" --csv C:\Windows\Temp --csvf MFT-J.csv
+```
+
+#### via fsutil
+
+```
+fsutil usn readjournal c: csv > C:\Windows\Temp\usnjournal.csv
+````
+
+Taken from [here](https://www.reddit.com/r/screensharing/comments/k30iw0/how_to_dump_usn_journal_to_readable_format/)
+
 ### Windows Registry Paths
 
 Following registries present in `C:\Windows\System32\config`:
