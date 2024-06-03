@@ -1063,9 +1063,20 @@ Parse the USN Journal for CSV output:
 .\UsnJrnl2Csv64.exe /UsnJrnlFile:C:\Windows\Temp\UsnJrnl_$J.bin
 ```
 
-#### via Kape / MFTECmd
+#### via Kape / MFTECmd / $J
 
 Use Kape as described [here](#via-kroll-kape) to collect `$EXTEND\$J`
+```
+# Assumed that Kape used to obtain $Extend/$J (via SANS Triage)
+C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$Extend\$J" --csv C:\Windows\Temp --csvf MFT-J.csv
+```
+
+#### via Kape / MFTEcmd / $Logfile
+
+Use Kape as described [here](#via-kroll-kape) to collect `$LogFile
+
+As described [here](https://superuser.com/a/577272), the `$Logfile` is a special NTFS system file. It is a circular log of all disk operations and is used to roll back disk operations. 
+
 ```
 # Assumed that Kape used to obtain $Extend/$J (via SANS Triage)
 C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$Extend\$J" --csv C:\Windows\Temp --csvf MFT-J.csv
