@@ -133,7 +133,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\Git")) {
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\Git"
 
     Write-Host "[*] Downloading git.exe..."
-    Invoke-WebRequest "https://github.com/git-for-windows/git/releases/download/v2.34.1.windows.1/Git-2.34.1-64-bit.exe" -OutFile "$INSTALL_LOCATION\git.exe"
+    Invoke-WebRequest "https://github.com/git-for-windows/git/releases/download/v2.34.1.windows.1/Git-2.34.1-64-bit.exe" -OutFile "$INSTALL_LOCATION\Git\git.exe"
 
     Write-Host "[*] Installing git.exe..."
     $cmd = "$INSTALL_LOCATION\Git\git.exe /SILENT /NORESTART"
