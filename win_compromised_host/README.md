@@ -1049,6 +1049,13 @@ strings MANIFEST/*
 strings *.ldb
 ```
 
+### Get Boot sector information
+
+#### via MFTECmd / $Boot
+```
+C:\Users\Administrator\Desktop\opt\EZTools\net6\MFTECmd.exe -f 'C:\Windows\Temp\C\$Boot' --csv C:\Windows\Temp --csvf Boot.csv
+```
+
 ### Check created and deleted files 
 
 #### via Usn Journal ($J)
@@ -1068,7 +1075,7 @@ Parse the USN Journal for CSV output:
 Use Kape as described [here](#via-kroll-kape) to collect `$EXTEND\$J`
 ```
 # Assumed that Kape used to obtain $Extend/$J (via SANS Triage)
-C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$Extend\$J" --csv C:\Windows\Temp --csvf MFT-J.csv
+C:\Users\Administrator\Desktop\opt\EZTools\net6\MFTECmd.exe -f "E:\C\$Extend\$J" --csv C:\Windows\Temp --csvf MFT-J.csv
 ```
 
 #### via Kape / MFTEcmd / $Logfile
@@ -1079,7 +1086,7 @@ As described [here](https://superuser.com/a/577272), the `$Logfile` is a special
 
 ```
 # Assumed that Kape used to obtain $Extend/$J (via SANS Triage)
-C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$LogFile" --csv C:\Windows\Temp --csvf Logfile.csv
+C:\Users\Administrator\Desktop\opt\EZTools\net6\MFTECmd.exe -f "E:\C\$LogFile" --csv C:\Windows\Temp --csvf Logfile.csv
 ```
 
 #### via fsutil
