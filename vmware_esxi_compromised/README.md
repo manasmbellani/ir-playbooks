@@ -22,6 +22,38 @@ Taken from [here](https://www.serversaustralia.com.au/articles/virtualisation/vm
 
 ## Collection
 
+### Collect VMs
+
+#### via ssh / dd
+
+First suspend the VM in 
+
+Assuming SSH has been enabled as per [above](#enable-ssh), we snapshot the VMs from `/vmfs/volumes/datastore1` folder.
+
+Calculate the hashes via `sha256sum` utility first for each file and then `sha256sum` after.
+
+Use `dd` and `ssh` to copy the file.
+
+```
+# Calculate sha256
+ssh root@$VMWARE_IP "sha256sum /vmfs/volumes/datastore1/$VM_NAME/vmware.log"
+ssh root@$VMWARE_IP "sha256sum /vmfs/volumes/datastore1/$VM_NAME/$VM_NAME.vmdk"
+# Copy file
+ssh root@$VMWARE_IP "dd if=/vmfs/volumes/datastore1/$VM_NAME/$VM_NAME.vmdk" | dd of=/tmp/$VM_NAME/$VM_NAME.vmdk
+ssh root@$VMWARE_IP "dd if=/vmfs/volumes/datastore1/$VM_NAME/$VM_NAME.vmdk" | dd of=/tmp/$VM_NAME/$VM_NAME.vmdk
+# Calculate sh256 hash again
+ssh /tmp/$VM_NAME/vmware.log
+ssh /tmp/$VM_NAME/$VM_NAME.vmdk
+```
+
+Now, take a copy of the image via `dd` and open the captured image in forensic tools like FTK Imager.
+
+```
+dd if=/tmp/$VM_NAME/$VM_NAME.vmdk of=/tmp/$VM_NAME/$VM_NAME-copy.vmdk
+```
+
+Taken from [here](https://www.sans.org/blog/how-to-digital-forensic-imaging-in-vmware-esxi/)
+
 ### Collect Logs
 
 Collect all logs from the following locations: 
