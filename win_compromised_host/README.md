@@ -1073,7 +1073,7 @@ C:\Users\Administrator\Desktop\opt\MFTECmd\MFTECmd.exe -f "E:\C\$Extend\$J" --cs
 
 #### via Kape / MFTEcmd / $Logfile
 
-Use Kape as described [here](#via-kroll-kape) to collect `$LogFile
+Use Kape as described [here](#via-kroll-kape) to collect `$LogFile`
 
 As described [here](https://superuser.com/a/577272), the `$Logfile` is a special NTFS system file. It is a circular log of all disk operations and is used to roll back disk operations. 
 
