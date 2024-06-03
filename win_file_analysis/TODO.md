@@ -14,3 +14,4 @@ foreach ($rule in $rules) {C:\Users\johndoe\Desktop\yara-4.3.2-2150-win64\yara64
 - Dynamic Analysis Use SilkETW for malware detection e.g SeatBelt https://github.com/pathtofile/Sealighter
 - Dynamic Analysis Observe the called APIs via API Monitor
 - Dynamic Analysis Observe the called APIs via ProcMon
+- Macbook Static Analysis Mac app analysis via work's mac assessment triage such as vellam, net triage
