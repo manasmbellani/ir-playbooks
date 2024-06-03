@@ -489,6 +489,16 @@ Check if `auditd` is enabled and the logs are being logged in `auditd`:
 /etc/audit/audit.rules
 ```
 
+### Check app logs
+
+Review logs for various apps to detect attacks like log4j
+
+#### via journalctl
+
+```
+sudo journalctl -u spring-boot-application
+```
+  
 ### Check cron scheduled tasks
 
 #### via cron logs
