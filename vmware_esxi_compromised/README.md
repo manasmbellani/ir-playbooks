@@ -73,6 +73,12 @@ Get-VMHost | Get-VMHostAuthentication | Set-VMHostAuthentication -JoinDomain -Do
 
 taken from [here](https://www.stigviewer.com/stig/vmware_vsphere_7.0_esxi/2023-02-21/finding/V-256402)
 
+### Restrict network traffic from specific IP addresses
+
+#### via ESXI UI / Firewall Rules
+
+Via ESXI UI > Networking > Firewall Rules > SSH Server >  Edit Settings > Only Allow Connections from the following networks > Specify IP address ranges > 'OK'
+
 ### Disable SSH
 
 Disable SSH Access by reversing the steps [here](#enable-ssh)
