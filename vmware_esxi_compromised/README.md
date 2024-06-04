@@ -34,6 +34,24 @@ Taken from [here](https://www.ivobeerens.nl/2018/07/18/quick-tip-powercli-invali
 
 ## Containment
 
+### Reset password for the root account
+
+### Disconnect ESXI from connected directories (e.g. Active Directory)
+
+### Disable SSH
+
+Disable SSH Access by reversing the steps [here](#enable-ssh)
+
+### Enable ExecInstalledOnly
+
+Enable `ExecInstalledOnly` to only ensure that access is restricted
+
+Taken from [here](https://www.crowdstrike.com/wp-content/uploads/2023/11/QRG-1.2-ESXi-Triage-Collection-and-Containment.pdf)
+
+### Enable Lockdown mode
+
+https://knowledge.broadcom.com/external/article?legacyId=1008077
+
 ## Collection
 
 ### Collect VMs
