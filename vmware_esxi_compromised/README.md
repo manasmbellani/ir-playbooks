@@ -64,7 +64,17 @@ Enable `ExecInstalledOnly` to only ensure that access is restricted
 
 Taken from [here](https://www.crowdstrike.com/wp-content/uploads/2023/11/QRG-1.2-ESXi-Triage-Collection-and-Containment.pdf)
 
-### Enable Lockdown mode
+### Enable Lockdown mode (atleast Normal mode)
+
+#### via ESXI UI
+
+Via ESXI UI > Manage > Security & Users > Lockdown Mode > Select from Normal / Strict modes
+
+Types:
+- `Strict`: Users are restricted to logging in from vCenter server only
+- `Normal`: Users may log in via DCUI and vCenter server
+
+#### via DCUI UI 
 
 https://knowledge.broadcom.com/external/article?legacyId=1008077
 
