@@ -58,9 +58,12 @@ Taken from [here](https://knowledge.broadcom.com/external/article/318960/changin
 
 Via ESXI UI > Manage > Security & Users > Authentication > Change `Active Directory Enable` Setting
 
-#### via esxcli
+#### via SSH / likewise
 
-TBC
+```
+/usr/lib/vmware/likewise/bin/domainjoin-cli leave
+```
+Taken from [here](https://mulcas.com/joining-an-esxi-host-to-a-windows-active-directory/)
 
 #### via PowerCLI
 
