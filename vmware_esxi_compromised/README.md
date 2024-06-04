@@ -66,6 +66,14 @@ More details about different VMWare log types defined [here](https://docs.vmware
 
 ## Analysis
 
+### Get VM's Hard disk
+
+#### via powercli
+
+```
+Get-HardDisk -VM $VM_NAME | Format-List
+```
+
 ### Check kernel settings
 
 #### via esxcli
@@ -131,6 +139,12 @@ cat /var/log/shell.log
 
 ```
 esxcli vm process list
+```
+
+#### via PowerCLI
+
+```
+Get-VM | Format-List
 ```
 
 ### Check installed VIBs
