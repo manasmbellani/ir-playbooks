@@ -40,6 +40,13 @@ if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
     Install-Module -Name Microsoft.Graph -Force -Confirm:$false
 }
 
+Write-Host "[*] Checking if we need to install VMWare.PowerCLI module..."
+if (-Not (Get-InstalledModule -Name VMWare.PowerCLI )) {
+    Write-Host "[*] Installing 'VMWare.PowerCLI' module..."
+    #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Install-Module -Name VMWare.PowerCLI -Force -Confirm:$false
+}
+
 Write-Host "[*] Checking if we need to install ExchangeOnlineManagement module..."
 if (-Not (Get-InstalledModule -Name ExchangeOnlineManagement )) {
     Write-Host "[*] Installing 'ExchangeOnlineManagement' module..."
