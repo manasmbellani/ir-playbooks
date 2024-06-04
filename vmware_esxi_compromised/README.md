@@ -54,6 +54,22 @@ Taken from [here](https://knowledge.broadcom.com/external/article/318960/changin
 
 ### Disconnect ESXI from connected directories (e.g. Active Directory)
 
+#### via ESXI UI 
+
+Via ESXI UI > Manage > Security & Users > Authentication > Change `Active Directory Enable` Setting
+
+#### via esxcli
+
+TBC
+
+#### via PowerCLI
+
+```
+Get-VMHost | Get-VMHostAuthentication | Set-VMHostAuthentication -JoinDomain -Domain "domain name" -User "username" -Password "password"
+```
+
+taken from [here](https://www.stigviewer.com/stig/vmware_vsphere_7.0_esxi/2023-02-21/finding/V-256402)
+
 ### Disable SSH
 
 Disable SSH Access by reversing the steps [here](#enable-ssh)
