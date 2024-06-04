@@ -36,6 +36,10 @@ Taken from [here](https://www.ivobeerens.nl/2018/07/18/quick-tip-powercli-invali
 
 ### Reset password for the root account
 
+#### via ESXI 
+
+Via ESXI UI > Manage > Security & Users > Users > Select user to reset password for e.g. `root`
+
 #### via esxcli
 
 Assuming SSH is enabled,
