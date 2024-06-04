@@ -133,4 +133,5 @@ _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (wi
 - Recovery prevent various lsass dump attempts - Analysis Detect various lsass dump attempts https://www.microsoft.com/en-us/security/blog/2022/10/05/detecting-and-preventing-lsass-credential-dumping-attacks/
 - Recovery Enable Credential Guard to prevent lsass memory dumping leading to creds
 - Recovery OsQuery
+- Recovery Use AD_Miner for vulnerabilities https://github.com/Mazars-Tech/AD_Miner
 - Recovery LDAP Queries for offensive and Defensive Operations https://www.politoinc.com/post/ldap-queries-for-offensive-and-defensive-operations
