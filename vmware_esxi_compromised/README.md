@@ -36,6 +36,18 @@ Taken from [here](https://www.ivobeerens.nl/2018/07/18/quick-tip-powercli-invali
 
 ### Reset password for the root account
 
+#### via esxcli
+
+Assuming SSH is enabled,
+
+```
+# Auth as root
+su -
+passwd root
+```
+
+Taken from [here](https://knowledge.broadcom.com/external/article/318960/changing-an-esxiesx-host-root-password.html#:~:text=Log%20in%20to%20the%20ESXi,SSH%20or%20the%20physical%20console.&text=Enter%20the%20current%20root%20password%20when%20prompted.&text=Enter%20the%20new%20root%20password,a%20second%20time%20to%20verify.)
+
 ### Disconnect ESXI from connected directories (e.g. Active Directory)
 
 ### Disable SSH
