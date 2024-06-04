@@ -18,6 +18,20 @@ Set Manage > Services > TMSH-SSH to `Start` state
 
 Taken from [here](https://www.serversaustralia.com.au/articles/virtualisation/vmware-esxi)
 
+### Connect via PowerCLI
+
+```
+powershell -ep bypass
+
+# Ignore the SSL Certificate if using the default certificate
+Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
+
+# Connect to ESXi Host
+Connect-VIServer -Server $ESXI_SERVER -Protocol https -User root -Password $ESXI_PASSWORD
+```
+
+Taken from [here](https://www.ivobeerens.nl/2018/07/18/quick-tip-powercli-invalid-server-certificate-error/)
+
 ## Containment
 
 ## Collection
