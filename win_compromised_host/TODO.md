@@ -2,6 +2,7 @@
 - Pre-requisite setup win logging via yamatosecurity config https://github.com/Yamato-Security/EnableWindowsLogSettings
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
+- Analysis add detection and parsing for recall via velociraptor https://cybercx.com.au/blog/forensic-applications-of-microsoft-recall/
 - Analysis Detect ADCS Abuse https://labs.lares.com/adcs-exploits-investigations-pt2/
 - Analysis Use Eric Zimmerman's MFTECmd with mactime for parsing $MFT for timeline
 - Analysis Detect serrlabelprivilege exploit https://decoder.cloud/2024/05/30/abusing-the-serelabelprivilege/
