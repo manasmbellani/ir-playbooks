@@ -6,6 +6,7 @@
 - Containment - drain the node?
 - Containment - snapshot the VM instances
 - Collection Collect logs from gcp cloud https://github.com/dlcowen/sansfor509
+- Analysis add detections for kubenomicon attacks https://kubenomicon.com/Persistence/Kubernetes_cronjob.html
 - Analysis GCP useful commands https://www.linkedin.com/posts/cdoman_google-cloud-incident-response-cheatsheet-ugcPost-7138886546291597313-JyYR?utm_source=share&utm_medium=member_ios
 - Analysis - Various forensics tool, containment mechanisms - https://cloudyforensics.medium.com/
 - Analysis - kubectl top command for memory usage https://osdfir.blogspot.com/2022/05/investigating-gke-container.html
