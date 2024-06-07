@@ -349,7 +349,7 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 > top
 ```
 
-### Offline Analysis
+### Mounting containers / disk
 
 #### via container-explorer
 
@@ -365,6 +365,8 @@ We can also mount all the containers for further analysis via `container-explore
 sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
+
+### Building Timeline
 
 #### via plaso / psteal / psort
 
@@ -395,6 +397,17 @@ When we have completed timeline analysis via `timesketch` we can takedown timesk
 ```
 sudo docker compose down
 ```
+
+### Check for unusual image pushes to Artifact Registry
+
+#### via GCP Audit Logs
+
+```
+protoPayload.methodName="Docker-StartUpload"
+protoPayload.serviceName="artifactregistry.googleapis.com"
+```
+
+Taken from [here](https://kubenomicon.com/Initial_access/Compromised_image_in_registry.html)
 
 ## Eradication
 
