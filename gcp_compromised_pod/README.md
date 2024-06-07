@@ -403,6 +403,7 @@ sudo docker compose down
 #### via GCP Audit Logs
 
 ```
+# protoPayload.resourceName contains the name of the docker image
 protoPayload.methodName="Docker-StartUpload"
 protoPayload.serviceName="artifactregistry.googleapis.com"
 ```
