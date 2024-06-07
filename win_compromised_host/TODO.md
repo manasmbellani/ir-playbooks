@@ -2,6 +2,8 @@
 - Pre-requisite setup win logging via yamatosecurity config https://github.com/Yamato-Security/EnableWindowsLogSettings
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
+- Analysis detect creation of new local or domain accounts https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
+- Analysis Detect dump of registry hives via regedit https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis review documents via officefilecache folder https://arsenalrecon.com/insights/an-inside-view-of-office-document-cache-exploitation
 - Analysis add detectionnand parsing for rekapl via total recall https://github.com/xaitax/TotalRecall
 - Analysis Explore velociraptor features https://www.rapid7.com/blog/post/2024/04/30/velociraptor-0-7-2-release-digging-deeper-than-ever-with-ewf-support-dynamic-dns-and-more/
