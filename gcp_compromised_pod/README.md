@@ -405,7 +405,18 @@ sudo docker compose down
 ```
 # protoPayload.resourceName contains the pod name
 # protoPayload.requestMetadata.callerSuppliedUserString
-protoPayload.methodName="io.k8s.core.v1.pods.attach.create"
+protoPayload.methodName:"pods.attach.create"
+protoPayload.serviceName="k8s.io"
+```
+
+### Check for exec attempts into kubernetes pods
+
+#### via GCP Audit Logs
+
+```
+# protoPayload.resourceName contains the pod name
+# protoPayload.requestMetadata.callerSuppliedUserString
+protoPayload.methodName:"pods.exec.create"
 protoPayload.serviceName="k8s.io"
 ```
 
