@@ -366,6 +366,17 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### List running containers
+
+#### via kubectl
+
+```
+# To look for interesting container such as ones running exposed sensitive interfaces, such as dashboards
+kubectl get pods -A | grep -i dash
+```
+
+Taken from [here](https://kubenomicon.com/Initial_access/Exposed_sensitive_interfaces.html)
+
 ### Building Timeline
 
 #### via plaso / psteal / psort
