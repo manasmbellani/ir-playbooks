@@ -398,6 +398,17 @@ When we have completed timeline analysis via `timesketch` we can takedown timesk
 sudo docker compose down
 ```
 
+### Check for unusual pods created on kubernetes
+
+#### via GCP Audit Logs
+
+```
+# protoPayload.resourceName contains the pod name
+# protoPayload.requestMetadata.callerSuppliedUserString
+protoPayload.methodName="io.k8s.core.v1.pods.attach.create"
+protoPayload.serviceName="k8s.io"
+```
+
 ### Check for unusual image pushes to Artifact Registry
 
 #### via GCP Audit Logs
