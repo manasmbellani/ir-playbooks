@@ -398,7 +398,7 @@ When we have completed timeline analysis via `timesketch` we can takedown timesk
 sudo docker compose down
 ```
 
-### Check for unusual pods created on kubernetes
+### Check for unusual pods deployed on kubernetes
 
 #### via GCP Audit Logs
 
