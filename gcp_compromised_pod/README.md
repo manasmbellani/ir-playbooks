@@ -351,6 +351,8 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 
 ### Offline Analysis
 
+#### via container-explorer
+
 After mounting the disk, we list all the containers from the mount point `/mnt/data` via `container-explorer`:
 ```
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml list containers > /tmp/containers.txt
@@ -363,6 +365,8 @@ We can also mount all the containers for further analysis via `container-explore
 sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
+
+#### via plaso / psteal / psort
 
 We build a timeline for the analysis of the pod via the `psteal` command:
 ```
@@ -380,6 +384,7 @@ Alternatively, we can use `timesketch` to also visualize the timeline by running
 # Run only the first time to create a user called `timesketch` and set the password 
 sudo docker compose exec timesketch-web tsctl create-user timesketch
 ```
+#### via timesketch
 
 We can transfer files to upload to timesketch locally (e.g. to home directory `~`) from forensics-instance if accessing via `gcloud`: 
 ```
@@ -390,6 +395,7 @@ When we have completed timeline analysis via `timesketch` we can takedown timesk
 ```
 sudo docker compose down
 ```
+
 ## Eradication
 
 ## Recovery
