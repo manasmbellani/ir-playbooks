@@ -443,6 +443,34 @@ protoPayload.serviceName="artifactregistry.googleapis.com"
 
 Taken from [here](https://kubenomicon.com/Initial_access/Compromised_image_in_registry.html)
 
+### Check if SSH running inside pod
+
+#### via GCP Audit Logs
+
+```
+# 
+sshd
+logName:"logs/stdout"
+labels."k8s-pod/run":*
+```
+
+### Check if attempt made to list or get secrets
+
+#### via GCP Audit Logs
+
+```
+# Check the user / service attempting to list secrets - protoPayload.authenticationInfo.principalEmail
+protoPayload.methodName:"secrets.list"
+protoPayload.serviceName="k8s.io"
+```
+
+```
+# Check the user / service attempting to list secrets - protoPayload.authenticationInfo.principalEmail
+# Check the secret which is being read
+protoPayload.methodName:"secrets.get"
+protoPayload.serviceName="k8s.io"
+```
+
 ## Eradication
 
 ## Recovery
