@@ -105,7 +105,7 @@ for i in $(seq 0 $(($num_logs-1)) ); do
   severity=$(echo "$log" | jq -r ".severity")
   payload_type=$(echo "$log" | jq -r ".protoPayload.\"@type\"")
   client_ip=$(echo "$log" | jq -r ".protoPayload.requestMetadata.callerIp")
-  user_agent=$(echo "$log" | jq -r ".protoPayload.requestMetadata.callerSupplierUserAgent")
+  user_agent=$(echo "$log" | jq -r ".protoPayload.requestMetadata.callerSuppliedUserAgent")
   principal_email=$(echo "$log" | jq -r ".protoPayload.authenticationInfo.principalEmail" )
   service_name=$(echo "$log" | jq -r ".protoPayload.serviceName")
   method_name=$(echo "$log" | jq -r ".protoPayload.methodName")
