@@ -224,10 +224,32 @@ gcloud projects remove-iam-policy-binding citric-snow-362912 \
 
 ## Collection
 
+### Get logs for pod
+
+#### via kubectl
+
 Get the logs for the compromised pod via `kubectl`:
 
 ```
 kubectl logs test-pod1-558b84995b-djbkk
+```
+
+### Get all logs from GCP
+
+#### via gcloud / get_gcp_logs.sh
+
+To download all logs between the period `2024-06-08` and `2024-06-10` UTC time as JSON and CSV files via `get_gcp_logs.sh`:
+```
+CLOUDSDK_CORE_ACCOUNT=manasbellani@testgcpbusiness12345.com \
+    CLOUDSDK_CORE_PROJECT=citric-snow-362912 \
+    CLOUDSDK_COMPUTE_REGION=us-central1 \
+    CLOUDSDK_COMPUTE_ZONE=us-central1-c \
+    LOGGING_QUERY="" \
+    OUTFILE_CSV=out-gcp-logs.csv \
+    OUTFILE_JSON=out-gcp-logs.json \
+    START_DATE=2024-06-08 \
+    END_DATE=2024-06-10 \
+    ./get_gcp_logs.sh
 ```
 
 ### Live Collection
