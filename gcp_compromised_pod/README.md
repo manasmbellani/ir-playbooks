@@ -471,6 +471,30 @@ protoPayload.methodName:"secrets.get"
 protoPayload.serviceName="k8s.io"
 ```
 
+### Check for static reserved IP addresses 
+
+External IP addresses are interesting as they could indicate external assets being created which could be compromised. Helps with asset discovery.
+
+#### via GCP Audit Logs
+
+```
+# Asset name is present in protoPayload.resourceName
+protoPayload.methodName:"compute.globalAddresses.insert"
+protoPayload.serviceName="compute.googleapis.com"
+```
+
+### Check for external DNS record entry
+
+External DNS record entry can help detect
+
+#### via GCP Audit Logs
+
+```
+# `protoPayload.request.change.additions.name` contains the DNS / domain record added
+protoPayload.serviceName="dns.googleapis.com"
+protoPayload.methodName="dns.changes.create"
+```
+
 ## Eradication
 
 ## Recovery
