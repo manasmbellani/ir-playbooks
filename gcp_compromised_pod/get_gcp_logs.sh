@@ -1,25 +1,24 @@
 #!/bin/bash
-HEADER_CSV="timestamp,log_type,severity,payload_type,principal_email,service_name,method_name,project_id,resource_name,text_payload,raw"
+# Summary
+#   Script to download the GCP Logs in CSV format with useful fields pre-extracted
+# Pre-requisites:
+#   jq: for parsing JSON logs
+#   gcloud: for running GCP commands to read logs
+# Examples:
+# To get all DNS log changes from the date 2024-06-07 - 2024-06-08 UTC midnight time and writing it to CSV & JSON output files:
+#   CLOUDSDK_CORE_ACCOUNT=manasbellani@testgcpbusiness12345.com \
+#   CLOUDSDK_CORE_PROJECT=citric-snow-362912 \
+#   CLOUDSDK_COMPUTE_REGION=us-central1 \
+#   CLOUDSDK_COMPUTE_ZONE=us-central1-c \
+#   LOGGING_QUERY=protoPayload.serviceName="dns.googleapis.com" AND protoPayload.methodName="dns.changes.create" \
+#   OUTFILE_CSV=out-gcp-logs.csv \
+#   OUTFILE_JSON=out-gcp-logs.json \
+#   START_DATE=2024-06-06 \
+#   END_DATE=2024-06-09 \
+#   ./get_gcp_logs.sh
+
+HEADER_CSV="timestamp,log_type,log_name,severity,payload_type,principal_email,service_name,method_name,project_id,resource_name,text_payload,raw"
 LOG_TYPE="gcp"
-USAGE="
-Summary:
-  Script to download the GCP Logs in CSV format with useful fields pre-extracted
-Pre-requisites:
-  jq: for parsing JSON logs
-  gcloud: for running gcp command to read logs
-Examples:
-  To get all DNS log changes between the date 2024-06-07 - 2024-06-08 midnight time and writing it to CSV & JSON output files: 
-    CLOUDSDK_CORE_ACCOUNT=abcd@abcd.com \
-    CLOUDSDK_CORE_PROJECT=citric-snow-362912 \
-    CLOUDSDK_COMPUTE_REGION=us-central1 \
-    CLOUDSDK_COMPUTE_ZONE=us-central1-c \
-    LOGGING_QUERY='protoPayload.serviceName="dns.googleapis.com" AND protoPayload.methodName="dns.changes.create"' \
-    OUTFILE_CSV=out-gcp-logs.csv \
-    OUTFILE_JSON=out-gcp-logs.json \
-    START_DATE="2024-06-07" \
-    END_DATE="2024-06-08" \
-    ./get_gcp_logs.sh
-"
 
 echo "[*] Creating output file: $OUTFILE_CSV if it exists..."
 echo "$HEADER_CSV" > "$OUTFILE_CSV"
@@ -51,5 +50,5 @@ for i in $(seq 0 $(($num_logs-1)) ); do
   resource_name=$(echo "$log" | jq -r ".protoPayload.resourceName")
   text_payload=$(echo "$log" | jq -r ".textPayload")
   raw=$(echo "$log" | tr -s '\"' "'" | tr -d "\n\r")
-  echo "\"$timestamp\",\"$LOG_TYPE\",\"$severity\",\"$payload_type\",\"$principal_email\",\"$service_name\",\"$method_name\",\"$project_id\",\"$resource_name\",\"$text_payload\",\"$raw\"" >> "$OUTFILE_CSV"
+  echo "\"$timestamp\",\"$LOG_TYPE\",\"$log_name\",\"$severity\",\"$payload_type\",\"$principal_email\",\"$service_name\",\"$method_name\",\"$project_id\",\"$resource_name\",\"$text_payload\",\"$raw\"" >> "$OUTFILE_CSV"
 done
