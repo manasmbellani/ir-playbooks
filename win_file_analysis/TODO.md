@@ -1,5 +1,6 @@
 # TODO
 
+- Threat Intel sentinel ransomware.live integration https://www.linkedin.com/posts/grjk83_microsoftsentinel-kql-kql-activity-7204839326541623298-XJNu?utm_source=share&utm_medium=member_ios
 - Static Analysis yara rules via yara or powershell
 ```
 $rules = Get-ChildItem C:\Users\johndoe\Desktop\yara-4.3.2-2150-win64\rules | Select-Object -Property Name
