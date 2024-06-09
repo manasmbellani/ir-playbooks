@@ -18,7 +18,7 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 ### Disable Microsoft 365 Account
 
-#### via Microsoft Graph API
+#### via powershell / Microsoft Graph API
 
 ```
 Import-Module Microsoft.Graph
@@ -28,6 +28,8 @@ $params = @{
 }
 Update-MgUser -UserId $UserAccount -BodyParameter $params
 ```
+
+Taken from [here](https://learn.microsoft.com/en-us/microsoft-365/enterprise/block-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#block-access-to-individual-user-accounts)
 
 ## Collection
 
