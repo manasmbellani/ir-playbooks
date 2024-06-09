@@ -124,6 +124,14 @@ netsh wlan delete profile *
 
 Find option in the task bar to disable bluetooth network.
 
+### Disable User Account
+
+#### via powershell / Active Directory
+
+```
+Disable-ADAccount -Identity $UserName
+```
+
 ## Collection
 
 ### Collect Live RAM 
