@@ -1,6 +1,7 @@
 # Additional TODOs
 - Collection - Generate volatility2 profile https://andreafortuna.org/2019/08/22/how-to-generate-a-volatility-profile-for-a-linux-system/
 - Add detection for SSH authentication attempts: `Accepted (publickey|password)` for SSH logs: https://osdfir.blogspot.com/2024/04/welcoming-yeti-to-osdfir-infrastructure.html
+- analysis add detections from linux detection and forensics PDF  https://www.defensive-security.com/storage/uploads/Advanced%20Linux%20Detection%20and%20Forensics%20Cheatsheet%20by%20Defensive%20Security.pdf
 - Analysis Review various linux forensics tools https://github.com/xiosec/Computer-forensics
 - Analysis identify all the newly modified files via find, volatility
 - Analysis look for malware via empty environ file or histfile environ var
