@@ -3,6 +3,7 @@
 - Containment GCP Firewall
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
 - Analysis detect creation of new local or domain accounts https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
+- Analysis Add detection for windows credential dumping and windows hello via wcreddump https://github.com/truerustyy/wcreddump
 - Analysis Detect dump of registry hives via regedit https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis review documents via officefilecache folder https://arsenalrecon.com/insights/an-inside-view-of-office-document-cache-exploitation
 - Analysis add detectionnand parsing for rekapl via total recall https://github.com/xaitax/TotalRecall
