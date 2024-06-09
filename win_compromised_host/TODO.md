@@ -1,6 +1,7 @@
 # TODO
 - Pre-requisite setup win logging via yamatosecurity config https://github.com/Yamato-Security/EnableWindowsLogSettings
 - Containment GCP Firewall
+- containment discuss order of Active directory containment https://m.youtube.com/watch?v=fOMMJz0XTGs&feature=youtu.be
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
 - Analysis detect creation of new local or domain accounts https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Add detection for windows credential dumping and windows hello via wcreddump https://github.com/truerustyy/wcreddump
