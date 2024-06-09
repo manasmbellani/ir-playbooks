@@ -31,6 +31,10 @@ Update-MgUser -UserId $UserAccount -BodyParameter $params
 
 Taken from [here](https://learn.microsoft.com/en-us/microsoft-365/enterprise/block-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#block-access-to-individual-user-accounts)
 
+#### via powershell / Active Directory
+
+See [here](../win_compromised_host/README.md#disable-user-account)
+
 ## Collection
 
 ## Analysis
