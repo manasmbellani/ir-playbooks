@@ -16,6 +16,19 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 ## Containment
 
+### Disable Microsoft 365 Account
+
+#### via Microsoft Graph API
+
+```
+Import-Module Microsoft.Graph
+Connect-Graph -Scopes User.ReadWrite.All
+$params = @{
+	accountEnabled = $false
+}
+Update-MgUser -UserId $UserAccount -BodyParameter $params
+```
+
 ## Collection
 
 ## Analysis
