@@ -77,6 +77,30 @@ Under https://portal.azure.com > `Sign-In Logs` > Look for unusual `Status=Inter
 
 Tested via `Spray365` tool
 
+### View Microsoft Office 365 Inbox Rules
+
+Can reveal any interesting Inbox Rules created by threat actors if the account has been compromised.
+
+#### via powershell / Get-InboxRule
+
+```
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Get-InboxRule -Mailbox $Users[1].UserPrincipalName | Format-List
+```
+
+Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing)
+
+#### via powershell / Search-UnifiedAuditLog
+
+```
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Search-UnifiedAuditLog -StartDate 2024-06-08 -EndDate 2024-06-10 -ResultSize 5000 -Operations New-InboxRule
+```
+
+Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing)
+
 ### Extract Emails for analysis
 
 #### via powershell / Office 365 Compliance Portal / PurView
