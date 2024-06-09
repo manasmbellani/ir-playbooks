@@ -507,7 +507,7 @@ protoPayload.serviceName="compute.googleapis.com"
 
 ### Check for external DNS record entry
 
-External DNS record entry can help detect
+External DNS record entry can help detect domains
 
 #### via GCP Audit Logs
 
@@ -515,6 +515,17 @@ External DNS record entry can help detect
 # `protoPayload.request.change.additions.name` contains the DNS / domain record added
 protoPayload.serviceName="dns.googleapis.com"
 protoPayload.methodName="dns.changes.create"
+```
+
+### Check for additional GCP domain registered
+
+External DNS record entry can help detect new domains that were registered
+
+#### via GCP Audit Logs
+```
+# protoPayload.request.domainName is the domain name that is being registered
+proto_payload.method_name:"Domains.RegisterDomain"
+protoPayload.serviceName="domains.googleapis.com"
 ```
 
 ## Eradication
