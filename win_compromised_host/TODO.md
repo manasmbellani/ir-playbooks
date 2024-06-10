@@ -3,6 +3,8 @@
 - Containment GCP Firewall
 - containment discuss order of Active directory containment https://m.youtube.com/watch?v=fOMMJz0XTGs&feature=youtu.be
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
+- Analysis add detection fir recall DBs via netexec
+- Analysis add detection for modern evasion tactics https://mgeeky.tech/uploads/WarCon22%20-%20Modern%20Initial%20Access%20and%20Evasion%20Tactics.pdf
 - Analysis Detect Windows Logon Sessions 
 - Analysis detect creation of new local or domain accounts https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Add detection for windows credential dumping and windows hello via wcreddump https://github.com/truerustyy/wcreddump
