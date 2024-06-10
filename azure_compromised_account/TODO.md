@@ -8,6 +8,7 @@
 - Containment Review forwarding rules
 - Collection Snapshot Azure VM instance https://techcommunity.microsoft.com/t5/mvp-award-program/cloud-forensics-investigations-in-azure/m-p/4029288#toc-hId-1899591217
 - Analysis Add detections for Azure Illicit Consent Grant Attack: https://cloud.hacktricks.xyz/pentesting-cloud/azure-security/az-unauthenticated-enum-and-initial-entry/az-device-code-authentication-phishing
+- Analysis Add detections for various azure related attacks https://sheepwall.gitbook.io/home/cloud-hacking/azure
 - Analysis Implement basic entra id monitoring https://securediam.com/f/entra-id-monitoring---are-you-doing-the-basics-part-3
 - Analysis Detect EntraID Of365 compromise (Cloud identity abuse leading to Office 365 Exfiltration attack) detection https://github.com/LearningKijo/ResearchDev?tab=readme-ov-file
 - Analysis Evading Token Access Protection via Conditional Policies https://rootsecdev.medium.com/evading-token-protection-for-entraid-m365-2024-edition-b0827407b6f5
