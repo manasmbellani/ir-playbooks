@@ -8,6 +8,20 @@ Refer to the forensics servers setup [here](../gcp_compromised_pod/install_foren
 
 ## Common
 
+### Determine file type
+
+#### via file
+
+```
+file $FILE_NAME
+```
+
+#### via trid
+
+```
+trid $FILE_NAME
+```
+
 ### Network Analysis
 
 #### via wireshark
