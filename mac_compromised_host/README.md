@@ -21,9 +21,9 @@ sudo ifconfig en0 down
 ### Apply Network Firewall
 
 #### via pfctl
-w
+
+If testing only consider this to disable pfctl after 5 mins using crontab:
 ```
-# Note: if testing only consider this to disable pfctl after 5 mins
 sudo su
 crontab -e
 # */5 * * * * /usr/bin/sudo /sbin/pfctl -d
