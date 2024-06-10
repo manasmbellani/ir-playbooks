@@ -143,6 +143,22 @@ source venv/bin/activate
 python3 -m pip install -r requirements.txt
 deactivate
 
+echo "[*] Installing trid..."
+mkdir /opt/trid
+curl -sL https://mark0.net/download/trid_linux_64.zip -o /opt/trid/trid.zip
+cd /opt/trid
+unzip trid.zip
+chmod +x trid
+mv trid /usr/bin
+rm /opt/trid/trid.zip
+
+echo "[*] Installing trid defs..."
+curl -sL https://mark0.net/download/triddefs.zip -o /opt/trid/triddefs.zip
+cd /opt/trid
+unzip triddefs.zip
+mv triddefs.trd /usr/bin
+rm /opt/trid/triddefs.zip
+
 echo "[*] Installing ewfmount..."
 apt-get -y remove libewf && apt-get -y install ewf-tools
 
