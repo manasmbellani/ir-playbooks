@@ -312,6 +312,20 @@ Get-ScheduledTask > C:\Windows\System32\powershell-schtasks.txt
 # View further details about the task
 powershell -ep bypass "(Get-ScheduledTask $TASK_NAME).Actions" | more
 ```
+#### via Windows Event Logs / TaskScheduler Logs
+
+```
+Event ID: 106 (User "HACKER\$USERNAME"  registered Task Scheduler task "\$TASK_NAME")
+Channel: Microsoft-Windows-TaskScheduler/Operational
+```
+
+#### via Windows Event Logs / Sysmon / TaskCache\Tasks, TaskCache\Tree
+
+```
+Event ID: 13 (Registry Value Set)
+Channel: Microsoft-Windows-Sysmon/Operational
+TargetObject: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\$TASK_GUIDE\Path OR HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\TestTask\SD
+```
 
 #### via schtasks.exe
 
