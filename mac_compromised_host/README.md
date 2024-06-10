@@ -6,6 +6,66 @@
 
 Steps are the same as described [here](../win_compromised_host#disconnect-from-wired-networks)
 
+### Disable network interfaces
+
+#### via ifconfig
+
+```
+# List the network interfaces (can also use System Settings)
+sudo ifconfig
+sudo ifconfig en0 down
+# Restoration via this command
+# sudo ifconfig en0
+```
+
+### Apply Network Firewall
+
+#### via pfctl
+w
+```
+# Note: if testing only consider this to disable pfctl after 5 mins
+sudo su
+crontab -e
+# */5 * * * * /usr/bin/sudo /sbin/pfctl -d
+```
+
+Backup existing rules:
+```
+cp /etc/pf.conf /etc/pf.conf.bak
+```
+
+To apply the pfctl rules to block traffic except say port 53:
+```
+# /etc/pf.conf
+# interfaces
+ext_if="en0" 
+# options
+set block-policy drop
+set skip on lo0
+# filter rules
+block in all
+block out all
+pass out quick on $ext_if proto tcp to any port 53 keep state
+pass out quick on $ext_if proto udp to any port 53 keep state
+```
+
+Test the rules prior to applying them:
+```
+sudo /sbin/pfctl -n -v -f /etc/pf.conf
+```
+
+Apply the pf firewall rules:
+```
+sudo /sbin/pfctl -ef /etc/pf.conf
+```
+
+Disable the pf firewall rule:
+```
+sudo /sbin/pfctl -d 
+```
+
+More info on pf available [here](https://srobb.net/pf.html)
+
 ### Disable BlueTooth
 
 #### via UI > System Settings
