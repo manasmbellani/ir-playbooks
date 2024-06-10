@@ -30,9 +30,15 @@ A number of sample disk images can be obtained from the links below:
 
 Containment of an instance depends on the technology in use which can be used for containment.
 
+### Disable Network Adapters
+
+See [here](../mac_compromised_host/README.md#apply-network-firewall)
+
 ### Disable from wired networks
 
 Steps are the same as described [here](../win_compromised_host#disconnect-from-wired-networks)
+
+
 
 ### Disable Bluetooth Network
 
