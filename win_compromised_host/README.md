@@ -273,6 +273,34 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Scheduled Tasks Creation
+
+Can be a persistence mechanism for threat actors
+
+#### via HKLM registry
+
+```
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\$TASK_NAME"
+```
+
+#### powershell / Get-ScheduledTask
+
+```
+# List all tasks
+Get-ScheduledTask > C:\Windows\System32\powershell-schtasks.txt
+
+# View further details about the task
+powershell -ep bypass "(Get-ScheduledTask $TASK_NAME).Actions" | more
+```
+
+#### via schtasks.exe
+
+```
+schtasks.exe > C:\Windows\System32\schtasks.txt
+```
+
+Taken from [here](https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/)
+
 ### Detect RDP Authentication Sessions
 
 Taken from [here](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/)
