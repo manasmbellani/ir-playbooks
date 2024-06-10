@@ -2,6 +2,7 @@
 
 ## TODO
 - Collection - fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
+  Analysis Leverage eslogger for detection of threats https://www.cybereason.com/blog/blue-teaming-on-macos-with-eslogger
 - Analysis Add Mitre Attack Techniques https://attack.mitre.org/matrices/enterprise/macos/
 - Analysis Add Jason Bradley's OSX Incident Response book notes
 - Analysis Review launchd jobs https://www.launchd.info/
