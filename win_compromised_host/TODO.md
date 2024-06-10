@@ -3,6 +3,7 @@
 - Containment GCP Firewall
 - containment discuss order of Active directory containment https://m.youtube.com/watch?v=fOMMJz0XTGs&feature=youtu.be
 - Collection fast ir artifacts - https://github.com/OWNsecurity/fastir_artifacts, https://github.com/OWNsecurity/fastir_artifacts/releases/download/latest/FastIR-Artifacts-Windows-x64.zip
+- Analysis Detect Windows Logon Sessions 
 - Analysis detect creation of new local or domain accounts https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
 - Analysis Add detection for windows credential dumping and windows hello via wcreddump https://github.com/truerustyy/wcreddump
 - Analysis Detect dump of registry hives via regedit https://x.com/n00py1/status/1798933308228923530?s=46&t=WvGY79Umt5enRwgCbi4TQQ
@@ -128,7 +129,6 @@ _index:"*winlogbeat*" AND host.hostname:"alice-pc" AND event.code:11 AND NOT (wi
 - Analysis OpenArk review tools
 - Analysis check scheduled tasks via windows event logs: security 4698, task scheduler 106 - https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/
 - Analysis Check scheduled task via c:/windows/stystem32/tasks
-- Analysis Detect RDP Sessions
 - Analysis check network connections
 - Analysis Check powershell code execution
 - Analysis Detect Bitlocker Encryption https://arcpointforensics.medium.com/bitlocker-detection-from-the-command-line-53b3a8df7c9e 
