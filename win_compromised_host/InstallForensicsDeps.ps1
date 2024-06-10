@@ -396,6 +396,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\sigma")) {
     Remove-Item -Path "$INSTALL_LOCATION\sigma\sigma.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\TokenTactics")) {
+    Write-Host "[*] Making directory TokenTactics..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\TokenTactics"
+    
+    Write-Host "[*] Downloading TokenTactics..."
+    $url="https://github.com/rvrsh3ll/TokenTactics/archive/refs/heads/main.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\TokenTactics\TokenTactics.zip")
+
+    Write-Host "[*] Extracting TokenTactics zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\TokenTactics\TokenTactics.zip" -DestinationPath "$INSTALL_LOCATION\TokenTactics"
+
+    Write-Host '[*] Removing TokenTactics zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\TokenTactics\TokenTactics.zip"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\LogFileParser")) {
     Write-Host "[*] Making directory LogFileParser..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\LogFileParser"
