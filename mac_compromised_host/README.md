@@ -119,7 +119,17 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
-### Launchd Agent added
+### Launch Agents added
+
+#### via common Launch Agent Paths
+
+```
+/System/Library/LaunchAgents
+/Library/LaunchAgents
+~/Library/LaunchAgents
+```
+
+Taken from [here](https://attack.mitre.org/techniques/T1543/001/)
 
 #### via /var/log logs
 
