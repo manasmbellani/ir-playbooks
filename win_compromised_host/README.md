@@ -273,6 +273,27 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Scheduled Tasks Deletion
+
+Can be a persistence mechanism for threat actors cleaning up after.
+
+#### via Windows Event Logs / TaskScheduler
+
+```
+Event ID: 141
+Channel: Microsoft-Windows-TaskScheduler/Operational
+Description: User "HACKER\$USERNAME"  deleted Task Scheduler task "\$TASK_NAME"
+```
+
+#### via Windows Event Logs / Sysmon / Registry Deleted
+
+```
+Event ID: 12 (Registry Object Added or Deleted)
+EventType: DeleteKey
+TargetObject: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\TestTask
+Channel: Microsoft-Windows-Sysmon/Operational
+```
+
 ### Scheduled Tasks Creation
 
 Can be a persistence mechanism for threat actors
@@ -316,6 +337,16 @@ powershell -ep bypass "(Get-ScheduledTask $TASK_NAME).Actions" | more
 
 ```
 Event ID: 106 (User "HACKER\$USERNAME"  registered Task Scheduler task "\$TASK_NAME")
+Channel: Microsoft-Windows-TaskScheduler/Operational
+```
+
+```
+# When an instance of the task is launched - it is also indicative of the task being executed
+Event ID: 100 (Task Scheduler started instance of the '$TASK_NAME' task)
+Channel: Microsoft-Windows-TaskScheduler/Operational
+
+# Captures the command line for this task
+Event ID: 200 (Task Scheduler launched action $CMDLINE of task '$TASK_NAME')
 Channel: Microsoft-Windows-TaskScheduler/Operational
 ```
 
