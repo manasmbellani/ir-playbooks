@@ -2,7 +2,6 @@
 - Preparation - [Falco](https://falco.org/)
 - Preparation - Falco Sidekick
 - Containment - lock down nodes where possible to ensure that there is no connectivity
-- Containment - checked IAM Policy Bindings on the node and disable them
 - Containment - snapshot the VM instances
 - Collection Collect logs from gcp cloud https://github.com/dlcowen/sansfor509
 - Analysis Include detections from kubernetes goat https://github.com/madhuakula/kubernetes-goat
