@@ -273,6 +273,43 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect RDP Authentication Sessions
+
+Taken from [here](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/)
+
+#### via Windows Event Logs / Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
+
+```
+# 'User' field contains the username and 'Source Network Address' contains the client IP
+EventID: 25
+Channel: Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
+```
+
+#### via Windows Event Logs / Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
+
+```
+# 'User' field contains the username and 'Source Network Address' contains the client IP
+EventID: 1149 (Remote Desktop Services: User authentication succeeded)
+Channel: Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
+```
+
+#### via Windows Event Logs / Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
+
+```
+# Source IP/port shown in Description as 'The server accepted a new TCP connection from client x.x.x.x:y'
+EventID: 131 (The server accepted a new TCP connection)
+Channel: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
+```
+
+#### via Windows Event Logs / sysmon / Event ID 3 (Network Connection)\
+
+```
+# 'SourceIp' field contains the client IP address
+EventID: 3 (Network Connection Detect
+Channel: Microsoft-Windows-Sysmon/Operational
+DestinationPort: 3389
+```
+
 ### Detect Timestomping / Filesystem time changes
 
 #### via sysmon / windows event logs
