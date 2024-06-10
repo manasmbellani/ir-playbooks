@@ -227,6 +227,19 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Getting installed packages
+
+#### via /var/lib folder
+
+Depends on the type of package manager in use e.g. RedHat OR yum OR dpkg
+```
+echo "select name,version,release from rpm" | sqlite3 /var/lib/dnf/history.sqlite
+for i in /var/lib/yum/yumdb/*/* ; do basename $i | cut -d\- -f2- ; done
+egrep '^(Package:|Version:)' /var/lib/dpkg/status | awk '{print $2}' | while read a ; do read b ; echo "$a-$b" ; done
+```
+
+Taken from [here](https://github.com/clausing/scripts/blob/master/linux-pkgs.sh)
+
 ### Files Recently Changed
 
 #### via find
