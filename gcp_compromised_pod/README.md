@@ -442,6 +442,19 @@ protoPayload.methodName:"pods.attach.create"
 protoPayload.serviceName="k8s.io"
 ```
 
+### Check for unusual pods which have hostPath mount
+
+#### via GCP Audit Logs
+
+```
+# Attribute protoPayload.request.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration" has more details
+protoPayload.request.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration":"hostPath"
+protoPayload.methodName="io.k8s.core.v1.pods.create"
+protoPayload.serviceName="k8s.io"
+```
+
+Taken from [here](https://kubenomicon.com/Persistence/Writable_hostPath_mount.html)
+
 ### Check for exec attempts into kubernetes pods
 
 #### via GCP Audit Logs
