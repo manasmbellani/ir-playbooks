@@ -2,21 +2,22 @@
 
 ## Containment
 
-### Disable from wired networks
-
-Steps are the same as described [here](../win_compromised_host#disconnect-from-wired-networks)
-
 ### Disable network interfaces
 
 #### via ifconfig
 
 ```
 # List the network interfaces (can also use System Settings)
+# Note the ones which have active IP address assigned (priortise these to disable) - don't touch loopback!
 sudo ifconfig
 sudo ifconfig en0 down
 # Restoration via this command
 # sudo ifconfig en0
 ```
+
+### Disable from wired networks
+
+Steps are the same as described [here](../win_compromised_host#disconnect-from-wired-networks)
 
 ### Apply Network Firewall
 
