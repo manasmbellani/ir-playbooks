@@ -298,6 +298,8 @@ Channel: Microsoft-Windows-Sysmon/Operational
 
 Can be a persistence mechanism for threat actors
 
+Most detection techniques taken from [here](https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/)
+
 #### via HKLM registry / TaskCache\Tree
 
 ```
