@@ -572,7 +572,21 @@ So that any existing pods on these nodes are removed.
 kubectl drain --ignore-daemonsets $NODE_NAME
 ```
 
-Then, power-off the VM
+Then, power-off / terminate the VM.
+
+If we wish to undo this step, 
+
+```
+kubectl uncordon $NODE_NAME
+```
+
+### Destroy the pod
+
+#### via kubectl
+
+```
+kubectl delete pods $POD_NAME 
+```
 
 ## Recovery
 
