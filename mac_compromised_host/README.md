@@ -17,6 +17,9 @@ BlueTooth can be disabled via `System Settings` > `BlueTooth`
 After performing the steps below, remember to disable the Wifi adapter
 
 #### via networksetup
+
+Remember to take screenshot of the saved wireless networks before removing them
+
 ```
 # Identify the WIFI adapter
 sudo networksetup -listallhardwareports
