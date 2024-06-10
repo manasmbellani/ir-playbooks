@@ -109,6 +109,16 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+### Launchd Agent added
+
+#### via /var/log logs
+
+Through file: `/var/log/com.apple.xpc.launchd/launchd.log`. Example:
+
+```
+/var/log/com.apple.xpc.launchd/launchd.log:4856:2024-06-10 16:40:10.879782 (gui/501 [100003]) <Notice>: Enabling service com.malicious.evil2.plist
+```
+
 ### Files changed recently
 
 #### via find
