@@ -97,6 +97,16 @@ Steps listed above can be performed via `System Settings` > `Network` >  `Wifi`
 
 ## Collection
 
+### Typical log locations
+
+E.g To search via `grep`
+
+```
+/var/log
+~/Library/Logs
+/Library/Logs
+```
+
 ### Collection Scripts
 
 #### via Crowdstrike's automactc
