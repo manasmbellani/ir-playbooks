@@ -319,6 +319,14 @@ Event ID: 106 (User "HACKER\$USERNAME"  registered Task Scheduler task "\$TASK_N
 Channel: Microsoft-Windows-TaskScheduler/Operational
 ```
 
+#### via Windows Event Logs / Sysmon / Process Create
+
+```
+Event ID: 13 (Registry Value Set)
+Channel: Microsoft-Windows-Sysmon/Operational
+CommandLine: *\schtasks.exe*/create*
+```
+
 #### via Windows Event Logs / Sysmon / TaskCache\Tasks, TaskCache\Tree
 
 ```
