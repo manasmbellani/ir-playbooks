@@ -97,6 +97,16 @@ Steps listed above can be performed via `System Settings` > `Network` >  `Wifi`
 
 ## Collection
 
+### Collection Scripts
+
+#### via Crowdstrike's automactc
+
+```
+# git clone https://github.com/Crowdstrike/automactc /opt/automactc
+cd /opt/automactc
+automactc.py -m all -fmt json 
+```
+
 ## Analysis
 
 ### Files changed recently
