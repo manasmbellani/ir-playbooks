@@ -14,7 +14,6 @@
 - Analysis Add artifacts from TazWake guide  https://www.linkedin.com/pulse/linux-ir-key-forensic-artifacts-incident-responders-taz-wake-asmbe
 - Analysis Add techniques from Hal Pomeranz's course https://ia802901.us.archive.org/33/items/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics.pdf
 - Analysis Check hidden dirs in home dir eg `~/.cache`, `~/.config`
-- Analysis cron logs and cron tasks - `/etc/cron.*`, `/var/log/cron.log`
 - Analysis check rsyslog .conf files - `/etc/rsyslog.d/50-default.conf`
 - Analysis Get installed packages from linux https://github.com/clausing/scripts/blob/master/linux-pkgs.sh
 - Analysis Arsenal Image Mounter
