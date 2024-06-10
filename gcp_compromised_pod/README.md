@@ -221,6 +221,20 @@ gcloud projects remove-iam-policy-binding citric-snow-362912 \
     --role "roles/storage.admin"
 ```
 
+### Remove service account permissions assigned to the node (Optional)
+
+#### via kubectl / gcloud
+
+```
+# Identify the nodes in kubernetes to check
+kubectl get nodes
+
+# Get the service account linked with the affected kubernetes node
+gcloud compute instances describe $NODE_NAME --zone=us-central1-c --format='value(serviceAccounts.email)'
+
+# Get the policy bindings linked with this service account
+gcloud iam service-accounts get-iam-policy $SERVICE_ACCOUNT
+```
 
 ## Collection
 
@@ -542,6 +556,18 @@ protoPayload.serviceName="domains.googleapis.com"
 ```
 
 ## Eradication
+
+### Drain the kubernetes nodes
+
+So that any existing pods on these nodes are removed.
+
+#### via kubectl
+
+```
+kubectl drain --ignore-daemonsets $NODE_NAME
+```
+
+Then, power-off the VM
 
 ## Recovery
 
