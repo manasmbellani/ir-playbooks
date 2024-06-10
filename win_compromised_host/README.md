@@ -277,10 +277,30 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 Can be a persistence mechanism for threat actors
 
-#### via HKLM registry
+#### via HKLM registry / TaskCache\Tree
 
 ```
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\$TASK_NAME"
+```
+
+#### via powershell \ HKLM registry / TaskCache\Tasks
+
+```
+reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\
+```
+
+```
+# Get the path from each GUID e.g. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{FB85EA40-DB41-49E9-9FE6-17D5793EB1A1} under TaskCache\Tasks
+# Can get further details with reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{FB85EA40-DB41-49E9-9FE6-17D5793EB1A1}"
+$KEY = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks"
+
+Get-ChildItem -Path $KEY | ForEach-Object {
+    $GUID = $_.PSChildName
+    $Path = (Get-ItemProperty -Path "$KEY\$GUID").Path
+    Write-Output "GUID: $GUID"
+    Write-Output "Path: $Path"
+    Write-Output "`n"
+}
 ```
 
 #### powershell / Get-ScheduledTask
