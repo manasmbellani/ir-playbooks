@@ -14,7 +14,6 @@ We then run the following command to restart auditd and validate that it is appl
 
 ```
 systemctl restart auditd
-
 auditctl -l
 ```
 
@@ -489,6 +488,15 @@ Check if `auditd` is enabled and the logs are being logged in `auditd`:
 /etc/audit/audit.rules
 ```
 
+### Get Auditd Logs
+
+#### via ausearch
+
+```
+# to get logs from today
+ausearch --start today --format text
+```
+
 ### Check app logs
 
 Review logs for various apps to detect attacks like log4j
@@ -503,12 +511,19 @@ sudo journalctl -u spring-boot-application
 
 #### via cron logs
 
-Check cron scheduled tasks:
+Check via cron scheduled task executions
 
 ```
-/var/log/cron.log
+cat /var/log/cron.log
+grep -r -n -i --color cron /var/log/syslog
 ```
 
+#### via cron
+
+```
+find /var/spool/cron/crontabs -type f
+find /etc/cron* -type f
+```
 
 ### Check linux authentication attempts
 
