@@ -273,6 +273,11 @@ If SSH access is allowed to the node via VPC firewall rule, we attempt to SSH in
 gcloud compute ssh gke-test-cluster-1-default-pool-fe89d68e-g3fl
 ```
 
+### Taking Memory Image of Kubernetes Nodes (Live)
+
+See [here](../linux_compromised_host/README.md#taking-memory-image-live)
+
+
 ### Offline Collection
 
 We will attempt to take a snapshot of the disk on the compute node `gke-test-cluster-1-default-pool-fe89d68e-g3fl`, generate a disk from the node and then connect it to a separate forensics VM compute instance for analysis.
