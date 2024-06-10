@@ -3,7 +3,6 @@
 - Preparation - Falco Sidekick
 - Containment - lock down nodes where possible to ensure that there is no connectivity
 - Containment - snapshot the VM instances
-- Collection Collect logs from gcp cloud https://github.com/dlcowen/sansfor509
 - Analysis Include detections from kubernetes goat https://github.com/madhuakula/kubernetes-goat
 - Analysis add detections for kubenomicon attacks https://kubenomicon.com/Persistence/Kubernetes_cronjob.html
 - Analysis GCP useful commands https://www.linkedin.com/posts/cdoman_google-cloud-incident-response-cheatsheet-ugcPost-7138886546291597313-JyYR?utm_source=share&utm_medium=member_ios
