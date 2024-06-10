@@ -43,7 +43,6 @@
 - Analysis parse runMRU lists for windows file path executions 
 - Analysis Add tips/tricks from guidance for incident responders https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf
 - Analysis detect dhcp administrators group abuse priv esc https://x.com/directoryranger/status/1787223247169147306?s=46&t=WvGY79Umt5enRwgCbi4TQQ
-- Analysis Detect hidden scheduled tasks via https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/
 - Analysis review results of Joshua pager's resources https://github.com/bouj33boy/Domain-Persistence-Detection-Triage-and-Recovery-SO-CON-2024
 - Analysis Detect DPAPI Backup key detection which encrypts everything in DC  if not rebuilding DC https://www.dsinternals.com/en/dpapi-backup-key-theft-auditing/
 - Analysis Detect Browser Theft via Windows Audit Logging https://security.googleblog.com/2024/04/detecting-browser-data-theft-using.html
