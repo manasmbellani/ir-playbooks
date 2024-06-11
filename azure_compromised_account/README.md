@@ -43,9 +43,10 @@ See [here](../win_compromised_host/README.md#disable-user-account)
 
 ## Analysis
 
-### Detect Device Code Authentication attempts
+### Detect Device Code Flow Authentication attempts
 
 These could be indicative of device code phishing attempts as described [here](https://www.inversecos.com/2022/12/how-to-detect-malicious-oauth-device.html) 
+To prevent these attacks, enable a conditional flow policy which can block Network > Authentication Flow = Device Code Flow as described [here](https://cloudbrothers.info/en/protect-users-device-code-flow-abuse/)
 
 #### via Azure Portal UI / Sign-In Logs
 
