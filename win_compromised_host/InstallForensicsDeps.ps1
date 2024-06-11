@@ -61,12 +61,11 @@ if (-Not (Get-InstalledModule -Name Az )) {
     Install-Module -Name Az -Force -Confirm:$false
 }
 
-# Write-Host "[*] Checking if we need to install AzureADPreview module..."
-# if (-Not (Get-InstalledModule -Name AzureADPreview )) {
-#     Write-Host "[*] Installing 'AzureADPreview' module..."
-#     #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-#     Install-Module -Name AzureADPreview -Force -Confirm:$false
-# }
+Write-Host "[*] Checking if we need to install AzureADPreview module..."
+if (-Not (Get-InstalledModule -Name AzureADPreview )) {
+    Write-Host "[*] Installing 'AzureADPreview' module..."
+    Install-Module -Name AzureADPreview -Force -Confirm:$false -AllowClobber
+}
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION")) {
     Write-Host "[*] Creating new directory 'opt' in Desktop..."
