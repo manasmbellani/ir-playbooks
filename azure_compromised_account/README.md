@@ -2,6 +2,10 @@
 
 ## Pre-requisites
 
+### Sign-up Office 365 Business Premium 
+
+Signup to Office 365 Business Premium from [here](https://www.microsoft.com/en-au/microsoft-365/business/microsoft-365-business-premium?activetab=pivot:overviewtab) which will provide an integrated Azure Portal environment as well. 
+
 ### Setup KQL Search Environment for Azure Entra ID
 
 Setup a Log Analytics workspace in [Azure Portal](https://portal.azure.com) and forward logs via Diagnostics Settings in [Microsoft Entra Admin Center](https://entra.microsoft.com) by following this guide [here](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/tutorial-configure-log-analytics-workspace).
