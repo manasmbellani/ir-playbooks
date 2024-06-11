@@ -85,7 +85,7 @@ Disable SSH Access by reversing the steps [here](#enable-ssh)
 
 ### Enable ExecInstalledOnly
 
-Enable `ExecInstalledOnly` to only ensure that access is restricted
+Enable `ExecInstalledOnly` to only ensure that binaries that are only signed by VMWare can be executed
 
 Taken from [here](https://www.crowdstrike.com/wp-content/uploads/2023/11/QRG-1.2-ESXi-Triage-Collection-and-Containment.pdf)
 
