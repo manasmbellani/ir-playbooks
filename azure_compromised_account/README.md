@@ -43,6 +43,18 @@ See [here](../win_compromised_host/README.md#disable-user-account)
 
 ## Analysis
 
+### Detect Device Code Authentication attempts
+
+These could be indicative of device code phishing attempts as described [here](https://www.inversecos.com/2022/12/how-to-detect-malicious-oauth-device.html) 
+
+#### via Azure Portal UI / Sign-In Logs
+
+Access Azure portal > `Sign-In Logs`
+```
+# View 'User Agent' and 'IP Address' field 
+Authentication Protocol: Device Code
+```
+
 ### List Microsoft Security alerts (e.g. DLP alerts)
 
 #### via Graph API cmdlets
