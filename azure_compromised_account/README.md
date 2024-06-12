@@ -43,6 +43,15 @@ See [here](../win_compromised_host/README.md#disable-user-account)
 
 ## Analysis
 
+### Detect Consent Grant 
+
+These could be indicative of Illicit Consent Grant attempts due to phishing 
+To prevent these attacks, configure the user consent grant permissions via [Microsoft Entra ID Admin Center](https://entra.microsoft.com) > Identity > Applications > Enterprise Accounts > Security > Consent and Permissions > "Do not allow app consents" (Preferred) OR "Allow user consent for apps from verified publishers, for selected permissions" (Less preferred) (Assuming classification also set in Security > Permission Classifications) as described [here](https://learn.microsoft.com/en-gb/entra/identity/enterprise-apps/configure-user-consent?pivots=portal)
+
+#### via Azure Portal UI / Sign-In Logs
+
+
+
 ### Detect Device Code Flow Authentication attempts
 
 These could be indicative of device code phishing attempts as described [here](https://www.inversecos.com/2022/12/how-to-detect-malicious-oauth-device.html) 
