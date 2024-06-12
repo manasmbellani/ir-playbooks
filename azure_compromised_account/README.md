@@ -39,6 +39,20 @@ Taken from [here](https://learn.microsoft.com/en-us/microsoft-365/enterprise/blo
 
 See [here](../win_compromised_host/README.md#disable-user-account)
 
+### Remove OAuth Consent Grant for app
+
+#### via powershell / Remove-MgOauth2PermissionGrant
+
+You can revoke the OAuth consent grant with PowerShell by following the steps in Remove-MgOauth2PermissionGrant
+
+Taken from [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#how-to-stop-and-remediate-an-illicit-consent-grant-attack)
+
+####  via powershell / Remove-MgServicePrincipalAppRoleAssignment
+
+You can revoke the Service App Role Assignment with PowerShell by following the steps in Remove-MgServicePrincipalAppRoleAssignment.
+
+Taken from [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#how-to-stop-and-remediate-an-illicit-consent-grant-attack)
+
 ## Collection
 
 ## Analysis
