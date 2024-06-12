@@ -144,6 +144,7 @@ Taken from [here](https://www.sans.org/blog/how-to-digital-forensic-imaging-in-v
 Collect all logs from the following locations: 
 - `/var/log`
 - `find /var/run -ipath "*log*"`
+- `/scratch/log/`
 
 More details about different VMWare log types defined [here](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-832A2618-6B11-4A28-9672-93296DA931D0.html) and [here](https://pchawda.wordpress.com/2020/01/14/esxi-log-files-location-and-their-description/)
 
@@ -212,9 +213,16 @@ grep -r -n -i "logged in as" /var/log/hostd.log
 ### Check shell commands executed
 
 #### via /var/log/shell.log
+
 ```
 cat /var/log/shell.log
 ``` 
+
+#### via .ash_history
+
+```
+cat /.ash_history
+```
 
 ### Check running VMs
 
