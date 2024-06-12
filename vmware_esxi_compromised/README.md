@@ -143,10 +143,16 @@ Taken from [here](https://www.sans.org/blog/how-to-digital-forensic-imaging-in-v
 
 #### via esxitri
 
+Upload via `scp`:
 ```
 cd C:\Users\Administrator\Desktop\opt
 scp .\esxitri.sh root@$VMWARE_ESXI_IP:/tmp/esxitri.sh
 ssh root@$VMWARE_ESXI_IP
+```
+Or, upload via VMWare ESXI UI > Storage > datastore browser > Upload, which will upload file to `/vmfs/volumes/$DATASTORE_GUID/testvm/esxitri.sh`
+
+Execute the script:
+```
 cd /tmp
 chmod +x esxitri.sh
 ./esxitri.sh
