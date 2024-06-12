@@ -450,6 +450,18 @@ When we have completed timeline analysis via `timesketch` we can takedown timesk
 sudo docker compose down
 ```
 
+### Look for cron job persistence 
+
+#### via cronjob.create
+
+```
+# protoPayload.resourcename has the name of the cronjob created, protoPayload.request.metadata.annotations.kubectl.kubernetes.io/last-applied-configuration has the details of the cronjob
+protoPayload.serviceName="k8s.io"
+protoPayload.methodName:"cronjobs.create"
+```
+
+Taken from [here](https://kubenomicon.com/Persistence/Kubernetes_cronjob.html)
+
 ### Check for unusual pods deployed on kubernetes
 
 #### via GCP Audit Logs
