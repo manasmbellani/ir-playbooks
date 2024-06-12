@@ -193,6 +193,16 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\dc3dd")) {
     Remove-Item -Path "$INSTALL_LOCATION\dc3dd\dc3dd-windows.zip"
 }
 
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\Get-AzureADPSPermissions")) {
+    Write-Host "[*] Making directory Get-AzureADPSPermissions..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Get-AzureADPSPermissions"
+
+    Write-Host "[*] Downloading Get-AzureADPSPermissions.ps1..."
+    $url =  "https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09/raw/fe8d91a625d9cdae20f103e39a49bc6dd5d7bd84/Get-AzureADPSPermissions.ps1"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\Get-AzureADPSPermissions\Get-AzureADPSPermissions.ps1")
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\WMIExplorer")) {
     Write-Host "[*] Making directory WMIExplorer..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\WMIExplorer"
