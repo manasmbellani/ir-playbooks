@@ -89,6 +89,16 @@ Enable `ExecInstalledOnly` to only ensure that binaries that are only signed by 
 
 Taken from [here](https://www.crowdstrike.com/wp-content/uploads/2023/11/QRG-1.2-ESXi-Triage-Collection-and-Containment.pdf)
 
+### Enable code signing for packages via secure boot
+
+#### via /usr/lib/vmware/secureboot scripts
+```
+# Check if currently enabled
+/usr/lib/vmware/secureboot/bin/secureBoot.py -s
+# Any issues with enabling it now?
+/usr/lib/vmware/secureboot/bin/secureBoot.py -c
+```
+
 ### Enable Lockdown mode (atleast Normal mode)
 
 #### via ESXI UI
@@ -170,6 +180,19 @@ Collect all logs from the following locations:
 More details about different VMWare log types defined [here](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-832A2618-6B11-4A28-9672-93296DA931D0.html) and [here](https://pchawda.wordpress.com/2020/01/14/esxi-log-files-location-and-their-description/)
 
 ## Analysis
+
+### Check if vib packages installed bypassing acceptance level
+
+One method of installing the package is with `esxcli` e.g. `esxcli software vib install -d $FILE_PATH--force` as described [here](https://austit.com/faq/309-install-vib-on-vmware-esxi-manually)
+
+#### via logs
+```
+grep -r -n -i -E "Attempting to install an image profile with validation disabled" /var/log/vobd.log
+grep -r -n -i -E "Attempting to install an image profile bypassing signing " /var/log/hostd.log
+grep -r -n -i -E "acceptance level checking disabled" /var/log/esxupdate.log
+```
+
+Taken from [here](https://www.truesec.com/hub/blog/how-to-protect-your-vmware-esxi-hosts-against-persistant-threats-virtualpita-and-virtualpie)
 
 ### Get VM's Hard disk
 
