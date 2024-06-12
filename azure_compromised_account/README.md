@@ -60,6 +60,8 @@ Connect-MgGraph -Scopes "Application.Read.All User.Read.All DelegatedPermissionG
  .\Get-AzureADPSPermissions.ps1 -ShowProgress | Export-Csv -Path "permissions.csv" -NoTypeInformation
 ```
 
+Mechanism to interpret the output is described [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#prerequisites)
+
 ### Detect Consent Grant 
 
 These could be indicative of Illicit Consent Grant attempts due to phishing 
