@@ -54,9 +54,10 @@ Select Azure Portal UI > Users > Select user > Applications
 #### via Get-AzureADPSPermissions
 
 ```
+# Generates a CSV report of all permissions granted to all apps.
 cd C:\Users\Administrator\Desktop\opt\Get-AzureADPSPermissions
 Connect-MgGraph -Scopes "Application.Read.All User.Read.All DelegatedPermissionGrant.ReadWrite.All"
-.\Get-AzureADPSPermissions.ps1
+ .\Get-AzureADPSPermissions.ps1 -ShowProgress | Export-Csv -Path "permissions.csv" -NoTypeInformation
 ```
 
 ### Detect Consent Grant 
