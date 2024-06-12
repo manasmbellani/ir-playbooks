@@ -43,6 +43,22 @@ See [here](../win_compromised_host/README.md#disable-user-account)
 
 ## Analysis
 
+### Identify apps linked to a user
+
+Can help to detect Illegal consents granted to apps to perform various actions
+
+#### via Azure Portal UI
+
+Select Azure Portal UI > Users > Select user > Applications 
+
+#### via Get-AzureADPSPermissions
+
+```
+cd C:\Users\Administrator\Desktop\opt\Get-AzureADPSPermissions
+Connect-MgGraph -Scopes "Application.Read.All User.Read.All DelegatedPermissionGrant.ReadWrite.All"
+.\Get-AzureADPSPermissions.ps1
+```
+
 ### Detect Consent Grant 
 
 These could be indicative of Illicit Consent Grant attempts due to phishing 
