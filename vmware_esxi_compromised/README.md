@@ -141,6 +141,21 @@ Taken from [here](https://www.sans.org/blog/how-to-digital-forensic-imaging-in-v
 
 ### Collect Logs
 
+#### via esxitri
+
+```
+cd C:\Users\Administrator\Desktop\opt
+scp .\esxitri.sh root@$VMWARE_ESXI_IP:/tmp/esxitri.sh
+ssh root@$VMWARE_ESXI_IP
+cd /tmp
+chmod +x esxitri.sh
+./esxitri.sh
+```
+
+Taken from [here](https://github.com/manasmbellani/ESXiTri)
+
+#### via manually
+
 Collect all logs from the following locations: 
 - `/var/log`
 - `find /var/run -ipath "*log*"`
