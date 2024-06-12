@@ -86,13 +86,17 @@ To prevent these attacks, configure the user consent grant permissions via [Micr
 Access Azure portal > `Audit Logs` and filter as follows:
 
 ```
+# Look for any unusual activity here e.g. unusual apps or user agents
 Activity = Consent to Application
+Activity = Add app role assignment grant to user
+Activity = Add delegated permission grant
 ```
 
 To emulate the attack, 
 ```
 Connect-MgGraph -Scopes "Application.Read.All User.Read.All"
 ```
+
 Taken from [here](https://www.cloud-architekt.net/detection-and-mitigation-consent-grant-attacks-azuread/#azure-sentinel-hunting-of-consent-to-application-operations)
 
 ### Detect Device Code Flow Authentication attempts
