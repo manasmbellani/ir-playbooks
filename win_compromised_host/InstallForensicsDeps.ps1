@@ -405,6 +405,15 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\sigma")) {
     Remove-Item -Path "$INSTALL_LOCATION\sigma\sigma.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\esxitri")) {
+    Write-Host "[*] Making directory esxitri..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\esxitri"
+
+    Write-Host "[*] Downloading ESXiTri..."
+    $url="https://raw.githubusercontent.com/manasmbellani/ESXiTri/main/ESXiTri.sh"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\esxitri\esxitri.sh")
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\TokenTactics")) {
     Write-Host "[*] Making directory TokenTactics..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\TokenTactics"
