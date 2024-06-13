@@ -590,7 +590,7 @@ Taken from [here](https://pberba.github.io/security/2022/02/06/linux-threat-hunt
 
 #### via auditd
 
-Reload auditd via `service auditd reload` and `auditctl -R` to 
+Reload auditd via `service auditd restart` and `auditctl -R` to 
 ```
 echo "# Custom: Add monitoring for changes to authorized_keys file" >> /etc/audit/rules.d/audit.rules
 echo "-a always -w /root/.ssh/authorized_keys -p wa -k root_keychange" >> /etc/audit/rules.d/audit.rules
