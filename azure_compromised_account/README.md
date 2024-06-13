@@ -53,6 +53,14 @@ You can revoke the Service App Role Assignment with PowerShell by following the 
 
 Taken from [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#how-to-stop-and-remediate-an-illicit-consent-grant-attack)
 
+### Block Emails containing specific keywords
+
+#### via Exchange Admin, Mail Flow
+
+Visit [Office 365 Admin](https://admin.microsoft.com) > Exchange > Mail Flow > Rules > Create a new rule, and apply a rule to block emails containing specific keywords OR from sender.
+
+Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-containing-specific-keywords-in-subject-or-main-body/963528/10)
+
 ## Collection
 
 ## Analysis
