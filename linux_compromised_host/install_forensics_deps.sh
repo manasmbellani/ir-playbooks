@@ -28,6 +28,13 @@ python3 -m pip install virtualenv
 echo "[*] Install sleuthkit for utilities related to disk info..."
 apt-get -y install sleuthkit
 
+echo "[*] Loading auditd rules and reloading rules..."
+curl -sL https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules -o /etc/audit/rules.d/audit.rules
+# Regenerate the audit.rules file
+service auditd reload
+# Reload audit.rules file 
+auditctl -R /etc/audit/audit.rules
+
 echo "[*] Installing fraken from turbinia..."
 git clone https://github.com/google/turbinia /opt/turbinia
 cd /opt/turbinia
