@@ -586,7 +586,27 @@ ps -auxwf
 
 Taken from [here](https://pberba.github.io/security/2022/02/06/linux-threat-hunting-for-persistence-initialization-scripts-and-shell-configuration/#10-boot-or-logon-initialization-scripts-motd)
 
+### Monitor changes to authorized_keys file
+
+#### via auditd
+
+Reload auditd via `service auditd reload` and `auditctl -R` to 
+```
+echo "# Custom: Add monitoring for changes to authorized_keys file" >> /etc/audit/rules.d/audit.rules
+echo "-a always -w /root/.ssh/authorized_keys -p wa -k root_keychange" >> /etc/audit/rules.d/audit.rules
+echo "-a always -w /home/manasbellani/.ssh/authorized_keys -p wa -k user_keychange_mb" >> /etc/audit/rules.d/audit.rules
+echo "-a always -w /home/ubuntu/.ssh/authorized_keys -p wa -k user_keychange_u" >> /etc/audit/rules.d/audit.rules
+```
+
+Then, use `grep` to search for the key changes in audit log file
+
+```
+grep -r -n -i --color 'keychange' /var/log/audit.log
+```
+
 ### Look for ssh authorized keys
+
+#### via find
 
 As described [here](https://cyberkhalid.github.io/posts/ssh-persist/), SSH may have authorized keys which can be used for pentesting
 
