@@ -452,7 +452,13 @@ sudo docker compose down
 
 ### Look for cron job persistence 
 
-#### via cronjob.create
+Can help detect persistence within GKE environment or cryptominer deployments.
+
+Taken from [here](https://kubenomicon.com/Persistence/Kubernetes_cronjob.html)
+
+#### via GCP Audit Logs / cronjob.create
+
+Detect creation of Kubernetes GKE cron job
 
 ```
 # protoPayload.resourcename has the name of the cronjob created, protoPayload.request.metadata.annotations.kubectl.kubernetes.io/last-applied-configuration has the details of the cronjob
@@ -460,7 +466,15 @@ protoPayload.serviceName="k8s.io"
 protoPayload.methodName:"cronjobs.create"
 ```
 
-Taken from [here](https://kubenomicon.com/Persistence/Kubernetes_cronjob.html)
+#### via GCP Audit Logs / cronjob.status.update
+
+Detect executions of Kubernetes GKE cron job
+
+```
+# protoPayload.resourcename has the name of the cronjob executed,  protoPayload.request.metadata.annotations.kubectl.kubernetes.io/last-applied-configuration has the details of the cronjob, protoPayload.response.status.lastSuccessfulTime contains the last execution time, protoPayload.status.code is whether the cron job was successful
+protoPayload.serviceName="k8s.io"
+protoPayload.methodName="io.k8s.batch.v1.cronjobs.status.update"
+```
 
 ### Check for unusual pods deployed on kubernetes
 
