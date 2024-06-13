@@ -456,6 +456,13 @@ Can help detect persistence within GKE environment or cryptominer deployments.
 
 Taken from [here](https://kubenomicon.com/Persistence/Kubernetes_cronjob.html)
 
+
+#### via kubectl
+
+```
+kubectl get cronjob
+```
+
 #### via GCP Audit Logs / cronjob.create
 
 Detect creation of Kubernetes GKE cron job
