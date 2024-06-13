@@ -30,10 +30,16 @@ apt-get -y install sleuthkit
 
 echo "[*] Loading auditd rules and reloading rules..."
 curl -sL https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules -o /etc/audit/rules.d/audit.rules
+# Apply the additional auditd rules
+echo "# Custom: Add monitoring for changes to authorized_keys file" >> /etc/audit/rules.d/audit.rules
+echo "-w /root/.ssh/authorized_keys -p wa -k root_keychange" >> /etc/audit/rules.d/audit.rules
+echo "-w /home/manasbellani/.ssh/authorized_keys -p wa -k user_keychange_mb" >> /etc/audit/rules.d/audit.rules
+echo "-w /home/ubuntu/.ssh/authorized_keys -p wa -k user_keychange_u" >> /etc/audit/rules.d/audit.rules
 # Regenerate the audit.rules file
-service auditd reload
+service auditd restart
 # Reload audit.rules file 
 auditctl -R /etc/audit/audit.rules
+
 
 echo "[*] Installing fraken from turbinia..."
 git clone https://github.com/google/turbinia /opt/turbinia
