@@ -407,6 +407,30 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check unusual activity from useragents
+
+Can be indicative of interesting behavior when examined over a long period for eg. `(gzip),gzip(gfe)` for `prowler`
+
+#### via GCP Audit Logs
+
+Review the GCP Audit Logs with following fields
+```
+protoPayload.requestMetadata.callerSuppliedUserAgent
+```
+
+### Check unusual list activity from users or service accounts
+
+Can be used to indicate recon / scanning activity from tools like `prowler`
+
+#### via GCP Audit Logs
+
+```
+protoPayload.methodName: list
+protoPayload.authenticationInfo.principalEmail:"iam.gserviceaccount.com"
+-protoPayload.serviceName="k8s.io"
+-protoPayload.authenticationInfo.principalEmail:"container-engine-robot.iam.gserviceaccount.com"
+```
+
 ### List running containers
 
 #### via kubectl
