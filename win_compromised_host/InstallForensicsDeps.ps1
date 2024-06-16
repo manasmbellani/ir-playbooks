@@ -5,6 +5,8 @@
 
     Additional Steps:
         * If error of .net6 from EZ Tools, open one of the binaries and install .NET version via the dialog box shown
+	* Configure Windows visual studio manually with C# and C++ desktop tools via $INSTALL_LOCATION\VisualStudio\vs_community.exe
+	  (C# - .NET Desktop Development, C++ - Desktop Development with C++)
 #>
 
 # Sleep Time (in seconds)
@@ -561,5 +563,14 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\hayabusa")) {
 
     Write-Host '[*] Removing hayabusa zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\hayabusa\hayabusa.zip"
+}
+
+if(-Not (Test-Path "$INSTALL_LOCATION\VisualStudio")) {
+    Write-Host "[*] Making directory VisualStudio..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\VisualStudio"
+
+    Write-Host "[*] Downloading VS Community Binary installer..."
+    $url = "https://aka.ms/vs/17/release/vs_community.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\VisualStudio\vs_community.exe")
 }
 
