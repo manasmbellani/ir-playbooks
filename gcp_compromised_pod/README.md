@@ -407,6 +407,15 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check the Keys created for service account
+
+#### via GCP Audit Logs
+
+```
+# Look for resource.labels.email_id field for the name of the service account for which keys are created
+protoPayload.methodName:"CreateServiceAccountKey"
+```
+
 ### Check unusual activity from useragents
 
 Can be indicative of interesting behavior when examined over a long period for eg. `(gzip),gzip(gfe)` for `prowler`
