@@ -65,6 +65,35 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 ## Analysis
 
+
+### Creation of phone number based 2FA authenticator SMS
+
+Could be indicative of persistence in place for 2FA. 
+
+#### via Azure Audit Logs
+
+```
+# Target.UserPrincipalName is the username on which the authenticator was created
+# In the accompanying Activity="Update User" just before this record, the 'StrongAuthenticationUserDetails' field shows the phone number as well
+Status reason="User registered Mobile Phone SMS"
+Activity="User registered security info"
+Category="UserManagement"
+```
+
+### Deletion of 2FA authentication
+
+Could be indicative of authentication bypass.
+
+#### via Azure Audit Logs
+
+```
+# Status reason provides the authenticator mechanism deleted (e.g. "User deleted Authenticator App with Notification and Code")
+# "IP Address" appears to be Microsoft related, so may not be accurate
+# Target.User Principal Name is the username on which the authenticator info was deleted
+Activity="User deleted security info"
+Category="UserManagement"
+```
+
 ### Creation of new users
 
 Look for anamolous users being created in Azure
