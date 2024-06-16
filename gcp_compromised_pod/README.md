@@ -412,7 +412,7 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 #### via GCP Audit Logs
 
 ```
-# Look for resource.labels.email_id field for the name of the service account for which keys are created
+# Look for resource.labels.email_id field for the name of the service account for which keys are created, protoPayload.resource.name contains the ID of the service account created
 protoPayload.methodName:"CreateServiceAccountKey"
 ```
 
