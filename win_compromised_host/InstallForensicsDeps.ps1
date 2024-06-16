@@ -86,6 +86,14 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-disable-windows-defender")) {
     Set-MpPreference -SubmitSamplesConsent 0
 }
 
+If (-Not (Test-Path "$INSTALL_LOCATION\flag-disable-windows-firewall")) {
+    Write-Host "[*] Making flag to state that Windows firewall has been disabled..."
+    New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-disable-windows-firewall"
+
+    Write-Host "[*] Disabling Windows Firewall Settings..."
+    Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+}
+
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-enable-ssh")) {
     Write-Host "[*] Making flag-enable-ssh to state that SSH has been enabled..."
     New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-enable-ssh"
