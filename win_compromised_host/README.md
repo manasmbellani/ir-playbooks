@@ -1027,6 +1027,7 @@ Hayabusa can also scan via sigma ruleset.
 
 ```
 # Update sigma ruleset in hayabusa dir
+cd C:\Users\Administrator\Desktop\opt\hayabusa
 .\hayabusa-2.16.0-win-x64.exe update-rules
 # Scan the log files and also build a timeline that can be opened in Timeline Explorer or Timesketch?
 .\hayabusa-2.16.0-win-x64.exe csv-timeline -d C:\Windows\Temp\Logs -o C:\Windows\Temp\results.csv
