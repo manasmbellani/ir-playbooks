@@ -88,7 +88,7 @@ Could be indicative of authentication bypass.
 
 ```
 # Status reason provides the authenticator mechanism deleted (e.g. "User deleted Authenticator App with Notification and Code")
-# "IP Address" appears to be Microsoft related, so may not be accurate
+# "IP Address" appears to be Microsoft related, so may not be accurate. May have to rely on sign-in logs.
 # Target.User Principal Name is the username on which the authenticator info was deleted
 Activity="User deleted security info"
 Category="UserManagement"
