@@ -412,6 +412,7 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 #### via GCP Audit Logs
 
 ```
+# protoPayload.request.metadata.name contains the name of the kubernetes service account being created
 protoPayload.methodName="serviceaccounts.create"
 ```
 
