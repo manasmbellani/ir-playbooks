@@ -65,6 +65,19 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 ## Analysis
 
+### Creation of new users
+
+Look for anamolous users being created in Azure
+
+#### via Azure Audit Logs
+
+```
+# Target.UserPrinipalName is the username that is added in Azure
+Service="Core Directory"
+Category="UserManagement"
+Activity Type="Add User"
+```
+
 ### Identify apps linked to a user
 
 Can help to detect Illegal consents granted to apps to perform various actions
