@@ -407,6 +407,14 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check creation of kubernetes service accounts
+
+#### via GCP Audit Logs
+
+```
+protoPayload.methodName="serviceaccounts.create"
+```
+
 ### Check the Keys created for service account
 
 #### via GCP Audit Logs
