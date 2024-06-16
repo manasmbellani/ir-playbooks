@@ -547,3 +547,19 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline")) {
     Write-Host '[*] Removing WindowsEventsToCSVTimeline zip file...'
     Remove-Item -Path "$INSTALL_LOCATION\WindowsEventsToCSVTimeline\WindowsEventsToCSVTimeline.zip"
 }
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\hayabusa")) {
+    Write-Host "[*] Making directory hayabusa..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\hayabusa"
+    
+    Write-Host "[*] Downloading hayabusa..."
+    $url = "https://github.com/Yamato-Security/hayabusa/releases/download/v2.16.0/hayabusa-2.16.0-win-x64.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\hayabusa\hayabusa.zip")
+
+    Write-Host "[*] Extracting hayabusa zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\hayabusa\hayabusa.zip" -DestinationPath "$INSTALL_LOCATION\hayabusa"
+
+    Write-Host '[*] Removing hayabusa zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\hayabusa\hayabusa.zip"
+}
+
