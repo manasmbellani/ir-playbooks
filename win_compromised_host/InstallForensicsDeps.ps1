@@ -86,6 +86,22 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-disable-windows-defender")) {
     Set-MpPreference -SubmitSamplesConsent 0
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\Notepad++")) {
+    Write-Host "[*] Making directory Notepad++..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Notepad++"
+    
+    Write-Host "[*] Downloading Notepad++..."
+    $url="https://github.com/manasmbellani/splunkfiles/raw/master/npp.8.5.Installer.x64.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Notepad++\npp.8.5.Installer.x64.exe")
+
+    Write-Host "[*] Installing Notepad++..."
+    $command = "$INSTALL_LOCATION\Notepad++\npp.8.5.Installer.x64.exe /S"
+    Invoke-Expression "& $command"
+
+    Write-Host "[*] Sleeping for $SLEEP_TIME seconds until Notepad++ is installed..."
+    sleep "$SLEEP_TIME"
+}
+
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-disable-windows-firewall")) {
     Write-Host "[*] Making flag to state that Windows firewall has been disabled..."
     New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-disable-windows-firewall"
