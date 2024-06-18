@@ -20,7 +20,8 @@ sudo apt-get -y install \
   xfce4-goodies \
   exiftool \
   nmap \
-  auditd
+  auditd \
+  xrdp
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
@@ -52,6 +53,9 @@ git clone https://github.com/Neo23x0/signature-base.git /opt/signature-base && \
    cd /opt/signature-base && \
    find /opt/signature-base -type f -not -iname '*.yar' -not -iname '*.yara' -not -iname 'file-type-signatures.txt' -delete
 
+echo "[*] Enabling RDP service to start at beginning via xrdp..."
+sudo systemctl enable xrdp --now
+update-rc.d xrdp defaults
 
 echo "[*] Install volatility2..."
 apt-get -y install python2.7
