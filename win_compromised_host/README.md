@@ -273,6 +273,24 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Google Chrome Browser Browser Sync
+
+Browser Sync could lead to passwords, bookmarks, history, etc to be shared when user logs into other browsers. 
+
+#### via Chrome registry
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome
+```
+
+If value `SyncDisabled DWORD` set to 0 OR not present then Enabled.
+
+Otherwise, it is Disabled.
+
+#### via Google Chrome Browser UI 
+
+Click on Google Chrome browser > Turn On Sync... > Settings > Manage What you Sync
+
 ### Scheduled Tasks Deletion
 
 Can be a persistence mechanism for threat actors cleaning up after.
