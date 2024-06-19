@@ -63,8 +63,13 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 ## Collection
 
-## Analysis
+### Collect Azure AD Audit Logs
 
+#### via Powershell/AzureADPreview module
+
+Collect the logs for Azure AD Sign-in and Directory Audit via the script [here](Get-AzureADAuditLogs.ps1)
+
+## Analysis
 
 ### Creation of phone number based 2FA authenticator SMS
 
