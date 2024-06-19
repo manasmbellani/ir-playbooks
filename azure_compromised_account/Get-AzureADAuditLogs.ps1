@@ -4,8 +4,11 @@
 	- Sign-In Logs
 	- Activity Logs
 	
-	.PARAMETER outfile
-	Output file to which to write the logs in CSV format. "out-audit-logs.csv" is the default
+	.PARAMETER signInsOutfile
+	Output file to which to write the sign-in logs in CSV format. "out-signins-audit-logs.csv" is the default
+	
+	.PARAMETER activityOutfile
+	Output file to which to write the directlory audit logs in CSV format. "out-dir-audit-logs.csv" is the default
 	
 	.PARAMETER logType
 	Specifies the type of logs to get e.g. "all" for ALL logs, "signin" for sign-in logs and 
@@ -28,7 +31,8 @@
 #>
 
 param(
-	[string]$outfile = "out-audit-logs.csv",
+	[string]$signInsOutfile = "out-signins-audit-logs.csv",
+	[string]$activityOutfile = "out-activity-audit-logs.csv",
 	[string]$logType = "all",
 	[string]$startTime,
 	[string]$endTime,
@@ -41,8 +45,8 @@ Import-Module AzureADPreview
 Write-Host "[*] Connecting to Azure-AD..."
 Connect-AzureAD
 
-Write-Host "[*] Building header for audit logs to output file: $outfile..."	
-"timestamp,log_type,Id,UserDisplayName,AppDisplayName,IpAddress,ResourceDisplayName,OperatingSystem,Browser,DeviceIsCompliant,DeviceIsManaged,SignInErrorCode,SignInFailureReason,SignInAdditionalDetails,ClientAppUsed,raw"| Out-File -FilePath "$outfile"
+Write-Host "[*] Building header for audit logs to output file: $signInsOutfile..."	
+"timestamp,log_type,Id,UserDisplayName,AppDisplayName,IpAddress,ResourceDisplayName,OperatingSystem,Browser,DeviceIsCompliant,DeviceIsManaged,SignInErrorCode,SignInFailureReason,SignInAdditionalDetails,ClientAppUsed,raw"| Out-File -FilePath "$signInsOutfile"
 
 
 if($logType -match "all" -or $logType -match "signin") {
@@ -76,7 +80,7 @@ if($logType -match "all" -or $logType -match "signin") {
 		}
 	}	
 	
-	Write-Host "[*] Extracting Azure AD Audit Sign-in Logs to file: $outfile..."
+	Write-Host "[*] Extracting Azure AD Audit Sign-in Logs to file: $signInsOutfile..."
 	$logs | %{
 		$record = @{}
 		$record["timestamp"] = $_.CreatedDateTime
@@ -100,12 +104,66 @@ if($logType -match "all" -or $logType -match "signin") {
 		"`"$($record['AppDisplayName'])`",`"$($record['IpAddress'])`",`"$($record['ResourceDisplayName'])`"," + `
 		"`"$($record['OperatingSystem'])`",`"$($record['Browser'])`",`"$($record['DeviceIsCompliant'])`"," + `
 		"`"$($record['DeviceIsManaged'])`",`"$($record['SignInErrorCode'])`",`"$($record['SignInFailureReason'])`"," + `
-		"`"$($record['SignInAdditionalDetails'])`",`"$($record['ClientAppUsed'])`",`"$($record['raw'])`"" | Out-File -Append -FilePath "$outfile"
+		"`"$($record['SignInAdditionalDetails'])`",`"$($record['ClientAppUsed'])`",`"$($record['raw'])`"" | Out-File -Append -FilePath "$signInsOutfile"
 	}
 
 }
-#Write-Host "{*] Retrieving AD Directory logs..."
-#Get-AzureADSignInLogs -Top 10 | more
 
 
 
+if($logType -match "all" -or $logType -match "activity") {
+	
+	"timestamp,log_type,Id,Category,SourceUserDisplayName,SourceAppDisplayName,TargetUserDisplayName,ActivityDisplayName,OperationType,IpAddress,Result,ResultReason,raw"| Out-File -FilePath "$activityOutfile"
+	
+	Write-Host "[*] Preparing the filter for Activity logs..."
+	$filter=""
+	if ($startTime) {
+		$filter = "ActivityDateTime ge $startTime"
+	}
+	if($endTime) {
+		if($filter) {
+			$filter="$filter and ActivityDateTime le $endTime"
+		} else {
+			$filter="ActivityDateTime le $endTime"
+		}
+	}
+	
+	Write-Host "[*] Retrieving the Azure AD Audit Activity Azure AD Audit Logs with filter: $filter, maxLogs: $maxLogs..."
+	if($maxLogs) {
+		if($filter) {
+			$logs=(Get-AzureADAuditDirectoryLogs -Top $maxLogs -Filter "$filter") 
+		} else {
+			$logs=(Get-AzureADAuditDirectoryLogs -Top $maxLogs) 
+		}
+	} else {
+		if($filter) {
+			$logs=(Get-AzureADAuditDirectoryLogs -Filter "$filter") 
+		} else {
+			$logs=(Get-AzureADAuditDirectoryLogs)
+		}
+	}
+	
+	Write-Host "[*] Extracting Azure AD Audit Activity Logs to file: $activityOutfile..."
+	$logs | %{
+		$record = @{}
+		$record["timestamp"] = $_.ActivityDateTime
+		$record["log_type"] = "AzureADAuditDirectoryLogs"
+		$record["Id"] = $_.Id
+		$record["Category"] = $_.Category
+		$record["SourceUserDisplayName"] = $_.InitiatedBy.User.DisplayName
+		$record["SourceAppDisplayName"] = $_.InitiatedBy.User.App.DisplayName
+		$record["TargetUserDisplayName"] = $_.TargetResources.DisplayName
+		$record["ActivityDisplayName"] = $_.ActivityDisplayName
+		$record["OperationType"] = $_.OperationType
+		$record["IpAddress"] = $_.InitiatedBy.User.IpAddress
+		$record["Result"] = $_.Result
+		$record["ResultReason"] = $_.ResultReason
+		$record["raw"] = ($_ | Out-String).Replace("`r","").Replace("`n","").Replace('"',"'")
+		 
+		"`"$($record['timestamp'])`",`"$($record['log_type'])`",`"$($record['Id'])`",`"$($record['Category'])`"," + `
+		"`"$($record['SourceUserDisplayName'])`",`"$($record['SourceAppDisplayName'])`",`"$($record['TargetUserDisplayName'])`",`"$($record['ActivityDisplayName'])`"," + `
+		"`"$($record['OperationType'])`",`"$($record['IpAddress'])`",`"$($record['Result'])`"," + `
+		"`"$($record['ResultReason'])`",`"$($record['raw'])`"" | Out-File -Append -FilePath "$activityOutfile"
+	}
+
+}
