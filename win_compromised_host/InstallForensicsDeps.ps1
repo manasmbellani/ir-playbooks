@@ -153,6 +153,15 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\python")) {
     #Remove-Item -Path "$INSTALL_LOCATION\python\python.exe"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\WINTri")) {
+    Write-Host "[*] Making directory WINTri..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\WINTri"
+    
+    Write-Host "[*] Downloading WINTri..."
+    $url="https://github.com/DCScoder/WINTri/raw/main/WINTri.ps1"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\WINTri\WINTri.ps1")
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\OpenHashTab")) {
     Write-Host "[*] Making directory OpenHashTab..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\OpenHashTab"
