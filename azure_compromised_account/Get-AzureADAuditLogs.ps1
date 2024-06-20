@@ -10,6 +10,12 @@
 	.PARAMETER activityOutfile
 	Output file to which to write the directlory audit logs in CSV format. "out-dir-audit-logs.csv" is the default
 	
+	.PARAMETER signInsJsonOutfile
+	Output file to which to write the sign-in logs in Json format. "out-signins-audit-logs.csv" is the default
+	
+	.PARAMETER activityJsonOutfile
+	Output file to which to write the directlory audit logs in Json format. "out-dir-audit-logs.csv" is the default
+	
 	.PARAMETER logType
 	Specifies the type of logs to get e.g. "all" for ALL logs, "signin" for sign-in logs and 
 	"activity" for activity logs
@@ -33,6 +39,8 @@
 param(
 	[string]$signInsOutfile = "out-signins-audit-logs.csv",
 	[string]$activityOutfile = "out-activity-audit-logs.csv",
+	[string]$signInsJsonOutfile = "out-signins-audit-logs.json",
+	[string]$activityJsonOutfile = "out-activity-audit-logs.json",
 	[string]$logType = "all",
 	[string]$startTime,
 	[string]$endTime,
@@ -79,6 +87,9 @@ if($logType -match "all" -or $logType -match "signin") {
 			$logs=(Get-AzureADAuditSignInLogs)
 		}
 	}	
+	
+	Write-Host "[*] Extracting Azure AD Audit sign-in logs to JSON file: $signInsJsonOutfile..."
+	$logs | ConvertTo-Json | Out-File $signInsJsonOutfile
 	
 	Write-Host "[*] Extracting Azure AD Audit Sign-in Logs to file: $signInsOutfile..."
 	$logs | %{
@@ -143,6 +154,9 @@ if($logType -match "all" -or $logType -match "activity") {
 		}
 	}
 	
+	Write-Host "[*] Extracting Azure AD Audit Activity logs to JSON file: $activityJsonOutfile..."
+	$logs | ConvertTo-Json | Out-File $activityJsonOutfile
+	
 	Write-Host "[*] Extracting Azure AD Audit Activity Logs to file: $activityOutfile..."
 	$logs | %{
 		$record = @{}
@@ -151,7 +165,7 @@ if($logType -match "all" -or $logType -match "activity") {
 		$record["Id"] = $_.Id
 		$record["Category"] = $_.Category
 		$record["SourceUserDisplayName"] = $_.InitiatedBy.User.DisplayName
-		$record["SourceAppDisplayName"] = $_.InitiatedBy.User.App.DisplayName
+		$record["SourceAppDisplayName"] = $_.InitiatedBy.App.DisplayName
 		$record["TargetUserDisplayName"] = $_.TargetResources.DisplayName
 		$record["ActivityDisplayName"] = $_.ActivityDisplayName
 		$record["OperationType"] = $_.OperationType
@@ -160,9 +174,8 @@ if($logType -match "all" -or $logType -match "activity") {
 		$record["ResultReason"] = $_.ResultReason
 		$record["raw"] = ($_ | Out-String).Replace("`r","").Replace("`n","").Replace('"',"'")
 		 
-		"`"$($record['timestamp'])`",`"$($record['log_type'])`",`"$($record['Id'])`",`"$($record['Category'])`"," + `
-		"`"$($record['SourceUserDisplayName'])`",`"$($record['SourceAppDisplayName'])`",`"$($record['TargetUserDisplayName'])`",`"$($record['ActivityDisplayName'])`"," + `
-		"`"$($record['OperationType'])`",`"$($record['IpAddress'])`",`"$($record['Result'])`"," + `
+		"`"$($record['timestamp'])`",`"$($record['log_type'])`",`"$($record['Id'])`",`"$($record['Category'])`"," + `		"`"$($record['SourceUserDisplayName'])`",`"$($record['SourceAppDisplayName'])`",`"$($record['TargetUserDisplayName'])`"," + `
+		"`"$($record['ActivityDisplayName'])`",`"$($record['OperationType'])`",`"$($record['IpAddress'])`",`"$($record['Result'])`"," + `
 		"`"$($record['ResultReason'])`",`"$($record['raw'])`"" | Out-File -Append -FilePath "$activityOutfile"
 	}
 
