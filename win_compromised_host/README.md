@@ -218,6 +218,15 @@ See [FTK Imager](#via-ftk-imager) for more information on how to create disk ima
 
 Follow the steps [here](##deploying-velocirpator) to launch velociraptor > start `Hunt` on targets via `Windows.KapeFiles.Targets` to collect Kapefiles > Select `_SANS_Triage`
 
+#### via WINTri
+
+```
+cd C:\Users\Administrator\Desktop\opt\WINTri
+.\WINTri.ps1
+```
+
+Taken from [here](https://github.com/DCScoder/WINTri)
+
 ### Mount Disks
 
 #### via FTK Imager
