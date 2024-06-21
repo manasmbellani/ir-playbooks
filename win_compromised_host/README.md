@@ -282,6 +282,28 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection Skeleton Key Implementation
+
+- To prevent skeleton key, need to ensure that Protected Process is switched on to only allow Microsoft Signed Processes to inject into LSA
+- Protect domain admin accounts carefully as that is a pre-requisite
+
+  
+#### via Windows Event Logs / 4673,4611 Event IDs
+
+```
+Event ID: 4673 (Sensitive Privilege Use)
+Service Name: LsaRegisterLogonProcess()
+Process: C:\Windows\System32\lsass.exe
+```
+
+```
+# This means that requests for logon will go to the LSA for a new process
+# Created very close to the previous event
+Event ID: 4611 (A trusted logon process has been registered with the Local Security Authority.)
+```
+
+Taken from [here](https://adsecurity.org/?p=1275)
+
 ### Google Chrome Browser Browser Sync
 
 Browser Sync could lead to passwords, bookmarks, history, etc to be shared when user logs into other browsers. 
