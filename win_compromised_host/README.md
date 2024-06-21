@@ -282,6 +282,18 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection of DCSync
+
+#### via Windows Event Logs / 4662
+
+```
+#### via windows event logs / 4662
+Event ID: 4662 (An operation was performed on an object)
+Object Server: DS
+# DS-Replication-Get-Changes-In-Filtered-Set, DS-Replication-Get-Changes, DS-Replication-Get-Changes-All, DS-Replication-Get-Changes-In-Filtered-Set
+Operation.Properties: {89e95b76-444d-4c62-991a-0facbeda640c} OR {1131f6aa-9c07-11d1-f79f-00c04fc2dcd2} OR {1131f6ad-9c07-11d1-f79f-00c04fc2dcd2} OR {89e95b76-444d-4c62-991a-0facbeda640c}
+```
+
 ### Detection of Skeleton Key 
 
 - To prevent skeleton key, need to ensure that Protected Process is switched on to only allow Microsoft Signed Processes to inject into LSA
