@@ -282,7 +282,7 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
-### Detection Skeleton Key Implementation
+### Detection of Skeleton Key 
 
 - To prevent skeleton key, need to ensure that Protected Process is switched on to only allow Microsoft Signed Processes to inject into LSA
 - Protect domain admin accounts carefully as that is a pre-requisite
