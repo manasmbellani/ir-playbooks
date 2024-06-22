@@ -71,7 +71,16 @@ Collect the logs for Azure AD Sign-in and Directory Audit via the script [here](
 
 ## Analysis
 
-### Creation of phone number based 2FA authenticator SMS
+### Connecting to Azure Virtual Machine Serial Port
+
+### via Azure Audit Log
+
+```
+# resourceId field contains the resource to which serial connection is attempted
+operationName.value="Microsoft.SerialConsole/serialPorts/connect/action
+```
+
+### Creation of phone number based 2FA authenticator SMS in 
 
 Could be indicative of persistence in place for 2FA. 
 
