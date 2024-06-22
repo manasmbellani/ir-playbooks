@@ -423,13 +423,20 @@ Addition of SSH Keys is the detection for start of serial port console, same as 
 
 ### SSH Attempts on VM Instance
 
-#### via GCP Audit Logs
+#### via GCP Audit Logs / setMetadata
 
 ```
-# Starting of serial port console (by addition of SSH keys to the VM instance)
+# Starting of serial port console / SSH for the first time (by addition of SSH keys to the VM instance)
 protoPayload.serviceName="compute.googleapis.com"
 protoPayload.methodName:"compute.instances.setMetadata"
 protoPayload.metadata.instanceMetadataDelta.modifiedMetadataKeys="ssh-keys"
+```
+
+#### via GCP Audit Logs / user agent
+
+```
+protoPayload.serviceName="compute.googleapis.com"
+protoPayload.requestMetadata.callerSuppliedUserAgent:"ssh"
 ```
 
 ### Check creation of kubernetes service accounts
