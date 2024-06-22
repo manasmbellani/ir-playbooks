@@ -409,7 +409,7 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 
 ### Check serial Port console
 
-#### via gcloud
+#### via GCP Audit Logs
 
 ```
 # Detect enabling of Serial Port Console project-wide
@@ -417,7 +417,15 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 protoPayload.serviceName="compute.googleapis.com"
 protoPayload.metadata.projectMetadataDelta.addedMetadataKeys="serial-port-enable" OR protoPayload.request."Metadata Keys Added"="serial-port-enable"
 protoPayload.methodName:"compute.instances.setMetadata" OR protoPayload.methodName:"compute.projects.setCommonInstanceMetadata"
+```
 
+Addition of SSH Keys is the detection for start of serial port console, same as described [here](#ssh-attempts-on-vm-instance)
+
+### SSH Attempts on VM Instance
+
+#### via GCP Audit Logs
+
+```
 # Starting of serial port console (by addition of SSH keys to the VM instance)
 protoPayload.serviceName="compute.googleapis.com"
 protoPayload.methodName:"compute.instances.setMetadata"
