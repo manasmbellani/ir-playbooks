@@ -407,6 +407,15 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check gcloud cli commands
+
+#### via GCP Audit Logs / user agent
+
+```
+# protoPayload.requestMetadata.callerSuppliedUserAgent has the commands run. Service can be broad for capturing commands
+protoPayload.serviceName="compute.googleapis.com"
+```
+
 ### Check serial Port console
 
 #### via GCP Audit Logs
