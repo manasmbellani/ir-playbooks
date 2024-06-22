@@ -407,6 +407,21 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check serial Port console
+
+#### via gcloud
+
+```
+# Detect enabling of Serial Port Console project-wide
+# protoPayload.requestMetadata.callerSuppliedUserAgent, protoPayload.authenticationInfo.principalEmail provides details about user that performed action
+protoPayload.serviceName="compute.googleapis.com"
+protoPayload.metadata.projectMetadataDelta.addedMetadataKeys="serial-port-enable" OR protoPayload.request."Metadata Keys Added"="serial-port-enable"
+protoPayload.methodName:"compute.instances.setMetadata" OR protoPayload.methodName:"compute.projects.setCommonInstanceMetadata"
+
+# Starting of serial port console
+
+```
+
 ### Check creation of kubernetes service accounts
 
 #### via GCP Audit Logs
