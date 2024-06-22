@@ -418,8 +418,10 @@ protoPayload.serviceName="compute.googleapis.com"
 protoPayload.metadata.projectMetadataDelta.addedMetadataKeys="serial-port-enable" OR protoPayload.request."Metadata Keys Added"="serial-port-enable"
 protoPayload.methodName:"compute.instances.setMetadata" OR protoPayload.methodName:"compute.projects.setCommonInstanceMetadata"
 
-# Starting of serial port console
-
+# Starting of serial port console (by addition of SSH keys to the VM instance)
+protoPayload.serviceName="compute.googleapis.com"
+protoPayload.methodName:"compute.instances.setMetadata"
+protoPayload.metadata.instanceMetadataDelta.modifiedMetadataKeys="ssh-keys"
 ```
 
 ### Check creation of kubernetes service accounts
