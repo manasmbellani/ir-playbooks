@@ -2,6 +2,18 @@
 
 ## Analysis
 
+### Detect EC2 Serial console Access Attempts
+
+### via AWS CloudTrail Audit Logs
+
+```
+# userAgent, sourceIPAddress, userIdentity.userName, userIdentity.* are useful fields 
+eventSource: "ec2-instance-connect.amazonaws.com"
+eventName: SendSerialConsoleSSHPublicKey
+```
+
+Taken from [here](https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/)
+
 ### Detect creation of new users
 
 Creation of new users could indicate persistence within the AWS environment.
