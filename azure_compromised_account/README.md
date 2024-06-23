@@ -305,3 +305,7 @@ List of available Message types for extraction [here](https://microsoft-365-extr
 ## Eradication
 
 ## Recovery
+
+## References
+
+- List of various Microsoft 365 Portals is at [MS Portals](https://msportals.io/)
