@@ -49,6 +49,12 @@ if (-Not (Get-InstalledModule -Name VMWare.PowerCLI )) {
     Install-Module -Name VMWare.PowerCLI -Force -Confirm:$false
 }
 
+Write-Host "[*] Checking if we need to install MSOnline module..."
+if (-Not (Get-InstalledModule -Name MSOnline )) {
+    Write-Host "[*] Installing 'MSOnline' module..."
+    Install-Module -Name MSOnline -Force -Confirm:$false
+}
+
 Write-Host "[*] Checking if we need to install ExchangeOnlineManagement module..."
 if (-Not (Get-InstalledModule -Name ExchangeOnlineManagement )) {
     Write-Host "[*] Installing 'ExchangeOnlineManagement' module..."
