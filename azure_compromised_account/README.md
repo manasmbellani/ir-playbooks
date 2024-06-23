@@ -238,7 +238,11 @@ Search-UnifiedAuditLog -StartDate 2024-06-08 -EndDate 2024-06-10 -ResultSize 500
 
 Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing)
 
-### Extract Emails for analysis
+### Determine in Microsoft 365 who received the emails
+
+See [here](#extract-microsoft-365-emails-for-analysis)
+
+### Extract Microsoft 365 Emails for analysis
 
 #### via powershell / Office 365 Compliance Portal / PurView
 
@@ -259,6 +263,7 @@ Import-Module Microsoft-Extractor-Suite
 Connect-AzureAZ
 Get-ActivityLogs
 ```
+
 More info [here](https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActivityLogs.html#usage)
 
 #### via powershell / Get-AzLog
