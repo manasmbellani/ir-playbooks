@@ -308,4 +308,4 @@ List of available Message types for extraction [here](https://microsoft-365-extr
 
 ## References
 
-- List of various Microsoft 365 Portals is at [MS Portals](https://msportals.io/)
+- List of various Microsoft 365 Administrative Portals is at [MS Portals](https://msportals.io/)
