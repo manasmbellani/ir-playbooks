@@ -256,7 +256,9 @@ Leverage the following [link](https://learn.microsoft.com/en-us/purview/ediscove
 
 ### Determine who has access / permissions to Microsoft 365 Mailbox
 
-#### via powershell / Exchange Online
+Look for unusual names or permission grants. Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#is-delegated-access-configured-on-the-mailbox)
+
+#### via powershell / ExchangeOnlineManagement
 
 ```
 Import-Module ExchangeOnlineManagement
