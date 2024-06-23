@@ -254,6 +254,16 @@ Login to the [portal](https://compliance.microsoft.com/) > eDiscovery > Standard
 
 Leverage the following [link](https://learn.microsoft.com/en-us/purview/ediscovery-keyword-queries-and-search-conditions) to create the content search for Compliance.
 
+### Determine who has access / permissions to Microsoft 365 Mailbox
+
+#### via powershell / Exchange Online
+
+```
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Get-MailboxPermission -Identity manasbellani@testgcpbusiness12345.onmicrosoft.com -IncludeSoftDeletedUserPermissions -IncludeUnresolvedPermissions
+```
+
 ### Extract Activity Logs
 
 #### via Microsoft-Extractor-Suite
