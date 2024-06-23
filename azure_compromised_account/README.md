@@ -223,7 +223,7 @@ Can reveal any interesting Inbox Rules created by threat actors if the account h
 ```
 Import-Module ExchangeOnlineManagement
 Connect-ExchangeOnline
-Get-InboxRule -Mailbox $Users[1].UserPrincipalName | Format-List
+Get-InboxRule -Mailbox "$EMAIL_ADDRESS" | Format-List
 ```
 
 Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing)
