@@ -140,6 +140,16 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-powershell-logging")) {
     New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging" -Name "EnableScriptBlockLogging" -Value "1" -PropertyType "DWORD" -Force
 }
 
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION/DumpDelegatesandForwardingRules")) {
+    Write-Host "[*] Making directory DumpDelegatesandForwardingRules..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\DumpDelegatesandForwardingRules"
+
+    Write-Host "[*] Downloading script for dumping delegates and forwarding rules in the Microsoft 365 environment..."
+    $url="https://github.com/OfficeDev/O365-InvestigationTooling/raw/master/DumpDelegatesandForwardingRules.ps1"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\DumpDelegatesandForwardingRules\DumpDelegatesandForwardingRules.ps1")
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\python")) {
     Write-Host "[*] Making directory python..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\python"
