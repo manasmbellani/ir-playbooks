@@ -267,6 +267,15 @@ Connect-ExchangeOnline
 Get-MailboxPermission -Identity $EMAIL_ID -IncludeSoftDeletedUserPermissions -IncludeUnresolvedPermissions
 ```
 
+#### via powershell / Search-UnifiedAuditLog
+
+```
+# Can detect changes such as addition/removal for mailbox permissions
+# Look for Operations="*MailboxPermission*" (e.g. Add-MailboxPermission)
+# Monitor 'AuditData > AppAccessContext > UserKey'
+Search-UnifiedAuditLog -StartDate "2024-06-24 08:20:00" -EndDate "2024-06-24 08:30:00"
+```
+
 ### Extract Activity Logs
 
 #### via Microsoft-Extractor-Suite
