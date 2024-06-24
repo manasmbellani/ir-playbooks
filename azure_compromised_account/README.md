@@ -263,7 +263,8 @@ Look for unusual names or permission grants. Taken from [here](https://learn.mic
 ```
 Import-Module ExchangeOnlineManagement
 Connect-ExchangeOnline
-Get-MailboxPermission -Identity manasbellani@testgcpbusiness12345.onmicrosoft.com -IncludeSoftDeletedUserPermissions -IncludeUnresolvedPermissions
+# Ignore NT AUTHORITY/SELF which is the permission assigned by user to himself/herself
+Get-MailboxPermission -Identity $EMAIL_ID -IncludeSoftDeletedUserPermissions -IncludeUnresolvedPermissions
 ```
 
 ### Extract Activity Logs
