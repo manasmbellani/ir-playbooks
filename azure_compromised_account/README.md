@@ -243,10 +243,22 @@ Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident
 #### via powershell / Get-Mailbox
 
 ```
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
 Get-Mailbox  -Identity $EMAIL_ID -RecipientTypeDetails UserMailbox -ResultSize unlimited | Format-Table -Auto MicrosoftOnlineServicesID,ForwardingSmtpAddress,DeliverToMailboxAndForward
 ```
 
 Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#is-delegated-access-configured-on-the-mailbox)
+
+### Determine in Microsoft 365 any Mailflow / Transport rules
+
+#### via powershell / Get-TransportRule
+
+```
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Get-TransportRule -Filter '{Description -like "*$EMAIL_ID*"}' | Format-List
+```
 
 ### Determine in Microsoft 365 who received the emails
 
