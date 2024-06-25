@@ -260,6 +260,12 @@ Connect-ExchangeOnline
 Get-TransportRule -Filter '{Description -like "*$EMAIL_ID*"}' | Format-List
 ```
 
+#### via powershell / Search-UnifiedAuditLog
+
+```
+Search-UnifiedAuditLog -StartDate "2024-06-25 03:30:00Z" -EndDate "2024-06-25 06:32:00Z" -Operations New-TransportRule
+```
+
 ### Determine in Microsoft 365 who received the emails
 
 See [here](#extract-microsoft-365-emails-for-analysis)
