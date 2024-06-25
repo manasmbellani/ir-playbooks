@@ -233,10 +233,20 @@ Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident
 ```
 Import-Module ExchangeOnlineManagement
 Connect-ExchangeOnline
-Search-UnifiedAuditLog -StartDate 2024-06-08 -EndDate 2024-06-10 -ResultSize 5000 -Operations New-InboxRule
+Search-UnifiedAuditLog -StartDate 2024-06-08 -EndDate 2024-06-10 -ResultSize 5000 -Operations New-InboxRule,Set-InboxRule,Remove-InboxRule
 ```
 
-Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing)
+Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#review-inbox-rules)
+
+### Determine in Microsoft 365 any forwarding rules
+
+#### via powershell / Get-Mailbox
+
+```
+Get-Mailbox  -Identity $EMAIL_ID -RecipientTypeDetails UserMailbox -ResultSize unlimited | Format-Table -Auto MicrosoftOnlineServicesID,ForwardingSmtpAddress,DeliverToMailboxAndForward
+```
+
+Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#is-delegated-access-configured-on-the-mailbox)
 
 ### Determine in Microsoft 365 who received the emails
 
