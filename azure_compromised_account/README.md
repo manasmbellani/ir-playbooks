@@ -123,7 +123,9 @@ Activity Type="Add User"
 
 ### Identify apps linked to a user
 
-Can help to detect Illegal consents granted to apps to perform various actions
+Can help to detect Illegal consents granted to apps to perform various actions.
+
+This information could be used to cross-check the sign-in and other activity logs seen in Azure AD.
 
 #### via Azure Portal UI
 
@@ -139,6 +141,21 @@ Connect-MgGraph -Scopes "Application.Read.All User.Read.All DelegatedPermissionG
 ```
 
 Mechanism to interpret the output is described [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#prerequisites)
+
+### Identify apps linked to Azure account
+
+This information could be used to cross-check the sign-in and other activity logs seen in Azure AD.
+
+#### via powershell / Get-MgServicePrincipal, Get-MgApplication
+
+```
+# Provides the AppID, ID, SignInAudience fields
+Get-MgServicePrincipal
+# Shows ALL registrations - generally has less results
+Get-MgApplication
+```
+
+Taken from here: [1](https://learn.microsoft.com/en-us/answers/questions/270680/app-registration-vs-enterprise-applications), [2](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#investigate-each-appid)
 
 ### Detect Consent Grant 
 
