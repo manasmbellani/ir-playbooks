@@ -43,3 +43,14 @@ while ($SearchStatus -ne "Completed") {
 
 Write-Host "[*] Initiating action: $ActionName for exporting Search data for search: $SearchName..."
 New-ComplianceSearchAction -ActionName $ActionName -SearchName $SearchName -Export -Confirm:$false -Force 
+
+$SearchActionName = $SearchName + "_Export"
+Write-Host "[*] Getting status for compliance search action: $SearchActionName in case: $CaseName is completed..."
+$SearchActionStatus = ""
+while ($SearchActionStatus -ne "Completed") {
+  Sleep 5
+  
+  Write-Host "[*] Checking compliance search action: $SearchActionName in case: $CaseName status..."
+  $SearchActionStatus = (Get-ComplianceSearchAction -Case "Test Case 6" -Identity "Test Search 6_Export").Status
+  Write-host "[*] Search Status: $SearchActionStatus"
+}
