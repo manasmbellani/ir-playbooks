@@ -34,7 +34,7 @@ Start-ComplianceSearch -Identity $SearchName
 Write-Host "[*] Waiting for compliance search: $SearchName in case: $CaseName is completed..."
 $SearchStatus = ""
 while ($SearchStatus -ne "Completed") {
-  Sleep 2
+  Sleep 5
   
   Write-Host "[*] Checking compliance search: $SearchName in case: $CaseName status..."
   $SearchStatus = (Get-ComplianceSearch -Case $CaseName -Identity $SearchName).Status
