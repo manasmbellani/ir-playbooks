@@ -282,6 +282,18 @@ Login to the [portal](https://compliance.microsoft.com/) > eDiscovery > Standard
 
 Leverage the following [link](https://learn.microsoft.com/en-us/purview/ediscovery-keyword-queries-and-search-conditions) to create the content search for Compliance.
 
+### Review the Microsoft Office 365 Emails
+
+#### via Email headers
+
+Useful headers to beware of: 
+- SPF: IP addresses that are whitelisted based on the FROM email header
+- DKIM: Public key published in DNS is compared with the signature that was added in the header created using the private key
+- Originating IP
+- Return-Path: Email header that indicates where the bounce-backs must be sent - generally not spoofed by threat actors
+
+Taken from [Reddit page](https://www.reddit.com/r/sysadmin/comments/aph6ee/lets_talk_about_email_spoofing_and_prevention_alt/)
+
 ### Determine who has access / permissions to Microsoft 365 Mailbox
 
 Look for unusual names or permission grants. Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#is-delegated-access-configured-on-the-mailbox)
