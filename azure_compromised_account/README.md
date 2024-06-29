@@ -274,7 +274,7 @@ See [here](#extract-microsoft-365-emails-for-analysis)
 
 #### via powershell / Office 365 Compliance Portal / PurView
 
-Leverage the script [here](Invoke-ComplianceSearch.ps1) to run Office 365 email searches
+Leverage the script [Invoke-ComplianceSearch.ps1](Invoke-ComplianceSearch.ps1) to run Office 365 email searches
 
 #### via Office 365 Compliance Portal 
 
