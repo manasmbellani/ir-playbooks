@@ -20,7 +20,7 @@ $ActionName = "Test Action 6"
 
 Write-Host "[*] Connect to Exchange Online..."
 Import-Module ExchangeOnlineManagement
-Connect-IPPSSession -UserPrincipalName
+Connect-IPPSSession
 
 Write-Host "[*] Creating a new Compliance case: $CaseName..."
 $case = New-ComplianceCase -Name $CaseName
