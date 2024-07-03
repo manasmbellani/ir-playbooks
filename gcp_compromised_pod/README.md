@@ -407,6 +407,24 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check for privileged GCP Kubernetes Pods
+
+#### via GCP Audit logs / Audit Logs
+
+```
+protoPayload.request.spec.containers.securityContext.privileged="true"
+protoPayload.methodName:"pods.create"
+protoPayload.serviceName="k8s.io"
+```
+
+#### via kubectl
+
+```
+kubectl get pods priv-pod -o yaml | grep -i "privileged:"
+```
+
+#### via GCP Audit logs / Audit Logs
+
 ### Check gcloud cli commands
 
 #### via GCP Audit Logs / user agent
