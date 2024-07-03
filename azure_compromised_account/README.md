@@ -157,6 +157,20 @@ Get-MgApplication
 
 Taken from here: [1](https://learn.microsoft.com/en-us/answers/questions/270680/app-registration-vs-enterprise-applications), [2](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#investigate-each-appid)
 
+
+### Detect Oauth App Hijacking
+
+If attacker is able to compromise the app itself by accessing existing secret or certificate / adding new secret or certificate, then they can act as the app itself
+doesn't require the user to authenticate / consent to getting permissions
+
+#### via Azure Portal UI / Audit Logs
+
+```
+# Target and Modified Properties show the app and the token name that is created. User-Agent contains the user agent string that was leveraged for the action 
+Activity Type: "Update application – Certificates and secrets management"
+Category: ApplicationManagement
+```
+
 ### Detect Consent Grant 
 
 These could be indicative of Illicit Consent Grant attempts due to phishing 
