@@ -69,6 +69,57 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 Collect the logs for Azure AD Sign-in and Directory Audit via the script [here](Get-AzureADAuditLogs.ps1)
 
+### Collect MFA enabled Azure AD users list
+
+Can help detect users with MFA enabled, MFA disabled, phone number and the type of MFA
+
+#### via Powershell / Connect-MsolService
+
+```
+$Result=@() 
+$users = Get-MsolUser -All
+$users | ForEach-Object {
+$user = $_
+$mfaStatus = $_.StrongAuthenticationRequirements.State 
+$methodTypes = $_.StrongAuthenticationMethods 
+ 
+if ($mfaStatus -ne $null -or $methodTypes -ne $null)
+{
+if($mfaStatus -eq $null)
+{ 
+$mfaStatus='Enabled (Conditional Access)'
+}
+$authMethods = $methodTypes.MethodType
+$defaultAuthMethod = ($methodTypes | Where{$_.IsDefault -eq "True"}).MethodType 
+$verifyEmail = $user.StrongAuthenticationUserDetails.Email 
+$phoneNumber = $user.StrongAuthenticationUserDetails.PhoneNumber
+$alternativePhoneNumber = $user.StrongAuthenticationUserDetails.AlternativePhoneNumber
+}
+Else
+{
+$mfaStatus = "Disabled"
+$defaultAuthMethod = $null
+$verifyEmail = $null
+$phoneNumber = $null
+$alternativePhoneNumber = $null
+}
+    
+$Result += New-Object PSObject -property @{ 
+UserName = $user.DisplayName
+UserPrincipalName = $user.UserPrincipalName
+MFAStatus = $mfaStatus
+AuthenticationMethods = $authMethods
+DefaultAuthMethod = $defaultAuthMethod
+MFAEmail = $verifyEmail
+PhoneNumber = $phoneNumber
+AlternativePhoneNumber = $alternativePhoneNumber
+}
+}
+$Result
+```
+
+Taken from [here](https://morgantechspace.com/2018/06/find-and-list-mfa-enabled-status-office-365-users-powershell.html)
+
 ## Analysis
 
 ### Connecting to Azure Virtual Machine Serial Port
