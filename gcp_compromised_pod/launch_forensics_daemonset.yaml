@@ -1,0 +1,55 @@
+# A simple container launched for invoking forensics
+# Pre-requisite:
+#   Label the node(s) on which to run the daemonset:
+#      kubectl label nodes $NODE_NAME grr=installed
+# Deployment:
+#    kubectl apply -f launch_forensics_daemonset.yaml
+# Source: https://osdfir.blogspot.com/2020/10/deploying-grr-to-kubernetes-for.html
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: grr
+  labels:
+    app: grr
+spec:
+  selector:
+    matchLabels:
+      app: grr
+  template:
+    metadata:
+      labels:
+        app: grr
+    spec:
+      # Only deploying GRR to nodes with the label 'grr=installed' with the following command:
+      # kubectl label nodes $NODE_NAME grr=installed
+      # https://linuxhandbook.com/kubectl-label-node/
+      nodeSelector:
+        grr: installed
+      # Uses the host network rather than the container network. This way
+      # the hostname that appears in GRR will contain the cluster name.
+      hostNetwork: true
+      # Allows us to list all processes on the node rather than just those
+      # from the container.
+      hostPID: true
+      # Labeling volumes from the root file system so they can be exposed to
+      # our container.
+      volumes:
+      - name: root
+        hostPath:
+          path: /
+      # Specify our GRR container in GCR
+      containers:
+      - name: ubuntu
+        image: ubuntu:latest
+        # Sleep indefinitely
+        command: ["sleep", "inf"]
+        # Making it a privileged container. This way the processes within
+        # the container get almost the same privileges as those outside the
+        # container (e.g. manipulating the network stack or accessing devices).
+        securityContext:
+          privileged: true
+        # Exposing the node file system to the GRR container (read-only).
+        volumeMounts:
+        - mountPath: /hostroot
+          name: root
+          readOnly: true
