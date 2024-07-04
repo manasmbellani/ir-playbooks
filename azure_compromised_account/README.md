@@ -76,6 +76,8 @@ Can help detect users with MFA enabled, MFA disabled, phone number and the type 
 #### via Powershell / Connect-MsolService
 
 ```
+Connect-MsolService
+
 $Result=@() 
 $users = Get-MsolUser -All
 $users | ForEach-Object {
