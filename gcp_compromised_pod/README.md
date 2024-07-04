@@ -273,6 +273,23 @@ If SSH access is allowed to the node via VPC firewall rule, we attempt to SSH in
 gcloud compute ssh gke-test-cluster-1-default-pool-fe89d68e-g3fl
 ```
 
+### via Daemonset
+
+Connect to the Kubernetes nodes via a daemonset if not possible to SSH into the host:
+```
+# Get the nodes in the cluster
+kubectl get nodes
+
+# Apply the labels on the NODE
+kubectl label nodes $NODE_NAME grr=installed
+
+# Deploy the daemonset to be used on the node
+kubectl apply -f launch_forensics_daemonset.yaml
+
+# Connect to the daemonset launched with the host mount 
+kubectl exec -it $POD_NAME /bin/bash
+```
+
 ### Taking Memory Image of Kubernetes Nodes (Live)
 
 See [here](../linux_compromised_host/README.md#taking-memory-image-live)
