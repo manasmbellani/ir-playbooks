@@ -288,7 +288,11 @@ kubectl apply -f launch_forensics_daemonset.yaml
 
 # Connect to the daemonset launched with the host mount 
 kubectl exec -it $POD_NAME /bin/bash
+
+# Get shell onto the node inside the container
+chroot /hostroot /bin/bash 
 ```
+Taken from [here](https://osdfir.blogspot.com/2020/10/deploying-grr-to-kubernetes-for.html)
 
 ### Taking Memory Image of Kubernetes Nodes (Live)
 
