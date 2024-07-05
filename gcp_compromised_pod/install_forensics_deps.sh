@@ -106,3 +106,10 @@ echo "[*] Installing avml..."
 mkdir /opt/avml
 curl -sL https://github.com/microsoft/avml/releases/download/v0.14.0/avml -o /opt/avml/avml
 chmod +x /opt/avml/avml
+
+echo "[*] Installing dwarf2json..."
+mkdir /opt/dwarf2json
+curl -sL https://github.com/volatilityfoundation/dwarf2json/releases/download/v0.8.0/dwarf2json-linux-amd64 -o /opt/dwarf2json/dwarf2json
+chmod +x /opt/dwarf2json/dwarf2json
+
+
