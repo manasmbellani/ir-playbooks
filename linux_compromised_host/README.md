@@ -202,7 +202,7 @@ cd /opt/avml
 ./avml memory.lime
 ```
 
-We can run the following command on volatility3 to locate the banner and see if we can locate the symbol file with the banner on [technarchy](https://isf-server.techanarchy.net/). The symbols file can be downloaded and saved to the folder `/opt/volatility3/volatility3/symbols/`
+We can run the following command on volatility3 to locate the banner and see if we can locate the symbol file with the banner on [technarchy](https://isf-server.techanarchy.net/) OR on volatility3-symbols repository [here](https://github.com/Abyss-W4tcher/volatility3-symbols). The symbols file can be downloaded and saved to the folder `/opt/volatility3/volatility3/symbols/`
 
 ```
 cd /opt/volatility3
@@ -211,7 +211,7 @@ python3 vol.py -f memory.lime banners.Banners
 deactivate
 ```
 
-Alternatively, we can generate symbols using from a separate machine based on the same machine image on which we can install additional tools via the commands below. Assuming we are working with a compromised Ubuntu image (steps will vary for other server types), we first need to download the `vmlinux` file, and then use `dwar2json` (link [here](https://github.com/volatilityfoundation/dwarf2json)) to generate the symbols file. 
+Alternatively, we can generate symbols using from a separate machine based on the same machine image on which we can install additional tools via the commands below. Assuming we are working with a compromised Ubuntu image (steps will vary for other server types), we first need to download the `vmlinux` file, and then use `dwarf2json` (link [here](https://github.com/volatilityfoundation/dwarf2json)) to generate the symbols file. 
 
 ```
 # We follow steps for Ubuntu here: https://wiki.ubuntu.com/Debug%20Symbol%20Packages to download the debugging symbols,
