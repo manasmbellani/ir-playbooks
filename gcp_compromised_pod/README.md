@@ -266,8 +266,9 @@ CLOUDSDK_CORE_ACCOUNT=manasbellani@testgcpbusiness12345.com \
     ./get_gcp_logs.sh
 ```
 
-### Live Collection
+### Live Collection Access
 
+#### via ssh / gcloud
 If SSH access is allowed to the node via VPC firewall rule, we attempt to SSH into the node for live forensics via `gcloud`:
 ```
 gcloud compute ssh gke-test-cluster-1-default-pool-fe89d68e-g3fl
@@ -294,10 +295,22 @@ chroot /hostroot /bin/bash
 ```
 Taken from [here](https://osdfir.blogspot.com/2020/10/deploying-grr-to-kubernetes-for.html)
 
+### Getting file content
+
+#### via zip
+
+```
+# Assuming we have a /hostroot mount as per privileged container
+zip -ry /tmp/file.zip /hostroot/home/
+```
+
+#### via dd
+
+See [here](../linux_compromised_host/README.md#taking-disk-image-offline)
+
 ### Taking Memory Image of Kubernetes Nodes (Live)
 
 See [here](../linux_compromised_host/README.md#taking-memory-image-live)
-
 
 ### Offline Collection
 
