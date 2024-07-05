@@ -101,3 +101,8 @@ deactivate
 
 echo "[*] Installing bulk-extractor..."
 apt-get -y install bulk-extractor
+
+echo "[*] Installing avml..." 
+mkdir /opt/avml
+curl -sL https://github.com/microsoft/avml/releases/download/v0.14.0/avml -o /opt/avml/avml
+chmod +x /opt/avml/avml
