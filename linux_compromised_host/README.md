@@ -196,6 +196,7 @@ mount /dev/$LOOP_DEV /mnt/disk
 
 ### Taking memory image (Live)
 
+#### via avml / dwarf2json
 If we have access to system, we can use `avml` utility from a USB disk (link [here](https://github.com/microsoft/avml)) to take an image of the instance:
 ```
 cd /opt/avml
@@ -211,7 +212,16 @@ python3 vol.py -f memory.lime banners.Banners
 deactivate
 ```
 
-Alternatively, we can generate symbols using from a separate machine based on the same machine image on which we can install additional tools via the commands below. Assuming we are working with a compromised Ubuntu image (steps will vary for other server types), we first need to download the `vmlinux` file, and then use `dwarf2json` (link [here](https://github.com/volatilityfoundation/dwarf2json)) to generate the symbols file. 
+If we are building memory image for GKE Google COS Images (e.g. for Kubernetes / GKE), then we obtain a build ID from the machine image's name e.g. and download vmlinux to get the symbols for volatility. Taken from Spoftify's R&D here [here](https://engineering.atspotify.com/2023/06/analyzing-volatile-memory-on-a-google-kubernetes-engine-node/)
+
+```
+# where build_id = 17800.147.54 if the machine image is `gke-1289-gke1000000-cos-109-17800-147-54-c-pre`
+curl -s https://storage.googleapis.com/cos-tools/$build_id/vmlinux > /tmp/vmlinux
+./dwarf2json linux --elf /usr/lib/debug/boot/vmlinux-$(uname -r) > linux-$(uname -r).json
+```
+
+
+Otherwise, we can generate symbols using from a separate machine based on the same machine image on which we can install additional tools via the commands below. Assuming we are working with a compromised Ubuntu image (steps will vary for other server types), we first need to download the `vmlinux` file, and then use `dwarf2json` (link [here](https://github.com/volatilityfoundation/dwarf2json)) to generate the symbols file. 
 
 ```
 # We follow steps for Ubuntu here: https://wiki.ubuntu.com/Debug%20Symbol%20Packages to download the debugging symbols,
