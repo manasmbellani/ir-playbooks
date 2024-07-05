@@ -216,7 +216,7 @@ If we are building memory image for GKE Google COS Images (e.g. for Kubernetes /
 
 ```
 # where build_id = 17800.147.54 if the machine image is `gke-1289-gke1000000-cos-109-17800-147-54-c-pre`
-curl -s https://storage.googleapis.com/cos-tools/$build_id/vmlinux > /tmp/vmlinux
+curl -sL https://storage.googleapis.com/cos-tools/$build_id/vmlinux > /tmp/vmlinux
 ./dwarf2json linux --elf /usr/lib/debug/boot/vmlinux-$(uname -r) > linux-$(uname -r).json
 ```
 
