@@ -449,6 +449,19 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check for pods with common names, but running unusual images
+
+Just naming a pod something that doesn't stand out is a great way to hide among "known good" pods.
+
+#### via kubectl, yq
+
+```
+# Returns pods across ALL namespaces and gets the image with name
+kubectl get pods -A -o yaml | yq -o csv -r ".items[] | [.metadata.name,.spec.containers[].image]"
+```
+
+Taken from [here](https://kubenomicon.com/Defense_evasion/Pod_name_similarity.html)
+
 ### Check for privileged GCP Kubernetes Pods
 
 #### via GCP Audit logs / Audit Logs
