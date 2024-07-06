@@ -193,6 +193,11 @@ Connect-MgGraph -Scopes "Application.Read.All User.Read.All DelegatedPermissionG
  .\Get-AzureADPSPermissions.ps1 -ShowProgress | Export-Csv -Path "permissions.csv" -NoTypeInformation
 ```
 
+Look for:
+- Consent type = AllPrincipals, which indicates permissions granted to everyone's profile
+- ClientDisplayName = Unusual display names
+- Permission = `*.All` or `Read.` or `Write.` permissions
+
 Mechanism to interpret the output is described [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#prerequisites)
 
 ### Identify apps linked to Azure account
