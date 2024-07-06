@@ -304,6 +304,10 @@ Taken from [here](https://osdfir.blogspot.com/2020/10/deploying-grr-to-kubernete
 zip -ry /tmp/file.zip /hostroot/home/
 ```
 
+#### via dd
+
+See [here](../linux_compromised_host/README.md#taking-disk-image-offline)
+
 ### Getting important kubernetes (GKE) events
 
 #### via via kubectl
@@ -311,10 +315,6 @@ zip -ry /tmp/file.zip /hostroot/home/
 ```
 kubectl get events --all
 ```
-
-#### via dd
-
-See [here](../linux_compromised_host/README.md#taking-disk-image-offline)
 
 ### Taking Memory Image of Kubernetes Nodes (Live)
 
