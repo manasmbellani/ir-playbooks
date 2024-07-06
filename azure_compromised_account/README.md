@@ -198,7 +198,7 @@ Look for:
 - ClientDisplayName = Unusual display names
 - Permission = `*.All` or `Read.` or `Write.` permissions
 
-Mechanism to interpret the output is described [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#prerequisites)
+Mechanism to interpret the output is described [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-app-consent) and [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#prerequisites)
 
 ### Identify apps linked to Azure account
 
