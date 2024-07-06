@@ -239,7 +239,7 @@ Types: -
 
 To prevent these attacks, configure the user consent grant permissions via [Microsoft Entra ID Admin Center](https://entra.microsoft.com) > Identity > Applications > Enterprise Accounts > Security > Consent and Permissions > "Do not allow app consents" (Preferred) OR "Allow user consent for apps from verified publishers, for selected permissions" (Less preferred) (Assuming classification also set in Security > Permission Classifications) as described [here](https://learn.microsoft.com/en-gb/entra/identity/enterprise-apps/configure-user-consent?pivots=portal)
 
-User consent grant permissions above can also be applied via [Azure Portal](https://portal.azure.com) > Entrrprise Applications > Security Settings > Consent and Permissions
+User consent grant permissions above can also be applied via [Azure Portal](https://portal.azure.com) > Enterprise Applications > Security Settings > Consent and Permissions
 
 #### via Azure Portal UI / Audit Logs
 
