@@ -432,6 +432,12 @@ crictl exec -it 7d6fdca68f9cf /bin/bash
 > top
 ```
 
+We can save images of running containers for further analysis remotely(supported only in `docker`):
+```
+docker commit <container-id> <new-image-name>
+docker save -o <path-to-save-image.tar> <new-image-name>
+```
+
 ### Mounting containers / disk
 
 #### via container-explorer
