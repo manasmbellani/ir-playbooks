@@ -456,7 +456,8 @@ Just naming a pod something that doesn't stand out is a great way to hide among 
 #### via kubectl, yq
 
 ```
-# Returns pods across ALL namespaces and gets the image with name
+# Returns pods across ALL namespaces and gets the corresponding image along with the pod
+# Look for pods running unusual images
 kubectl get pods -A -o yaml | yq -o csv -r ".items[] | [.metadata.name,.spec.containers[].image]"
 ```
 
