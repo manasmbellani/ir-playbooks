@@ -227,6 +227,11 @@ Category: ApplicationManagement
 ### Detect Consent Grant 
 
 These could be indicative of Illicit Consent Grant attempts due to phishing 
+
+Types: -
+1 User consent flow - When an application developer directs users to the authorization endpoint with the intent to record consent for only the current user.
+2 Admin Consent Flow - When an application developer directs users to the admin consent endpoint with the intent to record consent for the entire tenant.
+
 To prevent these attacks, configure the user consent grant permissions via [Microsoft Entra ID Admin Center](https://entra.microsoft.com) > Identity > Applications > Enterprise Accounts > Security > Consent and Permissions > "Do not allow app consents" (Preferred) OR "Allow user consent for apps from verified publishers, for selected permissions" (Less preferred) (Assuming classification also set in Security > Permission Classifications) as described [here](https://learn.microsoft.com/en-gb/entra/identity/enterprise-apps/configure-user-consent?pivots=portal)
 
 #### via Azure Portal UI / Audit Logs
