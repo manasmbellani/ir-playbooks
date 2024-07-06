@@ -295,13 +295,21 @@ chroot /hostroot /bin/bash
 ```
 Taken from [here](https://osdfir.blogspot.com/2020/10/deploying-grr-to-kubernetes-for.html)
 
-### Getting file content
+### Getting cluster node 
 
 #### via zip
 
 ```
 # Assuming we have a /hostroot mount as per privileged container
 zip -ry /tmp/file.zip /hostroot/home/
+```
+
+### Getting important kubernetes (GKE) events
+
+#### via via kubectl
+
+```
+kubectl get events --all
 ```
 
 #### via dd
