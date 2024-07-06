@@ -53,6 +53,14 @@ You can revoke the Service App Role Assignment with PowerShell by following the 
 
 Taken from [here](https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants#how-to-stop-and-remediate-an-illicit-consent-grant-attack)
 
+### Disable Azure App for sign-in
+
+prevents sign-ins to the app - useful along with removal of oauth consent grant for an app
+
+#### via Microsoft Entra Admin Center
+
+from Microsoft Entra Admin Center > Identity > Enterprise Applications > Properties (left-hand) > "Enabled for users to sign-in?" > No
+
 ### Block Emails in Office 365 containing specific keywords
 
 #### via Exchange Admin, Mail Flow
