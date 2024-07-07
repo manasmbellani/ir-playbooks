@@ -17,7 +17,8 @@ apt-get -y update && \
     wireshark \
     firefox \
     torbrowser-launcher \
-    xrdp
+    xrdp \
+    dos2unix
 
 echo "[*] Enabling RDP service to start at beginning via xrdp..."
 sudo systemctl enable xrdp --now
