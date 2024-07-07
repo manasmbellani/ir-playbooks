@@ -201,8 +201,8 @@ Connect-MgGraph -Scopes "Application.Read.All User.Read.All DelegatedPermissionG
  .\Get-AzureADPSPermissions.ps1 -ShowProgress | Export-Csv -Path "permissions.csv" -NoTypeInformation
 ```
 
-Look for:
-- Consent type = AllPrincipals, which indicates permissions granted to everyone's profile
+Using tools like Eric Zimmerman's `Timeline Explorer`, Look for:
+- Consent type = `AllPrincipals`, which indicates permissions granted to everyone's profile
 - ClientDisplayName = Unusual display names
 - Permission = `*.All` or `Read.` or `Write.` permissions
 
