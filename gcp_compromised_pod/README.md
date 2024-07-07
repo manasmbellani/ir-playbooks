@@ -598,7 +598,8 @@ psort.py -w test.log 20240305T004351-0e08cb0483f0f50de38ff5796eb4fb49f8a4a54a9fc
 Alternatively, we can use `timesketch` to also visualize the timeline by running the command below and connecting to console as described [here](https://github.com/google/timesketch/blob/master/docs/guides/admin/install.md): 
 
 ```
-# Run only the first time to create a user called `timesketch` and set the password 
+# Run only the first time to create a user called `timesketch` and set the password
+cd /opt/timesketch
 sudo docker compose exec timesketch-web tsctl create-user timesketch
 ```
 #### via timesketch
