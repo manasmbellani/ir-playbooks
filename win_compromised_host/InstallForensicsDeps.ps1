@@ -35,6 +35,12 @@ if (-Not (Get-InstalledModule -Name AzureAd )) {
     Install-Module -Name AzureAd -Force -Confirm:$false
 }
 
+Write-Host "[*] Checking if we need to install Hawk module..."
+if (-Not (Get-InstalledModule -Name Hawk )) {
+    Write-Host "[*] Installing 'Hawk' module..."
+    Install-Module -Name Hawk -Force -Confirm:$false
+}
+
 Write-Host "[*] Checking if we need to install Microsoft.Graph module..."
 if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
     Write-Host "[*] Installing 'Microsoft.Graph' module..."
