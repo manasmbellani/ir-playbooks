@@ -554,6 +554,16 @@ Channel: System
 EventID: 104 (System Log File was cleared)
 ```
 
+### Detect LSA Dumping
+
+#### via remote registry key enabling / Windows Event ID 7036
+
+```
+Event ID=7036
+Channel = System
+Description = "Remote Registry Key service entered the running state"
+```
+
 ### Detect Lsass Dumping
 
 #### via Windows Event Logs / Sysmon Event ID 10
