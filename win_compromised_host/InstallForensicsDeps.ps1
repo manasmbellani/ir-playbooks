@@ -38,6 +38,7 @@ if (-Not (Get-InstalledModule -Name AzureAd )) {
 Write-Host "[*] Checking if we need to install Hawk module..."
 if (-Not (Get-InstalledModule -Name Hawk )) {
     Write-Host "[*] Installing 'Hawk' module..."
+    Install-Module -Name RobustCloudCommand -RequiredVersion 2.1.0
     Install-Module -Name Hawk -Force -Confirm:$false
 }
 
