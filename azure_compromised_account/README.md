@@ -77,6 +77,22 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 Collect the logs for Azure AD Sign-in and Directory Audit via the script [here](Get-AzureADAuditLogs.ps1)
 
+### Collect Azure AD Environment Information
+
+#### via HAWK
+
+```
+cd C:\Windows\Temp
+mkdir C:\Windows\Temp\hawk
+Connect-AzureAD
+Connect-MsolService
+Connect-ExchangeOnline
+Start-HawkTenantInvestigation
+```
+
+https://cloudforensicator.com/documentation
+
+
 ### Collect MFA enabled Azure AD users list
 
 Can help detect users with MFA enabled, MFA disabled, phone number and the type of MFA
