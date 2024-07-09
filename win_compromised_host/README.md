@@ -282,6 +282,18 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection of Active Directory Certificate Services Abuse - SAN Template Certificates (ESC1)
+
+- Typically, Extended Key Usage (EKU) attributes are used to define how a Public-private key pair generate for a user  can be used.
+- Compromise Type 1: If attacker steals Bob’s private key and certificate, and the certificate has an authentication EKU, the attacker can authenticate to the AD domain without knowing Bob’s password
+- Compromise Type 2 (ESC1): If a template with an authentication EKU lets low-privilege users specify SANs, an attacker can authenticate as any user in the SAN.
+- Pre-requistes for ESC1:
+  - enrollment rights granted to low-privilege users
+  - an authentication EKU (Client Authentication, PKINIT Client Authentication, Smart Card Logon, Any Purpose)
+  - ability for the requestor to specify SANs
+
+#### for ESC1 ADCS
+
 ### Detection of DCSync
 
 #### via Windows Event Logs / 4662
