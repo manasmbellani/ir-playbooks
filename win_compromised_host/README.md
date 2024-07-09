@@ -286,11 +286,13 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 - Typically, Extended Key Usage (EKU) attributes are used to define how a Public-private key pair generate for a user  can be used.
 - Compromise Type 1: If attacker steals Bob’s private key and certificate, and the certificate has an authentication EKU, the attacker can authenticate to the AD domain without knowing Bob’s password
-- Compromise Type 2 (ESC1): If a template with an authentication EKU lets low-privilege users specify SANs, an attacker can authenticate as any user in the SAN.
+- Compromise Type 2 (ESC1): If a template with an authentication EKU lets low-privilege users specify SANs, an attacker can authenticate as any user in the SAN (eg for a cert with user "Alice", attacker can specify a domain admin account e.g. ace@aceresponder.com)
 - Pre-requistes for ESC1:
   - enrollment rights granted to low-privilege users
   - an authentication EKU (Client Authentication, PKINIT Client Authentication, Smart Card Logon, Any Purpose)
   - ability for the requestor to specify SANs
+
+https://www.aceresponder.com/learn/adcs
 
 #### for ESC1 ADCS
 
