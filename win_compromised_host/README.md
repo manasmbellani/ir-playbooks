@@ -559,7 +559,7 @@ EventID: 104 (System Log File was cleared)
 #### via remote registry key enabling / Windows Event ID 7036
 
 ```
-Event ID=7036
+Event ID = 7036
 Channel = System
 Description = "Remote Registry Key service entered the running state"
 ```
@@ -937,6 +937,8 @@ C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\chainsaw.exe hunt C:\Window
 
 ### Identify Downloaded files
 
+Certain actions such as LSA Dumping can also write files to this location
+
 #### via Explorer
 
 See following locations:
@@ -944,6 +946,15 @@ See following locations:
 - C:\Users\$USER_ID\Desktop
 - C:\Users\$USER_ID\Downloads
 - C:\Users\$USER_ID\AppData\Local\Temp
+
+#### via Sysmon Windows Event ID 11 / File Create Event
+
+```
+# 'TargetFileName' contains the path to the new file being written
+Event ID = 11
+Channel = Microsoft-Windows-Sysmon/Operational
+Description = File Created
+```
 
 ### Extract Files from image
 
