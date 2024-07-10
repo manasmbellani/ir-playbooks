@@ -70,6 +70,8 @@ New-Item -Path "Registry::HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\P
 New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging" -Name "EnableScriptBlockLogging" -Value "1" -PropertyType "DWORD" -Force
 ```
 
+Setup the Active Directory Certificate Services for practice as required by following the steps in the guide [here](https://campus.barracuda.com/product/websecuritygateway/doc/112167659/how-to-install-ad-cs-on-windows-server/) and setup the logging for Active Directory Certificate Services by following this guide [here](https://www.pkisolutions.com/enabling-active-directory-certificate-services-adcs-advanced-audit/)
+
 ## Containment
 
 ### Disconnect from wired networks
@@ -294,7 +296,11 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 https://www.aceresponder.com/learn/adcs
 
-#### for ESC1 ADCS
+#### via certsrv.msc
+
+Launch `certsrv.msc` > Look at `issued certificates` > identify certificates that have a `Subject Alternative Name` - `Other Name` specified.
+
+Taken from [here](
 
 ### Detection of DCSync
 
