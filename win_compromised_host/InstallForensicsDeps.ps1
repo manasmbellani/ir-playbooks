@@ -630,3 +630,51 @@ if(-Not (Test-Path "$INSTALL_LOCATION\VisualStudio")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\VisualStudio\vs_community.exe")
 }
 
+If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
+    Write-Host "[*] Making flag-audit-config to state that audit logging has been configured..."
+    New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-audit-config"
+
+    Write-Host "[*] Enabling account logoon audit policy..."
+    $command='& auditpol /set /category:"Account Logon" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enabling DS Access audit policy..."
+    $command='& auditpol /set /category:"DS Access" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enabling Account Management audit policy..."
+    $command='& auditpol /set /category:"Account Management" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enabling Policy Change audit policy..."
+    $command='& auditpol /set /category:"Policy Change" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enabling Object Access (including ADCS if enabled) audit policy..."
+    $command='& auditpol /set /category:"Object Access" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enabling Logon/Logoff audit policy..."
+    $command='& auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enabling System audit policy..."
+    $command='& auditpol /set /category:"System" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enabling Privilege Use policy..."
+    $command='& auditpol /set /category:"Privilege Use" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Enable Process Creation Events policy..."
+    $command='& auditpol /set /subcategory:"Process Creation" /success:enable /failure:enable'
+    Invoke-Expression "$command"
+
+    Write-Host "[*] Showing all configured audit logging policies..."
+    $command = '& auditpol /get /category:*'
+    Invoke-Expression "$command"
+
+    # Write-Host "[*] Showing all configured audit logging policies..."
+    # $command = '& gpupdate /force'
+    # Invoke-Expression "$command"
+}
