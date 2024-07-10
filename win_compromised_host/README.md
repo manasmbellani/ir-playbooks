@@ -328,7 +328,18 @@ https://www.aceresponder.com/learn/adcs
 
 Launch `certsrv.msc` > Look at `issued certificates` > identify certificates that have a `Subject Alternative Name` - `Other Name` specified.
 
-Taken from [here](
+Taken from [here](https://www.aceresponder.com/learn/adcs)
+
+#### via Windows Event Logs / Object Access (4887)
+
+Pre-requiste: Requires the Windows Event Logging to be turned on.
+
+```
+# Look for non-matching `Requester` and subject alternative name (`Subject`) in the windows event log 
+EventID = 4887
+Channel = Security
+Description: Certificate Services approved a certificate request and issued a certificate.
+```
 
 ### Detection of DCSync
 
