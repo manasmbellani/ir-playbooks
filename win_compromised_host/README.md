@@ -70,6 +70,11 @@ New-Item -Path "Registry::HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\P
 New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging" -Name "EnableScriptBlockLogging" -Value "1" -PropertyType "DWORD" -Force
 ```
 
+To clear windows audit event logs to start afresh, we run the following command:
+```
+wevtutil el | Foreach-Object {wevtutil cl "$_"}
+```
+
 Setup the Active Directory Certificate Services for practice as required by following the steps in the guide [here](https://campus.barracuda.com/product/websecuritygateway/doc/112167659/how-to-install-ad-cs-on-windows-server/) and setup the logging for Active Directory Certificate Services by following this guide [here](https://www.pkisolutions.com/enabling-active-directory-certificate-services-adcs-advanced-audit/). 
 
 The server roles to install and configure in addition to `Certification Authority (CA)` are:
