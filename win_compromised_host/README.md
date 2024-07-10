@@ -342,6 +342,14 @@ Channel = Security
 Description: Certificate Services approved a certificate request and issued a certificate.
 ```
 
+#### via Windows Event Logs / Object Access (4887) / ElasticSearch
+
+```
+event.code:4887 AND winlog.event_data.Attributes:*SAN\:*
+```
+
+Taken from [here](https://www.aceresponder.com/learn/adcs)
+
 #### via RPC Firewall / Elastic search
 
 Pre-requiste: Requires Zero Networks' [RPC Firewall](https://www.aceresponder.com/blog/disrupting-offensive-rpc) to be enabled.
