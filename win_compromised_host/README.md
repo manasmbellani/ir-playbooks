@@ -335,11 +335,23 @@ Taken from [here](https://www.aceresponder.com/learn/adcs)
 Pre-requiste: Requires the Windows Event Logging to be turned on.
 
 ```
-# Look for non-matching `Requester` and subject alternative name (`Subject`) in the windows event log 
-EventID = 4887
+# Look for non-matching user name in `Requester` and subject alternative name (`Subject`), (`Attributes`) in the windows event log.
+# SAN user name can also appear in subject alternative name
+EventID = 4887 ("Object Access")
 Channel = Security
 Description: Certificate Services approved a certificate request and issued a certificate.
 ```
+
+#### via RPC Firewall / Elastic search
+
+Pre-requiste: Requires Zero Networks' [RPC Firewall](https://www.aceresponder.com/blog/disrupting-offensive-rpc) to be enabled.
+
+```
+winlog.provider_name:RPCFW AND event.code:3 AND winlog.event_data.arg_6.SubjectAltNames:*
+
+```
+
+See [here](https://www.aceresponder.com/blog/disrupting-offensive-rpc)
 
 ### Detection of DCSync
 
