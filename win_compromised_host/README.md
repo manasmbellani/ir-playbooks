@@ -78,6 +78,8 @@ The server roles to install and configure in addition to `Certification Authorit
 - Certificate Enrollment Web Service
 - Certificate Authority Web Enrollment
 
+Configure a new certificate by following the steps [here](https://thesecmaster.com/blog/step-by-step-procedure-to-create-a-custom-csr-on-a-windows-server) to generate a CSR and receive a certificate.
+
 ## Containment
 
 ### Disconnect from wired networks
