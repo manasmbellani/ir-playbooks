@@ -80,6 +80,21 @@ The server roles to install and configure in addition to `Certification Authorit
 
 Configure a new certificate by following the steps [here](https://thesecmaster.com/blog/step-by-step-procedure-to-create-a-custom-csr-on-a-windows-server) to generate a CSR and receive a certificate.
 
+Change the Group Policy to enable logging to be enabled for ADCS services as described [here](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786422(v=ws.11)):
+
+```
+certutil –setreg CA\AuditFilter 127
+net stop certsvc && net start certsvc
+```
+
+This would then allow the CA settings to be logged via the GPO / Local Security Policy as described [here](https://www.pkisolutions.com/enabling-active-directory-certificate-services-adcs-advanced-audit/):
+
+```
+Write-Host "[*] Enabling Object Access (including ADCS if enabled) audit policy..."
+$command='& auditpol /set /category:"Object Access" /subcategory:"Certification Services" /success:enable /failure:enable'
+Invoke-Expression "$command"
+```
+
 ## Containment
 
 ### Disconnect from wired networks
