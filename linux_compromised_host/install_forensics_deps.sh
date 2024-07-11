@@ -176,6 +176,9 @@ unzip triddefs.zip
 mv triddefs.trd /usr/bin
 rm /opt/trid/triddefs.zip
 
+echo "[*] Installing reflex..."
+go install github.com/cespare/reflex@latest
+
 echo "[*] Installing ewfmount..."
 apt-get -y remove libewf && apt-get -y install ewf-tools
 
