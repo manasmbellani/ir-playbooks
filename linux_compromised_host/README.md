@@ -564,6 +564,22 @@ Check authentication attempts via `auth.log`:
 /var/log/auth.log
 ```
 
+### Check Linux Authentication attempts for CVE-2024-6387 
+
+#### via auth.log
+
+```
+# Unusual IP addresses making this attempt
+# Example: ./auth.log.1:187:2024-06-29T07:49:02.498852+00:00 kali-vm sshd[9378]: fatal: Timeout before authentication for 140.246.97.188 port 52762
+grep -r -n -i --color "timeout after authentication" /var/log/auth.log
+# OR
+# Excessive number of hits of the following
+# Example: 2024-07-11T21:47:28.876206+00:00 kali-vm sshd[3341]: ssh_dispatch_run_fatal: Connection from 211.31.6.193 port 58642: message authentication code incorrect [preauth]
+message authentication code incorrect [preauth]
+```
+
+https://www.splunk.com/en_us/blog/security/cve-2024-6387-regresshion-vulnerability.html
+
 ### Check Splunk UI Authentication Attempts
 
 Assuming Splunk is running on the system, then login attempts to Splunk UI can be determined
