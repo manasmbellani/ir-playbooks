@@ -564,7 +564,7 @@ Check authentication attempts via `auth.log`:
 /var/log/auth.log
 ```
 
-### Check Linux Authentication attempts for CVE-2024-6387 
+### Check Linux Authentication attempts for CVE-2024-6387 (Regresshion)
 
 #### via auth.log
 
