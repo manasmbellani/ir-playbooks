@@ -367,6 +367,8 @@ See [here](https://www.aceresponder.com/blog/disrupting-offensive-rpc)
 #### via Windows Audit Event Logs / ID 4768
 
 ```
+# Certificate Information.Certificate Serial Name, Certificate Information.Thumbprint has the details
+# Account Information.Account Name has the details as well of the account for which the certificate was requested
 EventID = 4768
 Channel = Security
 Description = A Kerberos Authentication Ticket was requested
