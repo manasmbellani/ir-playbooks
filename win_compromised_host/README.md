@@ -457,6 +457,25 @@ EventID = 4899 (A Certificate Services template was updated)
 
 Example of this event ID is [here](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4899)
 
+#### via Windows Event Logs / 4662 (An operation was performed on an object)
+
+Pre-requisite: Requires that the object audit logging is enabled via `auditpol /set` and also auditing enabled for `ADSI Edit > Action > Connect to... > Select 'Configuration' in Naming Context instead of Default > CN=Services > CN=Public Key Services > CN=Certificate Templates`. Taken from [here](https://labs.lares.com/adcs-exploits-investigations-pt1/#audit-certificate-templates-modification-operations)
+
+```
+# Look at the Account Name for the person that made the change. ms-PKI-Certificate-Name-Flag = {ea1dddc4-60ff-416e-8cc0-17cee534bce7} which is used for introducing ESC1 vulnerability (SAN)
+EventID = 4662 (An operation was performed on an object)
+Channel = Security
+Operation.Properties = "*Write-Property*"
+Operation.Properties = "*{ea1dddc4-60ff-416e-8cc0-17cee534bce7}*" OR "*{e5209ca2-3bba-11d2-90cc-00c04fd91ab1}*"
+```
+
+
+#### via RPC Firewall logs / RPCFW:3
+
+```
+winlog.provider_name:RPCFW AND event.code:3 AND carol
+```
+
 ### Detection of DCSync
 
 #### via Windows Event Logs / 4662
