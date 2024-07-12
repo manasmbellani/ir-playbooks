@@ -434,6 +434,29 @@ EventID = 7036 (The PSEXESVC service entered the running state.)
 Channel = System
 ```
 
+### Detection of Active Directory Certificate Services Abuse - Template Modification (ESC4)
+
+- Since templates are securable AD objects, an attacker with control can abuse them like any other AD object.
+    - Eg. an attacker can effectively make a template vulnerable to ESC1 and request a user with a SAN. ESC1 behavior is set by the CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT flag in the template’s ms-PKI-Certificate-Name-Flag property.
+
+#### via Windows Event Logs / 4900 (Changes to Certificate Security Descriptor / ACL)
+
+```
+Channel = Security
+EventID = 4900 (Certificate Services template security was updated)
+```
+
+Example of this Event ID is [here](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4900)
+
+#### via Windows Event Logs / 4899 (Changes to Certificate Template)
+
+```
+Channel = Security
+EventID = 4899 (A Certificate Services template was updated)
+```
+
+Example of this event ID is [here](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4899)
+
 ### Detection of DCSync
 
 #### via Windows Event Logs / 4662
