@@ -407,11 +407,10 @@ TargetObject = HKLM\System\CurrentControlSet\Services\PSEXESVC\Start
 ```
 Channel = Microsoft-Windows-Sysmon/Operational
 EventID = 11 (File created)
-Image = System
 TargetFilename = C:\Windows\PSEXESVC.exe
 ```
 
-#### via Windows Sysmon Event Logs / 7036
+#### via Windows Event Logs / 7036
 
 ```
 EventID = 7036 (The PSEXESVC service entered the running state.)
