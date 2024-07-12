@@ -312,12 +312,13 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+
 ### Detection of Active Directory Certificate Services Abuse - SAN Template Certificates (ESC1)
 
 - Typically, Extended Key Usage (EKU) attributes are used to define how a Public-private key pair generate for a user  can be used.
 - Compromise Type 1: If attacker steals Bob’s private key and certificate, and the certificate has an authentication EKU, the attacker can authenticate to the AD domain without knowing Bob’s password
 - Compromise Type 2 (ESC1): If a template with an authentication EKU lets low-privilege users specify SANs, an attacker can authenticate as any user in the SAN (eg for a cert with user "Alice", attacker can specify a domain admin account e.g. ace@aceresponder.com)
-- Pre-requistes for ESC1:
+- Pre-requisites for ESC1:
   - enrollment rights granted to low-privilege users
   - an authentication EKU (Client Authentication, PKINIT Client Authentication, Smart Card Logon, Any Purpose)
   - ability for the requestor to specify SANs
@@ -374,6 +375,22 @@ Channel = Security
 Description = A Kerberos Authentication Ticket was requested
 Certificate Information.Certificate Issuer Name = *
 ```
+
+### Detection of Active Directory Certificate Services Abuse - Any Purpose EKU (ESC2)
+
+Any Purpose (OID 2.5.29.37.0), OR no EKU (SubCA)
+
+#### via OID search
+
+Search for `2.5.29.37.0` OR `SubCA` in all logs and focus on certificate services logs
+
+### Detection of Active Directory Certificate Services Abuse - Certificate Request Agent (ESC3)
+
+If an attacker gets a certificate with the Certificate Request Agent EKU (`1.3.6.1.4.1.311.20.2.1`), they can enroll on behalf of another user. In other words, they can ask the CA to sign a certificate for a higher-privilege account.
+
+#### via OID Search
+
+Search for `1.3.6.1.4.1.311.20.2.1` in all logs and focus on certificate services logs
 
 ### Detection of PSExec usage to authenticate
 
