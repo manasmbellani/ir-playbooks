@@ -375,6 +375,49 @@ Description = A Kerberos Authentication Ticket was requested
 Certificate Information.Certificate Issuer Name = *
 ```
 
+### Detection of PSExec usage to authenticate
+
+https://www.hackthebox.com/blog/how-to-detect-psexec-and-lateral-movements
+
+Along with these detections, look for EventID=`4624` and logontype=`5` (Service startup) to identify which user may have performed this `PSExec.exe` authentication
+
+Detections mostly taken from: https://www.hackthebox.com/blog/how-to-detect-psexec-and-lateral-movements
+
+#### via Windows Sysmon Event Logs / 1
+
+```
+EventID = 1 (Process Create)
+Channel = Microsoft-Windows-Sysmon/Operational
+ParentImage: C:\Windows\System32\services.exe
+CommandLine = C:\Windows\PSEXESVC.exe
+```
+
+#### via Windows Sysmon Event Logs / 13
+
+```
+Channel = Microsoft-Windows-Sysmon/Operational
+EventID = 13 (Registry Value Set)
+EventType = SetValue
+Image = C:\Windows\system32\services.exe
+TargetObject = HKLM\System\CurrentControlSet\Services\PSEXESVC\Start
+```
+
+#### via Windows Sysmon Event Logs / 11
+
+```
+Channel = Microsoft-Windows-Sysmon/Operational
+EventID = 11 (File created)
+Image = System
+TargetFilename = C:\Windows\PSEXESVC.exe
+```
+
+#### via Windows Sysmon Event Logs / 7036
+
+```
+EventID = 7036 (The PSEXESVC service entered the running state.)
+Channel = System
+```
+
 ### Detection of DCSync
 
 #### via Windows Event Logs / 4662
