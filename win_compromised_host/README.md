@@ -466,13 +466,14 @@ Pre-requisite: Requires that the object audit logging is enabled via `auditpol /
 EventID = 4662 (An operation was performed on an object)
 Channel = Security
 Operation.Properties = "*Write-Property*"
+# Records changes to 'PKI-Certificate-Template' OR 'ms-PKI-Certificate-Name-Flag'
 Operation.Properties = "*{ea1dddc4-60ff-416e-8cc0-17cee534bce7}*" OR "*{e5209ca2-3bba-11d2-90cc-00c04fd91ab1}*"
 ```
-
 
 #### via RPC Firewall logs / RPCFW:3
 
 ```
+# If using RPC Firewall
 winlog.provider_name:RPCFW AND event.code:3 AND carol
 ```
 
