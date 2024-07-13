@@ -312,7 +312,28 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
-### Detection of WinRM Shell
+### Detection of WinRM Shell / PowerShell Remote Session
+
+Detects if someone is using Invoke-PSRemoting based commands or `evil-winrm`
+
+#### via Powershell / Get-WSManInstance
+
+```
+# Run on the local host where shell was created
+# Shows the username, clientIP from which connections came
+# Use [System.XML.XmlConvert]::toTimeSpan(...) to convert ShellRuneTime and other attributes
+Get-WSManInstance -ResourceUri Shell -Enumerate
+```
+
+Taken from [here](https://jdhitsolutions.com/blog/powershell/7712/answering-the-wsman-powershell-challenge/)
+
+#### via Windows Sysmon Event Logs / 1 (Process Create)
+
+```
+Channel = Microsoft-Windows-Sysmon/Operational
+EventID = 1 (Process Create)
+CommandLine = "C:\Windows\system32\wsmprovhost.exe*"
+```
 
 #### via Windows Event Logs / 91 (Creating WSMan shell)
 
