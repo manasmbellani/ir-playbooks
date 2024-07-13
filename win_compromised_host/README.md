@@ -312,6 +312,16 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection of WinRM Shell
+
+#### via Windows Event Logs / 91 (Creating WSMan shell)
+
+```
+# Example: Creating WSMan shell on server with ResourceUri: http://schemas.microsoft.com/powershell/Microsoft.PowerShell (HACKER\Administrator clientIP: 10.128.0.57)
+Channel = Microsoft-Windows-WinRM/Operational
+EventID = 91
+Description = "*Creating WSMan shell*"
+```
 
 ### Detection of Active Directory Certificate Services Abuse - SAN Template Certificates (ESC1)
 
