@@ -1424,6 +1424,9 @@ Get-WmiObject -Class Win32_Product
 
 Common location for logs:
 - Minecraft: `C:\Users\LetsDefend\Desktop\Minecraft Server 1.12.2\logs`
+- Fortinet EMS Logs: `C:\Program Files (x86)\Fortinet\FortiClientEMS\logs\`
+
+Taken from [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_my-team-colleague-asger-deleuran-s-investigated-activity-7217564988436033539-Sw0u?utm_source=share&utm_medium=member_ios)
 
 #### via dir / C: / System32 logs
 
