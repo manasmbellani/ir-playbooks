@@ -54,6 +54,17 @@ if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
 
 Write-Host "[*] Checking if we need to install AzureADIncidentResponse module..."
 if (-Not (Get-InstalledModule -Name AzureADIncidentResponse )) {
+    Write-Host "[*] Updating PowerShellGet module..."
+    ## Taken from: https://github.com/AzureAD/MSAL.PS/blob/master/README.md#install-from-the-powershell-gallery
+    ## Update Nuget Package and PowerShellGet Module
+    Install-PackageProvider NuGet -Scope CurrentUser -Force
+    Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
+    ## Remove old modules from existing session
+    Remove-Module PowerShellGet,PackageManagement -Force -ErrorAction Ignore
+    ## Import updated module
+    Import-Module PowerShellGet -MinimumVersion 2.0 -Force
+    Import-PackageProvider PowerShellGet -MinimumVersion 2.0 -Force
+    
     Write-Host "[*] Installing 'AzureADIncidentResponse' module..."
     Install-Module -Name AzureADIncidentResponse -Force -Confirm:$false
 }
