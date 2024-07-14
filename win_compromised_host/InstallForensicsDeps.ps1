@@ -51,6 +51,13 @@ if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
     Install-Module -Name Microsoft.Graph -Force -Confirm:$false
 }
 
+
+Write-Host "[*] Checking if we need to install AzureADIncidentResponse module..."
+if (-Not (Get-InstalledModule -Name AzureADIncidentResponse )) {
+    Write-Host "[*] Installing 'AzureADIncidentResponse' module..."
+    Install-Module -Name AzureADIncidentResponse -Force -Confirm:$false
+}
+
 Write-Host "[*] Checking if we need to install VMWare.PowerCLI module..."
 if (-Not (Get-InstalledModule -Name VMWare.PowerCLI )) {
     Write-Host "[*] Installing 'VMWare.PowerCLI' module..."
