@@ -100,6 +100,10 @@ $command='& auditpol /set /category:"Object Access" /subcategory:"Certification 
 Invoke-Expression "$command"
 ```
 
+Ensure that auditing is set for all events under `certsrv.msc` > `Certification Authority` > Right-Click > Auditing > `Events to Audit`
+
+Auditing should also be enabled for certificate templates via `ADSI Edit > Action > Connect to... > Select 'Configuration' in Naming Context instead of Default > CN=Services > CN=Public Key Services > CN=Certificate Templates`
+
 ## Containment
 
 ### Disconnect from wired networks
