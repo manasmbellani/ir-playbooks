@@ -448,6 +448,19 @@ If an attacker gets a certificate with the Certificate Request Agent EKU (`1.3.6
 
 Search for `1.3.6.1.4.1.311.20.2.1` in all logs and focus on certificate services logs
 
+### Detection of unusual authentication attempts
+
+#### via Windows Event Logs / 4624, 4625
+
+```
+# LogonType = 5 PSExec?
+Channel = Security
+EventID=4624 (An account was successfully logged on) OR 4625 (An account failed to log on)
+LogonType = 2 (Interactive) OR 3 (Network) OR 5 (Service started by Service Control Manager) 8 (NetworkClearText)
+```
+
+Taken from [here](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625#_Ref433822321)
+
 ### Detection of PSExec usage to authenticate
 
 https://www.hackthebox.com/blog/how-to-detect-psexec-and-lateral-movements
