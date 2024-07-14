@@ -4,9 +4,11 @@
     Run in Windows Powershell v5.1
 
     Additional Steps:
+    	* Ensure that additional logging is setup as defined in README.md#scenario-setup especially for ADCS
         * If error of .net6 from EZ Tools, open one of the binaries and install .NET version via the dialog box shown
 	* Configure Windows visual studio manually with C# and C++ desktop tools via $INSTALL_LOCATION\VisualStudio\vs_community.exe
 	  (C# - .NET Desktop Development, C++ - Desktop Development with C++)
+   	
 #>
 
 # Sleep Time (in seconds)
