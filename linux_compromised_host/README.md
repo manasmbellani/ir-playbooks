@@ -153,6 +153,7 @@ Check the mount points first via `mount`, `df` to identify the dev mount for dis
 ```
 df -h
 mount
+cat /proc/mounts
 ```
 
 Once the `/dev/sdxx` is identified, create a copy of the local disk image using `dd` for backup:
@@ -242,6 +243,22 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 ```
 
 ## Analysis
+
+### Get the firewall rules
+
+#### via iptables
+
+```
+iptables -L -n
+```
+
+### How long a system has been up for?
+
+#### via uptime
+
+```
+uptime
+```
 
 ### Getting installed packages
 
@@ -555,6 +572,12 @@ find /etc/cron* -type f
 ```
 
 ### Check linux authentication attempts
+
+#### via lastlog
+
+```
+lastlog
+```
 
 #### via auth.log
 
