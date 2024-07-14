@@ -66,7 +66,7 @@ if (-Not (Get-InstalledModule -Name AzureADIncidentResponse )) {
     Import-PackageProvider PowerShellGet -MinimumVersion 2.0 -Force
     
     Write-Host "[*] Installing 'AzureADIncidentResponse' module..."
-    Install-Module -Name AzureADIncidentResponse -Force -Confirm:$false
+    Install-Module -Name AzureADIncidentResponse -Force -Confirm:$false -AcceptLicense
 }
 
 Write-Host "[*] Checking if we need to install VMWare.PowerCLI module..."
