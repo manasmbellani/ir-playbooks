@@ -312,6 +312,31 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect successful network sessions
+
+- A session is recorded when a user at a client successfully contacts a server
+- A successful session occurs when the two computers are on the same network and the user has a user name and password that are accepted by the server. 
+
+#### via net
+
+```
+net view \\127.0.0.1
+```
+
+### Detect Windows SMB Shares Exposed on the network
+
+#### via powershell / Get-SmbShare
+
+```
+Get-SmbShare
+```
+
+#### via net
+
+```
+net view \\127.0.0.1
+```
+
 ### Detection of WinRM Shell / PowerShell Remote Session
 
 Detects if someone is using Invoke-PSRemoting based commands or `evil-winrm`
