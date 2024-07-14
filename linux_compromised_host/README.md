@@ -244,6 +244,31 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Look for unusual processes
+
+#### via ps
+
+```
+# E.g. for things like
+#   /bin/bash -i (known to be a possible reverse shell if '-i' is in use, requires further investigation)
+#   https://x.com/CraigHRowland/status/1802850025443336414
+ps aux 
+```
+
+### Look for file descriptors that are open for unusual process 
+
+Can be indicative of reverse shell 
+Identify the unusual process via ps above
+
+#### via /proc/$PID/fd
+
+```
+0,1,2 can refer to stderr, stdout, stdin
+ls -lah /proc/$PID/fd
+```
+
+Taken from here: https://x.com/CraigHRowland/status/1802850025443336414
+
 ### Get the firewall rules
 
 #### via iptables
@@ -428,6 +453,8 @@ See `/proc/$PID/environ`
 
 See `/proc/$PID/exe`
 
+Also, seen in this article: https://x.com/CraigHRowland/status/1802850025443336414
+
 ### List running processes
 
 #### via volatility3 / pslist
@@ -510,6 +537,23 @@ Whereas `.history` file contains the specific commands that were opened.
 Taken from [here](https://x.com/malmoeb/status/1794973569287410103)
 
 ### List running network ports/services from memory
+
+#### via /proc/net/tcp, /proc/net/udp
+
+Very useful if backdoors have hidden themselves
+
+```
+# IP Addresses are provided in hex format with lowest bytes from left-to-right which can be 
+# Use the inode from ls -lah /proc/$PID/fd to identify the process which is responsible for the network connections
+
+# Look for TCP connections
+cat /proc/net/tcp
+
+# Look for UDP connections
+cat /proc/net/udp
+```
+
+Taken from here: https://x.com/CraigHRowland/status/1802850038164451367
 
 #### via volatility3 / sockscan
 
