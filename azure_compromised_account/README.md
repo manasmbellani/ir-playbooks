@@ -175,7 +175,7 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 Get-AzureADIRSsprUsageHistory -TenantId $TenantId
 ```
 
-### Getting the tenant version
+### Getting the tenant ID
 
 #### via Connect-AzureAD
 
@@ -183,6 +183,15 @@ Get-AzureADIRSsprUsageHistory -TenantId $TenantId
 Import-Module AzureAD
 Connect-AzureAD
 ```
+
+#### via AzureADIrIncidentResponse
+
+```
+Import-Module AzureAD
+Connect-AzureAD
+Get-AzureADIRTenantId -DomainName $DOMAIN_NAME
+```
+
 
 ### Connecting to Azure Virtual Machine Serial Port
 
