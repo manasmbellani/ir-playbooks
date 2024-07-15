@@ -146,7 +146,39 @@ $Result
 
 Taken from [here](https://morgantechspace.com/2018/06/find-and-list-mfa-enabled-status-office-365-users-powershell.html)
 
+#### via AzureADIncidentResponse
+
+```
+Import-Module AzureaDIncidentResponse
+Get-AzureADIRMfaAuthMethodAnalysis -TenantId $TenantId -CsvOutput
+```
+
+### Collect Azure Conditional Access Policies
+
+#### via AzureADIncidentResponse
+
+```
+Get-AzureADIRConditionalAccessPolicy -TenantId $TenantId -All -XmlOutput
+```
+
 ## Analysis
+
+### Detect self-service password resets
+
+#### via AzureADIncidentResponse
+
+```
+Get-AzureADIRSsprUsageHistory -TenantId $TenantId
+```
+
+### Getting the tenant version
+
+#### via Connect-AzureAD
+
+```
+Import-Module AzureAD
+Connect-AzureAD
+```
 
 ### Connecting to Azure Virtual Machine Serial Port
 
@@ -207,6 +239,16 @@ This information could be used to cross-check the sign-in and other activity log
 #### via Azure Portal UI
 
 Select Azure Portal UI > Users > Select user > Applications 
+
+#### via AzureADIncidentResponse
+
+```
+Import-Module AzureADIncidentResponse
+# To get the tenant details and set $TenantId = ....
+Connect-AzureAD
+Connect-AzureADIR -TenantId $TenantId
+Get-AzureADIRPermission -TenantId $TenantId -CsvOutput
+```
 
 #### via Get-AzureADPSPermissions
 
