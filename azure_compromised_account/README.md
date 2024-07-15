@@ -153,6 +153,8 @@ Import-Module AzureaDIncidentResponse
 Get-AzureADIRMfaAuthMethodAnalysis -TenantId $TenantId -CsvOutput
 ```
 
+Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsoft-cloud-environment/
+
 ### Collect Azure Conditional Access Policies
 
 #### via AzureADIncidentResponse
@@ -160,6 +162,8 @@ Get-AzureADIRMfaAuthMethodAnalysis -TenantId $TenantId -CsvOutput
 ```
 Get-AzureADIRConditionalAccessPolicy -TenantId $TenantId -All -XmlOutput
 ```
+
+Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsoft-cloud-environment/
 
 ## Analysis
 
