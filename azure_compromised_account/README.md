@@ -167,6 +167,20 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ## Analysis
 
+### Detect activity from unusual user agents 
+
+#### via Azure AD Graph Activity Logs
+
+```
+MicrosoftGraphActivityLogs
+| where UserAgent contains "azurehound"
+| extend NormalizedRequestUri = replace_regex(RequestUri, @'/[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}/', @'/APPID/')
+| extend NormalizedRequestUri = replace_regex(NormalizedRequestUri, @'/roleAssignments\?.*$', @'')
+| extend NormalizedRequestUri = replace_regex(NormalizedRequestUri, @'\?.*$', @'')
+| summarize count() by NormalizedRequestUri, IPAddress
+| sort by count_ desc
+```
+
 ### Detect self-service password resets
 
 #### via AzureADIncidentResponse
