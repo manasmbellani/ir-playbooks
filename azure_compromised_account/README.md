@@ -174,12 +174,40 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 ```
 MicrosoftGraphActivityLogs
 | where UserAgent contains "azurehound"
+```
+
+### Detect unusual recon activity for AzureHound
+
+#### via Azure AD Graph Activity Logs
+
+```
+MicrosoftGraphActivityLogs
+| where UserAgent contains "azurehound"
 | extend NormalizedRequestUri = replace_regex(RequestUri, @'/[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}/', @'/APPID/')
 | extend NormalizedRequestUri = replace_regex(NormalizedRequestUri, @'/roleAssignments\?.*$', @'')
 | extend NormalizedRequestUri = replace_regex(NormalizedRequestUri, @'\?.*$', @'')
 | summarize count() by NormalizedRequestUri, IPAddress
 | sort by count_ desc
 ```
+
+Typically, we should see the requests to the following logs:
+```
+https://graph.microsoft.com/beta/servicePrincipals/APPID/owners
+https://graph.microsoft.com/v1.0/roleManagement/directory
+https://graph.microsoft.com/v1.0/servicePrincipals/APPID/appRoleAssignedTo
+https://graph.microsoft.com/v1.0/organization
+https://graph.microsoft.com/v1.0/groups
+https://graph.microsoft.com/v1.0/applications
+https://graph.microsoft.com/beta/groups/APPID/owners
+https://graph.microsoft.com/v1.0/servicePrincipals
+https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
+https://graph.microsoft.com/v1.0/devices
+https://graph.microsoft.com/v1.0/users
+https://graph.microsoft.com/beta/applications/APPID/owners
+https://graph.microsoft.com/beta/groups/APPID/members
+```
+
+Taken from [here](https://cloudbrothers.info/en/detect-threats-microsoft-graph-logs-part-1/)
 
 ### Detect self-service password resets
 
