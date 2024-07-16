@@ -271,6 +271,20 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\dc3dd")) {
     Remove-Item -Path "$INSTALL_LOCATION\dc3dd\dc3dd-windows.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\azurehound")) {
+    Write-Host "[*] Making directory azurehound..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\azurehound"
+
+    Write-Host "[*] Downloading azurehound.zip..."
+    $url =  "https://github.com/BloodHoundAD/AzureHound/releases/download/v2.1.9/azurehound-windows-amd64.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\azurehound\azurehound.zip")
+
+    Write-Host "[*] Extracting azurehound .zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\azurehound\azurehound.zip" -DestinationPath "$INSTALL_LOCATION\azurehound"
+
+    Write-Host '[*] Removing azurehound.zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\azurehound\azurehound.zip"
+}
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\Get-AzureADPSPermissions")) {
     Write-Host "[*] Making directory Get-AzureADPSPermissions..."
