@@ -1215,6 +1215,7 @@ See following locations:
 - C:\Windows\Temp
 - C:\Users\$USER_ID\Desktop
 - C:\Users\$USER_ID\Downloads
+- C:\Users\$USER_ID\Documents
 - C:\Users\$USER_ID\AppData\Local\Temp
 
 #### via Sysmon Windows Event ID 11 / File Create Event
@@ -1225,6 +1226,17 @@ Event ID = 11
 Channel = Microsoft-Windows-Sysmon/Operational
 Description = File Created
 ```
+
+These could also be used to detect malware which may create powershell files such as .ps1 such as `Lifetime-ETW-Patch` which creates a file in Documents directory and makes it appear as though it is a System file in use. 
+
+```
+# 'TargetFileName' contains the path to the new file being written
+Event ID = 11
+Channel = Microsoft-Windows-Sysmon/Operational
+Description = File Created
+TargetFileName = C:\Users\*\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+```
+
 
 ### Extract Files from image
 
