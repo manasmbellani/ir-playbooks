@@ -1194,6 +1194,8 @@ See [here](#via-volatility2--psxview)
 
 Check the parent process in Sysmon Logs for suspicious Process Create (Event ID 1) events such as `cmd.exe`, `powershell.exe`, `nc.exe`, etc. and look at unusual parent process such as `word.exe`, `.jar` files, etc.
 
+Check for `attrib` command with `+h` (attempt to hide file) being executed on files such as `.ps1` script. It can also be used to detect malware such as [Lifetime-ETW-Patch](https://github.com/EvilBytecode/Lifetime-Amsi-EtwPatch/blob/main/Patcher.go) which turns off AMSI and ETW.
+
 Taken from [LetsDefend Log4J's RCE exercise](https://files-ld.s3.us-east-2.amazonaws.com/Alert-Reports/Log4j_RCE_Detected.pdf)
 
 #### via chainsaw / sigma
