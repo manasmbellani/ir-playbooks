@@ -116,9 +116,15 @@ can identify the ransomware type just by searching parts of README message on Gi
 
 ### Determine Ransomware site links / victims
 
+### via ransomlookup.io
+
+Provides a screenshot of the Ransomware postings affecting various victims
+
+https://www.ransomlook.io/
+
 #### via ransomware.live
 
-Provides a screenshot of the Ransomware sites
+Provides a screenshot of the Ransomware postings affecting various victims
 
 https://ransomware.live
 
