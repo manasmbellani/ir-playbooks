@@ -469,6 +469,17 @@ kubectl get pods -A -o yaml | yq -o csv -r ".items[] | [.metadata.name,.spec.con
 
 Taken from [here](https://kubenomicon.com/Defense_evasion/Pod_name_similarity.html)
 
+### Check for unusual software
+
+#### via GCP Audit Logs/
+
+Example keyword searches to search for various software such as:
+- `peirates` which can detect interesting malicious software:
+```
+peirates
+logName="projects/citric-snow-362912/logs/stdout"
+```
+
 ### Check for privileged GCP Kubernetes Pods
 
 #### via GCP Audit logs / Audit Logs
