@@ -455,6 +455,20 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check for impersonation attempts for cluster logs
+
+This can be used to detect impersonation attempts such as leveraging cluster admin OR other interesting accounts to conduct activity.
+
+#### via GCP Logging Explorer logs
+
+```
+# Look for authentication authority (impersonation) attempts when leveraging 'kubectl' commands
+protoPayload.authenticationInfo.authoritySelector:*
+protoPayload.serviceName="k8s.io" OR (protoPayload.requestMetadata.callerSuppliedUserAgent:* AND protoPayload.requestMetadata.callerSuppliedUserAgent:"kubectl")
+```
+
+Taken from [here](https://cloud.hacktricks.xyz/pentesting-cloud/kubernetes-security/abusing-roles-clusterroles-in-kubernetes/kubernetes-roles-abuse-lab)
+
 ### Check for pods with common names, but running unusual images
 
 Just naming a pod something that doesn't stand out is a great way to hide among "known good" pods.
