@@ -607,6 +607,12 @@ List of available Message types for extraction [here](https://microsoft-365-extr
 
 ## Recovery
 
+### Enable Azure Custom Banned Passwords Lists for Azure logons
+
+#### via Authentication Methods
+
+Visit https://portal.azure.com > `Authentication Methods` > `Password Protection` > `Custom Banned Password Lists` > Enable `Enforce custom list` if not already enforced > Add Passwords to `Custom Banned Password List`
+
 ## References
 
 - List of various Microsoft 365 Administrative Portals is at [MS Portals](https://msportals.io/)
