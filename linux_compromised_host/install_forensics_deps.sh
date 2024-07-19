@@ -184,3 +184,6 @@ apt-get -y remove libewf && apt-get -y install ewf-tools
 
 echo "[*] Installing plaso image via docker..."
 docker pull log2timeline/plaso
+
+echo "[*] Installing LinTri..."
+git clone https://github.com/DCScoder/LINTri /opt/lintri
