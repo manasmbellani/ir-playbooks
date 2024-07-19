@@ -1140,6 +1140,21 @@ Captures command lines run via the `Run` dialog box in Windows
 HKEY_USERS\$SID\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 ```
 
+#### via Anti-virus (AV) Log Files
+
+Capture the command lines from the Anti-virus log files
+
+```
+# Symantec AV logs can show command lines as per https://x.com/malmoeb/status/1814392099376095523?s=46&t=WvGY79Umt5enRwgCbi4TQQ
+C:\ProgramData\Symantec\Symantec Endpoint Protection\<version>\Data\Logs\AV\<number>.Log
+
+# Folder can identify AV Security Events and times as per https://me.n-able.com/s/article/AV-Defender----Agent-Log-files-created-and-their-descriptions
+C:\Program files(x86)\N-able Technologies\Windows Agent\Logs
+
+# Windows Defender Log files can contain 'SDN:' which shows full file path and SHA2 hashes, 'DETECTION_ADD' can reveal the file paths which were identified as malware, ':EMS' can detect the process injections. Taken from: https://www.crowdstrike.com/blog/how-to-use-microsoft-protection-logging-for-forensic-investigations/
+C:\ProgramData\Microsoft\Windows Defender\Support\MPLog-*
+```
+
 ### Get Directory Table Base (DTB) for a kernel
 
 DTB converts the physical address to virtual addresses
