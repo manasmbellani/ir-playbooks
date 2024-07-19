@@ -254,6 +254,22 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Look for login attempts
+
+#### via log files 
+
+- `Failed` Attempts: `/var/log/btmp`
+- Who is currently logged in: `/var/run/utmp`
+- History of `/var/log/utmp`: `/var/log/wtmp`
+
+View using `last` for full details or `strings`: 
+
+```
+last -f /var/run/utmp
+```
+
+Taken from [here](https://askubuntu.com/questions/325491/how-to-properly-display-the-contents-of-the-utmp-wtmp-and-btmp-files)
+
 ### Look for unusual processes
 
 #### via ps
