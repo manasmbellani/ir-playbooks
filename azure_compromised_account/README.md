@@ -613,6 +613,8 @@ List of available Message types for extraction [here](https://microsoft-365-extr
 
 Visit https://portal.azure.com > `Authentication Methods` > `Password Protection` > `Custom Banned Password Lists` > Enable `Enforce custom list` if not already enforced > Add Passwords to `Custom Banned Password List`
 
+Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-password-spray#password-protection)
+
 ## References
 
 - List of various Microsoft 365 Administrative Portals is at [MS Portals](https://msportals.io/)
