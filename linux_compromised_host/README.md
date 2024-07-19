@@ -38,8 +38,6 @@ See [here](../mac_compromised_host/README.md#apply-network-firewall)
 
 Steps are the same as described [here](../win_compromised_host#disconnect-from-wired-networks)
 
-
-
 ### Disable Bluetooth Network
 
 Check if bluetooth is running:
@@ -173,6 +171,16 @@ dc3dd if=/dev/sda1 of=/tmp/image.dd hash=sha256 hlog=/tmp/hash.log log=/tmp/imag
 
 ### Artifacts Collection
 
+#### via lintri
+
+```
+# Check / or ~ directory for the .tar.gz file e.g. LINTri_kali-vm_20240719_084857.tar.gz
+cd /opt/lintri
+/bin/bash LINTri.sh
+```
+
+Taken from [here](https://github.com/DCScoder/LINTri)
+
 #### via fasir_artifacts
 
 To quickly contain main set of artifacts for analysis (similar to KAPE)
@@ -183,6 +191,8 @@ source venv/bin/activate
 python3 fastir_artifacts.py -o /tmp/fastirartefacts
 deactivate
 ```
+
+#### via lintri
 
 ### Mounting image
 
