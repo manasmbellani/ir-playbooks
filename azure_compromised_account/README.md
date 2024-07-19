@@ -432,6 +432,12 @@ Under https://portal.azure.com > `Sign-In Logs` > Look for unusual `Status=Inter
 
 Tested via `Spray365` tool
 
+#### via Azure Identity Protection
+
+Pre-requisite: Requires the Microsoft Entra ID P2 license
+
+See [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-password-spray#detect-password-spray-in-azure-identity-protection) for more details
+
 ### View Microsoft Office 365 Inbox Rules
 
 Can reveal any interesting Inbox Rules created by threat actors if the account has been compromised.
