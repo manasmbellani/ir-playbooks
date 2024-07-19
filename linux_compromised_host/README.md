@@ -144,6 +144,14 @@ cd /tmp
 /opt/dumpit-linux/target/release/dumpitforlinux --raw
 ```
 
+### Collect log rotate configuration
+
+```
+cat /etc/logrotate.conf
+```
+
+Taken from [here](https://linux.die.net/man/5/logrotate.conf)
+
 ### Taking disk image (Offline)
 
 #### via dd
