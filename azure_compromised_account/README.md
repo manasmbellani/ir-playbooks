@@ -229,6 +229,7 @@ Connect-AzureAD
 #### via AzureADIrIncidentResponse
 
 ```
+Import-Module AzureADIncidentResponse
 Import-Module AzureAD
 Connect-AzureAD
 Get-AzureADIRTenantId -DomainName $DOMAIN_NAME
