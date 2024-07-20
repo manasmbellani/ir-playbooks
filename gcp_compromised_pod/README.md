@@ -295,7 +295,7 @@ chroot /hostroot /bin/bash
 ```
 Taken from [here](https://osdfir.blogspot.com/2020/10/deploying-grr-to-kubernetes-for.html)
 
-### Getting cluster node 
+### Getting cluster node backup
 
 #### via zip
 
@@ -605,6 +605,17 @@ protoPayload.methodName: list
 protoPayload.authenticationInfo.principalEmail:"iam.gserviceaccount.com"
 -protoPayload.serviceName="k8s.io"
 -protoPayload.authenticationInfo.principalEmail:"container-engine-robot.iam.gserviceaccount.com"
+```
+
+### Get all roles and cluster roles
+
+Can be used to detect via the running pods and deployments any cluster abuse
+
+#### via kubectl
+
+```
+kubectl get roles -A -o yaml
+kubectl get clusterroles -A -o yaml
 ```
 
 ### List running containers
