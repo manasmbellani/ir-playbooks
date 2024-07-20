@@ -316,6 +316,22 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect unusual registry key created or updates
+
+Keys to look for include: 
+```
+# Boot or Logon Autostart Execution: Registry Run Keys, https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1547.001/T1547.001.md#atomic-test-1---reg-key-run
+HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run 
+```
+
+#### via Windows Event Logs / Sysmon / Event ID 13
+
+```
+# Look for Image, ProcessID fields (Process that created the key) AND Target Object, which is the registry key set
+Event ID = 13 (Registry Value Set)
+Channel = Microsoft-Windows-Sysmon/Operational
+```
+
 ### Detect successful network sessions
 
 - A session is recorded when a user at a client successfully contacts a server
