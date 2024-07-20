@@ -105,6 +105,7 @@ E.g To search via `grep`
 /var/log
 ~/Library/Logs
 /Library/Logs
+/var/run
 ```
 
 ### Collection Scripts
@@ -118,6 +119,13 @@ automactc.py -m all -fmt json
 ```
 
 ## Analysis
+
+### Check various installed application logs
+
+Can indicate various attacks occurring within and on the app as seen in Windows [here](../win_compromised_host/README.md#check-various-installed-application-logs)
+
+#### via /Applications folder
+
 
 ### Launch Agents added
 
