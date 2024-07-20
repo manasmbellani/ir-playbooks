@@ -621,7 +621,7 @@ Check if `auditd` is enabled and the logs are being logged in `auditd`:
 ausearch --start today --format text
 ```
 
-### Check app logs
+### Check various installed application logs
 
 Review logs for various apps to detect attacks like log4j similar to described in Windows [here](../win_compromised_host/README.md#check-various-installed-application-logs)
 
