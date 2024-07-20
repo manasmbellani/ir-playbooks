@@ -455,6 +455,18 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check for unusual roles / cluster roles created
+
+Can be indicative of abuse of cluster roles if attacker does create unusual cluster roles
+
+#### via GCP Logging Explorer Logs
+
+```
+# Examples: protoPayload.methodName="io.k8s.authorization.rbac.v1.roles.create", protoPayload.methodName="io.k8s.authorization.rbac.v1.clusterroles.create"
+protoPayload.serviceName="k8s.io"
+protoPayload.methodName:"clusterroles.create" OR protoPayload.methodName:"roles.create.create"
+```
+
 ### Check for impersonation attempts for cluster logs
 
 This can be used to detect impersonation attempts such as leveraging cluster admin OR other interesting accounts to conduct activity.
