@@ -491,6 +491,8 @@ Also, seen in this article: https://x.com/CraigHRowland/status/18028500254433364
 
 ### List running processes
 
+Identify unusual processes and processes running from suspicious locations such as from `/tmp`, `/var/tmp`, `/dev/shm`
+
 #### via volatility3 / pslist
 
 List running processes `ps` using `volatility3`'s `pslist` command:
