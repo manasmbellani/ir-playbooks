@@ -321,7 +321,8 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 Keys to look for include: 
 ```
 # Boot or Logon Autostart Execution: Registry Run Keys, https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1547.001/T1547.001.md#atomic-test-1---reg-key-run
-HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run 
+HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx\0001\Depend
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 13
