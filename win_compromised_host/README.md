@@ -316,6 +316,62 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect for unusual processes created
+
+Processes and parent process names to look for:
+```
+powershell.exe
+cscript.exe
+wscript.exe
+cmd.exe
+pwsh.exe
+schtasks.exe
+scrcons.exe
+regsvr32.exe
+hh.exe
+wmic.exe
+mshta.exe
+msiexec.exe
+bitsadmin.exe
+certutil.exe
+```
+
+Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_sigma_rule.yml), [2](https://detection.fyi/sigmahq/sigma/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program/)
+
+
+#### via Windows Event Logs / Sysmon / Event ID 1
+
+```
+# Look for TargetFileName, ProcessID fields (Process that created the key) AND Target Object
+Event ID = 11 (Process Create)
+Channel = Microsoft-Windows-Sysmon/Operational
+```
+
+#### via Windows Event Logs / Event ID 4688
+
+```
+# Look for New Process Name, New Process ID fields 
+Event ID = 4688 (A new process has been created)
+Channel = Security
+```
+
+### Detect for unusual file changes 
+
+Key files to look for include:
+```
+# Persistence locations
+C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\vbsstartup.vbs
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\vbsstartup.vbs"
+```
+
+#### via Windows Event Logs / Sysmon / Event ID 11
+
+```
+# Look for TargetFileName, ProcessID fields (Process that created the key) AND Target Object
+Event ID = 11 (File Create)
+Channel = Microsoft-Windows-Sysmon/Operational
+```
+
 ### Detect unusual registry key created or updates
 
 Keys to look for include: 
