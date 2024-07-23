@@ -1,6 +1,8 @@
 #!/bin/bash
 # Script to be run on Ubuntu 22.04 instance
 
+cwd=$(pwd)
+
 echo "[*] Install basic dev tools..."
 sudo apt-get -y install \
   net-tools \
@@ -187,3 +189,10 @@ docker pull log2timeline/plaso
 
 echo "[*] Installing LinTri..."
 git clone https://github.com/DCScoder/LINTri /opt/lintri
+
+echo "[*] Installing unix artifacts collector (uac)..."
+curl -sL https://github.com/tclahr/uac/releases/download/v2.9.1/uac-2.9.1.tar.gz -o /tmp/uac.tar.gz
+cd /tmp
+tar -xzvf uac.tar.gz
+mv /tmp/uac-2.9.1 /opt/uac
+cd $cwd
