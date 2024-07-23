@@ -179,6 +179,13 @@ dc3dd if=/dev/sda1 of=/tmp/image.dd hash=sha256 hlog=/tmp/hash.log log=/tmp/imag
 
 ### Artifacts Collection
 
+#### via uac
+
+```
+# To store the output in /tmp directory
+./uac -p full /tmp
+```
+
 #### via lintri
 
 ```
