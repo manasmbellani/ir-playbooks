@@ -654,7 +654,10 @@ grep -r -n -i --color cron /var/log/syslog
 ```
 find /var/spool/cron/crontabs -type f
 find /etc/cron* -type f
+find /etc/*cron* -type f
 ```
+
+Taken from [Hal Pomeranz's Linux DFIR Intro Course](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/32/mode/1up) > Page 32
 
 ### Check linux authentication attempts
 
