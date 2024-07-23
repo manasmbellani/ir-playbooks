@@ -182,6 +182,8 @@ dc3dd if=/dev/sda1 of=/tmp/image.dd hash=sha256 hlog=/tmp/hash.log log=/tmp/imag
 #### via uac
 
 ```
+# To grab most useful data for IR 
+./uac -p ir_triage /tmp
 # To store the output in /tmp directory
 ./uac -p full /tmp
 ```
@@ -658,6 +660,18 @@ find /etc/*cron* -type f
 ```
 
 Taken from [Hal Pomeranz's Linux DFIR Intro Course](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/32/mode/1up) > Page 32
+
+### Check SUID/GUID Bit set
+
+This can be set if hackers are trying to create a backdoor
+
+#### via uac
+
+See the following files:
+```
+live_response/system/suid.txt
+live_response/system/guid.txt
+```
 
 ### Check linux authentication attempts
 
