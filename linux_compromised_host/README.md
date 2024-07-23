@@ -661,7 +661,7 @@ find /etc/*cron* -type f
 
 Taken from [Hal Pomeranz's Linux DFIR Intro Course](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/32/mode/1up) > Page 32
 
-### Check SUID/GUID Bit set
+### Check SUID/SGID Bit set
 
 This can be set if hackers are trying to create a backdoor
 
@@ -670,7 +670,7 @@ This can be set if hackers are trying to create a backdoor
 See the following files:
 ```
 live_response/system/suid.txt
-live_response/system/guid.txt
+live_response/system/sgid.txt
 ```
 
 ### Check linux authentication attempts
