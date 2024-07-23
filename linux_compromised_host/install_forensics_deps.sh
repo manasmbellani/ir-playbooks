@@ -198,9 +198,13 @@ mv /tmp/uac-2.9.1 /opt/uac
 cd $cwd
 
 echo "[*] Installing bulk_extractor with required dependencies..."
+# Some Steps taken from: https://medium.com/@randomdent/getting-started-with-bulk-extractor-on-ubuntu-20-04-lts-b7290b43f04a
 git clone --recurse-submodules https://github.com/simsong/bulk_extractor.git /opt/bulk_extractor
 cd /opt/bulk_extractor
 apt-get -y update && apt-get -y install autoconf automake libssl-dev flex
+cd etc/
+/bin/bash CONFIGURE_UBUNTU22LTS.bash
+cd ..
 ./bootstrap.sh
 ./configure
 make
