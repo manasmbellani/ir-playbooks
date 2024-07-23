@@ -108,6 +108,12 @@ E.g To search via `grep`
 /var/run
 ```
 
+### Artifacts Collectio
+
+#### via uac
+
+See [here](../linux_compromised_host/README.md#via-uac)
+
 ### Collection Scripts
 
 #### via Crowdstrike's automactc
