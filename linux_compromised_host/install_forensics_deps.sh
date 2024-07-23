@@ -196,3 +196,13 @@ cd /tmp
 tar -xzvf uac.tar.gz
 mv /tmp/uac-2.9.1 /opt/uac
 cd $cwd
+
+echo "[*] Installing bulk_extractor with required dependencies..."
+git clone --recurse-submodules https://github.com/simsong/bulk_extractor.git /opt/bulk_extractor
+cd /opt/bulk_extractor
+apt-get -y update && apt-get -y install autoconf automake libssl-dev flex
+./bootstrap.sh
+./configure
+make
+make install
+cd $cwd
