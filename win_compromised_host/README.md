@@ -355,6 +355,17 @@ Event ID = 4688 (A new process has been created)
 Channel = Security
 ```
 
+### Detect for process injection / migration into another process
+
+#### via Windows Sysmon Event Logs / CreateRemoteThreat (EventID 8)
+
+```
+Channel = Microsoft-Windows-Sysmon/Operational
+Event ID = 8 (CreateRemoteThread)
+```
+
+More info [here](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread)
+
 ### Detect for unusual file changes 
 
 Key files to look for include:
