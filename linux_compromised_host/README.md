@@ -207,8 +207,6 @@ python3 fastir_artifacts.py -o /tmp/fastirartefacts
 deactivate
 ```
 
-#### via lintri
-
 ### Mounting image
 
 #### via losetup
