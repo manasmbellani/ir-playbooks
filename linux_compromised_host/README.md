@@ -755,6 +755,10 @@ Then, use `grep` to search for the key changes in audit log file
 grep -r -n -i --color 'keychange' /var/log/audit.log
 ```
 
+### Look for unlocked service accounts
+
+This could be a potential backdoor where service accounts (accounts < UID 1000) don't have `/usr/sbin/nologin`, `/bin/false` in `/etc/passwd` OR `*` in `/etc/shadow` set.
+
 ### Look for ssh authorized keys
 
 #### via find
