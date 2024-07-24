@@ -278,8 +278,13 @@ Can identify interesting indicators such as email addresses, PCAPs, etc.  and th
 ```
 mkdir $BULK_EXTRACTOR_OUT_FOLDER
 bulk_extractor -o $BULK_EXTRACTOR_OUT_FOLDER $IMAGE_MEM
-strings -a -t d $IMAGE_MEM > $BULK_EXTRACTOR_OUT_FOLDER/strings.txt
+strings -a -t d $IMAGE_MEM >  | gzip  >$BULK_EXTRACTOR_OUT_FOLDER/strings.txt 
 ```
+
+Checkout interesting files such as:
+1 `url_histogram` which provides frequency of URL hits, and combine it with command for context of that URL: `zgrep -F -C3 "$string_to_search" $BULK_EXTRACTOR_OUT_FOLDER/strings.txt `
+
+Taken from Hal Pomeranz's intro to linux course > Page 56 [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/56/mode/1up)
 
 ### Look for login attempts
 
