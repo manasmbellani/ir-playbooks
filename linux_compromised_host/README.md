@@ -269,6 +269,18 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Look for interesting indicators in data 
+
+#### via bulk_extractor
+
+Can identify interesting indicators such as email addresses, PCAPs, etc.  and their frequency
+
+```
+mkdir $BULK_EXTRACTOR_OUT_FOLDER
+bulk_extractor -o $BULK_EXTRACTOR_OUT_FOLDER $IMAGE_MEM
+strings -a -t d $IMAGE_MEM > $BULK_EXTRACTOR_OUT_FOLDER/strings.txt
+```
+
 ### Look for login attempts
 
 #### via log files 
