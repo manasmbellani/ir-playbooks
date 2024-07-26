@@ -526,6 +526,15 @@ We can scan for any malware on the system as well using Neo23x0's Yara signature
 ```
 docker run -v /opt/signature-base:/opt/signature-base2 -v /mnt/disk:/data -ti fraken fraken -rules /opt/signature-base2 -folder /data
 ```
+#### via volatility3 / yarascan
+
+```
+# Compare outputs with one from a nomral machine
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime yarascan.YaraScan
+deactivate
+```
 
 ### Users with privileged access
 
