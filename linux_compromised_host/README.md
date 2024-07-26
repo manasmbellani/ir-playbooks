@@ -307,11 +307,39 @@ rkhunter --check
 #### via volatility3 / check_modules
 
 ```
+# Compare outputs with one from a nomral machine
 cd /opt/volatility3
 source venv/bin/activate
 python3 vol.py -f /root/forensics-instance.lime linux.check_modules.Check_modules
 deactivate
 ```
+
+#### via volatility3 / lsmod
+
+```
+# Compare outputs with one from a nomral machine
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.lsmod.Lsmod
+deactivate
+```
+
+https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/82/mode/1up
+
+#### via volatility3 / check_syscall
+
+```
+# Compare outputs with one from a nomral machine
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.check_syscall.Check_syscall
+deactivate
+
+# Identify unique lines
+sort syscall-output-* | uniq -u
+```
+
+https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/82/mode/1up
 
 ### Look for interesting indicators in data 
 
