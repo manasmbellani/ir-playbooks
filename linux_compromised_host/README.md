@@ -653,9 +653,9 @@ cat /proc/net/udp
 
 Taken from here: https://x.com/CraigHRowland/status/1802850038164451367
 
-#### via volatility3 / sockscan
+#### via volatility3 / sockstat
 
-List bash commands run using `volatility3`'s `sockscan.Sockscan` command:
+List bash commands run using `volatility3`'s `sockscan.Sockstat` command:
 ```
 cd /opt/volatility3
 source venv/bin/activate
