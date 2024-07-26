@@ -316,6 +316,12 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+## Look for interesting indicators in data 
+
+### via bulk_extractor
+
+See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-in-data)
+
 ### Detect for unusual processes created
 
 Processes and parent process names to look for:
