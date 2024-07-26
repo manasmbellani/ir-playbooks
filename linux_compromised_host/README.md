@@ -228,6 +228,8 @@ mount /dev/$LOOP_DEV /mnt/disk
 
 #### via LiME 
 
+Steps for loading lime module in kernel module [here](https://www.otorio.com/resources/linux-memory-forensics-part-1-memory-acquisition/) for taking memory image in Linux
+
 Taken from [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/65/mode/1up)
 
 #### via F-Response
