@@ -23,7 +23,8 @@ sudo apt-get -y install \
   exiftool \
   nmap \
   auditd \
-  xrdp
+  xrdp \
+  tshark
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
