@@ -126,6 +126,12 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+## Look for interesting indicators in data 
+
+### via bulk_extractor
+
+See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-in-data)
+
 ### Check various installed application logs
 
 Can indicate various attacks occurring within and on the app as seen in Windows [here](../win_compromised_host/README.md#check-various-installed-application-logs)
