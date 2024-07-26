@@ -234,9 +234,19 @@ Taken from [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/Pom
 
 #### via avml / dwarf2json
 If we have access to system, we can use `avml` utility from a USB disk (link [here](https://github.com/microsoft/avml)) to take an image of the instance:
+
 ```
 cd /opt/avml
 ./avml memory.lime
+```
+
+Can also use FIFO to share data. 
+
+```
+mkfifo /tmp/myfifo
+cat /tmp/myfifo | nc -w1 $REMOTE_HOST 9999 &
+cd /opt/avml
+./avml /tmp/myfifo
 ```
 
 We can run the following command on volatility3 to locate the banner and see if we can locate the symbol file with the banner on [technarchy](https://isf-server.techanarchy.net/) OR on volatility3-symbols repository [here](https://github.com/Abyss-W4tcher/volatility3-symbols). The symbols file can be downloaded and saved to the folder `/opt/volatility3/volatility3/symbols/`
