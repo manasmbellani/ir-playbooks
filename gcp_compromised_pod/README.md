@@ -322,6 +322,14 @@ See [here](../linux_compromised_host/README.md#taking-disk-image-offline)
 kubectl get events --all
 ```
 
+### Extract Roles and rolebindings for ALL roles
+
+#### via kubectl
+
+```
+kubectl get rolebinding,clusterrolebinding -o json
+```
+
 ### Taking Memory Image of Kubernetes Nodes (Live)
 
 See [here](../linux_compromised_host/README.md#taking-memory-image-live)
