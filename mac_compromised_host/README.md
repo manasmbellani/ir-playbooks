@@ -126,9 +126,9 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
-## Look for interesting indicators in data 
+### Look for interesting indicators in data 
 
-### via bulk_extractor
+#### via bulk_extractor
 
 See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-in-data)
 
