@@ -523,6 +523,18 @@ python3 vol.py -f /root/forensics-instance.lime linux.pstree.PsTree
 deactivate
 ```
 
+#### via volatility3 / pslist
+
+```
+python3 vol.py -f /root/forensics-instance.lime linux.pslist.PsList
+```
+
+#### via volatility3 / elfs
+
+```
+python3 vol.py -f /root/forensics-instance.lime linux.elf.Elfs --pid $PID
+```
+
 ### Detect environment variables for process
 
 #### via `proc` folder
