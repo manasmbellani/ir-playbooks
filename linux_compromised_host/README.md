@@ -523,6 +523,15 @@ python3 vol.py -f /root/forensics-instance.lime linux.pstree.PsTree
 deactivate
 ```
 
+#### via volatility3 / lsof
+
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.lsof.Lsof
+deactivate
+```
+
 #### via volatility3 / pslist
 
 ```
