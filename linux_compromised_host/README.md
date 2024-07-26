@@ -26,6 +26,10 @@ A number of sample disk images can be obtained from the links below:
 - https://cfreds.nist.gov/all/NIST/HackingCase
 - https://github.com/BitCurator/bitcurator-access-webtools/blob/main/disk-images/mixed/charlie-work-usb-2009-12-11.E01
 
+### Sample Volatility images
+
+- https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples
+
 ## Containment
 
 Containment of an instance depends on the technology in use which can be used for containment.
