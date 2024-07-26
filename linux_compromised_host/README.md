@@ -222,6 +222,16 @@ mount /dev/$LOOP_DEV /mnt/disk
 
 ### Taking memory image (Live)
 
+#### via LiME 
+
+Taken from [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/65/mode/1up)
+
+#### via F-Response
+
+paid tool.
+
+Taken from [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/65/mode/1up)
+
 #### via avml / dwarf2json
 If we have access to system, we can use `avml` utility from a USB disk (link [here](https://github.com/microsoft/avml)) to take an image of the instance:
 ```
@@ -258,6 +268,7 @@ deb http://ddebs.ubuntu.com $(lsb_release -cs)-proposed main restricted universe
 sudo tee -a /etc/apt/sources.list.d/ddebs.list
 apt-get -y update
 apt-get -y install linux-image-$(uname -r)-dbgsym
+find / -name vmlin\* -size +100M 2>/dev/null
 
 # Next Generate the symbols file via `dwarf2json` and the `System-map` file located in `/boot` folder
 # Steps taken from: 
