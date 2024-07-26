@@ -296,6 +296,23 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Look for rootkits
+
+#### via rkhunter
+
+```
+rkhunter
+```
+
+#### via volatility3 / check_modules
+
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f /root/forensics-instance.lime linux.check_modules.Check_modules
+deactivate
+```
+
 ### Look for interesting indicators in data 
 
 #### via bulk_extractor
