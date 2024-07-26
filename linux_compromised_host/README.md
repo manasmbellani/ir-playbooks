@@ -301,7 +301,7 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 #### via rkhunter
 
 ```
-rkhunter
+rkhunter --check
 ```
 
 #### via volatility3 / check_modules
