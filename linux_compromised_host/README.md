@@ -283,6 +283,11 @@ strings -a -t d $IMAGE_MEM >  | gzip  >$BULK_EXTRACTOR_OUT_FOLDER/strings.txt
 
 Checkout interesting files such as:
 1 `url_histogram` which provides frequency of URL hits, and combine it with command for context of that URL: `zgrep -F -C3 "$string_to_search" $BULK_EXTRACTOR_OUT_FOLDER/strings.txt `
+2 Parse `pcaps` via tshark as follows:
+```
+tshark -n -r packets.pcap -T fields -e ip.src -e tcp.srcport -e ip.dst -e tcp.dstport | sort | uniq -c
+tshark -n -r packets.pcap "tcp.srcport == 443"
+```
 
 Taken from Hal Pomeranz's intro to linux course > Page 56 [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/56/mode/1up)
 
