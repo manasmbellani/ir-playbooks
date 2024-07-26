@@ -42,6 +42,8 @@ strings -eL bin.exe
 
 ### Look for exif data
 
+- Can be very useful for analysing `.lnk` files as well
+  
 #### via exiftool
 
 ```
