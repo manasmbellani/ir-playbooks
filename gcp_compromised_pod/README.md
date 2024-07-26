@@ -93,6 +93,12 @@ gke-test-cluster-2-default-pool-dec81310-6g2c   Ready    <none>   73m   v1.27.8-
 gke-test-cluster-2-default-pool-dec81310-76c5   Ready    <none>   73m   v1.27.8-gke.1067004
 ```
 
+Optionally, we can also create a basic container using an image `ubuntu` called `ubuntupod`:
+
+```
+kubectl run --rm -it --image=ubuntu ubuntupod /bin/bash 
+```
+
 ## Containment
 
 To contain the compromised pods, we need to start by isolating likely ingress network traffic to the pods if there are any deployed services by editing the unique custom labels added to the pods.
