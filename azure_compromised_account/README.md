@@ -177,6 +177,17 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ## Analysis
 
+### Addition of new Applications to Azure 
+
+#### via Azure Unified Audit Logs (UAL)
+
+```
+# ModifiedProperties.DisplayName.NewValue contains the name of the application (seen in ElasticSearch)
+# Refer to the properties to identify `Address` which indicates redirect address for the application
+Workload: AzureActiveDirectory
+Operation: Add application
+```
+
 ### Detect activity from unusual user agents 
 
 #### via Azure AD Graph Activity Logs
