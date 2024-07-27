@@ -404,7 +404,7 @@ Access Azure portal > `Sign-In Logs`
 Authentication Protocol: Device Code
 ```
 
-#### via Azure Unified Audit Logs
+#### via Azure Unified Audit Logs (UAL)
 
 ```
 Activity: User logged in
