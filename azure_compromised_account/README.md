@@ -183,7 +183,7 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ```
 # ModifiedProperties.DisplayName.NewValue contains the name of the application (seen in ElasticSearch)
-# Refer to the properties to identify `Address` which indicates redirect address for the application
+# Refer to the ModifiedProperties.AppAddress.NewValue to identify `Address` which indicates redirect address for the application
 Workload: AzureActiveDirectory
 Operation: Add application
 ```
