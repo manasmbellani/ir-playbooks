@@ -404,6 +404,18 @@ Access Azure portal > `Sign-In Logs`
 Authentication Protocol: Device Code
 ```
 
+#### via Azure Unified Audit Logs
+
+```
+Activity: User logged in
+ExtendedProperties.RequestType: Cmsi:Cmsi 
+Item: The string for Microsoft graph or whatever resource the attacker requested 
+Application ID: The client id that the attacker was posing as - in our case it’s the id for Microsoft Office 
+IP Address: attacker IP (again you need to try find discrepancies here)
+```
+
+Taken from [here](https://www.inversecos.com/2022/12/how-to-detect-malicious-oauth-device.html) > "Method 2: Unified Audit Logs"
+
 ### List Microsoft Security alerts (e.g. DLP alerts)
 
 #### via Graph API cmdlets
