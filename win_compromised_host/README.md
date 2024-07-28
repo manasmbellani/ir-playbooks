@@ -1622,7 +1622,7 @@ deactivate
 
 ### Print specific registry key
 
-#### via volatility3 / printkey
+#### via volatility2 / printkey
 
 ```
 # Use offset from hive list to dump correct registry
@@ -1640,6 +1640,17 @@ deactivate
 ```
 
 ### dump Windows Registry Keys
+
+#### via volatility2 / dumpregistry
+
+```
+# Read the registry using virtual addresses from hivelist obtained via printkey command
+# vol -f test.raw windows.registry.printkey.PrintKey
+source /opt/volatility2/venv/bin/activate
+python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem dumpregistry-o 0xffffb50579ead000
+deactivate
+```
+Taken from [here](https://medium.com/@0xcc00/bypassing-edr-ntds-dit-protection-using-blueteam-tools-1d161a554f9f)
 
 #### via volatility2 / hivedump
 
