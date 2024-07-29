@@ -469,6 +469,20 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Check mutating webhook configuration creation
+
+- Admission controllers are used to control resource creation within a cluster prior to authentication and authorization
+- Controllers are validating, where requests are accepted/denied, or mutating, where requests are modified
+- Attacker can have requests sent to their mutating webhook server to potentially escalate privileges or establish persistence e.g. create pods with vulnerable images
+
+#### via GCP Logging Explorer
+
+```
+"MutatingWebhookConfiguration" "create"
+```
+
+Taken from [here](https://medium.com/@noah_h/top-offensive-techniques-for-kubernetes-a71399d133b2#8c82)
+
 ### Check for unusual roles / cluster roles created
 
 Can be indicative of abuse of cluster roles if attacker does create unusual cluster roles
