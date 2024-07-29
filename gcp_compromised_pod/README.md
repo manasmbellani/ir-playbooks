@@ -481,7 +481,7 @@ sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data suppor
 "MutatingWebhookConfiguration" "create"
 ```
 
-Taken from [here](https://medium.com/@noah_h/top-offensive-techniques-for-kubernetes-a71399d133b2#8c82)
+Taken from here: [1](https://medium.com/@noah_h/top-offensive-techniques-for-kubernetes-a71399d133b2#8c82), [2](https://cloud.hacktricks.xyz/pentesting-cloud/kubernetes-security/abusing-roles-clusterroles-in-kubernetes#malicious-admission-controller)
 
 ### Check for unusual roles / cluster roles created
 
