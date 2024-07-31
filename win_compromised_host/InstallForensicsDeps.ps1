@@ -76,6 +76,12 @@ if (-Not (Get-InstalledModule -Name VMWare.PowerCLI )) {
     Install-Module -Name VMWare.PowerCLI -Force -Confirm:$false
 }
 
+Write-Host "[*] Checking if we need to install AADInternals module..."
+if (-Not (Get-InstalledModule -Name AADInternals )) {
+    Write-Host "[*] Installing 'AADInternals' module..."
+    Install-Module -Name AADInternals -Force -Confirm:$false
+}
+
 Write-Host "[*] Checking if we need to install MSOnline module..."
 if (-Not (Get-InstalledModule -Name MSOnline )) {
     Write-Host "[*] Installing 'MSOnline' module..."
