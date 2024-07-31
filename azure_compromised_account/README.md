@@ -177,6 +177,23 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ## Analysis
 
+### Check for partner relationships via delegated admins 
+
+Partner relationships are partners with delegated admin privileges to the Azure account
+
+Taken from here: [1](https://github.com/WillOram/AzureAD-incident-response), [2](https://learn.microsoft.com/en-us/microsoft-365/commerce/manage-partners?view=o365-worldwide#remove-partner-admin-roles)
+#### via Azure Admin UI
+
+[Azure Admin](https://admin.microsoft.com/#/partners) > Settings > Partner Relationships
+
+#### via AADInternals
+
+```
+Import-Module AADInternals
+Get-AADIntAccessTokenForAdmin -SaveToCache
+Get-AADIntMSPartners
+```
+
 ### Addition of new Applications to Azure 
 
 #### via Azure Unified Audit Logs (UAL)
