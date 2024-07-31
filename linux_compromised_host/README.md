@@ -756,7 +756,7 @@ ausearch --start today --format text
 
 #### via grep
 
-Search the log records for interesting syscall numbers [here](https://filippo.io/linux-syscall-table/) such as `exec (55)`, `openat (257)`.
+Search the log records for interesting syscall numbers [here](https://filippo.io/linux-syscall-table/) such as `execve (59)`, `openat (257)`.
 
 Use `grep` to search based on AuditID field (timestamp:ID) merged together as described [here](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/security_guide/sec-understanding_audit_log_files#sec-Understanding_Audit_Log_Files).
 
