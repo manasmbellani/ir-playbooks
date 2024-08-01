@@ -249,10 +249,21 @@ Taken from [here](https://cloudbrothers.info/en/detect-threats-microsoft-graph-l
 
 ### Detect self-service password resets
 
+Look particularly closely for accounts like `SYNC_*` eg `Sync_SKIURT-JAUYEH_123123123123@domain.onmicrosoft.com` OR `MSOL_*` eg. `MSOL_<installationID>` as discussed [here](https://cloud.hacktricks.xyz/pentesting-cloud/azure-security/az-lateral-movement-cloud-on-prem/azure-ad-connect-hybrid-identity/phs-password-hash-sync) for abuse via `AADInternals` which abuse password hash synchronization.
+
 #### via AzureADIncidentResponse
 
 ```
 Get-AzureADIRSsprUsageHistory -TenantId $TenantId
+```
+
+#### via Azure AD Audit Logs
+
+```
+# DisplayName, UserPrincipalName show the users that had their password reset
+# Intitiated By reflects the user that initiated the password reset
+Activity Type = Reset Password
+Category = UserManagement
 ```
 
 ### Getting the tenant ID
