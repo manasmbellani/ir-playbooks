@@ -52,6 +52,16 @@ Taken from [here](https://docs.snowflake.com/en/user-guide/network-policies#abou
 
 ## Analysis
 
+### Check for any data shares
+
+This could indicate exfiltration mechanism where a threat actor has shared some data outside organization (any unusual activity).
+
+Taken from [link](https://www.obsidiansecurity.com/blog/a-practical-guide-to-handling-unauthorized-access-to-snowflake/) > `E) Suspend Recent Data Shares` 
+
+#### via UI
+
+Options available under `Snowflake UI` > `Data Products` > `Private Sharing`
+
 ### Privilege Escalation Actions
 
 #### via SQL  / QUERY_HISTORY table
