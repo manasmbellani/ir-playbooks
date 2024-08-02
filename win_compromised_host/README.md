@@ -318,11 +318,14 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 ### Detect startup programs
 
-#### via autorunsc
+#### via autorunsc64
 
 ```
+# Pre-requisite: Requires Arsenal Image Mounter
 autorunsc64.exe -a * -c -h -s '*' -z C:\Windows C:\Users\Administrator
 ```
+
+Taken from [here](https://www.sans.org/blog/offline-autoruns-revisited-auditing-malware-persistence/)
 
 ### Look for interesting indicators in data 
 
