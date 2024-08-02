@@ -379,10 +379,13 @@ More info [here](https://learn.microsoft.com/en-us/windows/win32/api/processthre
 ### Detect for unusual file changes 
 
 Key files to look for include:
+
 ```
 # Persistence locations
 C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\vbsstartup.vbs
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\vbsstartup.vbs"
+# Taken from: https://github.com/DCScoder/Noisy-Cricket/blob/main/Noisy_Cricket.ps1
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 11
