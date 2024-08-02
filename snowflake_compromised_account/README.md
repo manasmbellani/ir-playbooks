@@ -46,6 +46,8 @@ Taken from [here](https://community.snowflake.com/s/article/Communication-ID-010
 
 #### via Network Policy / Network Rules
 
+Snowflake > Admin > Security > Create Network Rule
+
 Taken from [here](https://docs.snowflake.com/en/user-guide/network-policies#about-network-policies)
 
 ## Collection
