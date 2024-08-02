@@ -321,7 +321,7 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 #### via autorunsc64
 
 ```
-# Pre-requisite: Requires Arsenal Image Mounter
+# Pre-requisite: Requires Arsenal Image Mounter to take an image of the system
 autorunsc64.exe -a * -c -h -s '*' -z C:\Windows C:\Users\Administrator
 ```
 
