@@ -400,6 +400,58 @@ Keys to look for include:
 # Boot or Logon Autostart Execution: Registry Run Keys, https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1547.001/T1547.001.md#atomic-test-1---reg-key-run
 HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx\0001\Depend
+
+# Taken from: https://github.com/persistence-info/persistence-info.github.io/blob/main/Data/diskcleanuphandler.md
+`HKCR\CLSID\{52A2AAAE-085D-4187-97EA-8C30DB990436}\InprocServer32`
+`HKCR\CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\shell\`
+`HKCR\CLSID`
+`HKCU\Control Panel\Desktop`
+`HKCU\Environment`
+`HKCU\Environment` set `UserInitMprLogonScript`
+`HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`
+`HKCU\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services`
+`HKCU\Software\Microsoft\Command Processor\AutoRun`
+`HKCU\Software\Microsoft\HtmlHelp Author`
+`HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows`
+`HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce`
+`HKCU\txtfile\shell\open\command`
+`HKLM\SOFTWARE\Classes\CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\shell\`
+`HKLM\SOFTWARE\Classes\CLSID`
+`HKLM\SOFTWARE\Classes`
+`HKLM\SOFTWARE\Microsoft\AMSI\Providers`
+`HKLM\SOFTWARE\Microsoft\Cryptography\OID`
+`HKLM\SOFTWARE\Microsoft\Cryptography\Providers`
+`HKLM\SOFTWARE\Microsoft\NetSh`
+`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AeDebug`
+`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController`
+`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\`
+`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options`
+`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\GPExtensions`
+`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`
+`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` registry key, the exe will be loaded by the `winlogon.exe`
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer`
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\`
+`HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services`
+`HKLM\SYSTEM\CurrentControlSet\Control\BootVerificationProgram`
+`HKLM\SYSTEM\CurrentControlSet\Control\LsaExtensionConfig\LsaSrv`
+`HKLM\SYSTEM\CurrentControlSet\Control\Lsa`
+`HKLM\SYSTEM\CurrentControlSet\Control\NetworkProvider\Order`
+`HKLM\SYSTEM\CurrentControlSet\Control\Print\Monitors`
+`HKLM\SYSTEM\CurrentControlSet\Control\Session Manager`
+`HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\StartupPrograms`
+`HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
+`HKLM\SYSTEM\CurrentControlSet\Services\<...>\NetworkProvider`
+`HKLM\SYSTEM\CurrentControlSet\Services\DNS\Parameters`
+`HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\AutodialDLL`
+`HKLM\SYSTEM\CurrentControlSet\Services`
+`HKLM\Software\Classes`
+`HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify`
+`HKLM\Software\Microsoft\Windows\Windows Error Reporting\Hangs\ Debugger = <executable>`
+`HKLM\Software\Microsoft\Windows\Windows Error Reporting\Hangs`
+`HKLM\System\CurrentControlSet\Control\ContentIndex\Language\English_UK`
+`HKLM\System\CurrentControlSet\Control\ContentIndex\Language\English_US`
+`HKLM\System\CurrentControlSet\Control\ContentIndex\Language\Neutral`
+`HKLM\System\CurrentControlSet\Control\ContentIndex\Language`
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 13
