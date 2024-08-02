@@ -316,6 +316,14 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect startup programs
+
+#### via autorunsc
+
+```
+autorunsc64.exe -a * -c -h -s '*' -z C:\Windows C:\Users\Administrator
+```
+
 ### Look for interesting indicators in data 
 
 #### via bulk_extractor
@@ -383,7 +391,7 @@ Key files to look for include:
 ```
 # Persistence locations
 C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\vbsstartup.vbs
-C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\vbsstartup.vbs"
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\vbsstartup.vbs
 # Taken from: https://github.com/DCScoder/Noisy-Cricket/blob/main/Noisy_Cricket.ps1
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\
 ```
