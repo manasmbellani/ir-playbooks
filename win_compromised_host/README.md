@@ -411,6 +411,10 @@ HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
 HKLM:\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce
 HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
 
+# AutoProxyTypes, taken from: https://www.hexacorn.com/blog/2017/10/05/beyond-good-ol-run-key-part-66/
+HKCR\AutoProxyTypes
+
+
 # Persistence Mechansims via Registry keys taken from: https://github.com/persistence-info/persistence-info.github.io/blob/main/Data/diskcleanuphandler.md
 `HKCR\CLSID\{52A2AAAE-085D-4187-97EA-8C30DB990436}\InprocServer32`
 `HKCR\CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\shell\`
