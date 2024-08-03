@@ -364,7 +364,7 @@ Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_
 
 ```
 # Look for TargetFileName, ProcessID fields (Process that created the key) AND Target Object
-Event ID = 11 (Process Create)
+Event ID = 1 (Process Create)
 Channel = Microsoft-Windows-Sysmon/Operational
 ```
 
@@ -372,6 +372,32 @@ Channel = Microsoft-Windows-Sysmon/Operational
 
 ```
 # Look for New Process Name, New Process ID fields 
+Event ID = 4688 (A new process has been created)
+Channel = Security
+```
+
+### Detection for unusual parent processes commands
+
+Look for unusual parent processes such as:
+
+```
+# Lateral movement detection via wmi with unusual commands, such as `cmd.exe /q /c [command] 1> \\127.0.0.1\admin$\__[file] 2>&1`
+# Taken from: https://labs.withsecure.com/publications/attack-detection-fundamentals-discovery-and-lateral-movement-lab-5
+wmiprvse.exe
+```
+
+#### via Windows Event Logs / Event 1
+
+```
+# Look at ParentProcessCommandLine
+Event ID = 1 (Process Create)
+Channel = Microsoft-Windows-Sysmon/Operational
+```
+
+#### via Windows Event Logs / Event 4688
+
+```
+# Look for Create Process Name
 Event ID = 4688 (A new process has been created)
 Channel = Security
 ```
