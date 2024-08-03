@@ -706,7 +706,9 @@ $HOME/.config/systemd
 [/var]/run/user/*/systemd/transient/*.{timer,service}
 ```
 
-### Build timeline
+### Build a timeline
+
+Review the key artifacts to explore [here](../win_compromised_host/README.md#build-a-timeline)
 
 #### via journalctl
 
