@@ -346,6 +346,7 @@ schtasks.exe
 scrcons.exe
 regsvr32.exe
 hh.exe
+# Eg for deleting volume shadow copies: wmic.exe Shadowcopy Delete
 wmic.exe
 mshta.exe
 msiexec.exe
@@ -360,10 +361,16 @@ DumpIt.exe
 wmiprvse.exe
 # See detection [here](#detection-of-winrm-shell--powershell-remote-session) for Windows Powershell remoting
 wsmprovhost.exe
+# Ransomware related command eg sc config "Netbackup Legacy Network service" start= disabled	
+sc
+# Ransomware command lines e.g. `bcdedit   /set {default}`, bcdedit   /set {default} recoveryenabled No to disable automatic repair
+# References: https://www.tenforums.com/tutorials/90923-enable-disable-automatic-repair-windows-10-a.html
+bcdedit
+# Look for indications of back volume shadow copies being deleted eg vssadmin.exe Delete Shadows /all /quiet	
+vssadmin.exe
 ```
 
 Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_sigma_rule.yml), [2](https://detection.fyi/sigmahq/sigma/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program/)
-
 
 #### via Windows Event Logs / Sysmon / Event ID 1
 
