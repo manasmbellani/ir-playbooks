@@ -316,6 +316,25 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect unusual usb device insertions
+
+Can display malicious disks being inserted into the device
+
+#### via Windows Event Audit Logs / EventID 6416
+
+Detects USB Device Name, USB Device ID
+
+```
+EventID: 6416
+Provider: Microsoft-Windows-Security-Auditing
+```
+
+More info [here](https://www.manageengine.com/products/active-directory-audit/process-tracking-events/event-id-6416.html#:~:text=When%20the%20system%20recognizes%20a,event%20ID%206416%20is%20logged.)
+
+#### via Windows Event Audit Logs / EventID 1, 4688
+
+Look for keyword in file paths e.g.  `E:\.....png` 
+
 ### Detect startup programs
 
 #### via autorunsc64
