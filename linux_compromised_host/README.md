@@ -435,6 +435,15 @@ Taken from [here](https://github.com/clausing/scripts/blob/master/linux-pkgs.sh)
 
 ### Files Recently Changed
 
+Can be indicative of unusual activity from threat actor
+
+#### via auditd logs / openat / syscall 257
+
+```
+# Detects both files created and opened
+SYSCALL=257
+```
+
 #### via find
 
 ```
@@ -770,7 +779,6 @@ Review logs for various apps to detect attacks like log4j similar to described i
 sudo journalctl -u spring-boot-application
 ```
   
-### Check cron scheduled tasks
 
 #### via cron logs
 
