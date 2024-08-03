@@ -167,4 +167,8 @@ Through file: `/var/log/com.apple.xpc.launchd/launchd.log`. Example:
 find . -ctime -1d
 ```
 
+### Build a timeline 
+
+Review the key artifacts to explore [here](../win_compromised_host/README.md#build-a-timeline)
+
 ## Recovery
