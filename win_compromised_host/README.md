@@ -335,6 +335,15 @@ See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-i
 
 ### Detect for unusual powershell sessions
 
+Look for interesting keywords in commands OR in powershell:
+
+```
+Invoke-Computer
+# Powershell remoting e.g. Invoke-Command -ComputerName $computer -ScriptBlock { ...<powershell code> } -ArgumentList ...
+
+Invoke-Command 
+```
+
 #### via windows process logging / event ID 1 with powershell.exe or pwsh.exe  
 
 See [here](#detect-for-unusual-processes-and-parent-processes-created)
