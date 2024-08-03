@@ -333,7 +333,7 @@ Taken from [here](https://www.sans.org/blog/offline-autoruns-revisited-auditing-
 
 See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-in-data)
 
-### Detect for unusual processes created
+### Detect for unusual processes and parent processes created
 
 Processes and parent process names to look for:
 ```
@@ -355,6 +355,11 @@ certutil.exe
 FTKImager.exe
 # https://medium.com/@0xcc00/bypassing-edr-ntds-dit-protection-using-blueteam-tools-1d161a554f9f
 DumpIt.exe
+# Lateral movement detection via wmi with unusual commands, such as `cmd.exe /q /c [command] 1> \\127.0.0.1\admin$\__[file] 2>&1`
+# Taken from: https://labs.withsecure.com/publications/attack-detection-fundamentals-discovery-and-lateral-movement-lab-5
+wmiprvse.exe
+# See detection [here](#detection-of-winrm-shell--powershell-remote-session) for Windows Powershell remoting
+wsmprovhost.exe
 ```
 
 Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_sigma_rule.yml), [2](https://detection.fyi/sigmahq/sigma/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program/)
@@ -372,32 +377,6 @@ Channel = Microsoft-Windows-Sysmon/Operational
 
 ```
 # Look for New Process Name, New Process ID fields 
-Event ID = 4688 (A new process has been created)
-Channel = Security
-```
-
-### Detection for unusual parent processes commands
-
-Look for unusual parent processes such as:
-
-```
-# Lateral movement detection via wmi with unusual commands, such as `cmd.exe /q /c [command] 1> \\127.0.0.1\admin$\__[file] 2>&1`
-# Taken from: https://labs.withsecure.com/publications/attack-detection-fundamentals-discovery-and-lateral-movement-lab-5
-wmiprvse.exe
-```
-
-#### via Windows Event Logs / Event 1
-
-```
-# Look at ParentProcessCommandLine
-Event ID = 1 (Process Create)
-Channel = Microsoft-Windows-Sysmon/Operational
-```
-
-#### via Windows Event Logs / Event 4688
-
-```
-# Look for Create Process Name
 Event ID = 4688 (A new process has been created)
 Channel = Security
 ```
