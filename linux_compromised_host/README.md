@@ -674,19 +674,29 @@ Parse the journal files in `/var/log/journal`:
 journalctl --file  /var/log/journal/993ae8921ac5f23a34cd3a99b9ba8ce6/system.journal -o verbose
 ```
 
-### List System timer scheduled tasks
+### Check scheduled tasks
 
-Timers allow users to schedule tasks similar to cron jobs
+System Timers allow users to schedule tasks similar to cron jobs
 
 See [here](https://righteousit.com/2024/05/05/systemd-timers/) for more details
 
-#### via systemctl
+#### via auditd log / syscall 257 / SYSCALL=openat
+
+```
+"openat"
+```
+
+#### via cron log 
+
+See [here](#via-cron-log)
+
+#### via systemctl / system timer
 
 ```
 systemctl list-timers -l --all
 ```
 
-#### via local file locations
+#### via system timer / local file locations
 
 ```
 /usr/lib/systemd/system/*.{timer,service}
