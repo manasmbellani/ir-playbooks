@@ -333,6 +333,21 @@ Taken from [here](https://www.sans.org/blog/offline-autoruns-revisited-auditing-
 
 See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-in-data)
 
+### Detect for unusual powershell sessions
+
+#### via powershell scriptblock logging / event ID 4104
+
+```
+# Look for TargetFileName, ProcessID fields (Process that created the key) AND Target Object
+Event ID = 4104 (Powershell)
+Channel = Microsoft-Windows-PowerShell/Operational
+```
+
+Example Elastic Search:
+```
+cloud.instance.name:dc AND winlog.event_id:* AND (event.code:1 OR event.code:4104)
+```
+
 ### Detect for unusual processes and parent processes created
 
 Processes and parent process names to look for:
