@@ -1862,6 +1862,13 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\MFTECmd.exe -f 'C:\Windows\Temp\
 
 ### Check created and deleted files 
 
+#### via windows sysmon event ID 26 / windows sysmon event ID 23
+
+```
+EventID: 23
+Channel: Microsoft-Windows-Sysmon/Operational
+```
+
 #### via Usn Journal ($J)
 
 Extract the USN Journal which can contain useful information about created and deleted files as described [here](https://x.com/inversecos/status/1453588917337268233?s=20)
