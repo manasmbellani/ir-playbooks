@@ -1601,6 +1601,12 @@ deactivate
 
 ### Build a timeline
 
+*Key Artifacts* to focus on for a high-level idea:
+- Command Executions / CommandLine (e.g. sysmon process create )
+- Command Scripting Interpreter (e.g. powershell, bash)
+- Scheduled Jobs (e.g. scheduled tasks)
+- File Opened / Creations
+
 #### via volatility3 / timeliner.Timeliner
 
 Runs all volatility3 modules to ensure that timeline is built
