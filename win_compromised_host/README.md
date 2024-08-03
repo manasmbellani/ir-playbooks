@@ -456,8 +456,12 @@ Key files to look for include:
 # Persistence locations
 C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\vbsstartup.vbs
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\vbsstartup.vbs
+
 # Taken from: https://github.com/DCScoder/Noisy-Cricket/blob/main/Noisy_Cricket.ps1
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\
+
+# Files being copied across aka exfiltration e.g. to `E:` drives as seen in `Airgapped` in `Aceresponder` challenge will create file in `E:` or other drive letters.
+Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 11
