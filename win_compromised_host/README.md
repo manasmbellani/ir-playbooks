@@ -335,6 +335,10 @@ See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-i
 
 ### Detect for unusual powershell sessions
 
+#### via windows process logging / event ID 1 with powershell.exe or pwsh.exe  
+
+See [here](#detect-for-unusual-processes-and-parent-processes-created)
+
 #### via powershell scriptblock logging / event ID 4104
 
 ```
