@@ -338,10 +338,12 @@ See [here](../linux_compromised_host/README.md#look-for-interesting-indicators-i
 Look for interesting keywords in commands OR in powershell:
 
 ```
-Invoke-Computer
-# Powershell remoting e.g. Invoke-Command -ComputerName $computer -ScriptBlock { ...<powershell code> } -ArgumentList ...
+# interesting argument in commands normally observed
+powershell.exe  -ExecutionPolicy Bypass
 
-Invoke-Command 
+# To invoke commands on one or more computers
+# Powershell remoting e.g. Invoke-Command -ComputerName $computer -ScriptBlock { ...<powershell code> } -ArgumentList ...
+Invoke-Command -ComputerName $computer ...
 ```
 
 #### via windows process logging / event ID 1 with powershell.exe or pwsh.exe  
