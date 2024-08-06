@@ -535,6 +535,7 @@ HKCR\AutoProxyTypes
 # More info: https://pentestlab.blog/2020/01/13/persistence-image-file-execution-options-injection/#:~:text=Image%20File%20Execution%20Options%20is,%E2%80%9CGlobalFlag%E2%80%9D%20for%20application%20debugging.
 `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\`
 `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options`
+'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit'
 
 `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\GPExtensions`
 `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`
