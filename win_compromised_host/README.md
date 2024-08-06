@@ -395,28 +395,44 @@ schtasks.exe
 scrcons.exe
 regsvr32.exe
 hh.exe
+
 # Eg for deleting volume shadow copies: wmic.exe Shadowcopy Delete
 wmic.exe
 mshta.exe
 msiexec.exe
 bitsadmin.exe
 certutil.exe
+
 # https://medium.com/@0xcc00/bypassing-edr-ntds-dit-protection-using-blueteam-tools-1d161a554f9f
 FTKImager.exe
+
 # https://medium.com/@0xcc00/bypassing-edr-ntds-dit-protection-using-blueteam-tools-1d161a554f9f
 DumpIt.exe
+
 # Lateral movement detection via wmi with unusual commands, such as `cmd.exe /q /c [command] 1> \\127.0.0.1\admin$\__[file] 2>&1`
 # Taken from: https://labs.withsecure.com/publications/attack-detection-fundamentals-discovery-and-lateral-movement-lab-5
 wmiprvse.exe
+
 # See detection [here](#detection-of-winrm-shell--powershell-remote-session) for Windows Powershell remoting
 wsmprovhost.exe
+
 # Ransomware related command eg sc config "Netbackup Legacy Network service" start= disabled	
 sc
+
 # Ransomware command lines e.g. `bcdedit   /set {default}`, bcdedit   /set {default} recoveryenabled No to disable automatic repair
 # References: https://www.tenforums.com/tutorials/90923-enable-disable-automatic-repair-windows-10-a.html
 bcdedit
+
 # Look for indications of back volume shadow copies being deleted eg vssadmin.exe Delete Shadows /all /quiet	
 vssadmin.exe
+
+# Identified WERFault as parent process in image file execution options execution.
+# More info here: https://pentestlab.blog/2020/01/13/persistence-image-file-execution-options-injection/#:~:text=Image%20File%20Execution%20Options%20is,%E2%80%9CGlobalFlag%E2%80%9D%20for%20application%20debugging.
+werfault.exe
+
+# Legitimate binaries being created by unusual processes eg. running in Downloads, Temp folder
+# Can be indicative of Process Hollowing as seen in `Run of the Mill` `Ace Responder` exercise e.g
+C:\Users\Administrator\Downloads\explore.exe -> C:\Windows\System32\notepad.exe OR iexplore.exe (Internet Explorer)
 ```
 
 Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_sigma_rule.yml), [2](https://detection.fyi/sigmahq/sigma/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program/)
