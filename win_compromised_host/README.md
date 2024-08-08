@@ -638,6 +638,14 @@ Get-WSManInstance -ResourceUri Shell -Enumerate
 
 Taken from [here](https://jdhitsolutions.com/blog/powershell/7712/answering-the-wsman-powershell-challenge/)
 
+#### via Windows Sysmon Event Logs / 4688 (A new process has been created)
+
+```
+Provider = Microsoft-Windows-Security-Auditing
+EventID = 4688
+New Process Name = *\wsmprovhost.exe
+```
+
 #### via Windows Sysmon Event Logs / 1 (Process Create)
 
 ```
