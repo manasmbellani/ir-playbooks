@@ -316,6 +316,19 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect for unusual Windows services creations
+
+Monitor for usage of new services which can be indicative of persistence techniques e.g. via modification of binary to system.
+
+#### via Windows Event Logs / 7045 / 7036 / 7040 / 4697
+```
+EventID=7045 (service was installed on system) OR EventID=7040 (The start type of the ... service was changed from auto start to demand start) OR EventID=7036 (The ... service entered the stopped state.)
+Provider=Service Control Manager
+OR 
+EventID=4697 (A service was installed in the system)
+Provider=Microsoft-Windows-Security-Auditing
+```
+
 ### Detect unusual file share usage
 
 Monitor for usage of shares like `ADMIN$`, `IPC$`, `C$` and unusual file names which can be indicative of PsExec being used for access within the environment for file staging. See more info [here](https://research.splunk.com/endpoint/f63c34fe-a435-11eb-935a-acde48001122/)
