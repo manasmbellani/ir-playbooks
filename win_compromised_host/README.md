@@ -316,6 +316,18 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detect unusual file share usage
+
+Monitor for usage of shares like `ADMIN$`, `IPC$`, `C$` and unusual file names which can be indicative of PsExec being used for access within the environment for file staging. See more info [here](https://research.splunk.com/endpoint/f63c34fe-a435-11eb-935a-acde48001122/)
+
+#### via Windows Event Audit Logs / Event ID 5145
+
+```
+# 'Share Name' is the name of the share, and 'Relative Target Name' is the name of the file in the share
+EventID=5145
+Provider=Microsoft-Windows-Security-Auditing
+```
+
 ### Detect unusual usb device insertions
 
 Can display malicious disks being inserted into the device
@@ -325,8 +337,8 @@ Can display malicious disks being inserted into the device
 Detects USB Device Name, USB Device ID
 
 ```
-EventID: 6416
-Provider: Microsoft-Windows-Security-Auditing
+EventID=6416
+Provider=Microsoft-Windows-Security-Auditing
 ```
 
 More info [here](https://www.manageengine.com/products/active-directory-audit/process-tracking-events/event-id-6416.html#:~:text=When%20the%20system%20recognizes%20a,event%20ID%206416%20is%20logged.)
