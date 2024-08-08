@@ -740,6 +740,7 @@ Search for `1.3.6.1.4.1.311.20.2.1` in all logs and focus on certificate service
 
 ```
 # LogonType = 5 PSExec?
+# Also, for LogonType = 3, Look for non-null Source Network Address as those are likely the more malicious attempts
 Channel = Security
 EventID=4624 (An account was successfully logged on) OR 4625 (An account failed to log on)
 LogonType = 2 (Interactive) OR 3 (Network) OR 5 (Service started by Service Control Manager) 8 (NetworkClearText)
