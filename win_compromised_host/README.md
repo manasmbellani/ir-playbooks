@@ -742,7 +742,7 @@ If an attacker gets a certificate with the Certificate Request Agent EKU (`1.3.6
 
 Search for `1.3.6.1.4.1.311.20.2.1` in all logs and focus on certificate services logs
 
-### Detection of unusual authentication attempts
+### Detection of unusual authentication attempts / logon attempts
 
 - Look for PSExec attempts (which is typically `LogonType=5`)
 - Look for non-null source network address as these are likely malicious attempts (`LogonType=3`)
@@ -1245,7 +1245,17 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/
 deactivate
 ```
 
-### Network Connections / Sockets
+### Detect unusual Network Connections / Sockets
+
+- Look for unusual outbound connectivity via network connection logs e.g. FTP (port 21) as discussed [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?utm_source=share&utm_medium=member_ios)
+
+
+#### via Windows Event Sysmon Logs / Event ID 3
+
+```
+EventID = 3 (Network Connection)
+Channel = Microsoft-Windows-Sysmon/Operational
+```
 
 #### via volatility2 / netscan
 
@@ -1318,6 +1328,7 @@ source /opt/volatility2/venv/bin/activate
 python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem connections
 deactivate
 ```
+
 
 ### Determine installed powershell version
 
