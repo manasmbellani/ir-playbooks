@@ -1259,6 +1259,13 @@ ngrok-agent.com
 equinox.io
 ```
 
+- Look for unusual processes making DNS queries e.g.
+```
+# For e.g. with excel canarytokens from canarytokens.org
+Excel.exe
+Word.exe
+```
+
 #### via Windows Event Sysmon Logs / EventID 22
 
 ```
