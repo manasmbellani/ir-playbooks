@@ -4,10 +4,12 @@
     Run in Windows Powershell v5.1
 
     Additional Steps:
-    	* Ensure that additional logging is setup as defined in README.md#scenario-setup especially for ADCS
+    	* Install Microsoft Office 2007 using key in my-notes
+        * Ensure that additional logging is setup as defined in README.md#scenario-setup especially for ADCS
         * If error of .net6 from EZ Tools, open one of the binaries and install .NET version via the dialog box shown
 	* Configure Windows visual studio manually with C# and C++ desktop tools via $INSTALL_LOCATION\VisualStudio\vs_community.exe
 	  (C# - .NET Desktop Development, C++ - Desktop Development with C++)
+        
    	
 #>
 
@@ -670,6 +672,15 @@ if(-Not (Test-Path "$INSTALL_LOCATION\VisualStudio")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\VisualStudio\vs_community.exe")
 }
 
+if(-Not (Test-Path "$INSTALL_LOCATION\mo2007")) {
+    Write-Host "[*] Making directory mo2007..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\mo2007"
+
+    Write-Host "[*] Downloading mo 2007 binary installer..."
+    $url = "https://github.com/manasmbellani/splunkfiles/raw/master/mo2007.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\mo2007\mo2007.zip")
+}
+
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
     Write-Host "[*] Making flag-audit-config to state that audit logging has been configured..."
     New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-audit-config"
@@ -718,3 +729,5 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
     # $command = '& gpupdate /force'
     # Invoke-Expression "$command"
 }
+
+
