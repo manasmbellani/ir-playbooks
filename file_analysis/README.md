@@ -247,7 +247,7 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\EZViewer\EZViewer.exe > Select f
 
 ## Linux
 
-## Office Files 
+## Microsoft Office Files 
 
 ### Convert to Zip and search for interesting artifacts such as emails
 
