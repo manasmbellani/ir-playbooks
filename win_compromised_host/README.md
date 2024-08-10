@@ -1426,7 +1426,11 @@ Get-ChildItem  -Recurse -Path $FolderToCheck | %{$ads = Get-Content $_.FullName 
 
 Filter for `.Zone.Identifer` files especially in Downloads folder in Autopsy
 
-### Command Lines
+### Look for unusual Command Lines
+
+#### via Windows Event Sysmon Logs / Event ID 4688
+
+See [here](#detect-for-unusual-processes-and-parent-processes-created)
 
 #### via volatility2 / cmdscan
 
