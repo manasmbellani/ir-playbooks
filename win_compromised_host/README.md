@@ -1245,6 +1245,21 @@ python2.7 /opt/volatility2/vol.py --profile=WinXPSP2x86 -f ~/vulnhub/letsdefend/
 deactivate
 ```
 
+### Detect unusual Network DNS queries
+
+- Look for unusual DNS lookups e.g.
+```
+# Indicative of ngrok usage within Windows. See https://www.huntress.com/blog/abusing-ngrok-hackers-at-the-end-of-the-tunnel
+ngrok-agent.com
+```
+
+#### via Windows Event Sysmon Logs / EventID 22
+
+```
+EventID=22
+Channel = Microsoft-Windows-Sysmon/Operational
+```
+
 ### Detect unusual Network Connections / Sockets
 
 - Look for unusual outbound connectivity via network connection logs e.g. FTP (port 21) as discussed [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?utm_source=share&utm_medium=member_ios)
