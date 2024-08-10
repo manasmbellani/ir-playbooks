@@ -319,6 +319,21 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 ### Detect for unusual Windows services creations
 
 Monitor for usage of new services which can be indicative of persistence techniques e.g. via modification of binary to system.
+Some unusual service names can be: 
+```
+# Indicates a pivoting tunnel  from cloudflare, called cloudflared. See https://x.com/malmoeb/status/1736995855482118314?s=46&t=WvGY79Umt5enRwgCbi4TQQ
+CloudFlared agent
+```
+
+#### via Windows Sysmon Event Logs / 13
+
+```
+# replace $SERVICE_NAME to be anything 
+EventID=13 (Registry value set)
+Image=C:\Windows\system32\services.exe
+Provider=Microsoft-Windows-Sysmon/Operational
+TargetObject=HKLM\System\CurrentControlSet\Services\$SERVICE_NAME\Start
+```
 
 #### via Windows Event Logs / 7045 / 7036 / 7040 / 4697
 ```
@@ -1257,6 +1272,8 @@ deactivate
 ngrok-agent.com
 # equinox.io is for distributing Golang packaged apps eg ngrok. See https://equinox.io, https://ngrok.com/docs/guides/device-gateway/linux/
 equinox.io
+# CloudFlared - https://x.com/malmoeb/status/1736995855482118314, https://www.guidepointsecurity.com/blog/tunnel-vision-cloudflared-abused-in-the-wild/
+argotunnel.com
 ```
 
 - Look for unusual processes making DNS queries e.g.
