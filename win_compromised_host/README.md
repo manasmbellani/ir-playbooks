@@ -321,7 +321,7 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 Monitor for usage of new services which can be indicative of persistence techniques e.g. via modification of binary to system.
 Some unusual service names can be: 
 ```
-# Indicates a pivoting tunnel  from cloudflare, called cloudflared. See https://x.com/malmoeb/status/1736995855482118314?s=46&t=WvGY79Umt5enRwgCbi4TQQ
+# Indicates a pivoting tunnel  from cloudflare, called cloudflared. See https://x.com/malmoeb/status/1736995855482118314?s=46&t=WvGY79Umt5enRwgCbi4TQQ, https://www.guidepointsecurity.com/blog/tunnel-vision-cloudflared-abused-in-the-wild/
 CloudFlared agent
 ```
 
