@@ -254,5 +254,6 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\EZViewer\EZViewer.exe > Select f
 ```
 cp $FILENAME.docx $FILENAME.zip
 unzip $FILENAME.zip
+# In Windows, findstr /I /S *
 grep -r -n -i -o -E "https?://" .
 ```
