@@ -252,7 +252,7 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\EZViewer\EZViewer.exe > Select f
 ### Convert to Zip and search for interesting artifacts such as emails
 
 ```
-mv $FILENAME.docx $FILENAME.zip
+cp $FILENAME.docx $FILENAME.zip
 unzip $FILENAME.zip
 grep -r -n -i -o -E "https?://" .
 ```
