@@ -1262,7 +1262,14 @@ Channel = Microsoft-Windows-Sysmon/Operational
 
 ### Detect unusual Network Connections / Sockets
 
-- Look for unusual outbound connectivity via network connection logs e.g. FTP (port 21) as discussed [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?utm_source=share&utm_medium=member_ios)
+- Look for unusual outbound connectivity via network connection logs e.g.
+
+```
+# As discussed [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?utm_source=share&utm_medium=member_ios)
+FTP (port 21)
+# E.g. for ocnnectivity to ngrok agents, as an example
+Destination IP: Amazon IP addresses
+```
 
 
 #### via Windows Event Sysmon Logs / Event ID 3
