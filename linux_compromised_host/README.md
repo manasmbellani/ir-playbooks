@@ -296,6 +296,28 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Look for unusual services
+
+Such as:
+```
+# Indicates a cloudflared tunnel eg https://x.com/malmoeb/status/1736995855482118314?s=46&t=WvGY79Umt5enRwgCbi4TQQ
+cloudflared
+# Indicates ngrok tunnel for privoting
+ngrok
+```
+
+#### via auditd logs / systemctl
+
+```
+cat /var/log/audit/audit.log | grep -i systemctl
+```
+
+#### via systemctl
+
+```
+systemctl list-unit-files
+```
+
 ### Look for rootkits
 
 #### via rkhunter
