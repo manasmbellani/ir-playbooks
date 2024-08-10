@@ -1428,7 +1428,13 @@ Filter for `.Zone.Identifer` files especially in Downloads folder in Autopsy
 
 ### Look for unusual Command Lines
 
-#### via Windows Event Sysmon Logs / Event ID 4688
+Look for:
+```
+# See https://www.huntress.com/blog/abusing-ngrok-hackers-at-the-end-of-the-tunnel > `What Is Conhost.exe?`
+renamed processes masquerading as `conhost.exe` or `cmd.exe` but in reality are ngrok.exe
+```
+
+#### via Windows Event Sysmon Logs / Event ID 4688, Event ID 1
 
 See [here](#detect-for-unusual-processes-and-parent-processes-created)
 
