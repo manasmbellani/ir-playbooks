@@ -251,6 +251,13 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\EZViewer\EZViewer.exe > Select f
 
 ### Convert to Zip and search for interesting artifacts such as emails
 
+- Look for unusual HTTP paths being called eg
+```
+# ignoring `http://openxml` paths as described  [here](https://www.4armed.com/blog/exploiting-xxe-with-excel/)
+```
+
+#### via grep / findstr
+
 ```
 cp $FILENAME.docx $FILENAME.zip
 unzip $FILENAME.zip
