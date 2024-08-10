@@ -306,6 +306,12 @@ cloudflared
 ngrok
 ```
 
+#### via /etc/system/systemd services
+
+```
+ls -l /etc/system/systemd/*
+```
+
 #### via auditd logs / systemctl
 
 ```
