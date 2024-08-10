@@ -1251,6 +1251,8 @@ deactivate
 ```
 # Indicative of ngrok usage within Windows. See https://www.huntress.com/blog/abusing-ngrok-hackers-at-the-end-of-the-tunnel
 ngrok-agent.com
+# equinox.io is for distributing Golang packaged apps eg ngrok. See https://equinox.io, https://ngrok.com/docs/guides/device-gateway/linux/
+equinox.io
 ```
 
 #### via Windows Event Sysmon Logs / EventID 22
