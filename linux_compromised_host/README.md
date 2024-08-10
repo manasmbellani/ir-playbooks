@@ -318,6 +318,12 @@ ls -l /etc/system/systemd/*
 cat /var/log/audit/audit.log | grep -i systemctl
 ```
 
+#### via service
+
+```
+service --status-all
+```
+
 #### via systemctl
 
 ```
