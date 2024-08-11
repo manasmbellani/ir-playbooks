@@ -1454,6 +1454,50 @@ Get-ChildItem  -Recurse -Path $FolderToCheck | %{$ads = Get-Content $_.FullName 
 
 Filter for `.Zone.Identifer` files especially in Downloads folder in Autopsy
 
+### Look for unusual membership for AD Groups
+
+Monitor for membership changes to these key groups: 
+```
+# Key AD Groups which can allow privilege escalation, Taken from: https://github.com/mthcht/awesome-lists/blob/main/Lists/permissions/AD/windows_sensitives_ad_groups_list.csv
+ESX Admins
+ESXi Admins
+Account Operators
+Administrators
+Backup Operators
+DnsAdmins
+Admins DNS
+Domain Admins
+Enterprise Admins
+Enterprise Key Admins
+Group Policy Creator Owners
+Hyper-V Administrators
+Print Operators
+Remote Management Users
+Replicators
+Schema Admins
+Server Operators
+Key Admins
+Remote Desktop Users
+```
+
+
+#### via windows event logs / Event ID 4728 / EventID 4732
+
+```
+Channel = Security
+EventID = 4728 (A member was added to a security-enabled global group) OR 4732 (A member was added to a security-enabled local group)
+```
+
+#### via net
+
+```
+# To list all the AD Groups
+net localgroup
+
+# To list all the members in an AD Group
+net localgroup $AD_GROUP
+```
+
 ### Look for unusual Command Lines
 
 Look for:
