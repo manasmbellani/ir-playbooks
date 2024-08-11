@@ -400,6 +400,9 @@ Look for interesting keywords in commands OR in powershell:
 # interesting argument in commands normally observed
 powershell.exe  -ExecutionPolicy Bypass
 
+# Could be Intune based powershell execution / malware delivery: https://cloud.google.com/blog/topics/threat-intelligence/lightshow-north-korea-unc2970/
+powershell.exe -NoProfile -executionPolicy bypass -file "C:\Program Files (x86)\Microsoft Intune Management Extension\Policies\Scripts\$GUID.../"
+
 # To invoke commands on one or more computers
 # Powershell remoting e.g. Invoke-Command -ComputerName $computer -ScriptBlock { ...<powershell code> } -ArgumentList ...
 Invoke-Command -ComputerName $computer ...
