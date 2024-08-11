@@ -1461,6 +1461,8 @@ Look for:
 # See https://www.huntress.com/blog/abusing-ngrok-hackers-at-the-end-of-the-tunnel > `What Is Conhost.exe?`
 renamed processes masquerading as `conhost.exe` or `cmd.exe` but in reality are ngrok.exe
 
+# Check for unusual command line chars eg. powershell can accept /command, -command, unicode - command, etc
+
 # Check SHA256, SHA512 hashes for the processes / command lines that are executed to detect if binary files were renamed
 ```
 
