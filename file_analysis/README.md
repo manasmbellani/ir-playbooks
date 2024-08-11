@@ -245,7 +245,18 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\EZViewer\EZViewer.exe > Select f
 
 ## Macbook .app
 
-## Linux
+## Linux .elf file
+
+## Microsoft Lnk file
+
+### Get relative file path and absolute path pointed by .lnk files without opening file
+
+#### via LECmd
+
+```
+cd C:\Users\Administrator\Desktop\opt\EZTools\net6
+LECmd.exe -f $LNK_FILE
+```
 
 ## Microsoft Office Files 
 
