@@ -1597,11 +1597,17 @@ Certain actions such as LSA Dumping can also write files to this location
 #### via Explorer
 
 See following locations:
-- C:\Windows\Temp
-- C:\Users\$USER_ID\Desktop
-- C:\Users\$USER_ID\Downloads
-- C:\Users\$USER_ID\Documents
-- C:\Users\$USER_ID\AppData\Local\Temp
+```
+# Downloaded files
+C:\Windows\Temp
+C:\Users\$USER_ID\Desktop
+C:\Users\$USER_ID\Downloads
+C:\Users\$USER_ID\Documents
+C:\Users\$USER_ID\AppData\Local\Temp
+
+# Location where webdav downloaded files are located: https://dfir.ch/posts/today_i_learned_webdav_cache/
+C:\Windows\ServiceProfiles\LocalService\AppData\Local\Temp\TfsStore\Tfs_DAV\
+```
 
 #### via Sysmon Windows Event ID 11 / File Create Event
 
