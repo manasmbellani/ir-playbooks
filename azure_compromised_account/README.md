@@ -430,17 +430,19 @@ Connect-MgGraph -Scopes "Application.Read.All User.Read.All"
 
 Taken from [here](https://www.cloud-architekt.net/detection-and-mitigation-consent-grant-attacks-azuread/#azure-sentinel-hunting-of-consent-to-application-operations)
 
-### Detect Device Code Flow Authentication attempts
+### Detect Unusual Authentication Flow Attempts
 
-These could be indicative of device code phishing attempts as described [here](https://www.inversecos.com/2022/12/how-to-detect-malicious-oauth-device.html) 
-To prevent these attacks, enable a conditional flow policy which can block Network > Authentication Flow = Device Code Flow as described [here](https://cloudbrothers.info/en/protect-users-device-code-flow-abuse/)
+- Look for ROPC attacks which is an old, out-dated single factor authentication flow protocol which sometimes doesn't have MFA. See [here](https://github.com/wunderwuzzi23/ropci?tab=readme-ov-file#what-is-ropc)
+- These could be indicative of device code phishing attempts as described [here](https://www.inversecos.com/2022/12/how-to-detect-malicious-oauth-device.html). To prevent these attacks, enable a conditional flow policy which can block Network > Authentication Flow = Device Code Flow as described [here](https://cloudbrothers.info/en/protect-users-device-code-flow-abuse/)
 
 #### via Azure Portal UI / Sign-In Logs
 
 Access Azure portal > `Sign-In Logs`
 ```
-# View 'User Agent' and 'IP Address' field 
+# View 'User Agent' and 'IP Address' field for Device Code Flow Authentication Attempts
 Authentication Protocol: Device Code
+# ROPC authentication protocol. Ref: https://github.com/wunderwuzzi23/ropci?tab=readme-ov-file#what-is-ropc
+Authentication Protocol: ROPC
 ```
 
 #### via Azure Unified Audit Logs (UAL)
