@@ -443,6 +443,8 @@ Access Azure portal > `Sign-In Logs`
 Authentication Protocol: Device Code
 # ROPC authentication protocol. Ref: https://github.com/wunderwuzzi23/ropci?tab=readme-ov-file#what-is-ropc
 Authentication Protocol: ROPC
+# Look for Unusually High/Interrupted Authentication attempts
+Status: Failed OR Status: Interrupted
 ```
 
 #### via Azure Unified Audit Logs (UAL)
