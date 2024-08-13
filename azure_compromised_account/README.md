@@ -270,7 +270,7 @@ Category = UserManagement
 
 #### via UI
 
-`Microsoft Entra ID` > `Properties`
+[Azure Portal](https://portal.azure.com) > `Microsoft Entra ID` > `Properties`
 
 #### via Connect-AzureAD
 
