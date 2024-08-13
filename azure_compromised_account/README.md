@@ -268,6 +268,10 @@ Category = UserManagement
 
 ### Getting the tenant ID
 
+#### via UI
+
+`Microsoft Entra ID` > `Properties`
+
 #### via Connect-AzureAD
 
 ```
