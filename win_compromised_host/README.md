@@ -478,6 +478,9 @@ vssadmin.exe
 # More info here: https://pentestlab.blog/2020/01/13/persistence-image-file-execution-options-injection/#:~:text=Image%20File%20Execution%20Options%20is,%E2%80%9CGlobalFlag%E2%80%9D%20for%20application%20debugging.
 werfault.exe
 
+# eg comsvcs.dll being leveraged to dump memory dump files. See https://lolbas-project.github.io/lolbas/Libraries/comsvcs/
+rundll32
+
 # Legitimate binaries being created by unusual processes eg. running in Downloads, Temp folder
 # Can be indicative of Process Hollowing as seen in `Run of the Mill` `Ace Responder` exercise e.g
 C:\Users\Administrator\Downloads\explore.exe -> C:\Windows\System32\notepad.exe OR iexplore.exe (Internet Explorer)
