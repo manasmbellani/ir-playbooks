@@ -186,6 +186,11 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 Service: CoreDirectory
 Category: CrossTenantAccessSettings
 ActivityType: "Add a partner to cross-tenant access setting"
+
+Service: CoreDirectory
+Category: CrossTenantIdentitySyncSettings
+ActivityType: "Create a partner cross-tenant identity sync setting"
+
 ```
 Ref [here](https://www.invictus-ir.com/news/incident-response-in-azure)
 
