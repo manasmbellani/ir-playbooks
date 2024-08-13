@@ -179,6 +179,17 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ### Check for anomalous cross-tenant synchronization attempts
 
+
+#### via Azure Sign-in Logs
+
+```
+# This may not always be accurate
+Cross Tenant Access Type: B2B Collaboration
+Username: <Unusual username>
+```
+
+Source [here](https://www.xintra.org/blog/lateral-movement-entraid-cross-tenant-synchronization)
+
 #### via Azure AD Audit Logs
 
 ```
@@ -192,7 +203,7 @@ Category: CrossTenantIdentitySyncSettings
 ActivityType: "Create a partner cross-tenant identity sync setting"
 
 ```
-Ref [here](https://www.invictus-ir.com/news/incident-response-in-azure)
+Ref [here](https://www.invictus-ir.com/news/incident-response-in-azure) and [here](https://www.xintra.org/blog/lateral-movement-entraid-cross-tenant-synchronization)
 
 ### Check for partner relationships via delegated admins 
 
