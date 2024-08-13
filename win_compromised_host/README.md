@@ -432,6 +432,7 @@ Processes and parent process names to look for:
 powershell.exe
 cscript.exe
 wscript.exe
+mshta.exe
 cmd.exe
 pwsh.exe
 schtasks.exe
