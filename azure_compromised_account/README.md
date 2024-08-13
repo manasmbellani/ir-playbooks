@@ -268,7 +268,11 @@ Category = UserManagement
 
 ### Getting the tenant ID
 
-#### via UI
+#### via UI / External Identities (Cross-Tenant Synchronization Settings)
+
+`Azure Portal UI` > `Cross-tenant Access Settings` > `Add Organization` > `Specify a Tenant ID`
+
+#### via UI / Microsoft Entra ID
 
 [Azure Portal](https://portal.azure.com) > `Microsoft Entra ID` > `Properties`
 
