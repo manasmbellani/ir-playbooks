@@ -177,6 +177,18 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ## Analysis
 
+### Check for anomalous cross-tenant synchronization attempts
+
+#### via Azure AD Audit Logs
+
+```
+# Modified Properties > CrossTenantAccessPolicy > tenantId has the attacker's tenant 
+Service: CoreDirectory
+Category: CrossTenantAccessSettings
+ActivityType: "Add a partner to cross-tenant access setting"
+```
+Ref [here](https://www.invictus-ir.com/news/incident-response-in-azure)
+
 ### Check for partner relationships via delegated admins 
 
 Partner relationships are partners with delegated admin privileges to the Azure account
