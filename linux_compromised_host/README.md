@@ -191,7 +191,7 @@ cd /opt/lintri
 
 Taken from [here](https://github.com/DCScoder/LINTri)
 
-#### via fasir_artifacts
+#### via fastir_artifacts
 
 To quickly contain main set of artifacts for analysis (similar to KAPE)
 
