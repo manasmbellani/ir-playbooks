@@ -296,6 +296,42 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 ## Analysis
 
+### Look for unusual commands / processes / command lines executed
+
+- Interesting processes to look for: 
+```
+# Indicators of files being downloaded
+curl
+wget
+
+# Unusual Connectivity based commands that sysadmins or threat actors may perform
+# taken from: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/lnx_auditd_susp_c2_commands.yml
+nc
+netcat
+ncat
+ssh
+socat
+wireshark
+rawshark
+rdesktop
+nmap
+vnc
+tigervnc
+
+# Interesting processes being executed
+base64
+cargo
+python
+bash
+go
+```
+
+#### via auditd logs / ausearch / execve syscall
+
+```
+ausearch -sc execve
+```
+
 ### Look for unusual services
 
 Such as:
