@@ -316,6 +316,19 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for creation of unusual Shadow Copies
+
+Can detect the following scenarios: 
+- `Backup Operators` abuse as described [here](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet?tab=readme-ov-file#abusing-backup-operators-group)
+
+#### via Windows Event ID / Event ID 8222
+
+```
+# Look for unusual 'Process Image Name' values in the Description of the event and unusual Users that are not expected to perform this activity.
+Provider=VSSAudit
+EventID=8222 (Shadow copy has been created.)
+```
+
 ### Detect for unusual Windows services creations
 
 Monitor for usage of new services which can be indicative of persistence techniques e.g. via modification of binary to system.
@@ -447,6 +460,9 @@ msiexec.exe
 bitsadmin.exe
 certutil.exe
 
+# Can be used by sysadmins OR even by backupoperators for malicious purposes. See: https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet?tab=readme-ov-file#abusing-backup-operators-group
+diskshadow
+
 # RDP / VNC connectivity possible
 ngrok.exe
 winvnc.exe
@@ -484,6 +500,7 @@ rundll32
 # Legitimate binaries being created by unusual processes eg. running in Downloads, Temp folder
 # Can be indicative of Process Hollowing as seen in `Run of the Mill` `Ace Responder` exercise e.g
 C:\Users\Administrator\Downloads\explore.exe -> C:\Windows\System32\notepad.exe OR iexplore.exe (Internet Explorer)
+
 ```
 
 Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_sigma_rule.yml), [2](https://detection.fyi/sigmahq/sigma/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program/)
