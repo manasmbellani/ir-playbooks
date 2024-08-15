@@ -134,19 +134,7 @@ gcloud compute firewall-rules create forensics-contain-deny-inbound-all \
 
 ### Memory Acquisition 
 
-#### via linpmem 
-
-```
-/usr/bin/linpmem -v  -m --format raw --output /tmp/mem.raw
-```
-
-#### via dumpitforlinux
-
-this will create the memory image in the local folder:
-```
-cd /tmp
-/opt/dumpit-linux/target/release/dumpitforlinux --raw
-```
+Refer steps [here](#taking-memory-image-live)
 
 ### Collect log rotate configuration
 
@@ -159,6 +147,7 @@ Taken from [here](https://linux.die.net/man/5/logrotate.conf)
 ### Taking disk image (Offline)
 
 #### via dd
+
 Check the mount points first via `mount`, `df` to identify the dev mount for disk to take image of is attached:
 ```
 df -h
@@ -216,6 +205,7 @@ deactivate
 ### Mounting image
 
 #### via losetup
+
 In the event that we have to mount the disk, we can use `losetup`:
 ```
 # This will return $LOOP_DEV to mount
@@ -225,6 +215,20 @@ mount /dev/$LOOP_DEV /mnt/disk
 ```
 
 ### Taking memory image (Live)
+
+#### via linpmem 
+
+```
+/usr/bin/linpmem -v  -m --format raw --output /tmp/mem.raw
+```
+
+#### via dumpitforlinux
+
+this will create the memory image in the local folder:
+```
+cd /tmp
+/opt/dumpit-linux/target/release/dumpitforlinux --raw
+```
 
 #### via LiME 
 
