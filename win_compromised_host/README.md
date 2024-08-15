@@ -1478,7 +1478,7 @@ Get-ChildItem  -Recurse -Path $FolderToCheck | %{$ads = Get-Content $_.FullName 
 
 Filter for `.Zone.Identifer` files especially in Downloads folder in Autopsy
 
-### Look for unusual membership for AD Groups
+### Look for unusual memberships for AD Groups
 
 Monitor for membership changes to these key groups: 
 ```
@@ -1520,6 +1520,12 @@ net localgroup
 
 # To list all the members in an AD Group
 net localgroup $AD_GROUP
+```
+
+#### via powershell / Get-ADGroupMember
+
+```
+Get-ADGroupMember -Identity $GROUP_NAME
 ```
 
 ### Look for unusual Command Lines
