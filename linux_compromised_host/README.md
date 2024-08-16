@@ -885,6 +885,11 @@ find /etc/*cron* -type f
 
 Review the key artifacts to explore [here](../win_compromised_host/README.md#build-a-timeline)
 
+#### via fls / mactime
+
+
+Ref [here](https://archive.org/details/HalLinuxForensics/page/118/mode/1up)
+
 #### via journalctl
 
 See [here](#via-journalctl)
