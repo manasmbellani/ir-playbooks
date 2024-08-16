@@ -311,6 +311,11 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 
 Take a memory image via `avml` and make a volatility2 profile by following steps in the article [here](https://beguier.eu/nicolas/articles/security-tips-3-volatility-linux-profiles.html#:~:text=A%20Linux%20Volatility%202%20profile,without%20starting%20a%20virtual%20machine.)
 
+### Building a timeline
+
+See [build a timeline](#build-a-timeline) section 
+
+
 ## Analysis
 
 ### Determine the default timezone
@@ -887,8 +892,12 @@ Review the key artifacts to explore [here](../win_compromised_host/README.md#bui
 
 #### via fls / mactime
 
+```
+fls -r -m / /dev/sda1 | gzip > /tmp/bodyfile-root.gz
+zcat /tmp/bodyfile-root.gz | mactime -d -y -p /etc/passwd -g /etc/group 2019-01-01 > /tmp/timeline.csv
+```
 
-Ref [here](https://archive.org/details/HalLinuxForensics/page/118/mode/1up)
+Ref [here](https://archive.org/details/HalLinuxForensics/page/118/mode/1up) and [here](https://archive.org/details/HalLinuxForensics/page/120/mode/1up)
 
 #### via journalctl
 
