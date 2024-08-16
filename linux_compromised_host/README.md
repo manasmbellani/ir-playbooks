@@ -1069,7 +1069,7 @@ grep -r -n -i --color 'keychange' /var/log/audit.log
 
 #### via find
 
-As described [here](https://cyberkhalid.github.io/posts/ssh-persist/), SSH may have authorized keys which can be used for pentesting
+As described [here](https://cyberkhalid.github.io/posts/ssh-persist/), SSH may have authorized keys which can be used for persistence
 
 Locate the Authorized Keys:
 ```
