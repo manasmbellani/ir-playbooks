@@ -326,6 +326,7 @@ tigervnc
 base64
 cargo
 python
+python3
 bash
 go
 ```
