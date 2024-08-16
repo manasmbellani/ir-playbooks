@@ -97,6 +97,8 @@ git clone https://github.com/volatilityfoundation/dwarf2json.git /opt/dwarf2json
 cd /opt/dwarf2json
 go build
 chmod +x /opt/dwarf2json/dwarf2json
+mv /opt/dwarf2json/dwarf2json /usr/bin/
+cd $cwd
 
 echo "[*] Downloading linpmem..."
 curl -sL https://github.com/Velocidex/c-aff4/releases/download/v3.3.rc3/linpmem-v3.3-rc3.3-rc2 -o /usr/bin/linpmem
