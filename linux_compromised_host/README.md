@@ -689,6 +689,7 @@ deactivate
 #### via sudoers
 
 ```
+# Look for unusual sudoers account
 cat /etc/sudoers
 ```
 
@@ -700,7 +701,27 @@ Look for users with lower UID e.g. 0
 cat /etc/passwd
 ```
 
-### List Users
+### Look for unusual users / User accounts
+
+
+#### via /etc/group / admin accounts
+
+```
+# Look for unusual Administrative accounts in wheel, sudo, root groups
+cat /etc/group
+# Look for UID=0
+cat /etc/passwd
+```
+
+#### via cat / etc/passwd / service accounts
+
+This could be a potential backdoor where service accounts (accounts < UID 1000) don't have `/usr/sbin/nologin`, `/bin/false` in `/etc/passwd` OR `*` in `/etc/shadow` set.
+
+```
+# View the user accounts which don't have `/bin/false` or `/usr/sbin/nologin` set
+# Can also compare the results with those from a clean system
+cat uac_results/[root]/etc/passwd
+```
 
 #### via passwd
 
@@ -1042,18 +1063,6 @@ Then, use `grep` to search for the key changes in audit log file
 
 ```
 grep -r -n -i --color 'keychange' /var/log/audit.log
-```
-
-### Look for unlocked service accounts
-
-This could be a potential backdoor where service accounts (accounts < UID 1000) don't have `/usr/sbin/nologin`, `/bin/false` in `/etc/passwd` OR `*` in `/etc/shadow` set.
-
-#### via cat
-
-```
-# View the user accounts which don't have `/bin/false` or `/usr/sbin/nologin` set
-# Can also compare the results with those from a clean system
-cat uac_results/[root]/etc/passwd
 ```
 
 ### Look for ssh authorized keys
