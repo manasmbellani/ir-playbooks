@@ -313,6 +313,16 @@ Take a memory image via `avml` and make a volatility2 profile by following steps
 
 ## Analysis
 
+### Determine the default timezone
+
+#### via /etc/localtime
+
+```
+strings -a /etc/localtime
+# To get readable version of /etc/localtime
+zdump /etc/localtime
+```
+
 ### Determine system installation date
 
 #### via lost+found file creation
