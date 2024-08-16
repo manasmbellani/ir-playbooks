@@ -242,7 +242,7 @@ paid tool.
 
 Taken from [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/65/mode/1up)
 
-#### via avml / dwarf2json
+#### via avml / dwarf2json (volatility3)
 If we have access to system, we can use `avml` utility from a USB disk (link [here](https://github.com/microsoft/avml)) to take an image of the instance:
 
 ```
@@ -297,6 +297,10 @@ dwarf2json linux --elf /usr/lib/debug/boot/vmlinux-$(uname -r) --system-map /boo
 # Move the generated file to the volatility3 symbols folder
 mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 ```
+
+### via avml / volatility2 
+
+Take a memory image via `avml` and make a volatility2 profile by following steps in the article [here](https://beguier.eu/nicolas/articles/security-tips-3-volatility-linux-profiles.html#:~:text=A%20Linux%20Volatility%202%20profile,without%20starting%20a%20virtual%20machine.)
 
 ## Analysis
 
