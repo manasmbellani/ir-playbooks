@@ -834,7 +834,7 @@ Parse the journal files in `/var/log/journal`:
 journalctl --file  /var/log/journal/993ae8921ac5f23a34cd3a99b9ba8ce6/system.journal -o verbose
 ```
 
-### Check scheduled tasks
+### Check for unusual scheduled tasks
 
 System Timers allow users to schedule tasks similar to cron jobs
 
@@ -864,6 +864,21 @@ systemctl list-timers -l --all
 $HOME/.config/systemd
 [/var]/run/systemd/transient/*.{timer,service}
 [/var]/run/user/*/systemd/transient/*.{timer,service}
+```
+
+#### via various init.d/* files
+
+```
+find /etc/init* -type f
+```
+
+#### via various crontabs
+
+```
+find /var/spool/cron/crontabs -type f
+find /etc/cron* -type f
+find /etc/*cron* -type f
+/var/spool/cron/atjobs
 ```
 
 ### Build a timeline
