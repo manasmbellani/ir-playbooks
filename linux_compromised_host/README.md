@@ -1089,6 +1089,30 @@ Monitor the proc `stack` for network connectivity. Look for `sock_recvmsg` for n
 watch -n 0.5 cat /proc/1338/stack
 ```
 
+### Check for keylogging
+
+#### via rkhunter
+
+See above in this article
+
+#### via volatility3 / tty_check
+
+```
+cd /opt/volatility3
+source venv/bin/activate
+python3 vol.py -f ~/sample_images/gcp_ubuntu_instance2/memory.lime --profile=$PROFILE linux.tty_check.tty_check
+deactivate
+```
+
+#### via volatility2 / tty_check
+
+```
+cd /opt/volatility2
+source venv/bin/activate
+python2 vol.py -f ~/sample_images/gcp_ubuntu_instance2/memory.lime --profile=$PROFILE linux.tty_check.tty_check
+deactivate
+```
+
 ### Check for packet sniffing
 
 #### via ss
