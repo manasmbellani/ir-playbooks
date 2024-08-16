@@ -273,14 +273,14 @@ If we are building memory image for GKE Google COS Images (e.g. for Kubernetes /
 ```
 # where build_id=17800.147.54 if the machine image is `gke-1289-gke1000000-cos-109-17800-147-54-c-pre`
 curl -s https://storage.googleapis.com/cos-tools/$build_id/vmlinux > /tmp/vmlinux
-./dwarf2json linux --elf /tmp/vmlinux > linux-$(uname -r).json
+dwarf2json linux --elf /tmp/vmlinux > linux-$(uname -r).json
 ```
 
 
-Otherwise, we can generate symbols using from a separate machine based on the same machine image on which we can install additional tools via the commands below. Assuming we are working with a compromised Ubuntu image (steps will vary for other server types), we first need to download the `vmlinux` file, and then use `dwarf2json` (link [here](https://github.com/volatilityfoundation/dwarf2json)) to generate the symbols file. 
+Otherwise, we can generate symbols using from a separate machine based on the same machine image on which we can install additional tools via the commands below. Assuming we are working with a compromised Ubuntu image (steps will vary for other server types), we first need to get the `vmlinux` file, and then use `dwarf2json` (link [here](https://github.com/volatilityfoundation/dwarf2json)) to generate the symbols file. 
 
 ```
-# We follow steps for Ubuntu here: https://wiki.ubuntu.com/Debug%20Symbol%20Packages to download the debugging symbols,
+# We follow steps for Ubuntu here: https://wiki.ubuntu.com/Debug%20Symbol%20Packages to download the debugging symbols OR use Microsoft CoPilot / ChatGPT
 # Symbols are then downloaded to /usr/lib/debug/boot
 echo "deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse
 deb http://ddebs.ubuntu.com $(lsb_release -cs)-updates main restricted universe multiverse
@@ -292,7 +292,7 @@ find / -name vmlin\* -size +100M 2>/dev/null
 
 # Next Generate the symbols file via `dwarf2json` and the `System-map` file located in `/boot` folder
 # Steps taken from: 
-./dwarf2json linux --elf /usr/lib/debug/boot/vmlinux-$(uname -r) --system-map /boot/System.map-$(uname -r) > linux-$(uname -r).json
+dwarf2json linux --elf /usr/lib/debug/boot/vmlinux-$(uname -r) --system-map /boot/System.map-$(uname -r) > linux-$(uname -r).json
 
 # Move the generated file to the volatility3 symbols folder
 mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
