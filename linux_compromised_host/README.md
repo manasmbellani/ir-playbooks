@@ -1093,7 +1093,7 @@ watch -n 0.5 cat /proc/1338/stack
 
 #### via rkhunter
 
-See above in this article
+See [here](#via-rkhunter)
 
 #### via volatility3 / tty_check
 
