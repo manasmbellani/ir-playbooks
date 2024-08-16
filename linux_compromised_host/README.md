@@ -170,6 +170,15 @@ dd if=/dev/sdb1 of=/tmp/sdb1.raw bs=512 count=8192000
 dc3dd if=/dev/sda1 of=/tmp/image.dd hash=sha256 hlog=/tmp/hash.log log=/tmp/image.log
 ```
 
+#### via ewfacquire / mmls
+
+Follow steps here to acquire images via [ewfacquire](https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/image-acquisition-and-mount#ewf).
+
+Further step-by-step instructions are documented by Hal Pomeranz [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/89/mode/1up).
+In case we come across `NO SUB SYSTEM TO MOUNT EWF FORMAT`, follow the steps described [here](https://www.wallofsheep.com/blogs/news/how-to-update-ewf-tools-on-kali-linux-eliminate-the-no-sub-system-to-mount-ewf-format-error)
+
+Binaries available [here](https://github.com/alpine-sec/ewf-tools)
+
 ### Artifacts Collection
 
 #### via uac
@@ -303,6 +312,47 @@ mv linux-$(uname -r).json /opt/volatility3/volatility3/symbols/
 Take a memory image via `avml` and make a volatility2 profile by following steps in the article [here](https://beguier.eu/nicolas/articles/security-tips-3-volatility-linux-profiles.html#:~:text=A%20Linux%20Volatility%202%20profile,without%20starting%20a%20virtual%20machine.)
 
 ## Analysis
+
+### Determine system installation date
+
+#### via lost+found file creation
+
+```
+# Generally indicates the time when linux was installed on the system
+stat /lost+found
+```
+
+#### via /etc/ssh/ssh_host_rsa_key
+
+```
+# The date on this file indicates when system was first booted 
+ls -lah /etc/ssh/ssh_host_rsa_key
+```
+Ref [here](https://archive.org/details/HalLinuxForensics/page/105/mode/1up)
+
+### Look for the hostname for device
+
+#### via hostname
+
+```
+hostname
+```
+
+### Look for distro/release number
+
+```
+cat /etc/*-release
+```
+
+### Look for network IP addresses, DHCP Leases
+
+```
+cat /etc/hosts
+cat /var/lib/NetworkManager
+cat /var/lib/dhclient
+cat /var/lib/dhcp
+
+```
 
 ### Look for unusual commands / processes / command lines executed
 
