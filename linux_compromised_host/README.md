@@ -511,9 +511,10 @@ Taken from Hal Pomeranz's intro to linux course > Page 56 [here](https://archive
 
 #### via log files 
 
-- `Failed` Attempts: `/var/log/btmp`
-- Who is currently logged in: `/var/run/utmp`
-- History of `/var/log/utmp`: `/var/log/wtmp`
+- `Failed` Login Attempts: `/var/log/btmp` (read with `lastb`)
+- Who is currently logged in: `/var/run/utmp` (read with )
+- History of `/var/log/utmp` which typically contains user logins and system reboots: `/var/log/wtmp` (read with `last`)
+- `Lastlog` - last login for each user (read with `lastlog`)
 
 View using `last` for full details or `strings`: 
 
