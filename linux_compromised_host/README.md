@@ -497,7 +497,7 @@ mkdir $BULK_EXTRACTOR_OUT_FOLDER
 bulk_extractor -o $BULK_EXTRACTOR_OUT_FOLDER $IMAGE_MEM
 strings -a -t d $IMAGE_MEM >  | gzip  >$BULK_EXTRACTOR_OUT_FOLDER/strings.asc.gz
 # Search for the keywords
-# To look for the strings around the specified address, use daddr as described here: https://archive.org/details/HalLinuxForensics/page/178/mode/1up
+# To look for the strings around the specified address, use daddr for xfs_db (XFS filesystem) as described here: https://archive.org/details/HalLinuxForensics/page/178/mode/1up
 zgrep -Fi password $BULK_EXTRACTOR_OUT_FOLDER/strings.asc.gz
 ```
 
