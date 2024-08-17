@@ -578,6 +578,14 @@ egrep '^(Package:|Version:)' /var/lib/dpkg/status | awk '{print $2}' | while rea
 
 Taken from [here](https://github.com/clausing/scripts/blob/master/linux-pkgs.sh)
 
+### Unusual Files recently opened
+
+#### via ~/.viminfo
+
+```
+cat ~/.viminfo
+```
+
 ### Files Recently Changed
 
 Can be indicative of unusual activity from threat actor
