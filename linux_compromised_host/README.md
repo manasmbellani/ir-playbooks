@@ -578,12 +578,43 @@ egrep '^(Package:|Version:)' /var/lib/dpkg/status | awk '{print $2}' | while rea
 
 Taken from [here](https://github.com/clausing/scripts/blob/master/linux-pkgs.sh)
 
+### Unusual Browsing History Artifacts
+
+Look for suspicious domains
+
+#### via ~
+```
+# For 
+ls -l ~/.mozilla/config/firefox/*.default*
+ls -l ~/.config/Chromium/Default
+```
+
+### Unusual deleted files
+
+#### via ~/.local/share/Trash/
+
+```
+# Contains full path to the deleted file
+# Files are stored in the files folder
+ls -l ~/.local/share/Trash/files
+cat ~/.local/share/Trash/info
+```
+
+Taken from [here](https://archive.org/details/HalLinuxForensics/page/151/mode/1up)
+
 ### Unusual Files recently opened
 
 #### via ~/.viminfo
 
 ```
 cat ~/.viminfo
+```
+
+#### via ~/.local/share/recently-used.xbel
+
+```
+# contains Timestamped history of files opened with GUI applications
+cat  ~/.local/share/recently-used.xbel
 ```
 
 ### Files Recently Changed
