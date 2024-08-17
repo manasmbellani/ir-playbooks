@@ -485,16 +485,19 @@ sort syscall-output-* | uniq -u
 
 https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/82/mode/1up
 
-### Look for interesting indicators in data 
+### Look for unusual indicators in data 
 
-#### via bulk_extractor
+Can identify interesting indicators such as email addresses, passwords, PCAPs, etc.  and their frequency.
+Can also be applied for raw image files
 
-Can identify interesting indicators such as email addresses, PCAPs, etc.  and their frequency
+#### via bulk_extractor / tshark / zgrep
 
 ```
 mkdir $BULK_EXTRACTOR_OUT_FOLDER
 bulk_extractor -o $BULK_EXTRACTOR_OUT_FOLDER $IMAGE_MEM
-strings -a -t d $IMAGE_MEM >  | gzip  >$BULK_EXTRACTOR_OUT_FOLDER/strings.txt 
+strings -a -t d $IMAGE_MEM >  | gzip  >$BULK_EXTRACTOR_OUT_FOLDER/strings.asc.gz
+# Search for the keywords
+zgrep -Fi password $BULK_EXTRACTOR_OUT_FOLDER/strings.asc.gz
 ```
 
 Checkout interesting files such as:
