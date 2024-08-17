@@ -958,11 +958,35 @@ Check if `auditd` is enabled and the logs are being logged in `auditd`:
 
 ### Get Auditd Logs for interesting indicators
 
-#### via ausearch
+#### via ausearch / aureport
 
 ```
 # to get logs from today
 ausearch --start today --format text
+
+# To search for presence of certain keywords in command lines
+ausearch -if /mnt/evidence/var/log/audit -c useradd
+
+# To convert PROCTITLE values from hex-encoded value as shown in auditd logs
+echo 2F7573722F736269.. | xxd -r -p | tr \\000 ' '; echo
+
+# To search by various type (-m) of logs 
+ausearch -m execve
+```
+
+Interesting log types: 
+
+```
+EXECVE - Executed commands (e.g. syscall execve)
+PATH - file related actions (e.g. syscall openat)
+USER AUTH, USER_LOGIN, USER_START ,USER_END, USER_LOGOUT — user interactive logins (SSH sessions also use CRYPTO_KEY_USER, CRYPTO_SESSION)
+USER_CMD, PROCTITLE, PATH, CWD, SYSCALL — process execution and user activity
+ADD_USER, ADD_GROUP — account admin activity
+AVC -— SELinux messages
+TTY, USER_TTY — keystroke logs (if enabled)
+LOGIN, USER_ACCT, USER_START, USER_END, CRED_ACQ, CRED_DISP, CRED_REFR — related to scheduled task start/stop
+SYSTEM_BOOT, SYSTEM_RUNLEVEL, KERN _MODULE, NETFILTER_CFG
+DAEMON_START, SERVICE_START, CFG_CHANGE — system boot and startup messages
 ```
 
 #### via grep
