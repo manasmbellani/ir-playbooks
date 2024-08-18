@@ -801,6 +801,14 @@ LogonType = 2 (Interactive) OR 3 (Network) OR 5 (Service started by Service Cont
 
 Taken from [here](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625#_Ref433822321)
 
+#### via Microsoft Defender Advanced Threat Hunting / KQL
+
+```
+DeviceLogonEvents
+| project Timestamp, DeviceId, ReportId, DeviceName, AccountDomain, AccountName, LogonType, ActionType,  RemoteIP, 
+| sort by Timestamp desc 
+```
+
 ### Detection of PSExec usage to authenticate
 
 https://www.hackthebox.com/blog/how-to-detect-psexec-and-lateral-movements
