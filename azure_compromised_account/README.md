@@ -177,8 +177,18 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ## Analysis
 
-### Check for anomalous cross-tenant synchronization attempts
+### Check for unusual role assignments in Azure
 
+Can be used to detect persistence for e.g. if serviceprincipal is being given role assignments
+
+#### via Azure Activity Logs / Operation: "Create Role Assignment"
+
+```
+# note the 'Properties.RequestBody.PrincipalType' value
+Operation name: Create role assignment
+```
+
+### Check for anomalous cross-tenant synchronization attempts
 
 #### via Azure Sign-in Logs
 
