@@ -805,7 +805,7 @@ Taken from [here](https://learn.microsoft.com/en-us/previous-versions/windows/it
 
 ```
 DeviceLogonEvents
-| project Timestamp, DeviceId, ReportId, DeviceName, AccountDomain, AccountName, LogonType, ActionType,  RemoteIP, 
+| project Timestamp, DeviceId, ReportId, DeviceName, AccountDomain, AccountName, LogonType, ActionType, RemoteIP, AdditionalDetails
 | sort by Timestamp desc 
 ```
 
