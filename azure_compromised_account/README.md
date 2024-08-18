@@ -422,11 +422,9 @@ Get-MgApplication
 
 Taken from here: [1](https://learn.microsoft.com/en-us/answers/questions/270680/app-registration-vs-enterprise-applications), [2](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#investigate-each-appid)
 
+### Detect Unusual Credentials such as Certificates, client secrets being added
 
-### Detect Oauth App Hijacking
-
-If attacker is able to compromise the app itself by accessing existing secret or certificate / adding new secret or certificate, then they can act as the app itself
-doesn't require the user to authenticate / consent to getting permissions
+- Detects `Oauth App Hijacking`: If attacker is able to compromise the app itself by accessing existing secret or certificate / adding new secret or certificate, then they can act as the app itself doesn't require the user to authenticate / consent to getting permissions
 
 #### via Azure Portal UI / Audit Logs
 
