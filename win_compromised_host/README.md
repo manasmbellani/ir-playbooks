@@ -1345,6 +1345,14 @@ FTP (port 21)
 Destination IP: Amazon IP addresses
 ```
 
+#### via Microsoft Windows Defender Advanced Threat Hunting / KQL
+
+```
+DeviceNetworkEvents
+| where DeviceName contains "testvm2"
+| where InitiatingProcessFileName == "iexplore.exe"
+| sort by Timestamp desc
+```
 
 #### via Windows Event Sysmon Logs / Event ID 3
 
