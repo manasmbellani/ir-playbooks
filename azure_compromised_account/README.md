@@ -222,7 +222,9 @@ Get-AADIntAccessTokenForAdmin -SaveToCache
 Get-AADIntMSPartners
 ```
 
-### Addition of new Applications to Azure 
+### Addition of new Applications or Service Principalsto Azure 
+
+Can be used for persistence where both applications and service principals might be added to Azure
 
 #### via Azure Unified Audit Logs (UAL)
 
@@ -231,6 +233,11 @@ Get-AADIntMSPartners
 # Refer to the ModifiedProperties.AppAddress.NewValue to identify `Address` which indicates redirect address for the application
 Workload: AzureActiveDirectory
 Operation: Add application
+
+# ModifiedProperties.DisplayName.NewValue contains the name of the service principal 
+# Refer to the ModifiedProperties.AppAddress.NewValue to identify `Address` which indicates redirect address for the application
+Workload: AzureActiveDirectory
+Operation: Add service principal
 ```
 
 ### Detect activity from unusual user agents 
