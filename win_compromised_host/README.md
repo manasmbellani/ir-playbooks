@@ -1547,6 +1547,17 @@ rundll32.exe C:\Windows\system32\davclnt.dll,DavSetCookie 216.9.224.58@5555 http
 
 See [here](#detect-for-unusual-processes-and-parent-processes-created)
 
+#### via Microsoft Defender's KQL Advanced Threat Hunting / Sentinel
+
+```
+DeviceProcessEvents
+| where DeviceName contains "testvm"
+| project Timestamp, DeviceName, AccountDomain, AccountName, ProcessCommandLine,  InitiatingProcessCommandLine
+| sort by Timestamp desc 
+```
+
+For info on `DeviceProcessEvents`, Refer [here](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/deviceprocessevents)
+
 #### via volatility2 / cmdscan
 
 ```
