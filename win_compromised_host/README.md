@@ -1315,6 +1315,18 @@ Excel.exe
 Word.exe
 ```
 
+#### via Microsoft Windows Defender Advanced Threat Hunting / KQL
+
+```
+DeviceNetworkEvents
+| where DeviceName contains "laptop-name"
+//| where InitiatingProcessFileName == "msedge[.]exe"
+| where InitiatingProcessFileName == "chrome[.]exe"
+| where RemoteUrl != ""
+```
+
+Taken from [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/get-users-browser-history-via-live-response/m-p/3950769)
+
 #### via Windows Event Sysmon Logs / EventID 22
 
 ```
@@ -1977,6 +1989,9 @@ Get-WmiObject -Class Win32_Product
 #### via Program Files 
 
 Common location for logs:
+
+- ShareTool: `C:\PerfLogs\write-test.shareaudit`. Taken from [here](https://x.com/malmoeb/status/1825085850092220432)
+
 - Minecraft: `C:\Users\LetsDefend\Desktop\Minecraft Server 1.12.2\logs`
   
 - Fortinet EMS Logs: `C:\Program Files (x86)\Fortinet\FortiClientEMS\logs\`. Taken from [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_my-team-colleague-asger-deleuran-s-investigated-activity-7217564988436033539-Sw0u?utm_source=share&utm_medium=member_ios)
