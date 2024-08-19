@@ -316,6 +316,42 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual URLs / browsing activity
+
+
+#### via Microsoft Windows Defender Advanced Threat Hunting
+
+```
+# Internet Explorer
+DeviceNetworkEvents
+| where DeviceName contains "testvm2"
+| where InitiatingProcessFileName == "iexplore.exe"
+| sort by Timestamp desc
+
+# Microsoft Edge
+DeviceNetworkEvents
+| where DeviceName contains "testvm2"
+| where InitiatingProcessFileName == "msedge.exe"
+| sort by Timestamp desc
+
+# Google Chrome
+DeviceNetworkEvents
+| where DeviceName contains "testvm2"
+| where InitiatingProcessFileName == "chrome.exe"
+| sort by Timestamp desc
+```
+
+Taken from [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/get-users-browser-history-via-live-response/m-p/3950769)
+
+#### via History files
+
+```
+# Safari
+/Users/[USERNAME]/Library/Safari/History.db
+
+# Chrome
+```
+
 ### Detection for creation of unusual Shadow Copies
 
 Can detect the following scenarios: 
