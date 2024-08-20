@@ -1998,6 +1998,14 @@ Registry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompa
 C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
 ```
 
+#### via Windows Defender Logs
+
+```
+# Check for 'BM Telemetry' OR '.exe' in logs at following locations e.g. MPLog-*.txt
+# Taken from: https://www.thedfirspot.com/post/windows-defender-mp-logs-a-story-of-artifacts
+C:\ProgramData\Microsoft\Windows Defender\Support\*.txt
+```
+
 ### Check for installed applications 
 
 Look for any applications running as servers and that could be exploited eg
