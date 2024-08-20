@@ -2043,7 +2043,7 @@ Get-WmiObject -Class Win32_Product
 
 Common location for logs:
 
-- Microsoft Windows Defender: See Windows Defender Logs [here](#via-microsoft-windows-defender-advanced-threat-hunting). Can indicate SHA-1 hashes and the paths to the processes executed.
+- Microsoft Windows Defender: See Windows Defender Logs [here](#via-windows-defender-logs). Can indicate SHA-1 hashes and the paths to the processes executed.
 
 - ShareTool: `C:\PerfLogs\write-test.shareaudit`. Taken from [here](https://x.com/malmoeb/status/1825085850092220432)
 
