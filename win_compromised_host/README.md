@@ -2037,10 +2037,13 @@ Get-WmiObject -Class Win32_Product
 ### Check various installed Application Logs
 
 - Can provide indications of any exploits especially for running servers such as TightVNC, Mail servers, etc.
+- Can also provide forensics artifacts eg SHA and file paths
 
 #### via Program Files 
 
 Common location for logs:
+
+- Microsoft Windows Defender: See Windows Defender Logs [here](#via-microsoft-windows-defender-advanced-threat-hunting). Can indicate SHA-1 hashes and the paths to the processes executed.
 
 - ShareTool: `C:\PerfLogs\write-test.shareaudit`. Taken from [here](https://x.com/malmoeb/status/1825085850092220432)
 
