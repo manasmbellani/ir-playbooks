@@ -177,6 +177,15 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ## Analysis
 
+### Look for creation of unusual Azure VM Instances
+
+- Look for presence of interesting custom OR user metadata which can be used for persistence (may not be shown in Activity Logs)
+#### via Azure Activity Logs 
+
+```
+OperationName="Create or Update Virtual Machine"
+```
+
 ### Check for unusual role assignments in Azure
 
 Can be used to detect persistence for e.g. if serviceprincipal is being given role assignments
