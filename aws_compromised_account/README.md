@@ -2,6 +2,17 @@
 
 ## Analysis
 
+### Detect unusual EC2 instance start attempts
+
+- Can be used to detect unusual activity e.g. for cryptomining
+  
+#### via AWS Event Logs
+
+```
+# See `sourceIPAddress` and `userAgent` strings for detecting where unusual activity originated from
+eventName: "RunInstances"
+```
+
 ### Detect EC2 Serial console Access Attempts
 
 ### via AWS CloudTrail Audit Logs
