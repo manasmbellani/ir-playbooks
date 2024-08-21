@@ -469,6 +469,22 @@ sudo mkdir /mnt/container
 sudo /opt/container-explorer/bin/ce -i /mnt/data --support-container-data supportcontainer.yaml mount-all /mnt/container
 ```
 
+### Look for unusual startup metadata 
+
+#### via GCP Logging Explorer Logs
+
+```
+log_name:"logs/google_metadata_script_runner"
+jsonPayload.message:"startup-script"
+```
+
+#### via gcloud
+
+```
+# Look for `metadata` field in response
+gcloud compute instances describe --zone=us-central1-c 
+```
+
 ### Check mutating webhook configuration creations
 
 - Admission controllers are used to control resource creation within a cluster prior to authentication and authorization
