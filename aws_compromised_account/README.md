@@ -6,11 +6,12 @@
 
 - Can be used to detect unusual activity e.g. for cryptomining
   
-#### via AWS Event Logs
+#### via AWS Cloudtrail Event Logs
 
 ```
 # See `sourceIPAddress` and `userAgent` strings for detecting where unusual activity originated from
 eventName: "RunInstances"
+eventSource: "ec2.amazonaws.com"
 ```
 
 ### Detect EC2 Serial console Access Attempts
