@@ -2,6 +2,17 @@
 
 ## Analysis
 
+### Detect unusual EC2 connection attempt
+
+- Anomalous activity could indicate access attempt which is not normal
+  
+#### via AWS Cloud Trail Event Logs / EC2 Instance Connect
+
+```
+eventName: SendCommand
+eventSource: ssm.amazonaws.com
+```
+
 ### Detect unusual EC2 instance start attempts
 
 - Can be used to detect unusual activity e.g. for cryptomining
