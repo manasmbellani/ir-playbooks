@@ -9,11 +9,12 @@
 #### via AWS Cloud Trail Event Logs / EC2 Instance Connect
 
 ```
-eventName: SendCommand
-eventSource: ssm.amazonaws.com
+# Typically created the first time when an EC2 is being accessed
+eventName: SendSSHPublicKey
+eventSource: ec2-instance-connect.amazonaws.com
 ```
 
-### Detect unusual EC2 instance start attempts
+### Detect unusual EC2 instance start / creation / run attempts
 
 - Can be used to detect unusual activity e.g. for cryptomining
   
@@ -36,6 +37,17 @@ eventName: SendSerialConsoleSSHPublicKey
 ```
 
 Taken from [here](https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/)
+
+### Detect unusual commands being run
+
+- Unusual usernames may indicate threat actors are executing commands
+  
+#### via AWS Cloudtrail Audit Logs / SSM
+
+```
+eventName: SendCommand
+eventSource: ssm.amazonaws.com
+```
 
 ### Detect creation of new users
 
