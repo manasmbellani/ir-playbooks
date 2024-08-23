@@ -1881,7 +1881,19 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.dlllist.DllList --p
 deactivate
 ```
 
-### Get File Handles opened by process
+### Get unusual File Handles opened by process
+
+- Can be used to detect process attempts to read credentials from Lsass memory eg for golden ticket attack eg [here](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet?tab=readme-ov-file#golden-ticket-attack)
+
+#### via Windows Event Logs / Event ID 4656
+
+```
+# Process Information.Process Name contains the name of the process which is reading the LSASS memory
+# Access request information.Accesses contains privileged requests like 'Read from process memory'
+Channel = Security
+Object.Object Name = \Device\HarddiskVolume3\Windows\System32\lsass.exe
+EventID = 4656 (A Handle to an object was requested)
+```
 
 #### via volatility2 / handles
 
