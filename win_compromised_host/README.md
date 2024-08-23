@@ -610,6 +610,10 @@ HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
 # AutoProxyTypes, taken from: https://www.hexacorn.com/blog/2017/10/05/beyond-good-ol-run-key-part-66/
 HKCR\AutoProxyTypes
 
+# Look for changes to 'Security Packages' in the registry below to detect custom SSP creation
+# Taken from: https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet?tab=readme-ov-file#custom-ssp
+HKLM\System\CurrentControlSet\Control\Lsa\OSConfig\
+HKLM\System\CurrentControlSet\Control\Lsa\
 
 # Persistence Mechansims via Registry keys taken from: https://github.com/persistence-info/persistence-info.github.io/blob/main/Data/diskcleanuphandler.md
 `HKCR\CLSID\{52A2AAAE-085D-4187-97EA-8C30DB990436}\InprocServer32`
