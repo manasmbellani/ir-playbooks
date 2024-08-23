@@ -681,6 +681,31 @@ if(-Not (Test-Path "$INSTALL_LOCATION\mo2007")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\mo2007\mo2007.zip")
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
+    Write-Host "[*] Making directory azcli..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\azcli"
+
+    Write-Host "[*] Downloading azcli..."
+    $url =  "https://aka.ms/installazurecliwindowsx64"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\azcli\azcli.msi")
+
+    Write-Host "[*] Installing azcli from .msi silently..."
+    $command="msiexec.exe /I $INSTALL_LOCATION\azcli.msi /quiet"
+    Invoke-Expression "& $command"
+
+    Write-Host "[*] Installing azcli via powershell silently..."
+    $ProgressPreference = 'SilentlyContinue'
+    Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi
+    Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+    Remove-Item .\AzureCLI.msi
+
+    Write-Host "[*] Sleeping for $SLEEP_TIME seconds for azcli to install..."
+    sleep "$SLEEP_TIME"
+    
+    Write-Host '[*] Removing azcli .msi file...'
+    Remove-Item -Path "$INSTALL_LOCATION\azcli\azcli"
+}
+
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
     Write-Host "[*] Making flag-audit-config to state that audit logging has been configured..."
     New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-audit-config"
