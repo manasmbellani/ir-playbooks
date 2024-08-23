@@ -481,7 +481,7 @@ jsonPayload.message:"startup-script"
 #### via gcloud
 
 ```
-# Look for `metadata` field in response
+# Look for `metadata` field in response for `startup-script` OR `startup-script-url`
 gcloud compute instances describe --zone=us-central1-c 
 ```
 
