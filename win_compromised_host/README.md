@@ -316,8 +316,18 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
-### Detection for unusual URLs / browsing activity
+### Detection for unusual computer password resets
+Sometimes this activity can be common e.g. on DCs every 30 days as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e)
+- If surrounded by event ID 5805 (provider=NETLOGON, Channel=System, Level=Error) with description `The session setup from the computer .......... failed to authenticate. The following error occurred: Access is denied`, then it could indicate successful `ZeroLogon` exploit (CVE-2020-1472) as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e). Also, `Account Name` would be `ANONYMOUS LOGON`
 
+#### via Windows Event Logs / Event ID 4742
+
+```
+EventID=4742 (A computer account was changed)
+Changed Attributes.PasswordLastSet = *
+```
+
+### Detection for unusual URLs / browsing activity
 
 #### via Microsoft Windows Defender Advanced Threat Hunting
 
