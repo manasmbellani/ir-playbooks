@@ -2,6 +2,15 @@
 
 ## Analysis
 
+### Detect unusual GuardDuty Events
+
+#### via AWS Cloud Trail Event Logs / Guardduty
+
+```
+eventName: DeleteDetector
+serviceName: guardduty.amazonaws.com
+```
+
 ### Detect unusual EC2 connection attempt
 
 - Anomalous activity could indicate access attempt which is not normal
