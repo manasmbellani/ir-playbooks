@@ -547,6 +547,10 @@ rundll32
 # Can be indicative of Process Hollowing as seen in `Run of the Mill` `Ace Responder` exercise e.g
 C:\Users\Administrator\Downloads\explore.exe -> C:\Windows\System32\notepad.exe OR iexplore.exe (Internet Explorer)
 
+# Detection of PrintNightmare vulnerability (CVE-2021-1675) where print spooler process executes unusual DLLs
+# Provider = Microsoft-Windows-PrintService/Admin, EventCode=808 shows the DLL being executed ("The print spooler failed to load a plug-in module...")
+# https://www.splunk.com/en_us/blog/security/i-pity-the-spool-detecting-printnightmare-cve-2021-34527.html
+C:\Windows\System32\spoolsv.exe -> C:\Windows\System32\rundll.exe
 ```
 
 Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_sigma_rule.yml), [2](https://detection.fyi/sigmahq/sigma/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program/)
