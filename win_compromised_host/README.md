@@ -844,6 +844,7 @@ Search for `1.3.6.1.4.1.311.20.2.1` in all logs and focus on certificate service
 - Look for PSExec attempts (which is typically `LogonType=5`)
 - Look for non-null source network address as these are likely malicious attempts (`LogonType=3`)
 - Look for authentication attempts from hostnames (e.g. `DESKTOP-XXX`) OR IP addresses if your company which do not follow the naming convention for hostnames including in any VPN logs eg [here](`https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?utm_source=share&utm_medium=member_ios`).  For VPN, see GlobalProtect log field `Machine Name` in format [here](https://docs.paloaltonetworks.com/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/globalprotect-log-fields)
+- Look for overpass-the-hash attempts as described [here](https://detection.fyi/sigmahq/sigma/windows/builtin/security/account_management/win_security_overpass_the_hash/)
 
 #### via Windows Event Logs / 4624, 4625
 
@@ -854,7 +855,7 @@ LogonType = 2 (Interactive) OR 3 (Network) OR 5 (Service started by Service Cont
 
 OR
 
-# Overpass-the-hash detection
+# Overpass-the-hash detection (https://detection.fyi/sigmahq/sigma/windows/builtin/security/account_management/win_security_overpass_the_hash/)
 EventID = 4624
 LogonType = 9 (NewCredentials)
 LogonProcessName = seclogo
