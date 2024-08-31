@@ -2,6 +2,10 @@
 
 A script to perform various miscellaneous functions for uploading files to timesketch
 
+## Setup
+
+No special `requirements.txt` file required, other than default python installed on the OS
+
 ## Usage
 
 ### Adding a new field to CSV file
@@ -20,7 +24,7 @@ To add a new field `Event time ISO8601` in input file `~/Downloads/event_history
 python3 main.py -a modify_timestamp_format -it ~/Downloads/event_history.csv -ot /tmp/event_history_2.csv -tc "Event time" -ntc "Event time ISO8601" -itf "%Y-%m-%dT%H:%M:%SZ" -otf "iso8601" -itz "UTC" -otz "Australia/Sydney"
 ```
 
-To instead convert to a different 
+To instead convert to a different time instead of `is8601` eg to `%Y-%m-%d %H:%M`:
 ```
 python3 main.py -a modify_timestamp_format -it ~/Downloads/event_history.csv -ot /tmp/event_history_2.csv -tc "Event time" -ntc "Event tim ISO8601" -itf "%Y-%m-%dT%H:%M:%SZ" -otf "%Y-%m-%d %H:%M" -itz "UTC" -otz "Australia/Sydney"
 ```
