@@ -75,18 +75,22 @@ def get_header_row(csv_file, delimiter=","):
 def main():
   parser = argparse.ArgumentParser(description=DESCRIPTION)
   parser.add_argument("-it", "--input-timeline", help="Path to the input CSV timeline file to modify", required=True)
-  parser.add_argument("-ot", "--output-timeline", help="Path to the output CSV timeline file. If none specified, data is written back on to the same CSV file")
+  parser.add_argument("-ot", "--output-timeline", 
+                      help="Path to the output CSV timeline file. Default, results written back on same CSV file")
   parser.add_argument("-a", "--action", help="Action to perform", choices=CHOICES, required=True)
   parser.add_argument("-tc", "--timestamp-column", help="Timestamp field name (e.g. column name in CSV, field name in JSON file)")
   parser.add_argument("-ntc", "--new-timestamp-column", help="New Timestamp field name (e.g. column name in CSV, field name in JSON file)")
   parser.add_argument("-itf", "--in-timestamp-format", help="Format of the time in the timestamp field")
-  parser.add_argument("-otf", "--out-timestamp-format", help="Format of the new timestamp", default="iso8601")
+  parser.add_argument("-otf", "--out-timestamp-format", default="iso8601", 
+                      help="Format of the new timestamp. Default, iso8601")
   parser.add_argument("-v", "--value", help="Value for the new field")
   parser.add_argument("-nf", "--new-field", help="Name for the new field")
-  parser.add_argument("-d", "--delimiter", default=",", help="Delimiter")
-  parser.add_argument("-q", "--quote", default='"', help="Quote char")
-  parser.add_argument("-itz", "--in-timezone", default="Australia/Sydney", help="Input Timezone")
-  parser.add_argument("-otz", "--out-timezone", default="Australia/Sydney", help="Output Timezone")
+  parser.add_argument("-d", "--delimiter", default=",", help="Delimiter. Default, ','")
+  parser.add_argument("-q", "--quote", default='"', help="Quote char. Default, '\"'")
+  parser.add_argument("-itz", "--in-timezone", default="Australia/Sydney", 
+                      help="Input Timezone. Default, Australia/Sydney")
+  parser.add_argument("-otz", "--out-timezone", default="Australia/Sydney", 
+                      help="Output Timezone. Default, Australia/Sydney")
   
   args = parser.parse_args()
 
