@@ -126,7 +126,7 @@ def main():
   print(f"[*] Processing input timeline: {args.input_timeline} and writing content to ")
   tmp_file = tempfile.mktemp()
   with open(tmp_file, "w+") as of:
-    ofw = csv.writer(of, delimiter=args.delimiter, quotechar=args.quote, quoting=csv.QUOTE_MINIMAL)
+    ofw = csv.writer(of, delimiter=args.delimiter, quotechar=args.quote, quoting=csv.QUOTE_ALL)
 
     print(f"[*] Adding headers to output file...")
     ofw.writerow(header)
