@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import csv
+import json
 import os
 import shutil
 import sys
@@ -45,8 +46,8 @@ def convert_timestamp_format(timestamp, in_timestamp_format, out_timestamp_forma
   return converted_timestamp
 
 
-def get_data_rows(csv_file, header, delimiter=","):
-  """Read rows from the CSV file and convert it to data"""
+def get_csv_data_rows(csv_file, header, delimiter=","):
+  """Read rows from the CSV file and convert it to data objects"""
   with open(csv_file, newline='') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=delimiter)
     for i, row in enumerate(csv_reader):
@@ -59,8 +60,16 @@ def get_data_rows(csv_file, header, delimiter=","):
             pass
         yield data
 
+def get_json_data_rows(json_file):
+  """Read newline delimited rows from the JSON file and convert it to data objects"""
+  import jq
+  raw = ""
+  with open(json_file, 'r+') as jf:
+    raw = jf.read() 
+    for row in iter(jq.compile(".").input(text=raw)):
+      yield row
 
-def get_header_row(csv_file, delimiter=","):
+def get_csv_header_row(csv_file, delimiter=","):
   """Gets the header row from the CSV file"""
   header = []
   with open(csv_file, newline='') as csvfile:
@@ -71,6 +80,22 @@ def get_header_row(csv_file, delimiter=","):
       break
   return header
 
+def transform_data_row(data_row, args, row_id):
+  """Transform the data row based on specified action. Common action across both JSON, CSV files"""
+
+  if args.action == "modify_timestamp_format":
+      new_timestamp = convert_timestamp_format(data_row[args.timestamp_column], args.in_timestamp_format, 
+                                              args.out_timestamp_format, args.in_timezone, args.out_timezone, row_id)
+      data_row[args.new_timestamp_column] = new_timestamp
+
+  elif args.action == "add_field":
+    data_row[args.new_field] = args.value
+  
+  else:
+    print(f"[-] Unknown action: {args.action}")
+    data_row = None
+  
+  return data_row
 
 def main():
   parser = argparse.ArgumentParser(description=DESCRIPTION)
@@ -112,49 +137,64 @@ def main():
     print(f"[-] Unknown action: {args.action}")
     return 1
 
-  header = get_header_row(args.input_timeline)
+  print(f"[*] Checking file type based on extension for input timeline file: {args.input_timeline}...")
+  __, extn = os.path.splitext(args.input_timeline)
+  if extn == ".csv":
 
-  print("[*] Reviewing headers...")
-  if args.action == "modify_timestamp_format":
-    header.append(args.new_timestamp_column)
-  elif args.action == "add_field":
-    header.append(args.new_field)
+    print("[*] Reviewing CSV headers...")
+    header = get_csv_header_row(args.input_timeline)
+    if args.action == "modify_timestamp_format":
+      header.append(args.new_timestamp_column)
+    elif args.action == "add_field":
+      header.append(args.new_field)
+    else:
+      print(f"[-] Unknown action: {args.action}")
+      return 1
+
+    tmp_file = tempfile.mktemp()
+
+    print(f"[*] Processing CSV input timeline: {args.input_timeline} and writing content to file: {tmp_file}")
+    with open(tmp_file, "w+") as of:
+      ofw = csv.writer(of, delimiter=args.delimiter, quotechar=args.quote, quoting=csv.QUOTE_ALL)
+
+      print(f"[*] Adding CSV headers to output file...")
+      ofw.writerow(header)
+
+      print(f"[*] Processing rows in CSV input file: {args.input_timeline}...")
+      for i, data_row in enumerate(get_csv_data_rows(args.input_timeline, header, delimiter=args.delimiter)):
+        
+        data_row = transform_data_row(data_row, args, i)
+        if not data_row:
+          return 1
+        
+        print(f"[*] Writing CSV row: {i} to outfile: {tmp_file}...")
+        ofw.writerow( data_row[h] for h in header )
+
+        if i % FLUSH_ROWS_COUNT == 0:
+          of.flush()
+
+    if not args.output_timeline:
+      print(f"[*] Setting CSV output file: {args.input_timeline}...")
+      args.output_timeline = args.input_timeline
+
+  elif extn == ".json":
+    
+    tmp_file = tempfile.mktemp()
+    import jsonlines
+    with jsonlines.open(tmp_file, "w") as of:
+      print(f"[*] Processing JSON input timeline: {args.input_timeline} and writing JSONL content to file: {tmp_file}")
+      for i, data_row in enumerate(get_json_data_rows(args.input_timeline)):
+        
+        data_row = transform_data_row(data_row, args, i)
+        if not data_row:
+          return 1
+        
+        print(f"[*] Writing JSONL row: {i} to outfile: {tmp_file}...")
+        of.write( data_row )
+      
   else:
-    print(f"[-] Unknown action: {args.action}")
+    print(f"[-] Unknown file extension: {extn}")
     return 1
-
-  print(f"[*] Processing input timeline: {args.input_timeline} and writing content to ")
-  tmp_file = tempfile.mktemp()
-  with open(tmp_file, "w+") as of:
-    ofw = csv.writer(of, delimiter=args.delimiter, quotechar=args.quote, quoting=csv.QUOTE_ALL)
-
-    print(f"[*] Adding headers to output file...")
-    ofw.writerow(header)
-
-    print(f"[*] Processing rows in input file: {args.input_timeline}...")
-    for i, data_row in enumerate(get_data_rows(args.input_timeline, header, delimiter=args.delimiter)):
-      
-      if args.action == "modify_timestamp_format":
-        new_timestamp = convert_timestamp_format(data_row[args.timestamp_column], args.in_timestamp_format, 
-                                                args.out_timestamp_format, args.in_timezone, args.out_timezone, i)
-        data_row[args.new_timestamp_column] = new_timestamp
-
-      elif args.action == "add_field":
-        data_row[args.new_field] = args.value
-      
-      else:
-        print(f"[-] Unknown action: {args.action}")
-        return 1
-      
-      print(f"[*] Writing row: {i} to outfile: {tmp_file}...")
-      ofw.writerow( data_row[h] for h in header )
-
-      if i % FLUSH_ROWS_COUNT == 0:
-        of.flush()
-
-  if not args.output_timeline:
-    print(f"[*] Setting output file: {args.input_timeline}...")
-    args.output_timeline = args.input_timeline
 
   print(f"[*] Moving file: {tmp_file} to outfile: {args.output_timeline}...")
   shutil.move(tmp_file, args.output_timeline)
