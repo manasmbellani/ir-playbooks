@@ -1,5 +1,28 @@
 # AWS Compromised Account
 
+## Collection
+
+### Collect CloudTrail Events
+
+Process and add new fields via timesketch_utils script [here](../gcp_compromised_pod/timesketch_utils)
+
+#### via awscli / cloudtrail / lookup-events
+
+```
+START_TIME="2024-08-01T00:00:00Z"
+END_TIME="2024-09-01T00:00:00Z"
+AWS_PROFILE="default"
+AWS_REGION="us-east-1"
+
+aws cloudtrail lookup-events --start-time $START_TIME --end-time $END_TIME --profile $AWS_PROFILE --region $AWS_REGION > out-cloudtrail-events-$AWS_PROFILE-$AWS_REGION-$START_TIME-$END_TIME.json
+```
+
+#### via awscli / S3 
+
+```
+aws s3 cp s3://$BUCKET_NAME/ $LOCAL_DIR --recursive
+```
+
 ## Analysis
 
 ### Detect unusual GuardDuty Events
