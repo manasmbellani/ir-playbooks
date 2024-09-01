@@ -19,6 +19,8 @@ aws cloudtrail lookup-events --start-time $START_TIME --end-time $END_TIME --pro
 
 #### via awscli / S3 
 
+Assuming that cloudtrail events are already stored in a bucket.
+
 ```
 aws s3 cp s3://$BUCKET_NAME/ $LOCAL_DIR --recursive
 ```
