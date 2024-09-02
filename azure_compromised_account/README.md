@@ -26,9 +26,17 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 Go to `Conditional Access` > `Named Locations` > Create a new `IP Ranges Location` or `Countries Location`
 
-Visit `Conditional Access` > `Policies` > Select under Network > Select the `IP Ranges` location that was previously created
+Visit `Conditional Access` > `Policies` > Select under Network > Select `IP Ranges` location that was previously created
 
 Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-password-spray#block-ip-address-microsoft-entra-id-for-managed-scenario-phs-including-staging)
+
+### Blocking Legacy Authentication Protocols
+
+Go to `Conditional Access` > `Policies` > `New Policy` > `Conditions` > `Client Apps` > Use `Other Clients` to disable FTP, POP3, SMTP protcols.
+
+#### via Azure Conditional Access Policies
+
+Go to `Conditional Access` > 
 
 ### Disable Microsoft 365 Account
 
