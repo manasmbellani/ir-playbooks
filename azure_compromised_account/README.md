@@ -89,11 +89,19 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 ## Collection
 
-### Collect Azure AD Audit Logs
+### Collect Azure AD Audit Logs (Sign-In, Directory Audit)
 
 #### via Powershell/AzureADPreview module
 
 Collect the logs for Azure AD Sign-in and Directory Audit via the script [here](Get-AzureADAuditLogs.ps1)
+
+#### via Microsoft Graph
+
+```
+Connect-MgGraph  -Scopes "AuditLog.Read.All,Directory.Read.All"
+Get-MgAuditLogSignIn -All | Format-List | more
+Get-MgAuditLogDirectoryAudit -All | Format-List | more
+```
 
 ### Collect Azure Activity Logs
 
