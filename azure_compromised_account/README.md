@@ -687,7 +687,8 @@ Connect-AzureAZ
 # To get the subscriptions for a user
 $SubscriptionId = (Get-AzSubscription | Select -First 10 | %{$_.Id})
 # Don't specify subscription for ALL logs
-# To get the activity logs for a user between particular dates
+# To get the activity logs for a user between particular dates, use below. 
+# 'Output' Folder contains logs in JSON
 $SubscriptionId | %{Get-ActivityLogs -StartDate 2024-08-01 -EndDate 2024-08-30 -Subscription $_}
 ```
 
