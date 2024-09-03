@@ -680,7 +680,11 @@ Search-UnifiedAuditLog -StartDate "2024-06-24 08:20:00" -EndDate "2024-06-24 08:
 ```
 Import-Module Microsoft-Extractor-Suite
 Connect-AzureAZ
-Get-ActivityLogs
+# To get the subscriptions for a user
+$SubscriptionId = (Get-AzSubscription | Select -First 10 | %{$_.Id})
+# Don't specify subscription for ALL logs
+# To get the activity logs for a user between particular dates
+$SubscriptionId | %{Get-ActivityLogs -StartDate 2024-08-01 -EndDate 2024-08-30 -Subscription $_}
 ```
 
 More info [here](https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActivityLogs.html#usage)
