@@ -95,6 +95,10 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 Collect the logs for Azure AD Sign-in and Directory Audit via the script [here](Get-AzureADAuditLogs.ps1)
 
+### Collect Azure Activity Logs
+
+See [here](#extract-activity-logs)
+
 ### Collect Azure AD Environment Information
 
 #### via HAWK
