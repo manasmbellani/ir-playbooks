@@ -533,7 +533,8 @@ sc
 # References: https://www.tenforums.com/tutorials/90923-enable-disable-automatic-repair-windows-10-a.html
 bcdedit
 
-# Look for indications of back volume shadow copies being deleted eg vssadmin.exe Delete Shadows /all /quiet	
+# Look for indications of back volume shadow copies being deleted eg vssadmin.exe Delete Shadows /all /quiet 
+# OR vssadmin  create shadow /for=C: for shadow copy creation for dumping hashes
 vssadmin.exe
 
 # Identified WERFault as parent process in image file execution options execution.
