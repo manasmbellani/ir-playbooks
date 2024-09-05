@@ -105,3 +105,10 @@ Creation of access keys from unusual source can indicate persistence within the 
 # responseElements.accessKey.accessKeyId is the ID of the key created
 eventName: "CreateAccessKey"
 ```
+
+### Detect creation of new instances
+
+```
+eventSource: ec2.amazonaws.com
+eventName: RunInstances
+```
