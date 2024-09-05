@@ -452,6 +452,15 @@ docker commit <container-id> <new-image-name>
 docker save -o <path-to-save-image.tar> <new-image-name>
 ```
 
+### Check unusual compute instances created
+
+#### via GCP audit event log explorer
+
+```
+protoPayload.servicName: compute.googleapis.com
+protoPayload.methodName: compute.instances.insert
+```
+
 ### Mounting containers / disk
 
 #### via container-explorer
