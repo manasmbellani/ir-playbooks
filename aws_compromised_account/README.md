@@ -103,6 +103,7 @@ Creation of access keys from unusual source can indicate persistence within the 
 ```
 # requestParameters.userName contains the username for which access key was created
 # responseElements.accessKey.accessKeyId is the ID of the key created
+eventSource: "ec2.amazonaws.com"
 eventName: "CreateAccessKey"
 ```
 
