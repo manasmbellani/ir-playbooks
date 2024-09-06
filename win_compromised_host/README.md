@@ -232,6 +232,12 @@ C:\Users\Administrator\Desktop\opt\dc3dd\dc3dd-dcfl-win7-64-7-2-641\dc3dd.exe if
 
 Taken from [here](https://www.forensicfocus.com/articles/windows-drive-acquisition/)
 
+### Collect Windows Event Logs
+
+#### via powershell
+
+Use [Get-WinEvtxLogs.ps1](Get-WinEvtxLogs.ps1) script to retrieve the logs on the device
+
 ### Collect Disk Artifacts
 
 #### via Kroll (KAPE)
