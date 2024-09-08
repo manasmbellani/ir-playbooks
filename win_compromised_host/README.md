@@ -495,6 +495,7 @@ cloud.instance.name:dc AND winlog.event_id:* AND (event.code:1 OR event.code:410
 Processes and parent process names to look for:
 ```
 powershell.exe
+# Suspicious VBS Executions. See https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1059.005/
 cscript.exe
 # Javascript execution. See https://detection.fyi/mbabinski/sigma-rules/2023_redcanary_threatdetectionreport/threat_gootloader_appdata_js_execution/
 wscript.exe
