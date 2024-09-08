@@ -496,7 +496,9 @@ Processes and parent process names to look for:
 ```
 powershell.exe
 cscript.exe
+# Javascript execution. See https://detection.fyi/mbabinski/sigma-rules/2023_redcanary_threatdetectionreport/threat_gootloader_appdata_js_execution/
 wscript.exe
+# MSHTA Execution
 mshta.exe
 cmd.exe
 pwsh.exe
