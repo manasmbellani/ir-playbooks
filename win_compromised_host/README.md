@@ -425,6 +425,16 @@ Provider=Microsoft-Windows-Security-Auditing
 
 Can display malicious disks being inserted into the device
 
+#### via Windows Event Audit Logs / EventID 1006
+
+```
+# Contains Capacity, Model, Serial #
+EventID=1006
+Provider=Windows-Diagnostic-Parition
+```
+
+More info [here](https://mreerie.com/2022/02/05/bitlocker-connected-storage-devices/)
+
 #### via Windows Event Audit Logs / EventID 6416
 
 Detects USB Device Name, USB Device ID
