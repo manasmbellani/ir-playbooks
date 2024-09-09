@@ -333,7 +333,7 @@ EventID=4742 (A computer account was changed)
 Changed Attributes.PasswordLastSet = *
 ```
 
-### Detection for unusual image loads
+### Detection for unusual DLLs / images loaded
 
 Look for artifacts like: 
 ```
