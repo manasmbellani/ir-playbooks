@@ -333,6 +333,25 @@ EventID=4742 (A computer account was changed)
 Changed Attributes.PasswordLastSet = *
 ```
 
+### Detection for unusual image loads
+
+Look for artifacts like: 
+```
+# For .NET Assembly executions in memory against the same processID or process 
+ImageLoaded: *\clrjit.dll AND ImageLoaded: *\clr.dll
+```
+
+#### via Windows Audit Sysmon Event Logs / Event ID 7
+
+```
+# Look for .NET Assembly executions
+EventID: 7 (Image Loaded)
+Provider: Microsoft-Windows-Sysmon
+ImageLoaded: <See above>
+```
+
+
+
 ### Detection for unusual URLs / browsing activity
 
 #### via Microsoft Windows Defender Advanced Threat Hunting
