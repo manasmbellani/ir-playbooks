@@ -413,9 +413,22 @@ Provider=VSSAudit
 EventID=8222 (Shadow copy has been created.)
 ```
 
+### Detect for unusual Windows DNSServer Activity Logs
+
+#### via Windows Audit Event Logs / 541
+
+Can detect `DNSAdmins` abuse by overwriting of serverlevelplugindll on scope pointing to malicious DLL path
+
+```
+Event ID = 541
+Channel = Microsoft-Windows-DNSServer/Audit
+Provider = Microsoft-Windows-DNSServer
+Description = "serverlevelplugindll on scope . has been set to $ARBITRARY_DLL_PATH"
+```
+
 ### Detect for unusual Windows services creations
 
-Monitor for usage of new services which can be indicative of persistence techniques e.g. via modification of binary to system.
+Monitor for usage of new services which can be indicative of persistence techniques e.g. via modification of binary to system, dnsadmins
 Some unusual service names can be: 
 ```
 # Indicates a pivoting tunnel  from cloudflare, called cloudflared. See https://x.com/malmoeb/status/1736995855482118314?s=46&t=WvGY79Umt5enRwgCbi4TQQ, https://www.guidepointsecurity.com/blog/tunnel-vision-cloudflared-abused-in-the-wild/
@@ -434,6 +447,7 @@ TargetObject=HKLM\System\CurrentControlSet\Services\$SERVICE_NAME\Start
 
 #### via Windows Event Logs / 7045 / 7036 / 7040 / 4697
 ```
+# Look for 'DNS Server' service name (e.g. has it entered the `start` state or not) for `DNSAdmins` abuse
 EventID=7045 (service was installed on system) OR EventID=7040 (The start type of the ... service was changed from auto start to demand start) OR EventID=7036 (The ... service entered the stopped state.)
 Provider=Service Control Manager
 OR 
