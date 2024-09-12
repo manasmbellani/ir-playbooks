@@ -195,6 +195,12 @@ Get-AzureADIRConditionalAccessPolicy -TenantId $TenantId -All -XmlOutput
 
 Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsoft-cloud-environment/
 
+### Collection of Risky Detections (eg Risk sign-ins, Risk detections)
+
+#### via Azure Identity Protection 
+
+If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/RiskDetections
+
 ## Analysis
 
 ### Look for creation of unusual Azure VM Instances
