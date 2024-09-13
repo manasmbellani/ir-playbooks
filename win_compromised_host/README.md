@@ -334,6 +334,20 @@ EventID = 5379 (Credential Manager credentials were read)
 Channel = Security
 ```
 
+
+### Detection for unusual account changes
+
+Can detect activites, like:
+- Addition of Service Principal Names (SPNs) aka `Force SPN Set` (even though the service principal name added may not be shown)
+  
+
+#### via windows event logs / 4738
+
+```
+EventID = 4738 (A user account was changed)
+Channel = Security
+```
+
 ### Detection for unusual computer password resets
 
 Sometimes this activity can be common e.g. on DCs every 30 days as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e)
