@@ -765,6 +765,9 @@ HKLM\System\CurrentControlSet\Control\Lsa\
 `HKLM\System\CurrentControlSet\Control\ContentIndex\Language\English_US`
 `HKLM\System\CurrentControlSet\Control\ContentIndex\Language\Neutral`
 `HKLM\System\CurrentControlSet\Control\ContentIndex\Language`
+
+# Detect DNSAdmins abuse where ServerLevelPluginDll contains the path to the DLL
+HKLM:\SYSTEM:\CurrentControlSet:\services\DNS\Parameters\ServerLevelPluginDll
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 13
