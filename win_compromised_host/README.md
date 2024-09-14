@@ -322,6 +322,18 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual active directory services changes
+
+- Can detect changes to Active Directory Group Services
+
+#### via Windows Audit Event Logs / 5136
+
+```
+# Look for changes from unusual 'Subject.Account Name' 
+EventID = 5136 (A directory service object was modified)
+Channel = Security
+```
+
 ### Detection for unusual Credential Manager Reads
 
 - Can detect Mimikatz `vault::read` attempts to credentials saved in memory 
