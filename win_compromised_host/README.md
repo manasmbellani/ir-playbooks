@@ -543,6 +543,15 @@ powershell.exe -NoProfile -executionPolicy bypass -file "C:\Program Files (x86)\
 Invoke-Command -ComputerName $computer ...
 ```
 
+#### via powershell module logging / event ID 4103
+
+Usually 4104 (ScriptBlock text) ok for most unusual detections, Can be used to detect bypass for ScriptBlock logging attempts as documented in [dfir.ch](https://dfir.ch/posts/scriptblock_smuggling/)
+
+```
+Event ID = 4103 (CommandInvocation)
+Channel = Microsoft-Windows-Powershell/Operational 
+```
+
 #### via windows process logging / event ID 1 with powershell.exe or pwsh.exe  
 
 See [here](#detect-for-unusual-processes-and-parent-processes-created)
@@ -551,7 +560,7 @@ See [here](#detect-for-unusual-processes-and-parent-processes-created)
 
 ```
 # Look for TargetFileName, ProcessID fields (Process that created the key) AND Target Object
-Event ID = 4104 (Powershell)
+Event ID = 4104 (Creating ScriptBlock text)
 Channel = Microsoft-Windows-PowerShell/Operational
 ```
 
