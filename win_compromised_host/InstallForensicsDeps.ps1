@@ -161,6 +161,7 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-enable-ssh")) {
 }
 
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-powershell-logging")) {
+    # Taken from: https://support.alertlogic.com/hc/en-us/articles/4410220960795-Enable-Windows-PowerShell-Logging
     Write-Host "[*] Making flag-powershell-logging to state that powershell logging has been configured..."
     New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-powershell-logging"
 
