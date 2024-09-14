@@ -294,6 +294,18 @@ MicrosoftGraphActivityLogs
 | where UserAgent contains "azurehound"
 ```
 
+#### via Azure Sign-in logs / KQL / Excessive number of user agents
+
+As seen in case of `MFASweep` where within a short timeframe, multiple User agent strings are being attempted to see if MFA can be bypassed within a very short period e.g 5 minutes. This can be indicative of MFASweep scanning 
+
+```
+SigninLogs
+| extend authenticationMethod_ = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)
+| project TimeGenerated, UserAgent, SignInIdentifier, Status, IPAddress, AuthenticationDetails, authenticationMethod_
+| summarize countUserAgent = count_distinct(UserAgent), userAgentList=make_list(UserAgent, 5) by IPAddress
+| sort by countUserAgent
+```
+
 ### Detect unusual recon activity for AzureHound
 
 #### via Azure AD Graph Activity Logs
