@@ -363,12 +363,20 @@ Channel = Security
 ### Detection for unusual user password resets
 
 - Can be indicative of password resets via commands like `net.exe`
+
+#### via Windows Event Logs / Event ID 4738
+
+```
+# Monitor the `Password Last Set` date for changes
+EventID = 4738 (A User's account was changed)
+Channel = Security
+```
   
 #### via Windows Event Logs / Event ID 4724
 
 ```
 # Target Account.Account Name is the username on which the password was reset
-EventID = 4724
+EventID = 4724 (An attempt was made to reset a user's password) 
 Channel = Security
 ```
 
