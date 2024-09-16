@@ -360,6 +360,18 @@ EventID = 4738 (A user account was changed)
 Channel = Security
 ```
 
+### Detection for unusual user password resets
+
+- Can be indicative of password resets via commands like `net.exe`
+  
+#### via Windows Event Logs / Event ID 4724
+
+```
+# Target Account.Account Name is the username on which the password was reset
+EventID = 4724
+Channel = Security
+```
+
 ### Detection for unusual computer password resets
 
 Sometimes this activity can be common e.g. on DCs every 30 days as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e)
