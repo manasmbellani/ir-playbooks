@@ -884,7 +884,7 @@ EventID = 91
 Description = "*Creating WSMan shell*"
 ```
 
-### Detection of Active Directory Certificate Services Abuse - SAN Template Certificates (ESC1)
+### Detection of unusual ADCS certificate requests / Active Directory Certificate Services Abuse - SAN Template Certificates (ESC1)
 
 - Typically, Extended Key Usage (EKU) attributes are used to define how a Public-private key pair generate for a user  can be used.
 - Compromise Type 1: If attacker steals Bob’s private key and certificate, and the certificate has an authentication EKU, the attacker can authenticate to the AD domain without knowing Bob’s password
