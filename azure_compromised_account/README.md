@@ -20,6 +20,10 @@ Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics 
 
 ## Containment
 
+### Remove the delegated permissions for any partner granted access
+
+Visit Admin Center > Partners via link [here](https://admin.microsoft.com/#/partners)
+
 ### Block IP Ranges or Countries performing credential stuffing attacks
 
 #### via Azure Named Locations / Azure Conditional Access Policies
