@@ -1922,6 +1922,12 @@ Detects any unusual activity from loaded sigma rules. More examples available [h
 C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\chainsaw.exe hunt C:\Windows\Temp\Logs -s C:\Users\Administrator\Desktop\opt\sigma\sigma-master -r C:\Users\Administrator\Desktop\opt\sigma\sigma-master\rules --mapping C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\mappings\sigma-event-logs-all.yml --csv --output C:\Windows\Temp\out.csv
 ```
 
+#### via velocirpator / DetectRaptor
+
+Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree/master) Zip artifact into Velociraptor and launch YaraProcessWin Artifact which will search for malware based on YaraForge.
+
+Consider also looking for WebShellYara Artifact which will search for webshells based on YaraForge
+
 ### Identify Downloaded files
 
 Certain actions such as LSA Dumping can also write files to this location
