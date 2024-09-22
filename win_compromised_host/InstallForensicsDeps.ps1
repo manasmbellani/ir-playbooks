@@ -4,6 +4,7 @@
     Run in Windows Powershell v5.1
 
     Additional Steps:
+        * Upload DetectRaptorVQL.zip in detectraptor folder manually in Velociraptor GUI through 'Artifacts' icon 
     	* Install Microsoft Office 2007 using key in my-notes
         * Ensure that additional logging is setup as defined in README.md#scenario-setup especially for ADCS
         * If error of .net6 from EZ Tools, open one of the binaries and install .NET version via the dialog box shown
@@ -429,6 +430,14 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\velociraptor")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\velociraptor\velociraptor.exe")
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\detectraptor")) {
+    Write-Host "[*] Making directory detectraptor..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\detectraptor"
+    
+    Write-Host "[*] Downloading detectraptor..."
+    $url="https://github.com/mgreen27/DetectRaptor/releases/download/DetectRaptor/DetectRaptorVQL.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\detectraptor\DetectRaptorVQL.zip")
+}
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\kape")) {
     Write-Host "[*] Making directory kape..."
