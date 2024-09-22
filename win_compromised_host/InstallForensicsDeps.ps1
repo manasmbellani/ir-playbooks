@@ -673,6 +673,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\hayabusa")) {
     Remove-Item -Path "$INSTALL_LOCATION\hayabusa\hayabusa.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\crowdstrike-crt")) {
+    Write-Host "[*] Making directory crowdstrike-crt..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\crowdstrike-crt"
+    
+    Write-Host "[*] Downloading crowdstrike-crt..."
+    $url = "https://github.com/CrowdStrike/CRT/archive/refs/heads/main.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\crowdstrike-crt\crowdstrike-crt.zip")
+
+    Write-Host "[*] Extracting crowdstrike-crt zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\crowdstrike-crt\crowdstrike-crt.zip" -DestinationPath "$INSTALL_LOCATION\crowdstrike-crt"
+
+    Write-Host '[*] Removing crowdstrike-crt zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\crowdstrike-crt\crowdstrike-crt.zip"
+}
+
 if(-Not (Test-Path "$INSTALL_LOCATION\VisualStudio")) {
     Write-Host "[*] Making directory VisualStudio..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\VisualStudio"
@@ -764,5 +779,3 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
     # $command = '& gpupdate /force'
     # Invoke-Expression "$command"
 }
-
-
