@@ -120,7 +120,16 @@ Connect-ExchangeOnline
 Start-HawkTenantInvestigation
 ```
 
-https://cloudforensicator.com/documentation
+Taken from [cloudfornsicator](https://cloudforensicator.com/documentation)
+
+#### via Crowdstrike CRT for Azure
+
+```
+cd C:\Users\Administrator\Desktop\opt\crowdstrike-crt\CRT-main
+.\Get-CRTReport.ps1
+```
+
+More info at [crowdstrike](https://github.com/CrowdStrike/CRT)
 
 
 ### Collect MFA enabled Azure AD users list
