@@ -126,6 +126,14 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+### Look for malware 
+
+#### via velocirpator / DetectRaptor
+
+Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree/master) Zip artifact into Velociraptor and launch YaraProcessMacos Artifact which will search for malware based on YaraForge.
+
+Consider also looking for WebShellYara Artifact which will search for webshells based on YaraForge
+
 ### Look for interesting indicators in data 
 
 #### via bulk_extractor
