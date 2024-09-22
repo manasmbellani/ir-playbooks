@@ -717,6 +717,12 @@ dd if=mem bs=1 skip=$((0x56218f564000)) count=1000 of=/tmp/exec2
 
 ### Scan for malware from disk
 
+#### via velociraptor / DetectRaptorVQL
+
+Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree/master) Zip artifact into Velociraptor and launch YaraProcessLinux Artifact which will search for malware based on YaraForge.
+
+Consider also looking for WebShellYara Artifact which will search for webshells based on YaraForge
+
 #### via fraken
 
 We can scan for any malware on the system as well using Neo23x0's Yara signatures if the file is mounted e.g. on `/mnt/disk` via the steps above via `fraken`:
