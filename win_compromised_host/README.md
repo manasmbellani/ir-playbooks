@@ -603,7 +603,8 @@ cloud.instance.name:dc AND winlog.event_id:* AND (event.code:1 OR event.code:410
 
 ### Detect for unusual processes and parent processes created
 
-Processes and parent process names to look for:
+- Identify signs of lateral movement via various tools such as `imapcket` via Parent Command Line and Command Line [Purp1eW0lf](https://github.com/Purp1eW0lf/Blue-Team-Notes)
+- Processes and parent process names to look for:
 ```
 powershell.exe
 # Suspicious VBS Executions. See https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1059.005/
@@ -1189,7 +1190,7 @@ Channel: Microsoft-Windows-Sysmon/Operational
 
 ### Scheduled Tasks Creation
 
-Can be a persistence mechanism for threat actors
+Can be a persistence mechanism for threat actors OR even launching of shells from tools like [impacket-atexec](https://github.com/manasmbellani/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md)
 
 Most detection techniques taken from [here](https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/)
 
