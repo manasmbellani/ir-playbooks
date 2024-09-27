@@ -1525,11 +1525,12 @@ equinox.io
 argotunnel.com
 ```
 
-- Look for unusual processes making DNS queries e.g.
+- Look for unusual processes making DNS queries which can be indicative of C2 implants making outbound connectivity e.g.
 ```
 # For e.g. with excel canarytokens from canarytokens.org
 Excel.exe
 Word.exe
+powershell.exe
 ```
 
 #### via Microsoft Windows Defender Advanced Threat Hunting / KQL
