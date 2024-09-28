@@ -281,6 +281,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\dc3dd")) {
     Remove-Item -Path "$INSTALL_LOCATION\dc3dd\dc3dd-windows.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\PurpleKnight")) {
+    Write-Host "[*] Making directory PurpleKnight..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\PurpleKnight"
+
+    Write-Host "[*] Downloading PurpleKnight.zip..."
+    $url =  "https://github.com/manasmbellani/splunkfiles/raw/refs/heads/master/PK-Community-v4.3.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\PurpleKnight\PurpleKnight.zip")
+
+    Write-Host "[*] Extracting PurpleKnight .zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\PurpleKnight\PurpleKnight.zip" -DestinationPath "$INSTALL_LOCATION\PurpleKnight"
+
+    Write-Host '[*] Removing PurpleKnight.zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\PurpleKnight\PurpleKnight.zip"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azurehound")) {
     Write-Host "[*] Making directory azurehound..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\azurehound"
