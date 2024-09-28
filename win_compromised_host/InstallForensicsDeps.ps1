@@ -296,6 +296,22 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\PurpleKnight")) {
     Remove-Item -Path "$INSTALL_LOCATION\PurpleKnight\PurpleKnight.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\PingCastle")) {
+    Write-Host "[*] Making directory PingCastle..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\PingCastle"
+
+    Write-Host "[*] Downloading PingCastle.zip..."
+    $url =  "https://github.com/netwrix/pingcastle/releases/download/3.3.0.1/PingCastle_3.3.0.1.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\PingCastle\PingCastle.zip")
+
+    Write-Host "[*] Extracting PingCastle .zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\PingCastle\PingCastle.zip" -DestinationPath "$INSTALL_LOCATION\PingCastle"
+
+    Write-Host '[*] Removing PingCastle.zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\PingCastle\PingCastle.zip"
+}
+
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azurehound")) {
     Write-Host "[*] Making directory azurehound..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\azurehound"
