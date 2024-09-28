@@ -644,6 +644,14 @@ DumpIt.exe
 # Taken from: https://labs.withsecure.com/publications/attack-detection-fundamentals-discovery-and-lateral-movement-lab-5
 wmiprvse.exe
 
+# Look for -Embedding command line argument as it may indicate DComExec.py execution
+# https://github.com/manasmbellani/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md
+mmc.exe 
+
+# Indications of firewall being manipulated to open firewall ports
+# Eg. for RDP based lateral movement: https://github.com/manasmbellani/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md
+netsh
+
 # See detection [here](#detection-of-winrm-shell--powershell-remote-session) for Windows Powershell remoting
 wsmprovhost.exe
 
