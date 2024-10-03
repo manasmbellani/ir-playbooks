@@ -1571,6 +1571,12 @@ FTP (port 21)
 Destination IP: Amazon IP addresses
 ```
 
+#### via Microsoft Windows Defender / Live Response
+
+```
+Initiate Live Response > command is 'connections'
+```
+
 #### via Microsoft Windows Defender Advanced Threat Hunting / KQL
 
 ```
