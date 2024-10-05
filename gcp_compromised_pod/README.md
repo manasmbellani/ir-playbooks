@@ -895,5 +895,17 @@ kubectl delete pods $POD_NAME
 
 ## Recovery
 
+### Enable Container Security API for clusters
+
+Helps with detection of various vulnerabilities such as pods running as root
+
+#### via gcloud
+
+```
+gcloud container clusters update test-cluster-1 --security-posture=standard --location=us-central1-c 
+```
+
+See [Kubernetes Engine Docs](https://cloud.google.com/kubernetes-engine/docs/how-to/protect-workload-configuration?_gl=1*hskxni*_ga*MTc2OTc3ODc4Ny4xNzI1MTQ0ODk1*_ga_WH2QY8WWF5*MTcyODA5OTQwMC43OC4xLjE3MjgxMDMwMjQuNTguMC4w) for more info
+
 ## Automation
 
