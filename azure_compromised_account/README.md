@@ -757,6 +757,10 @@ Search-UnifiedAuditLog -StartDate 2024-05-31 -EndDate 2024-06-01
 #### via Microsoft-Extractor-Suite
 
 ```
+# Load the Microsoft Powershell module
+cd " C:\Users\Administrator\Desktop\opt\Microsoft-Extractor-Suite\Microsoft-Extractor-Suite-main"
+Import-Module .\Microsoft-Extractor-Suite.psd1
+
 # To get statistics only
 Connect-M365
 Get-UALStatistics -UserIds manasbellani@testgcpbusiness12345.onmicrosoft.com -StartDate 2024-05-08 -Output JSON
