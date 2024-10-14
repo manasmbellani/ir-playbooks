@@ -24,7 +24,8 @@ sudo apt-get -y install \
   nmap \
   auditd \
   xrdp \
-  tshark
+  tshark \
+  python3-virtualenv
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
