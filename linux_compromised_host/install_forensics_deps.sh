@@ -25,7 +25,8 @@ sudo apt-get -y install \
   auditd \
   xrdp \
   tshark \
-  python3-virtualenv
+  python3-virtualenv \
+  docker.io
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
