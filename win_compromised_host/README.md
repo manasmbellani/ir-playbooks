@@ -398,6 +398,21 @@ Look for artifacts like:
 ```
 # For .NET Assembly executions in memory against the same processID or process 
 ImageLoaded: *\clrjit.dll AND ImageLoaded: *\clr.dll
+# For detecting if there are any interesting sideloaded events
+ImageLoaded: *.dll and !(ImageLoaded: C:\\Windows AND ImageLoaded: "C:\\Program Files\\" AND ImageLoaded: "C:\\Program Files(x86)\\"
+```
+
+#### via Microsoft Windows Defender / KQL
+
+```
+# Look for device image load events and exclude known folder paths
+# Join data with Certificate Signer data from Defender
+DeviceImageLoadEvents
+| where FileName endswith ".dll"
+| where not(FolderPath  startswith "C:\\Windows\\" or FolderPath startswith "C:\\Program Files\\" or FolderPath startswith "C:\\Program Files(x86)\\")
+| join DeviceFileCertificateInfo on SHA1
+| project TimeGenerated, DeviceName, ActionType, FolderPath, SHA1, InitiatingProcessAccountName, InitiatingProcessCommandLine, InitiatingProcessFileName, Signer, CertificateSerialNumber
+| where (Signer contains "Microsoft")
 ```
 
 #### via Windows Audit Sysmon Event Logs / Event ID 7
