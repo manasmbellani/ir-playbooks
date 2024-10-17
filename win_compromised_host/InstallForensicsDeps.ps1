@@ -21,7 +21,7 @@ Write-Host "[*] Configuring TLS settings for downloading files..."
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 # Installation location for our binaries
-$INSTALL_LOCATION = "C:\Users\Administrator\Desktop\opt"
+$INSTALL_LOCATION = "C:\Users\azureuser\Desktop\opt"
 
 # Get the current working directory 
 $cwd = $(Get-Location | Select -ExpandProperty Path)
