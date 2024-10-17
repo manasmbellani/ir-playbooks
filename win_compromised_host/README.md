@@ -968,6 +968,18 @@ winlog.provider_name:RPCFW AND event.code:3 AND winlog.event_data.arg_6.SubjectA
 
 See [here](https://www.aceresponder.com/blog/disrupting-offensive-rpc)
 
+### Detect ASREP Roasting Authentication Attempts
+
+#### via Windows Audit Event Logs / ID 4768
+
+```
+EventID = 4768 (A Kerberos authentication ticket (TGT) was generated)
+Additional Information.Ticket Encryption Type = 0x12
+Service Information.Service Name = krbtgt
+```
+
+https://www.hackthebox.com/blog/as-rep-roasting-detection
+
 ### Look for certificate based authentication from certificates for ADCS
 
 - Could be useful to detect to detect certificate based authentication and compromise attempts for ESC1 and other ADCS vulnerabilities
