@@ -1595,8 +1595,12 @@ Channel = Microsoft-Windows-Sysmon/Operational
 ```
 # As discussed [here](https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?utm_source=share&utm_medium=member_ios)
 FTP (port 21)
+
 # E.g. for ocnnectivity to ngrok agents, as an example
 Destination IP: Amazon IP addresses
+
+# Look for outbound internet connectivity from unusual processes
+'wscript.exe','mshta.exe','cscript.exe','conhost.exe','runScriptHelper.exe', 'powershell.exe'
 ```
 
 #### via Microsoft Windows Defender / Live Response
@@ -1606,6 +1610,15 @@ Initiate Live Response > command is 'connections'
 ```
 
 #### via Microsoft Windows Defender Advanced Threat Hunting / KQL
+
+```
+# Looks for remote connectivity from unusual processes
+# Taken from: https://x.com/NathanMcNulty/status/1847000466712133959
+DeviceNetworkEvents
+| where ActionType == 'ConnectionSuccess'
+| where RemoteIPType == 'Public'
+| where InitiatingProcessVersionInfoOriginalFileName in~ ('wscript.exe','mshta.exe','cscript.exe','conhost.exe','runScriptHelper.exe', 'powershell.exe')
+```
 
 ```
 DeviceNetworkEvents
