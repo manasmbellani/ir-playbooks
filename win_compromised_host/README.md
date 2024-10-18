@@ -1601,6 +1601,10 @@ Destination IP: Amazon IP addresses
 
 # Look for outbound internet connectivity from unusual processes
 'wscript.exe','mshta.exe','cscript.exe','conhost.exe','runScriptHelper.exe', 'powershell.exe'
+
+# Lookup data using Threat intelligence for domain / IP connectivity as shown here
+# https://github.com/Bert-JanP/Hunting-Queries-Detection-Rules/blob/main/Threat%20Hunting/TI%20Feed%20-%20ThreatviewioDomain-High-Confidence-Feed.md
+
 ```
 
 #### via Microsoft Windows Defender / Live Response
@@ -1618,6 +1622,19 @@ DeviceNetworkEvents
 | where ActionType == 'ConnectionSuccess'
 | where RemoteIPType == 'Public'
 | where InitiatingProcessVersionInfoOriginalFileName in~ ('wscript.exe','mshta.exe','cscript.exe','conhost.exe','runScriptHelper.exe', 'powershell.exe')
+```
+
+```
+# Threat Intelligence Lookup via external data lookup
+# Taken from: https://github.com/Bert-JanP/Hunting-Queries-Detection-Rules/blob/main/Threat%20Hunting/TI%20Feed%20-%20ThreatviewioDomain-High-Confidence-Feed.md
+let ThreatIntelFeed = externaldata(Domain: string)[@"https://threatview.io/Downloads/DOMAIN-High-Confidence-Feed.txt"] with (format="txt", ignoreFirstRecord=True);
+let IPRegex = '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}';
+DeviceNetworkEvents
+| take 100
+| where tolower(RemoteUrl) has_any (ThreatIntelFeed2)
+| extend GeoIPInfo = geo_info_from_ip_address(RemoteIP)
+| extend country = tostring(parse_json(GeoIPInfo).country), state = tostring(parse_json(GeoIPInfo).state), city = tostring(parse_json(GeoIPInfo).city), latitude = tostring(parse_json(GeoIPInfo).latitude), longitude = tostring(parse_json(GeoIPInfo).longitude)
+| project-reorder TimeGenerated, DeviceName, RemoteIP, RemotePort, InitiatingProcessAccountName
 ```
 
 ```
