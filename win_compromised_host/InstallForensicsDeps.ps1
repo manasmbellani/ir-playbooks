@@ -33,6 +33,9 @@ if (Test-Path -Path ".\setup.secrets.env") {
     Write-Host "[!] No setup.secrets.env file found"
 }
 
+Write-Host "[*] Trust PSGallery for installation of new powershell modules..."
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+
 Write-Host "[*] Checking if we need to install AzureAD module..."
 if (-Not (Get-InstalledModule -Name AzureAd )) {
     Write-Host "[*] Installing 'AzureAD' module..."
