@@ -697,6 +697,8 @@ C:\Users\Administrator\Downloads\explore.exe -> C:\Windows\System32\notepad.exe 
 # Provider = Microsoft-Windows-PrintService/Admin, EventCode=808 shows the DLL being executed ("The print spooler failed to load a plug-in module...")
 # https://www.splunk.com/en_us/blog/security/i-pity-the-spool-detecting-printnightmare-cve-2021-34527.html
 C:\Windows\System32\spoolsv.exe -> C:\Windows\System32\rundll.exe
+
+# Look for frequent Remote Management tools executables via https://lolrmm.io/api/rmm_tools.csv
 ```
 
 Taken from here: [1](https://github.com/SigmaHQ/sigma/blob/master/other/godmode_sigma_rule.yml), [2](https://detection.fyi/sigmahq/sigma/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program/)
