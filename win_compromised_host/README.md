@@ -1258,7 +1258,7 @@ Get-ChildItem -Path $KEY | ForEach-Object {
 }
 ```
 
-#### via Windows Defender / KQL / Creations
+#### via Windows Defender / KQL / Creations / DeviceEvents
 
 ```
 # Creation of new scheduled tasks
@@ -1284,7 +1284,7 @@ ScheduledTasks
 
 https://threathunt.blog/hunting-for-malicious-scheduled-tasks/
 
-#### via Windows Defender / KQL / Task Executions
+#### via Windows Defender / KQL / Task Executions / DeviceProcessEvents
 
 ```
 let RunningScheduledTasks = materialize(
