@@ -1258,9 +1258,10 @@ Get-ChildItem -Path $KEY | ForEach-Object {
 }
 ```
 
-#### via Windows Defender / KQL
+#### via Windows Defender / KQL / Creations
 
 ```
+# Creation of new scheduled tasks
 let ScheduledTasks = materialize (
 DeviceEvents
 | where ActionType contains "ScheduledTaskCreated"
@@ -1283,6 +1284,25 @@ ScheduledTasks
 
 https://threathunt.blog/hunting-for-malicious-scheduled-tasks/
 
+#### via Windows Defender / KQL / Executions
+
+```
+let RunningScheduledTasks = materialize(
+DeviceProcessEvents
+| where InitiatingProcessFileName == @"svchost.exe"
+| where InitiatingProcessCommandLine == @"svchost.exe -k netsvcs -p -s Schedule"
+| project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine, ProcessId, FolderPath
+| where FileName != @"MpCmdRun.exe"
+| where FolderPath !startswith @"C:\Windows\System32\" or FileName =~ "cmd.exe" or FileName =~ "powershell.exe" or FileName =~ "rundll32.exe" or FileName =~ "regsvr32.exe"
+);
+RunningScheduledTasks
+| summarize count() by FileName, ProcessCommandLine, FolderPath
+| where count_ < 10
+| join RunningScheduledTasks on FileName, ProcessCommandLine, FolderPath
+| project Timestamp, DeviceName, FileName, ProcessCommandLine, FolderPath, AccountName, count_
+```
+
+https://threathunt.blog/hunting-for-malicious-scheduled-tasks/
 
 #### via powershell / Get-ScheduledTask
 
