@@ -598,13 +598,13 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\plaso")) {
 
     Write-Host "[*] Extracting plaso tar.gz file via 7z..."
     $zipFilePath = "$INSTALL_LOCATION\plaso\plaso.tar.gz"
-    $destinationPath = "C:\Users\Administrator\Desktop\opt\plaso"
+    $destinationPath = "$INSTALL_LOCATION\plaso"
     $command = """C:\Program Files\7-zip\7z.exe"" -o$destinationPath x $zipFilePath"
     Invoke-Expression "& $command"
 
     Write-Host "[*] Extracting plaso tar file via 7z..."
     $zipFilePath = "$INSTALL_LOCATION\plaso\plaso-*.tar"
-    $destinationPath = "C:\Users\Administrator\Desktop\opt\plaso"
+    $destinationPath = "$INSTALL_LOCATION\plaso"
     $command = """C:\Program Files\7-zip\7z.exe"" -o$destinationPath x $zipFilePath"
     Invoke-Expression "& $command"
 
@@ -649,7 +649,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\dotnet-install")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\dotnet-install\dotnet-install.ps1")
 
     Write-Host "[*] Installing dotnet 6..."
-    cd C:\Users\Administrator\Desktop\opt\dotnet-install
+    cd "$INSTALL_LOCATION\dotnet-install"
     & .\dotnet-install.ps1 -Version 6.0    
 }
 
