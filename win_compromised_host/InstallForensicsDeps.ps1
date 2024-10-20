@@ -752,7 +752,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     $command="msiexec.exe /I $INSTALL_LOCATION\azcli.msi /quiet"
     Invoke-Expression "& $command"
 
-    Write-Host "[*] Installing azcli via powershell silently..."
+    Write-Host "[*] Installing azcli via powershell silently and remove .msi..."
     $ProgressPreference = 'SilentlyContinue'
     Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi
     Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
@@ -760,9 +760,6 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
 
     Write-Host "[*] Sleeping for $SLEEP_TIME seconds for azcli to install..."
     sleep "$SLEEP_TIME"
-    
-    Write-Host '[*] Removing azcli .msi file...'
-    Remove-Item -Path "$INSTALL_LOCATION\azcli\azcli"
 }
 
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
