@@ -1258,7 +1258,33 @@ Get-ChildItem -Path $KEY | ForEach-Object {
 }
 ```
 
-#### powershell / Get-ScheduledTask
+#### via Windows Defender / KQL
+
+```
+let ScheduledTasks = materialize (
+DeviceEvents
+| where ActionType contains "ScheduledTaskCreated"
+| extend TaskName = extractjson("$.TaskName", AdditionalFields, typeof(string))
+| extend TaskContent = extractjson("$.TaskContent", AdditionalFields, typeof(string))
+| extend SubjectUserName = extractjson("$.SubjectUserName", AdditionalFields, typeof(string))
+| extend Triggers = extractjson("$.Triggers", TaskContent, typeof(string))
+| extend Actions = extractjson("$.Actions", TaskContent, typeof(string))
+| extend Exec = extractjson("$.Exec", Actions, typeof(string))
+| extend Command = extractjson("$.Command", Exec, typeof(string))
+| extend Arguments = extractjson("$.Arguments", Exec, typeof(string))
+| project Timestamp, DeviceName, InitiatingProcessFileName, InitiatingProcessAccountName, TaskName, Command, Arguments, SubjectUserName, Triggers
+);
+ScheduledTasks
+| summarize count() by Command, Arguments
+| where count_ < 3
+| join ScheduledTasks on Command, Arguments
+| project-away Command1, Arguments1
+```
+
+https://threathunt.blog/hunting-for-malicious-scheduled-tasks/
+
+
+#### via powershell / Get-ScheduledTask
 
 ```
 # List all tasks
@@ -1267,6 +1293,7 @@ Get-ScheduledTask > C:\Windows\System32\powershell-schtasks.txt
 # View further details about the task
 powershell -ep bypass "(Get-ScheduledTask $TASK_NAME).Actions" | more
 ```
+
 #### via Windows Event Logs / TaskScheduler Logs
 
 ```
