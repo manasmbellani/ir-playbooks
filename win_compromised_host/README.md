@@ -1284,7 +1284,7 @@ ScheduledTasks
 
 https://threathunt.blog/hunting-for-malicious-scheduled-tasks/
 
-#### via Windows Defender / KQL / Executions
+#### via Windows Defender / KQL / Task Executions
 
 ```
 let RunningScheduledTasks = materialize(
@@ -1313,6 +1313,15 @@ Get-ScheduledTask > C:\Windows\System32\powershell-schtasks.txt
 # View further details about the task
 powershell -ep bypass "(Get-ScheduledTask $TASK_NAME).Actions" | more
 ```
+
+#### via Windows Event Logs / TaskScheduler Logs / Event ID 1 / Event ID 4688
+
+```
+# Look for tasks where Parent Command Line is "svchost.exe -k netsvcs -p -s Schedule"
+# See 'Windows Defender / KQL / Creations' for more details
+```
+
+https://threathunt.blog/hunting-for-malicious-scheduled-tasks/
 
 #### via Windows Event Logs / TaskScheduler Logs
 
