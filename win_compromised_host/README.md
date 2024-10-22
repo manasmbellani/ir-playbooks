@@ -1364,7 +1364,7 @@ schtasks.exe > C:\Windows\System32\schtasks.txt
 
 Taken from [here](https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/)
 
-### Detect commands executed from remote sessions
+### Detect commands executed from RDP remote sessions
 
 #### via KQL
 
