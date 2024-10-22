@@ -589,6 +589,17 @@ powershell.exe -NoProfile -executionPolicy bypass -file "C:\Program Files (x86)\
 # To invoke commands on one or more computers
 # Powershell remoting e.g. Invoke-Command -ComputerName $computer -ScriptBlock { ...<powershell code> } -ArgumentList ...
 Invoke-Command -ComputerName $computer ...
+
+# Look for attempts to delete powershell script file after it finishes executing
+# https://x.com/malmoeb/status/1844627489420701769
+Remove-Item $MyInvocation.MyCommand.Definition -Force
+```
+
+#### via Defender KQL / DeviceEvents Table
+
+```
+DeviceEvents
+| where ActionType contains "PowerShellCommand"
 ```
 
 #### via powershell module logging / event ID 4103
