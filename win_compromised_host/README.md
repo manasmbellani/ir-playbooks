@@ -1364,6 +1364,18 @@ schtasks.exe > C:\Windows\System32\schtasks.txt
 
 Taken from [here](https://www.binarydefense.com/resources/blog/diving-into-hidden-scheduled-tasks/)
 
+### Detect commands executed from remote sessions
+
+#### via KQL
+
+```
+DeviceProcessEvents 
+| where Timestamp >= ago(1d) 
+| where IsInitiatingProcessRemoteSession == "True"
+```
+
+https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/detect-compromised-rdp-sessions-with-microsoft-defender-for/ba-p/4201003
+
 ### Detect RDP Authentication Sessions
 
 Taken from [here](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/)
