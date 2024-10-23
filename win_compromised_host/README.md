@@ -322,6 +322,20 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual windows filtering platform connections
+
+- Can detect tools like `EDRSilencer.exe` which block connectivity to the Cloud for EDR to stop detections.
+- Note that this requires `Filtering Platform Policy Change` set via `auditpol`.
+
+
+#### via Windows Audit Event Logs / 5447, 5448
+
+```
+# Additional Information.Conditions field in Event ID 5447 contains more info about the exe being blocked
+EventID = 5447 (A Windows Filtering Platform filter has been changed) OR EventID = 5448 (A Windows Filtering Platform provider has been changed)
+ChangeType = Add
+```
+
 ### Detection for unusual active directory services changes
 
 - Can detect changes to Active Directory Group Services
