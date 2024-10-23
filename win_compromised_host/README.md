@@ -324,7 +324,10 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 ### Detection for unusual windows filtering platform connections
 
-- Can detect tools like `EDRSilencer.exe` which block connectivity to the Cloud for EDR to stop detections.
+- Can detect tools like `EDRSilencer.exe` [here](https://github.com/netero1010/EDRSilencer) which block connectivity to the Cloud for EDR to stop detections as discussed [here](https://blog.p1k4chu.com/security-research/adversarial-tradecraft-research-and-detection/edr-silencer-embracing-the-silence)
+```
+auditpol /set /subcategory:"Filtering Platform Policy Change" /success:enable /failure:enable
+```
 - Note that this requires `Filtering Platform Policy Change` set via `auditpol`.
 
 
