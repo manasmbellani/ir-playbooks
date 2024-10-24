@@ -314,6 +314,22 @@ Assuming the compromise could have started using phishing emails.
 
 Refer to this [link](../azure_compromised_account/README.md#extract-emails-for-analysis) for details on how to export emails for analysis e.g. in case of phishing sites.
 
+### Collect Recall Artifacts
+
+If enabled, can help detect from screenshots and contextual text parsing, commands, outputs, etc.
+
+#### via velociraptor
+
+Upload velociraptor artifacts under velociraptor > view artifacts > Upload artifact button > Add to Zip file the following YAML files > [1](https://docs.velociraptor.app/exchange/artifacts/pages/windows.system.recall.allwindowevents/), [2](https://docs.velociraptor.app/exchange/artifacts/pages/windows.system.recall.windowcaptureevent/)
+
+See [cyber.cx](https://cybercx.com.au/blog/forensic-applications-of-microsoft-recall/) for more info
+
+#### via manually
+
+Location on disk: `C:\Users\*\AppData\Local\CoreAIPlatform.00\UKP\*\`
+
+Details about each SQLITE table: https://cybercx.com.au/blog/forensic-applications-of-microsoft-recall/
+
 ## Analysis
 
 This section covers a variety of techniques which can be used for both live and offline analysis.
