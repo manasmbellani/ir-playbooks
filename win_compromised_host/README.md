@@ -391,6 +391,14 @@ These are indicative of lateral movement
 \\.\pipe\atsvc
 ```
 
+#### via Windows Event Logs / Sysmon / Event ID 17, 18
+
+```
+EventID = 17 (Pipe Created) OR EventID = 18 (Pipe connected)
+Channel = "Microsoft-Windows-Sysmon/Operational"
+Provider Name = "Microsoft-Windows-Sysmon"
+```
+
 #### via Windows Microsoft Defender / KQL / DeviceEvents
 
 ```
