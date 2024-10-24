@@ -339,6 +339,90 @@ EventID = 5447 (A Windows Filtering Platform filter has been changed) OR EventID
 ChangeType = Add
 ```
 
+### Detection for unusual named pipe events
+
+These are indicative of lateral movement
+
+```
+# Look for https://detect.fyi/threat-hunting-suspicious-named-pipes-a4206e8a4bc8
+## SMB Lateral Movement
+\\.\pipe\srvsvc
+\\.\pipe\wkssvc
+\\.\pipe\browser
+
+## When dumping LSASS, ‘pipe connect’ to \\.\pipe\lsass initiated by process eg taskmgr.exe, procdump
+\\.\pipe\lsass
+
+## WebDAV service
+\\.\pipe\DAV RPC SERVICE
+
+## Service Control Manager Remote Protocol:
+\\.\pipe\svcctl
+
+## Remote Desktop
+\\.\pipe\termsrv
+\\.\pipe\TSVCPIPE-*
+
+## EventLog
+\\.\pipe\eventlog
+
+## RPC over SMB
+\\.\pipe\netdfs
+
+## RPC Protocol
+\\.\pipe\epmapper
+\\.\pipe\lsass
+\\.\pipe\samr
+\\.\pipe\initshut
+\\.\pipe\ntsvcs
+\\.\pipe\scerpc
+
+## SQL Server
+\\.\pipe\sql\query
+\\.\pipe\MSSQL$<instance_name>\sql\query
+
+## Netlogon Service
+\\.\pipe\netlogon
+
+## Print Spooler Service
+\\.\pipe\spoolss
+
+## Task Scheduler
+\\.\pipe\atsvc
+```
+
+#### via Windows Microsoft Defender / KQL / DeviceEvents
+
+```
+DeviceEvents
+| where ActionType contains "NamedPipeEvent"
+| extend pipeName=parse_json(AdditionalFields).PipeName
+| sort by TimeGenerated desc
+
+# Example: Look for suspicious windows events based on https://raw.githubusercontent.com/mthcht/awesome-lists/refs/heads/main/Lists/suspicious_named_pipe_list.csv
+// Load the external CSV file containing suspicious named pipes
+let SuspiciousNamedPipes = externaldata(
+    pipe_name: string,
+)
+[
+    h@"https://raw.githubusercontent.com/mthcht/awesome-lists/refs/heads/main/Lists/suspicious_named_pipe_list.csv"
+]
+with (format="csv");
+let t = SuspiciousNamedPipes;
+t
+DeviceEvents
+| where ActionType contains "NamedPipeEvent"
+| extend pipeName=parse_json(AdditionalFields).PipeName
+| extend pipeName  = replace_string(tostring(pipeName), "\\Device\\NamedPipe", "")
+| join kind=inner (
+    SuspiciousNamedPipes
+) on $left.pipeName contains $right.pipe_name
+| sort by TimeGenerated desc
+
+
+```
+
+
 ### Detection for unusual active directory services changes
 
 - Can detect changes to Active Directory Group Services
