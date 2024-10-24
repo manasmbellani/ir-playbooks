@@ -1376,6 +1376,15 @@ Channel: Microsoft-Windows-Sysmon/Operational
 CommandLine: *\schtasks.exe*/create*
 ```
 
+#### via Windows Event Logs / 4698
+
+```
+# Contains XML format of the tasks created
+Event ID: 4698 (A scheduled task was created)
+Channel: Security
+Provider: Microsoft-Windows-Security-Auditing
+```
+
 #### via Windows Event Logs / Sysmon / TaskCache\Tasks, TaskCache\Tree
 
 ```
