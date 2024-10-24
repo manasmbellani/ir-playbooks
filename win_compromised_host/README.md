@@ -341,8 +341,6 @@ ChangeType = Add
 
 ### Detection for unusual named pipe events
 
-These are indicative of lateral movement
-
 ```
 # Look for https://detect.fyi/threat-hunting-suspicious-named-pipes-a4206e8a4bc8
 ## SMB Lateral Movement
@@ -426,12 +424,11 @@ DeviceEvents
     SuspiciousNamedPipes
 ) on $left.pipeName contains $right.pipe_name
 | sort by TimeGenerated desc
-
-
 ```
 
+https://www.splunk.com/en_us/blog/security/named-pipe-threats.html
 
-### Detection for unusual active directory services changes
+### Detection for unusual active directory (AD) services changes
 
 - Can detect changes to Active Directory Group Services
 
