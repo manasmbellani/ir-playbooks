@@ -1087,6 +1087,26 @@ winlog.provider_name:RPCFW AND event.code:3 AND winlog.event_data.arg_6.SubjectA
 
 See [here](https://www.aceresponder.com/blog/disrupting-offensive-rpc)
 
+### Detect unusual Kerberos ticket request attempts
+
+```
+# For detecting Kerberoasting via service ticket requests - https://trustedsec.com/blog/art_of_kerberoast
+Event ID 4769
+Service Name not equal to 'krbtgt'
+Service Name does not end with '$'
+Account Name does not match '<MachineName>$@<Domain>'
+Failure Code is '0x0'
+Ticket Encryption Type is '0x17'
+```
+
+#### via Windows Event Logs / 4769
+
+```
+EventID = 4769 (A Kerberos service ticket was requested)
+Channel = Security
+Provider = Microsoft-Windows-Security-Auditing
+```
+
 ### Detect ASREP Roasting Authentication Attempts
 
 #### via Windows Audit Event Logs / ID 4768
