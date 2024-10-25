@@ -717,11 +717,23 @@ Invoke-Command -ComputerName $computer ...
 Remove-Item $MyInvocation.MyCommand.Definition -Force
 ```
 
-#### via Defender KQL / DeviceEvents Table
+#### via Defender KQL / DeviceProcessEvents Table
 
 ```
+union DeviceProcessEvents, DeviceNetworkEvents, DeviceEvents
+| where Timestamp > ago(30m)
+| where FileName in~ ("powershell.exe", "powershell_ise.exe")
+```
+
+#### via Defender KQL / DeviceEvents / PowerShellCommand Table
+
+```
+# Detects Powershell command from remote session and the name of the device
 DeviceEvents
 | where ActionType contains "PowerShellCommand"
+| sort by TimeGenerated desc
+| extend AdditionalFieldsJson = parse_json(AdditionalFields)
+| project TimeGenerated, InitiatingProcessRemoteSessionDeviceName, Type, AdditionalFieldsJson.Command
 ```
 
 #### via powershell module logging / event ID 4103
