@@ -318,7 +318,13 @@ Refer to this [link](../azure_compromised_account/README.md#extract-emails-for-a
 
 If enabled, can help detect from screenshots and contextual text parsing, commands, outputs, etc.
 
-#### via velociraptor
+#### via kape / Kapefiles from Eric Zimmerman
+
+Upload [Windows Copilot Recall file](https://raw.githubusercontent.com/EricZimmerman/KapeFiles/refs/heads/master/Targets/Windows/WindowsCopilotRecall.tkape) to Kape > Targets and then use gkape to select Targets. Specify the `Target Source` as the directory with the files and `Target Destination` the location where the files are copied.
+
+See [cyber.cx](https://cybercx.com.au/blog/forensic-applications-of-microsoft-recall/) for more info
+
+#### via velociraptor, windows.system.recall.allwindowevents, windows.system.recall.windowcaptureevent
 
 Upload velociraptor artifacts under velociraptor > view artifacts > Upload artifact button > Add to Zip file the following YAML files > [1](https://docs.velociraptor.app/exchange/artifacts/pages/windows.system.recall.allwindowevents/), [2](https://docs.velociraptor.app/exchange/artifacts/pages/windows.system.recall.windowcaptureevent/)
 
