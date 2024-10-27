@@ -580,7 +580,7 @@ ImageLoaded: <See above>
 
 ### Detection for unusual URLs / browsing activity
 
-#### via Microsoft Windows Defender Advanced Threat Hunting
+#### via Microsoft Windows Defender Advanced Threat Hunting / KQL
 
 ```
 # Internet Explorer
@@ -1908,6 +1908,18 @@ DeviceNetworkEvents
 | extend GeoIPInfo = geo_info_from_ip_address(RemoteIP)
 | extend country = tostring(parse_json(GeoIPInfo).country), state = tostring(parse_json(GeoIPInfo).state), city = tostring(parse_json(GeoIPInfo).city), latitude = tostring(parse_json(GeoIPInfo).latitude), longitude = tostring(parse_json(GeoIPInfo).longitude)
 | project-reorder TimeGenerated, DeviceName, RemoteIP, RemotePort, InitiatingProcessAccountName
+```
+
+```
+# Basic 'ThreatIntelligenceIndicator' example with table of indicators to block
+DeviceEvents
+| where ActionType == "AntivirusDetection"
+| extend AdditionalFieldsJson = parse_json(AdditionalFields)
+| project SHA1, FileName
+| join kind=innerunique (
+    ThreatIntelligenceIndicator
+    | project FileHashType, FileHashValue, Description
+) on $left.SHA1 == $right.FileHashValue
 ```
 
 ```
