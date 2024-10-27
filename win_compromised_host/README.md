@@ -344,6 +344,25 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual anti-virus activity
+
+#### via Windows Event Logs / Microsoft Defender
+
+```
+Channel = Microsoft-Windows-Windows Defender/Operational
+EventID = 1117 OR 1116 OR 1006 OR 1007 OR ...
+```
+
+Look for all quarantined files / malware files using the events list from [learn.microsoft.com](https://learn.microsoft.com/en-us/defender-endpoint/troubleshoot-microsoft-defender-antivirus)
+
+#### via Microsoft Sentinel / KQL / DeviceEvents table
+
+```
+DeviceEvents
+| where ActionType == "AntivirusDetection"
+| sort by TimeGenerated desc
+```
+
 ### Detection for unusual windows filtering platform connections
 
 - Can detect tools like `EDRSilencer.exe` [here](https://github.com/netero1010/EDRSilencer) which block connectivity to the Cloud for EDR to stop detections as discussed [here](https://blog.p1k4chu.com/security-research/adversarial-tradecraft-research-and-detection/edr-silencer-embracing-the-silence)
