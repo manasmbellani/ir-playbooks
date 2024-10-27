@@ -344,7 +344,9 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
-### Detection for unusual anti-virus activity
+### Detection for unusual antivirus / AV activity e.g Microsoft Windows Defender
+
+- Search for indicators that could be malware by matching `SignatureName` via the keywords list in [nextron-systems.com](https://www.nextron-systems.com/2022/02/06/antivirus-event-analysis-cheat-sheet-v1-9-0/) in case there are too many lgs
 
 #### via Windows Event Logs / Microsoft Defender
 
@@ -358,8 +360,10 @@ Look for all quarantined files / malware files using the events list from [learn
 #### via Microsoft Sentinel / KQL / DeviceEvents table
 
 ```
+# Signature in AdditionalFieldsJson.SignatureName
 DeviceEvents
 | where ActionType == "AntivirusDetection"
+| extend AdditionalFieldsJson = parse_json(AdditionalFields)
 | sort by TimeGenerated desc
 ```
 
