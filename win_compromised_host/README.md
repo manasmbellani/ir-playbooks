@@ -560,6 +560,7 @@ ImageLoaded: *\clrjit.dll AND ImageLoaded: *\clr.dll
 # For detecting if there are any interesting sideloaded events
 ImageLoaded: *.dll and !(ImageLoaded: C:\\Windows AND ImageLoaded: "C:\\Program Files\\" AND ImageLoaded: "C:\\Program Files(x86)\\")
 ```
+- Images being loaded from TEMP / Desktop / Downloads folder as highlighted [here](https://github.com/manasmbellani/ir-playbooks/blob/master/win_compromised_host/README.md#via-explorer)
 
 #### via Microsoft Windows Defender / KQL
 
