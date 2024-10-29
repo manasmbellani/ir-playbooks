@@ -432,6 +432,14 @@ ChangeType = Add
 
 ## Task Scheduler
 \\.\pipe\atsvc
+
+## Known cobaltstrike named pipes 
+\\.\pipe\postex_*
+\\.\pipe\postex_ssh_*
+\\.\pipe\status_*
+\\.\pipe\msagent_*
+\\.\pipe\MSSE-*
+\\.\pipe\*-server
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 17, 18
