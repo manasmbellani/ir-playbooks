@@ -367,6 +367,22 @@ DeviceEvents
 | sort by TimeGenerated desc
 ```
 
+### Detection for unusual computer account changes
+
+
+- Look for unconstrained delegation (allows for TGT for any account logged into computer to be stored on PC itself) being set for a computer based on [learn.microsoft.com](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/b10cfda1-f24f-441b-8f43-80cb93e786ec) . More info [ired.team](https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation)
+
+#### via Windows Event Logs / Event ID 4742
+
+```
+EventID = 4742 (A computer account was changed)
+Channel = Security
+NewUACValue = 2*** (Indicative of trust delegation being set)
+```
+
+https://github.com/reprise99/Sentinel-Queries/blob/main/Active%20Directory/SecurityEvent-UnconstrainedDelegationEnabled.kql
+
+
 ### Detection for unusual windows filtering platform connections
 
 - Can detect tools like `EDRSilencer.exe` [here](https://github.com/netero1010/EDRSilencer) which block connectivity to the Cloud for EDR to stop detections as discussed [here](https://blog.p1k4chu.com/security-research/adversarial-tradecraft-research-and-detection/edr-silencer-embracing-the-silence)
