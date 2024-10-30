@@ -367,17 +367,26 @@ DeviceEvents
 | sort by TimeGenerated desc
 ```
 
-### Detection for unusual computer account changes
+### Detection for unusual computer account / user account changes
 
 
 - Look for unconstrained delegation (allows for TGT for any account logged into computer to be stored on PC itself) being set for a computer based on [learn.microsoft.com](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/b10cfda1-f24f-441b-8f43-80cb93e786ec) . More info [ired.team](https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation)
 
-#### via Windows Event Logs / Event ID 4742
+- If surrounded by event ID 5805 (provider=NETLOGON, Channel=System, Level=Error) with description `The session setup from the computer .......... failed to authenticate. The following error occurred: Access is denied`, then it could indicate successful `ZeroLogon` exploit (CVE-2020-1472) as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e). Also, `Account Name` would be `ANONYMOUS LOGON`. Note: Sometimes this activity can be common e.g. on DCs every 30 days as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e)
+
+- Unusual password resets 
+
+#### via Windows Event Logs / Event ID 4742 / Event ID 4738
 
 ```
-EventID = 4742 (A computer account was changed)
+# Kerberos Delegation
+EventID = 4742 (A computer account was changed) OR EventID=4738 (A user account was changed)
 Channel = Security
 NewUACValue = 2*** (Indicative of trust delegation being set)
+
+# Unusual password resets + surrounded by EventID 5805 (another issue identified)
+EventID=4742 (A computer account was changed)
+Changed Attributes.PasswordLastSet = *
 ```
 
 https://github.com/reprise99/Sentinel-Queries/blob/main/Active%20Directory/SecurityEvent-UnconstrainedDelegationEnabled.kql
@@ -553,18 +562,6 @@ Channel = Security
 # Target Account.Account Name is the username on which the password was reset
 EventID = 4724 (An attempt was made to reset a user's password) 
 Channel = Security
-```
-
-### Detection for unusual computer password resets
-
-Sometimes this activity can be common e.g. on DCs every 30 days as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e)
-- If surrounded by event ID 5805 (provider=NETLOGON, Channel=System, Level=Error) with description `The session setup from the computer .......... failed to authenticate. The following error occurred: Access is denied`, then it could indicate successful `ZeroLogon` exploit (CVE-2020-1472) as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e). Also, `Account Name` would be `ANONYMOUS LOGON`
-
-#### via Windows Event Logs / Event ID 4742
-
-```
-EventID=4742 (A computer account was changed)
-Changed Attributes.PasswordLastSet = *
 ```
 
 ### Detection for unusual DLLs / images loaded
