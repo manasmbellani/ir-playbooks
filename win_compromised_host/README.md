@@ -344,6 +344,28 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+
+### Detection for unusual Remote / RDP session connections
+
+- Can reveal the RDP connections being made from unusual locations
+
+#### via Windows Event Log / 4624
+
+```
+# Taken from: https://frsecure.com/blog/rdp-connection-event-logs/
+Channel = Security
+Event ID = 4624
+Logon Type = 10 (Remote Interactive Session) OR LogonType = 7 (Unlock of aaccount)
+```
+
+#### via Windows Event Log / 4778
+
+```
+# Can contain client ip addresses from which RDP session was connected under Additional Information.Client Address
+Channel = Security
+Event ID = 4778 (A session was reconnected to a Window Station)
+```
+  
 ### Detection for unusual antivirus / AV activity e.g Microsoft Windows Defender
 
 - Search for indicators that could be malware by matching `SignatureName` via the keywords list in [nextron-systems.com](https://www.nextron-systems.com/2022/02/06/antivirus-event-analysis-cheat-sheet-v1-9-0/) in case there are too many lgs
