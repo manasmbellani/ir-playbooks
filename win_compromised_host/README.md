@@ -1748,6 +1748,7 @@ Description = "Remote Registry Key service entered the running state"
 
 - Look for `DBGHelp.dll` or `DBGCore.dll` into `lsass.exe` which both export `MiniDumpWriteDump` method that can be used to dump LSASS memory content as discussed [elastic.co](https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-0-14-3-potential-credential-access-via-lsass-memory-dump.html)
 
+- Access from `werfault.exe` into `lsass.exe` is high indication of mimikatz, nanodump, invoke-mimikatz access as discussed in [github.com](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_lsass_werfault.yml)
 
 #### via Windows Event Logs / Sysmon Event ID 10
 
