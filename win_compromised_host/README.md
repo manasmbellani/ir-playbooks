@@ -703,6 +703,11 @@ EventID=4697 (A service was installed in the system)
 Provider=Microsoft-Windows-Security-Auditing
 ```
 
+### via Registry Explorer / HKLM\CurrentControlSet\Services
+
+Folder exists for each service under `HKLM\CurrentControlSet\Services` as explained [thedfirreport.com](https://thedfirreport.com/2024/06/10/icedid-brings-screenconnect-and-csharp-streamer-to-alphv-ransomware-deployment/#persistence)
+
+
 ### Detect unusual file share usage
 
 Monitor for usage of shares like `ADMIN$`, `IPC$`, `C$` and unusual file names which can be indicative of PsExec being used for access within the environment for file staging. See more info [here](https://research.splunk.com/endpoint/f63c34fe-a435-11eb-935a-acde48001122/)
@@ -928,7 +933,7 @@ Event ID = 4688 (A new process has been created)
 Channel = Security
 ```
 
-### Detect for process injection / migration into another process
+### Detect for unusual process injections / migration into another process
 
 #### via Windows Sysmon Event Logs / CreateRemoteThreat (EventID 8)
 
@@ -937,7 +942,7 @@ Channel = Microsoft-Windows-Sysmon/Operational
 Event ID = 8 (CreateRemoteThread)
 ```
 
-More info [here](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread)
+More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread)
 
 ### Detect for unusual file changes 
 
