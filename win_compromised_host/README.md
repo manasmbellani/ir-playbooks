@@ -1951,6 +1951,7 @@ Destination IP: Amazon IP addresses
 # Lookup data using Threat intelligence for domain / IP connectivity as shown here
 # https://github.com/Bert-JanP/Hunting-Queries-Detection-Rules/blob/main/Threat%20Hunting/TI%20Feed%20-%20ThreatviewioDomain-High-Confidence-Feed.md
 
+# Mapping against threat fox threat intel, look for top detections and less frequent destinations
 ```
 
 #### via Microsoft Windows Defender / Live Response
