@@ -348,7 +348,8 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 ### Detection for unusual Remote / RDP session connections
 
 - Can reveal the RDP connections being made from unusual locations
-
+- More detections available [here](#detect-rdp-authentication-sessions)
+  
 #### via Windows Event Log / 4624
 
 ```
