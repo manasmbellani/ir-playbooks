@@ -1383,18 +1383,22 @@ Operation.Properties = "*{ea1dddc4-60ff-416e-8cc0-17cee534bce7}*" OR "*{e5209ca2
 winlog.provider_name:RPCFW AND event.code:3 AND carol
 ```
 
-### Detection of DCSync
+### Detection of unusual AD objects accessed
+
+- To detect `DCSync`, look for changes to the following properties:
+```
+Object Server: DS
+# Domain-DNS
+Object.Object Type: "{19195a5b-6da0-11d0-afd3-00c04fd930c9}"
+# DS-Replication-Get-Changes-In-Filtered-Set, DS-Replication-Get-Changes, DS-Replication-Get-Changes-All, DS-Replication-Get-Changes-In-Filtered-Set
+Operation.Properties: {89e95b76-444d-4c62-991a-0facbeda640c} OR {1131f6aa-9c07-11d1-f79f-00c04fc2dcd2} OR {1131f6ad-9c07-11d1-f79f-00c04fc2dcd2} OR {89e95b76-444d-4c62-991a-0facbeda640c}
+```
 
 #### via Windows Event Logs / 4662
 
 ```
 # Subject.Account Name has the user account which performs DCSync
 Event ID: 4662 (An operation was performed on an object)
-Object Server: DS
-# Domain-DNS
-Object.Object Type: "{19195a5b-6da0-11d0-afd3-00c04fd930c9}" 
-# DS-Replication-Get-Changes-In-Filtered-Set, DS-Replication-Get-Changes, DS-Replication-Get-Changes-All, DS-Replication-Get-Changes-In-Filtered-Set
-Operation.Properties: {89e95b76-444d-4c62-991a-0facbeda640c} OR {1131f6aa-9c07-11d1-f79f-00c04fc2dcd2} OR {1131f6ad-9c07-11d1-f79f-00c04fc2dcd2} OR {89e95b76-444d-4c62-991a-0facbeda640c}
 ```
 
 Taken from [here](https://blog.blacklanternsecurity.com/p/detecting-dcsync)
