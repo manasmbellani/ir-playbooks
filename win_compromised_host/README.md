@@ -367,6 +367,14 @@ DeviceEvents
 | sort by TimeGenerated desc
 ```
 
+### Detection for constrained delegation
+
+#### via SharpView
+
+```
+SharpView.exe Get-NetComputer -TrustedToAuth
+```
+
 ### Detection for unusual computer account / user account changes
 
 
