@@ -371,10 +371,10 @@ DeviceEvents
 
 - Look for unconstrained delegation for computer (allows for TGT for any account logged into computer to be stored on PC itself) being set for a computer based on [learn.microsoft.com](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/b10cfda1-f24f-441b-8f43-80cb93e786ec).
 
-- Look for unconstrained delegation for user (allows for user to act as any user to connect to services).
+- Look for unconstrained delegation for user (allows for user to act as any user to connect to any service).
 More info [ired.team](https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation)
 
-- Look for constrained delegation (allows for TGT for any account logged into computer to be stored on PC itself)
+- Look for constrained delegation (If you have compromise user account or a computer (machine account) that has kerberos constrained delegation enabled, it's possible to impersonate any domain user (including administrator) and authenticate to service that the user account is trusted to delegate to).
 
 - If surrounded by event ID 5805 (provider=NETLOGON, Channel=System, Level=Error) with description `The session setup from the computer .......... failed to authenticate. The following error occurred: Access is denied`, then it could indicate successful `ZeroLogon` exploit (CVE-2020-1472) as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e). Also, `Account Name` would be `ANONYMOUS LOGON`. Note: Sometimes this activity can be common e.g. on DCs every 30 days as per [0xbandar](https://0xbandar.medium.com/detecting-the-cve-2020-1472-zerologon-attacks-6f6ec0730a9e)
 
