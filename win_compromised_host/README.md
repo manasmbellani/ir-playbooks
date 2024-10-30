@@ -1742,7 +1742,12 @@ Channel = System
 Description = "Remote Registry Key service entered the running state"
 ```
 
-### Detect Lsass Dumping
+### Detect unusual process accessed from another process (eg LSASS)
+
+- Look for `UNKNOWN` in SYSMON's calltrace field which can be indicative DLL memory injection as discussed [thedfirreport.com](https://thedfirreport.com/2024/06/10/icedid-brings-screenconnect-and-csharp-streamer-to-alphv-ransomware-deployment/#credential-access)
+
+- Look for `DBGHelp.dll` or `DBGCore.dll` into `lsass.exe` which both export `MiniDumpWriteDump` method that can be used to dump LSASS memory content as discussed [elastic.co](https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-0-14-3-potential-credential-access-via-lsass-memory-dump.html)
+
 
 #### via Windows Event Logs / Sysmon Event ID 10
 
