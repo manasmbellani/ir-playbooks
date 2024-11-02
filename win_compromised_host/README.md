@@ -2628,6 +2628,12 @@ cd C:\Users\Administrator\Desktop\opt\hayabusa
 .\hayabusa-2.16.0-win-x64.exe csv-timeline -d C:\Windows\Temp\Logs -o C:\Windows\Temp\results.csv
 ```
 
+#### via velociraptor / windows.eventlogs.hayabusa
+
+Load artifact [Windows.EventLogs.Hayabusa](https://docs.velociraptor.app/exchange/artifacts/pages/windows.eventlogs.hayabusa/) to velociraptor as a zip file via Velociraptor > Artifact > Upload option.
+
+Recommended by [Stephan Berger](https://manasmbellani2.atlassian.net/browse/SCRUM-467)
+
 ### Dump process memory
 
 #### via volatility2 / memdump
