@@ -787,6 +787,12 @@ Taken from [here](https://www.sans.org/blog/offline-autoruns-revisited-auditing-
 
 Start sysinternals > autoruns64.exe > File > `analyze offline systems...`
 
+#### via dir 
+```
+# Potential Tasks file which are created can have backdoors eg .ps1, .cmd, .bat, .exe, .dll
+dir /b /s C:\Windows\Tasks
+```
+
 ### Look for interesting indicators in data 
 
 #### via bulk_extractor
