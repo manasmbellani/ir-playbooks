@@ -359,6 +359,17 @@ Event ID = 4624
 Logon Type = 10 (Remote Interactive Session) OR LogonType = 7 (Unlock of aaccount)
 ```
 
+#### via Windows Event Log / 4625
+
+```
+# Taken from: https://frsecure.com/blog/rdp-connection-event-logs/
+Channel = Security
+Event ID = 4625
+Logon Type = 10 (Remote Interactive Session when NLA NOT Enabled) OR LogonType = 3 (Network, RDP when NLA is enabled)
+```
+
+https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/
+
 #### via Windows Event Log / 4778
 
 ```
@@ -1660,13 +1671,27 @@ https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/detect-co
 
 Taken from [here](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/)
 
-#### via Windows Event Logs / Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
+
+#### via Windows Event Logs / Microsoft-Windows-TerminalServices-LocalSessionManager/Operational / EventID 21
 
 ```
 # 'User' field contains the username and 'Source Network Address' contains the client IP
-EventID: 25
+EventID: 21 (Remote Desktop Services: Session logon succeeded)
 Channel: Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
 ```
+
+https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/
+
+
+#### via Windows Event Logs / Microsoft-Windows-TerminalServices-LocalSessionManager/Operational / EventID 25
+
+```
+# 'User' field contains the username and 'Source Network Address' contains the client IP
+EventID: 25 (Remote Desktop Services: Session reconnection succeeded)
+Channel: Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
+```
+
+https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/
 
 #### via Windows Event Logs / Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
 
@@ -1675,6 +1700,8 @@ Channel: Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
 EventID: 1149 (Remote Desktop Services: User authentication succeeded)
 Channel: Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
 ```
+
+https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/
 
 #### via Windows Event Logs / Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
 
@@ -1688,10 +1715,11 @@ Channel: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
 
 ```
 # 'SourceIp' field contains the client IP address
-EventID: 3 (Network Connection Detect
+EventID: 3 (Network Connection Detected)
 Channel: Microsoft-Windows-Sysmon/Operational
 DestinationPort: 3389
 ```
+
 
 ### Detect Timestomping / Filesystem time changes
 
