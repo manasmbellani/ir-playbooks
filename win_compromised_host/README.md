@@ -138,6 +138,15 @@ Disable the specific network adapters:
 Disable-NetAdapter -Name "$ADAPTER_NAME" -Confirm:$false
 ```
 
+#### via Windows Defender / Microsoft Defender
+
+[Security](https://security.microsoft.com) > Assets > Devices > Select Device > click on `...` > `Isolate Device`
+
+#### via velociraptor
+
+[Velociraptor](https://127.0.0.1:8889/app/index.html) > Click `search` icon on top > click on `client ID` > click on `suitcase` icon (`Quarantine Host`)
+
+
 ### Forget wireless networks
 
 #### via netsh
