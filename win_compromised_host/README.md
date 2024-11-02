@@ -772,9 +772,9 @@ More info [here](https://www.manageengine.com/products/active-directory-audit/pr
 
 Look for keyword in file paths e.g.  `E:\.....png` 
 
-### Detect startup programs
+### Detect unusual startup programs aka autoruns
 
-#### via autorunsc64
+#### via sysinternals / autorunsc64.exe
 
 ```
 # Pre-requisite: Requires Arsenal Image Mounter to take an image of the system
@@ -782,6 +782,10 @@ autorunsc64.exe -a * -c -h -s '*' -z C:\Windows C:\Users\Administrator
 ```
 
 Taken from [here](https://www.sans.org/blog/offline-autoruns-revisited-auditing-malware-persistence/)
+
+#### via sysinternals / autoruns64.exe
+
+Start sysinternals > autoruns64.exe > File > `analyze offline systems...`
 
 ### Look for interesting indicators in data 
 
@@ -2361,7 +2365,7 @@ Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree
 
 Consider also looking for WebShellYara Artifact which will search for webshells based on YaraForge
 
-### Identify Downloaded files
+### Identify unusual downloaded files
 
 Certain actions such as LSA Dumping can also write files to this location
 
