@@ -1011,6 +1011,8 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\
 
 # Files being copied across aka exfiltration e.g. to `E:` drives as seen in `Airgapped` in `Aceresponder` challenge will create file in `E:` or other drive letters.
 Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
+
+# Look for files matching malicious bootloaders as loaded in bootloaders.io project as discussed below in `Velociraptor / DetectRaptor / Windows.Detection.Bootloaders`
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 11
@@ -1020,6 +1022,20 @@ Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 Event ID = 11 (File Create)
 Channel = Microsoft-Windows-Sysmon/Operational
 ```
+
+#### via Microsoft Defender / KQL / DeviceFileEvents
+
+```
+# Captures the SHA1 hash of the files created including `InitiatingProcessRemoteSessionDeviceName` if session was over RDP 
+DeviceFileEvents
+| where DeviceName contains "winde"
+| sort by TimeGenerated desc
+```
+
+
+#### via Velociraptor / DetectRaptor / Windows.Detection.Bootloaders
+
+https://github.com/mgreen27/DetectRaptor?tab=readme-ov-file
 
 ### Detect unusual registry key created or updates
 
