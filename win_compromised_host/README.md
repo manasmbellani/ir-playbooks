@@ -1013,6 +1013,10 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\
 Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 
 # Look for files matching malicious bootloaders as loaded in bootloaders.io project as discussed below in `Velociraptor / DetectRaptor / Windows.Detection.Bootloaders`
+
+# Look for files renamed on disk after Harddisk is removed for privilege escalation
+# See: https://iwantmore.pizza/posts/arbitrary-write-accessibility-tools.html
+# Use `Velociraptor / DetectRaptor / BinaryRename.template` to detect this (see below)
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 11
@@ -1036,6 +1040,10 @@ DeviceFileEvents
 #### via Velociraptor / DetectRaptor / Windows.Detection.Bootloaders
 
 https://github.com/mgreen27/DetectRaptor?tab=readme-ov-file
+
+### via Velociraptor / DetectRaptor / Windows.Detection.BinaryRename
+
+https://github.com/mgreen27/DetectRaptor/blob/master/templates/BinaryRename.template
 
 ### Detect unusual registry key created or updates
 
