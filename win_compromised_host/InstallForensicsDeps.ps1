@@ -737,6 +737,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\processhacker")) {
     Remove-Item -Path "$INSTALL_LOCATION\processhacker\processhacker.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\bmc-tools")) {
+    Write-Host "[*] Making directory bmc-tools..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\bmc-tools"
+    
+    Write-Host "[*] Downloading bmc-tools..."
+    $url = "https://github.com/ANSSI-FR/bmc-tools/archive/refs/heads/master.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\bmc-tools\bmc-tools.zip")
+
+    Write-Host "[*] Extracting bmc-tools zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\bmc-tools\bmc-tools.zip" -DestinationPath "$INSTALL_LOCATION\bmc-tools"
+
+    Write-Host '[*] Removing bmc-tools zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\bmc-tools\bmc-tools.zip"
+}
+
 if(-Not (Test-Path "$INSTALL_LOCATION\VisualStudio")) {
     Write-Host "[*] Making directory VisualStudio..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\VisualStudio"
