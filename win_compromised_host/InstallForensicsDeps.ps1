@@ -722,6 +722,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\crowdstrike-crt")) {
     Remove-Item -Path "$INSTALL_LOCATION\crowdstrike-crt\crowdstrike-crt.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\processhacker")) {
+    Write-Host "[*] Making directory processhacker..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\processhacker"
+    
+    Write-Host "[*] Downloading processhacker..."
+    $url = "https://github.com/manasmbellani/splunkfiles/raw/refs/heads/master/processhacker-2.39-bin.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\processhacker\processhacker.zip")
+
+    Write-Host "[*] Extracting processhacker zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\processhacker\processhacker.zip" -DestinationPath "$INSTALL_LOCATION\processhacker"
+
+    Write-Host '[*] Removing processhacker zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\processhacker\processhacker.zip"
+}
+
 if(-Not (Test-Path "$INSTALL_LOCATION\VisualStudio")) {
     Write-Host "[*] Making directory VisualStudio..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\VisualStudio"
