@@ -2779,6 +2779,22 @@ Tool at [github.com](https://github.com/MarkBaggett/srum-dump)
 C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
 ```
 
+#### via RDP Bitmap cache / bmc-tools 
+
+- Typical location: ` C:\Users\<username>\AppData\Local\Microsoft\Terminal Server Client\Cache`
+- Use BMC-Tools for creating screenshots / visualizations when RDP (`mstsc.exe` gets used)
+```
+cd "C:\Users\azureuser\Desktop\opt\bmc-tools\bmc-tools-master"
+python .\bmc-tools.py -d "C:\Users\azureuser\Downloads"  -s "C:\Users\azureuser\AppData\Local\Microsoft\Terminal Server Client\Cache"
+```
+
+#### via RDP Bitmap cache / velociraptor / windows.forensics.rdpcache
+
+```
+velociraptor > hunt > windows.forensics.rdpcache
+```
+
+
 #### via Windows Defender Logs
 
 ```
