@@ -997,7 +997,7 @@ Event ID = 8 (CreateRemoteThread)
 
 More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread)
 
-### Detect for unusual file changes 
+### Detect for unusual file changes eg Files renamed, Malicious Files Written
 
 Key files to look for include:
 
@@ -1041,7 +1041,7 @@ DeviceFileEvents
 
 https://github.com/mgreen27/DetectRaptor?tab=readme-ov-file
 
-### via Velociraptor / DetectRaptor / Windows.Detection.BinaryRename
+#### via Velociraptor / DetectRaptor / Windows.Detection.BinaryRename
 
 https://github.com/mgreen27/DetectRaptor/blob/master/templates/BinaryRename.template
 
