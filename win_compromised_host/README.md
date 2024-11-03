@@ -2718,7 +2718,7 @@ Velocirpator > Hunt > DetectRaptor.Windows.Detection.Amcache
 C:\Users\azureuser\Desktop\opt\EZTools\net6\TimelineExplorer\TimelineExplorer.exe
 ```
 
-#### via srum.db / System Resource Utilization Monitor
+#### via srum.db / eric zimmerman's srumecmd
 
 - `System Resource Utilization Monitor`
 
@@ -2733,6 +2733,14 @@ reg save HKLM\SOFTWARE C:\Users\azureuser\Downloads\SOFTWARE
 # SOFTWARE Hive: C:\Windows\System32\config\SOFTWARE, SOFTWARE Hive is optional
 .\SrumECmd.exe -f C:\Windows\System32\sru\SRUDB.dat -r C:\Users\azureuser\Downloads\SOFTWARE --csv C:\Users\azureuser\Downloads
 ```
+
+#### via srum.db / velociraptor / windows.forensics.srum
+
+Velociraptor > Hunt > `Windows.Forensics.Srum`
+
+#### via srum.db / srum_dmp
+
+Tool at [github.com](https://github.com/MarkBaggett/srum-dump)
 
 #### via shimcache / eric zimmerman's appcompatcacheparser
 
