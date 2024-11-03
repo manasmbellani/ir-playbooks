@@ -2698,6 +2698,18 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.registry.userassist
 deactivate
 ```
 
+#### via amcache.hive / velociraptor / Windows.Detection.Amcache
+
+```
+Velocirpator > Hunt > Windows.Detection.Amcache
+```
+
+#### via amcache.hive / velociraptor / DetectRaptor / Windows.Detection.Amcache
+
+```
+Velocirpator > Hunt > DetectRaptor.Windows.Detection.Amcache
+```
+
 #### via shimcache / eric zimmerman's appcompatcacheparser
 
 Registry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompatibility\AppcompatCache`
