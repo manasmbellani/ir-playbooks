@@ -2720,10 +2720,30 @@ C:\Users\azureuser\Desktop\opt\EZTools\net6\TimelineExplorer\TimelineExplorer.ex
 
 #### via user assist / velociraptor / windows.registry.userassist
 
-- Location of UserAssist key: `Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\*\Count\*` which stores the program, number of times the binary executed
-
 ```
 Velociraptor > Hunt > windows.registry.userassist
+```
+- Contains list of software links used to start programs
+- Location of UserAssist key: `Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\*\Count\*` which stores the program, number of times the binary executed
+- Limitations: programs that were run using the command line can't be found in the User Assist keys
+- Location of User Assist Registry:
+```
+NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count
+```
+- Tip: ensure that we check ALL paths for each {GUID} under count, please
+```
+NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{CEBFF5CD-ACE2-4F4F-9178-9926F41749EA}
+```
+- A list of applications, files, links and other objects accessed.
+```
+NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{CEBFF5CD-ACE2-4F4F-9178-9926F41749EA}
+```
+
+#### via user assist / Registry Explorer
+
+```
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6\RegistryExplorer
+RegistryExplorer.exe > Open the C:\Users\<Username>\NTUser.Dat file > Open the registry key path listed above
 ```
 
 #### via srum.db / eric zimmerman's srumecmd
