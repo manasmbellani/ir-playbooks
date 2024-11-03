@@ -2718,6 +2718,14 @@ Velocirpator > Hunt > DetectRaptor.Windows.Detection.Amcache
 C:\Users\azureuser\Desktop\opt\EZTools\net6\TimelineExplorer\TimelineExplorer.exe
 ```
 
+#### via user assist / velociraptor / windows.registry.userassist
+
+- Location of UserAssist key: `Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\*\Count\*` which stores the program, number of times the binary executed
+
+```
+Velociraptor > Hunt > windows.registry.userassist
+```
+
 #### via srum.db / eric zimmerman's srumecmd
 
 - `System Resource Utilization Monitor`
