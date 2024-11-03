@@ -2710,6 +2710,14 @@ Velocirpator > Hunt > Windows.Detection.Amcache
 Velocirpator > Hunt > DetectRaptor.Windows.Detection.Amcache
 ```
 
+#### via amcache.hive / Eric Zimmerman's amcacheParser
+
+```
+"C:\Users\azureuser\Desktop\opt\EZTools\net6\AmcacheParser.exe" -f C:\Windows\appcompat\Programs\Amcache.hve --csv C:\Users\azureuser\Downloads
+# View output with TimelineExplorer
+C:\Users\azureuser\Desktop\opt\EZTools\net6\TimelineExplorer\TimelineExplorer.exe
+```
+
 #### via shimcache / eric zimmerman's appcompatcacheparser
 
 Registry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompatibility\AppcompatCache`
