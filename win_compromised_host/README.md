@@ -2402,9 +2402,9 @@ Detects any unusual activity from loaded sigma rules. More examples available [h
 C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\chainsaw.exe hunt C:\Windows\Temp\Logs -s C:\Users\Administrator\Desktop\opt\sigma\sigma-master -r C:\Users\Administrator\Desktop\opt\sigma\sigma-master\rules --mapping C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\mappings\sigma-event-logs-all.yml --csv --output C:\Windows\Temp\out.csv
 ```
 
-#### via velocirpator / DetectRaptor
+#### via velocirpator / DetectRaptor / YaraProcessWin
 
-Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree/master) Zip artifact into Velociraptor and launch YaraProcessWin Artifact which will search for malware based on YaraForge.
+Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree/master) Zip artifact into Velociraptor and launch YaraProcessWin (`Windows.Detection.YaraProcessWin`) Artifact which will search for malware based on YaraForge.
 
 Consider also looking for WebShellYara Artifact which will search for webshells based on YaraForge
 
