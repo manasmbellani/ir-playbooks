@@ -2428,7 +2428,7 @@ C:\Users\Administrator\Desktop\opt\chainsaw\chainsaw\chainsaw.exe hunt C:\Window
 
 #### via velocirpator / DetectRaptor / YaraProcessWin
 
-Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree/master) Zip artifact into Velociraptor and launch YaraProcessWin (`Windows.Detection.YaraProcessWin`) Artifact which will search for malware based on YaraForge.
+Load the latest [DetectRaptor VQL](https://github.com/mgreen27/DetectRaptor/tree/master) Zip artifact into Velociraptor via Velociraptor > Artifact > Import Artifact > `DetectRaptor` AND then launch Velociraptor > Server > New Collection > Select `Server.Import.DetectRaptor`  and launch YaraProcessWin (`Windows.Detection.YaraProcessWin`) Artifact which will search for malware based on YaraForge.
 
 Consider also looking for WebShellYara Artifact which will search for webshells based on YaraForge
 
