@@ -2718,9 +2718,26 @@ Velocirpator > Hunt > DetectRaptor.Windows.Detection.Amcache
 C:\Users\azureuser\Desktop\opt\EZTools\net6\TimelineExplorer\TimelineExplorer.exe
 ```
 
+#### via srum.db / System Resource Utilization Monitor
+
+- `System Resource Utilization Monitor`
+
+- `SRUM.db` track the application usage, network utilization and System Energy State
+
+```
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6
+
+# Backup running software registry
+reg save HKLM\SOFTWARE C:\Users\azureuser\Downloads\SOFTWARE
+
+# SOFTWARE Hive: C:\Windows\System32\config\SOFTWARE, SOFTWARE Hive is optional
+.\SrumECmd.exe -f C:\Windows\System32\sru\SRUDB.dat -r C:\Users\azureuser\Downloads\SOFTWARE --csv C:\Users\azureuser\Downloads
+```
+
 #### via shimcache / eric zimmerman's appcompatcacheparser
 
-Registry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompatibility\AppcompatCache`
+- Application Compatibility Cache
+- Keeps track of application compatibility with the OS and tracks all applications launched on the machineRegistry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompatibility\AppcompatCache`
 
 ```
 C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
