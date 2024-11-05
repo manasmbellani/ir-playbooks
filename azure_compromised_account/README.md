@@ -216,13 +216,46 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
-### Look for creation of unusual Azure VM Instances
+### Look for unusual authentication policy updates
 
-- Look for presence of interesting custom OR user metadata which can be used for persistence (may not be shown in Activity Logs)
-#### via Azure Activity Logs 
+- Look for enabling of Temporary Access Pass (TAP) for users. In Azure AD, look for changes in value of `modifiedPropertiesNewValueState`
+
+#### via Azure AD Audit Logs
 
 ```
-OperationName="Create or Update Virtual Machine"
+# For Temporary Access pass `modifiedPropertiesNewValueState` is set to 0 if enabled
+AuditLogs
+| where OperationName == "Authentication Methods Policy Update"
+| extend modifiedPropertiesNewValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].newValue)))
+| extend modifiedPropertiesOldValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].oldValue)))
+| extend modifiedPropertiesNewValueId = tostring(parse_json(tostring(parse_json(modifiedPropertiesNewValue).authenticationMethodConfigurations))[3].id)
+| extend modifiedPropertiesOldValueId = tostring(parse_json(tostring(parse_json(modifiedPropertiesOldValue).authenticationMethodConfigurations))[3].id)
+| extend modifiedPropertiesOldValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesOldValue).authenticationMethodConfigurations))[3].state)
+| extend modifiedPropertiesNewValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesNewValue).authenticationMethodConfigurations))[3].state)
+| sort by TimeGenerated desc
+
+```
+
+### Look for unusual updates to user's security information
+
+- Creation of temporary access pass for a user to login for persistence. In `Azure Activity Logs`, we have `ResultDescription contains "registered temporary access pass"`
+
+#### via Azure AD Audit Logs
+
+```
+AuditLogs
+| where OperationName contains "registered security info"
+```
+
+### Look for creation of unusual Azure VM Instances
+
+- Look for presence of interesting custom OR user metadata which can be used for persistence (may not be shown in Activity Logs). 
+
+#### via Azure AD Activity Logs 
+
+```
+AuditLogs
+| where OperationName = "Create or Update Virtual Machine"
 ```
 
 ### Check for unusual role assignments in Azure
@@ -352,9 +385,10 @@ https://graph.microsoft.com/beta/groups/APPID/members
 
 Taken from [here](https://cloudbrothers.info/en/detect-threats-microsoft-graph-logs-part-1/)
 
-### Detect password resets including self-service
+### Detect unusual password resets, including self-service
 
-Look particularly closely for accounts like `SYNC_*` eg `Sync_SKIURT-JAUYEH_123123123123@domain.onmicrosoft.com` OR `MSOL_*` eg. `MSOL_<installationID>` as discussed [here](https://cloud.hacktricks.xyz/pentesting-cloud/azure-security/az-lateral-movement-cloud-on-prem/azure-ad-connect-hybrid-identity/phs-password-hash-sync) for abuse via `AADInternals` which abuse password hash synchronization.
+- Look particularly closely for accounts like `SYNC_*` eg `Sync_SKIURT-JAUYEH_123123123123@domain.onmicrosoft.com` OR `MSOL_*` eg. `MSOL_<installationID>` as discussed [here](https://cloud.hacktricks.xyz/pentesting-cloud/azure-security/az-lateral-movement-cloud-on-prem/azure-ad-connect-hybrid-identity/phs-password-hash-sync) for abuse via `AADInternals` which abuse password hash synchronization.
+- Look for the user that initiated the password reset as well
 
 #### via AzureADIncidentResponse
 
