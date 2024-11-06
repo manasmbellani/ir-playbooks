@@ -216,14 +216,14 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
-### Look for unusual authentication policy updates
+### Look for unusual authentication method policy updates
 
-- Look for enabling of Temporary Access Pass (TAP) for users. In Azure AD, look for changes in value of `modifiedPropertiesNewValueState`
+- Look for enabling of Temporary Access Pass (TAP) for users. In Azure AD, look for changes to the value of `modifiedPropertiesNewValueState`.
 
 #### via Azure AD Audit Logs
 
 ```
-# For Temporary Access pass `modifiedPropertiesNewValueState` is set to 0 if enabled
+# For Temporary Access pass `modifiedPropertiesNewValueState` is set to 0, if enabled.
 AuditLogs
 | where OperationName == "Authentication Methods Policy Update"
 | extend modifiedPropertiesNewValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].newValue)))
@@ -233,18 +233,18 @@ AuditLogs
 | extend modifiedPropertiesOldValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesOldValue).authenticationMethodConfigurations))[3].state)
 | extend modifiedPropertiesNewValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesNewValue).authenticationMethodConfigurations))[3].state)
 | sort by TimeGenerated desc
-
 ```
 
-### Look for unusual updates to user's security information
+### Look for unusual updates to user's security settings / information
 
-- Creation of temporary access pass for a user to login for persistence. In `Azure Activity Logs`, we have `ResultDescription contains "registered temporary access pass"`
+- Creation of temporary access pass for a user to login for persistence. In `Azure AD Activity Logs`, we have `ResultDescription` field contains `"registered temporary access pass"`
+- Require re-registration of existing MFA (e.g phone, SMS) configured via the console. In `Azure AD Activity Logs`, we have `ResultDescription` field contains `"Admin required re-registration of MFA authentication methods."`
 
 #### via Azure AD Audit Logs
 
 ```
 AuditLogs
-| where OperationName contains "registered security info"
+| where OperationName contains "registered security info" or OperationName contains "deleted security info"
 ```
 
 ### Look for creation of unusual Azure VM Instances
