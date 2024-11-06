@@ -403,6 +403,10 @@ Get-AzureADIRSsprUsageHistory -TenantId $TenantId
 # Intitiated By reflects the user that initiated the password reset
 Activity Type = Reset Password
 Category = UserManagement
+
+# Direct password reset by an administrator
+AuditLogs
+| where OperationName in~ ("Reset password (by admin)"
 ```
 
 ### Getting the tenant ID
