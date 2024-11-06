@@ -1002,6 +1002,18 @@ Event ID = 8 (CreateRemoteThread)
 
 More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread)
 
+### Detect for unusual code signing failures in kernel drvier
+
+- Can indicate BYOVD drivers being loaded eg with invalid signature OR being blocked e.g NIMBlackout
+
+#### via Windows Event ID 3004 / 3023
+
+```
+Provider = Microsoft-Windows-CodeIntegrity
+Channel = Microsoft-Windows-CodeIntegrity/Operational
+EventID = 3023 (The driver ...\Blackout.sys is blocked from loading as the driver has been revoked by Microsoft) OR EventID = 3004 (kernel driver tried to load with an invalid signature)
+```
+
 ### Detect for unusual file changes eg Files renamed, Malicious Files Written
 
 Key files to look for include:
@@ -1022,6 +1034,8 @@ Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 # Look for files renamed on disk after Harddisk is removed for privilege escalation
 # See: https://iwantmore.pizza/posts/arbitrary-write-accessibility-tools.html
 # Use `Velociraptor / DetectRaptor / BinaryRename.template` to detect this (see below)
+
+# Look for .sys driver files being written to disk where TargetfileName in Windows Event ID 11 contains `.sys` e.g. NIMBlackout OR `DeviceFileEvents` / FileName contains .sys
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 11
