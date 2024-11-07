@@ -243,6 +243,10 @@ Taken from [here](https://www.forensicfocus.com/articles/windows-drive-acquisiti
 
 ### Collect Windows Event Logs
 
+#### via velociraptor
+
+- Also allows for the logs to be scanned for IOCs via `Windows.EventLogs.Evtx` Artifact
+
 #### via powershell
 
 Use [Get-WinEvtxLogs.ps1](Get-WinEvtxLogs.ps1) script to retrieve the logs on the device
