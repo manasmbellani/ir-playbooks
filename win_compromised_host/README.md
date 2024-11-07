@@ -995,6 +995,11 @@ Event ID = 4688 (A new process has been created)
 Channel = Security
 ```
 
+#### via velocirpator / MFT / DetectRaptor / DetectRaptor.Windows.Detection.MFT
+
+- Detects for unusual processes and parent processes created such as RMM tools, AD using regex
+- Use the `DetectRaptor.Windows.Detection.MFT` to search for the files written to disk in the past or present
+
 ### Detect for unusual process injections / migration into another process
 
 #### via Windows Sysmon Event Logs / CreateRemoteThreat (EventID 8)
