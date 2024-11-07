@@ -635,6 +635,17 @@ ImageLoaded: *.dll and !(ImageLoaded: C:\\Windows AND ImageLoaded: "C:\\Program 
 ```
 - Images being loaded from TEMP / Desktop / Downloads folder as highlighted [here](https://github.com/manasmbellani/ir-playbooks/blob/master/win_compromised_host/README.md#via-explorer)
 
+
+#### via velociraptor / HijackLibs / DetectRaptor.Windows.HijackLibsMFT
+
+- Performs lookup event with HijackLibs API to detect if there are any unusual libraries for programs that are known to be hijackable
+- Artifact is `DetectRaptor.Windows.Detection.HijackLibsMFT`
+
+#### via velociraptor / HijackLibs / DetectRaptor.Windows.HijackLibsEnv
+
+- Performs lookup event with HijackLibs API to detect if there are any unusual libraries for programs that are known to be hijackable
+- Artifact is `DetectRaptor.Windows.Detection.HijackLibsEnv`
+
 #### via Microsoft Windows Defender / KQL
 
 ```
