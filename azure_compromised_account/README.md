@@ -216,6 +216,22 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+### Look for unusual mailbox permission grants
+
+#### via Microsoft Security / Unified Audit Log
+
+- Look for Activity: `Added delegate mailbox permissions` in Unified Audit Logs in [Microsoft Security](https://security.microsoft.com)
+
+#### via Audit Logs / Microsoft Sentinel / KQL
+
+- Pre-requisite: requires `Microsoft 365` data connector to be setup in Sentinel.
+
+```
+OfficeActivity
+| where Operation == "Add-MailboxPermission"
+| where Parameters has "AccessRights=FullAccess" | project TimeGenerated, UserId, MailboxOwnerUPN, Parameters
+```
+
 ### Look for unusual authentication method policy updates
 
 - Look for enabling of Temporary Access Pass (TAP) for users. In Azure AD, look for changes to the value of `modifiedPropertiesNewValueState`.
