@@ -1022,7 +1022,15 @@ Event ID = 8 (CreateRemoteThread)
 
 More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread)
 
-### Detect for unusual code signing failures in kernel drvier
+### Detect for unusual amcache entries
+
+- Amcache stores the time, programs executed with SHA1 hash of the first 21MB of the programs run
+
+#### via velociraptor / DetectRaptor.Windows.Detection.LolDriversMalicious / DetectRaptor.Windows.Detection.LolDriversVulnerable
+
+- Initiate the artifact `DetectRaptor.Windows.Detection.LolDriversMalicious` or `DetectRaptor.Windows.Detection.LolDriversVulnerable` for detecting drivers known to be malicious or vulnerable based on Amcache entries
+
+### Detect for unusual code signing failures in kernel drivers
 
 - Can indicate BYOVD drivers being loaded eg with invalid signature OR being blocked e.g NIMBlackout
 
