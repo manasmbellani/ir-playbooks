@@ -697,6 +697,12 @@ DeviceNetworkEvents
 
 Taken from [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/get-users-browser-history-via-live-response/m-p/3950769)
 
+#### via velociraptor \ Detectraptor.Windows.Detection.WebHistory files
+
+- Looks for IOCs in the Webhistory logs
+- DetectRaptor: `Detectraptor.Windows.Detection.WebHistory`
+
+
 #### via History files
 
 ```
