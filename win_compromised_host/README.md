@@ -913,7 +913,7 @@ type C:\Users\azureuser\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\
 
 #### via velociraptor / DetectRaptor / Windows.Detection.Powershell.PSReadline
 
-- Velociraptor Artifact: `Windows.Detection.Powershell.PSReadline`
+- Velociraptor Artifact: `Windows.Detection.Powershell.PSReadline`, DetectRaptor: `DetectRaptor.Windows.Detection.Powershell.PSReadline`
 
 ### Detect for unusual processes and parent processes created
 
