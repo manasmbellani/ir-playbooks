@@ -511,11 +511,8 @@ tshark -n -r packets.pcap "tcp.srcport == 443"
 
 Taken from Hal Pomeranz's intro to linux course > Page 56 [here](https://archive.org/details/HalLinuxForensics/media-v3.0.2/PomeranzLinuxForensics/page/56/mode/1up)
 
-### Look for unusual login attempts
+### Look for unusual login attempts / logon attempts
 
-#### via velociraptor / freebsd.sys.utx
-
-- Freebsd's utx files - similar to `/var/log/wtmp`. See [here](https://docs.velociraptor.app/exchange/artifacts/pages/freebsd.sys.utx/). Use artifact `https://docs.velociraptor.app/exchange/artifacts/pages/freebsd.sys.utx/`
 
 #### via log files 
 
@@ -523,6 +520,7 @@ Taken from Hal Pomeranz's intro to linux course > Page 56 [here](https://archive
 - Who is currently logged in: `/var/run/utmp` (read with )
 - History of `/var/log/utmp` which typically contains user logins and system reboots: `/var/log/wtmp` (read with `last`)
 - `Lastlog` - last login for each user (read with `lastlog`)
+- `auth.log` - captures SSH login successful and failed attempts
 
 View using `last` for full details or `strings`: 
 
@@ -531,6 +529,20 @@ last -f /var/run/utmp
 ```
 
 Taken from [here](https://askubuntu.com/questions/325491/how-to-properly-display-the-contents-of-the-utmp-wtmp-and-btmp-files)
+
+#### via velociraptor / linux.detection.bruteforce
+
+- Detects brute-force attempts to linux host
+- Use artifact [linux.detection.bruteforce](https://docs.velociraptor.app/exchange/artifacts/pages/linux.detection.bruteforce/)
+
+#### via velociraptor / freebsd.sys.utx
+
+- Freebsd's utx files - similar to `/var/log/wtmp`. See [here](https://docs.velociraptor.app/exchange/artifacts/pages/freebsd.sys.utx/). Use artifact `https://docs.velociraptor.app/exchange/artifacts/pages/freebsd.sys.utx/`
+
+#### via velociraptor / linux.events.sshbruteforce
+
+- Velociraptor Artifact [linux.events.sshbruteforce](https://docs.velociraptor.app/artifact_references/pages/linux.events.sshbruteforce/)
+- Detects successful and failed SSH attempts
 
 ### Look for unusual processes
 
