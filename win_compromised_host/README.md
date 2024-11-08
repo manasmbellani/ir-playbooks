@@ -2283,9 +2283,13 @@ deactivate
 #### via powershell
 
 ```
-$FolderToCheck="C:\Users\manasbellani"
-Get-ChildItem  -Recurse -Path $FolderToCheck | %{$ads = Get-Content $_.FullName -Stream Zone.Identifier -ErrorAction SilentlyContinue; if ($ads) { Write-Host "ADS for file " $_.FullName ": $ads"} }
+$FolderToCheck="C:\Users\manasbellani"; Get-ChildItem  -Recurse -Path $FolderToCheck | %{$ads = Get-Content $_.FullName -Stream Zone.Identifier -ErrorAction SilentlyContinue; if ($ads) { Write-Host "ADS for file " $_.FullName ": $ads"} }
 ```
+
+#### via velociraptor / DetectRaptor / Windows.Detection.ZoneIdentifier
+
+- Bulk Artifact search for suspicious indicators via velociraptor artifact: `DetectRaptor.Windows.Detection.ZoneIdentifier`
+
 
 #### via Autopsy 
 
