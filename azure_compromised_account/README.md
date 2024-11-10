@@ -216,6 +216,18 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+### Look for Unusual setting of Domain Authentication attempts
+
+#### via AzureAD Audit Logs / Microsoft Sentinel / KQL
+
+```
+AuditLogs
+| where OperationName == "Set domain authentication"
+| sort by TimeGenerated desc
+```
+
+https://research.splunk.com/cloud/a87cd633-076d-4ab2-9047-977751a3c1a0/
+
 ### Look for unusual mailbox permission grants
 
 #### via Microsoft Security / Unified Audit Log
