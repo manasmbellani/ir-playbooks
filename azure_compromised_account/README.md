@@ -216,7 +216,7 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
-### Look for Unusual setting of Domain Authentication attempts
+### Look for Unusual setup Domain Authentication attempts for Azure
 
 #### via AzureAD Audit Logs / Microsoft Sentinel / KQL
 
