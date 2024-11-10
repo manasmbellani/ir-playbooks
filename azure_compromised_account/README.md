@@ -228,6 +228,12 @@ AuditLogs
 
 https://research.splunk.com/cloud/a87cd633-076d-4ab2-9047-977751a3c1a0/
 
+
+#### via Azure UI / Custom Domain Names
+
+Search for https://portal.azure.com > `Custom Domain Names` > Check for domains with `Federated` flag set
+https://portal.azure.com/#view/Microsoft_AAD_IAM/DomainsList.ReactView
+
 ### Look for unusual mailbox permission grants
 
 #### via Microsoft Security / Unified Audit Log
