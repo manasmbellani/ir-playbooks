@@ -236,7 +236,7 @@ AuditLogs
 | where OperationName == "Update per-user multifactor authentication state"
 | sort by TimeGenerated desc
 
-# For Temporary Access pass `modifiedPropertiesNewValueState` is set to 0, if enabled.
+# For Temporary Access pass `modifiedPropertiesNewValueState` is set to 0 OR addition of phone app for receiving push notification, if enabled.
 AuditLogs
 | where OperationName == "Authentication Methods Policy Update"
 | extend modifiedPropertiesNewValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].newValue)))
