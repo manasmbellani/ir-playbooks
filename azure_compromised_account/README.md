@@ -286,12 +286,18 @@ OfficeActivity
 
 - Creation of temporary access pass for a user to login for persistence. In `Azure AD Activity Logs`, we have `ResultDescription` field contains `"registered temporary access pass"`
 - Require re-registration of existing MFA (e.g phone, SMS) configured via the console. In `Azure AD Activity Logs`, we have `ResultDescription` field contains `"Admin required re-registration of MFA authentication methods."`
+- Registration of a new phone app for MFA / authentication
 
 #### via Azure AD Audit Logs
 
 ```
 AuditLogs
 | where OperationName contains "registered security info" or OperationName contains "deleted security info"
+
+# New Phone App being registered
+AuditLogs
+| where OperationName contains "User registered security info" and ResultDescription contains "User registered Authenticator App with Notification and Code"
+
 ```
 
 ### Look for creation of unusual Azure VM Instances
