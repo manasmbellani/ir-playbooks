@@ -221,9 +221,17 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 #### via AzureAD Audit Logs / Microsoft Sentinel / KQL
 
 ```
+# Updating Strong Authentication
+# details in the following `Update User` audit log
 AuditLogs
 | where Category == "UserManagement"
 | where OperationName == "Disable Strong Authentication"
+| sort by TimeGenerated desc
+
+# Updating the phone number for authentication method. Details in following `Update User` operation
+AuditLogs
+| where Category == "UserManagement"
+| where OperationName == "Update per-user multifactor authentication state"
 | sort by TimeGenerated desc
 ```
 
