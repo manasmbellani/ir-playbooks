@@ -216,6 +216,17 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+### Look for unusual Authentication Changes
+
+#### via AzureAD Audit Logs / Microsoft Sentinel / KQL
+
+```
+AuditLogs
+| where Category == "UserManagement"
+| where OperationName == "Disable Strong Authentication"
+| sort by TimeGenerated desc
+```
+
 ### Look for Unusual setup Domain Authentication attempts for Azure
 
 #### via AzureAD Audit Logs / Microsoft Sentinel / KQL
