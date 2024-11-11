@@ -218,6 +218,8 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ### Look for unusual Authentication Changes
 
+- Look for enabling of Temporary Access Pass (TAP) for users. In Azure AD, look for changes to the value of `modifiedPropertiesNewValueState`.
+
 #### via AzureAD Audit Logs / Microsoft Sentinel / KQL
 
 ```
@@ -232,6 +234,17 @@ AuditLogs
 AuditLogs
 | where Category == "UserManagement"
 | where OperationName == "Update per-user multifactor authentication state"
+| sort by TimeGenerated desc
+
+# For Temporary Access pass `modifiedPropertiesNewValueState` is set to 0, if enabled.
+AuditLogs
+| where OperationName == "Authentication Methods Policy Update"
+| extend modifiedPropertiesNewValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].newValue)))
+| extend modifiedPropertiesOldValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].oldValue)))
+| extend modifiedPropertiesNewValueId = tostring(parse_json(tostring(parse_json(modifiedPropertiesNewValue).authenticationMethodConfigurations))[3].id)
+| extend modifiedPropertiesOldValueId = tostring(parse_json(tostring(parse_json(modifiedPropertiesOldValue).authenticationMethodConfigurations))[3].id)
+| extend modifiedPropertiesOldValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesOldValue).authenticationMethodConfigurations))[3].state)
+| extend modifiedPropertiesNewValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesNewValue).authenticationMethodConfigurations))[3].state)
 | sort by TimeGenerated desc
 ```
 
@@ -267,25 +280,6 @@ https://portal.azure.com/#view/Microsoft_AAD_IAM/DomainsList.ReactView
 OfficeActivity
 | where Operation == "Add-MailboxPermission"
 | where Parameters has "AccessRights=FullAccess" | project TimeGenerated, UserId, MailboxOwnerUPN, Parameters
-```
-
-### Look for unusual authentication method policy updates
-
-- Look for enabling of Temporary Access Pass (TAP) for users. In Azure AD, look for changes to the value of `modifiedPropertiesNewValueState`.
-
-#### via Azure AD Audit Logs
-
-```
-# For Temporary Access pass `modifiedPropertiesNewValueState` is set to 0, if enabled.
-AuditLogs
-| where OperationName == "Authentication Methods Policy Update"
-| extend modifiedPropertiesNewValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].newValue)))
-| extend modifiedPropertiesOldValue = tostring(parse_json(tostring(parse_json(tostring(TargetResources[0].modifiedProperties))[0].oldValue)))
-| extend modifiedPropertiesNewValueId = tostring(parse_json(tostring(parse_json(modifiedPropertiesNewValue).authenticationMethodConfigurations))[3].id)
-| extend modifiedPropertiesOldValueId = tostring(parse_json(tostring(parse_json(modifiedPropertiesOldValue).authenticationMethodConfigurations))[3].id)
-| extend modifiedPropertiesOldValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesOldValue).authenticationMethodConfigurations))[3].state)
-| extend modifiedPropertiesNewValueState = tostring(parse_json(tostring(parse_json(modifiedPropertiesNewValue).authenticationMethodConfigurations))[3].state)
-| sort by TimeGenerated desc
 ```
 
 ### Look for unusual updates to user's security settings / information
