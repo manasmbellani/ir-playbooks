@@ -1737,7 +1737,7 @@ Channel: Microsoft-Windows-Sysmon/Operational
 CommandLine: *\schtasks.exe*/create*
 ```
 
-#### via Windows Event Logs / 4698
+#### via Windows Event Logs / A scheduled task has been created / 4698
 
 ```
 # Contains XML format of the tasks created
