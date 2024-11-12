@@ -753,6 +753,8 @@ CloudFlared agent
 - Look for 'DNS Server' service name (e.g. has it entered the `start` state or not) for `DNSAdmins` abuse
 
 - Detect for unusual kernel mode services and their names which is typically in the `Service Type` (eg `kernel mode driver`) field in Eveit ID `7045` OR `0x1` field in Event ID `4697`. Can be indicative of BYOVD services being installed such as NimBlackout
+
+- Look for `spoolsv.exe` service being stopped which is usually associated with privilege escalation (event iD 7036). Ref: https://thedfirreport.com/2023/06/12/a-truly-graceful-wipe-out/
   
 #### via Windows Sysmon Event Logs / 13
 
