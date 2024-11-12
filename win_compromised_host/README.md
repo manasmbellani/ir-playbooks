@@ -1019,6 +1019,14 @@ Event ID = 1 (Process Create)
 Channel = Microsoft-Windows-Sysmon/Operational
 ```
 
+#### via Windows Sysmon Event Logs / Event ID 13 / $SOME_TASK_NAME
+
+```
+EventID = 13 (Registry Value Set)
+TargetObject = HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\Microsoft\Windows\$SOME_TASK_NAME\Index
+Channel = Security
+```
+
 #### via Windows Event Logs / Event ID 4688
 
 ```
