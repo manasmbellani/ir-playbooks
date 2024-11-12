@@ -1030,6 +1030,15 @@ Channel = Security
 
 ### Detect for unusual process injections / migration into another process
 
+#### via Windows Sysmon Event Logs / Process Create (Event ID 1)
+
+```
+index=case-windows-logs (winlog.event_id=1) spoolsv.exe
+```
+
+Ref: as  seen in `Truly Graceful Wipeout`
+
+
 #### via Windows Sysmon Event Logs / CreateRemoteThreat (EventID 8)
 
 ```
