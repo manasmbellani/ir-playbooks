@@ -1765,7 +1765,7 @@ Channel: Security
 Provider: Microsoft-Windows-Security-Auditing
 ```
 
-#### via Windows Event Logs / Sysmon / TaskCache\Tasks, TaskCache\Tree
+#### via Windows Event Logs / Sysmon / Event ID 7 / TaskCache\Tasks, TaskCache\Tree
 
 ```
 Event ID: 13 (Registry Value Set)
