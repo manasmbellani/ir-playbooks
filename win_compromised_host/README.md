@@ -630,8 +630,13 @@ Look for artifacts like:
 ```
 # For .NET Assembly executions in memory against the same processID or process 
 ImageLoaded: *\clrjit.dll AND ImageLoaded: *\clr.dll
+
 # For detecting if there are any interesting sideloaded events
 ImageLoaded: *.dll and !(ImageLoaded: C:\\Windows AND ImageLoaded: "C:\\Program Files\\" AND ImageLoaded: "C:\\Program Files(x86)\\")
+
+# Look for taskschd.dll being loaded by unusual processes e.g excel.exe to look for creation of scheduled tasks (also generates 4698)
+# https://www.linkedin.com/pulse/lolbin-attacks-scheduled-tasks-t1503005-how-detect-them-v%C3%B6gele/
+taskschd.dll 
 ```
 - Images being loaded from TEMP / Desktop / Downloads folder as highlighted [here](https://github.com/manasmbellani/ir-playbooks/blob/master/win_compromised_host/README.md#via-explorer)
 
@@ -668,7 +673,6 @@ EventID: 7 (Image Loaded)
 Provider: Microsoft-Windows-Sysmon
 ImageLoaded: <See above>
 ```
-
 
 
 ### Detection for unusual URLs / browsing activity
@@ -1735,6 +1739,13 @@ Channel: Microsoft-Windows-TaskScheduler/Operational
 Event ID: 13 (Registry Value Set)
 Channel: Microsoft-Windows-Sysmon/Operational
 CommandLine: *\schtasks.exe*/create*
+```
+
+#### via Windows Sysmon Event Logs / Image Loaded / Event ID 7
+
+```
+# Look for creation of taskschd.dll which identifies the images being loaded
+# See Image Loaded / Event ID 7 above
 ```
 
 #### via Windows Event Logs / A scheduled task has been created / 4698
