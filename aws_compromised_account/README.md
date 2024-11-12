@@ -27,6 +27,33 @@ aws s3 cp s3://$BUCKET_NAME/ $LOCAL_DIR --recursive
 
 ## Analysis
 
+### Detect unusual Amazon Bedrock requests
+
+- Amazon Bedrock provides existing LLM models like ChatGPT which can be used e.g. anthropic claude within AWS itself
+
+#### via AWS CloudTrail
+
+```
+# Requesting a model's access to be used
+# See: https://permiso.io/blog/exploiting-hosted-models
+serviceName: bedrock.amazonaws.com
+eventName: CreateFoundationModelAgreement
+
+# Modification of the model invocation logging configuration (not turned on by default)
+# # See: https://permiso.io/blog/exploiting-hosted-models
+serviceName: bedrock.amazonaws.com
+eventName: PutModelInvocationLoggingConfiguration
+
+# Searching for what models are available (could be threat actors recon for what models can be used)
+# See: https://permiso.io/blog/exploiting-hosted-models
+serviceName: bedrock.amazonaws.com
+eventName: InvokeModel
+# OR 
+serviceName: bedrock.amazonaws.com
+eventName: InvokeModel
+GetFoundationModelAvailability
+```
+
 ### Detect unusual GuardDuty Events
 
 #### via AWS Cloud Trail Event Logs / Guardduty
