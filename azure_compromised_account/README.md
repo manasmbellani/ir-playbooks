@@ -422,7 +422,8 @@ Operation: Add service principal
 
 ```
 MicrosoftGraphActivityLogs
-| where UserAgent contains "azurehound"
+| where (UserAgent contains "azurehound") or (UserAgent contains "python-requests")
+| sort by TimeGenerated desc
 ```
 
 #### via Azure Sign-in logs / KQL / Excessive number of user agents
