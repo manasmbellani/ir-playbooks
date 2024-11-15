@@ -36,11 +36,9 @@ Taken from [here](https://learn.microsoft.com/en-us/security/operations/incident
 
 ### Blocking Legacy Authentication Protocols
 
-Go to `Conditional Access` > `Policies` > `New Policy` > `Conditions` > `Client Apps` > Use `Other Clients` to disable FTP, POP3, SMTP protcols.
-
 #### via Azure Conditional Access Policies
 
-Go to `Conditional Access` > 
+Go to `Conditional Access` > `Policies` > `New Policy` > `Conditions` > `Client Apps` > Use `Other Clients` to disable FTP, POP3, SMTP protcols.
 
 ### Disable Microsoft 365 Account
 
@@ -207,6 +205,22 @@ Get-AzureADIRConditionalAccessPolicy -TenantId $TenantId -All -XmlOutput
 ```
 
 Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsoft-cloud-environment/
+
+#### via roadrecon / TokenTacticsv2
+
+```
+# Windows
+cd C:\Users\azureuser\Desktop\opt\TokenTacticsv2\TokenTacticsV2-main
+Import-Module .\TokenTactics.psm1
+Clear-Token -Token All
+Get-AzureToken -Client MSGraph
+$response.access_token
+
+# Kali
+roadrecon plugin policies -f road2recon.csv
+```
+
+https://trustedsec.com/blog/hacking-your-cloud-tokens-edition-2-0
 
 ### Collection of Risky Detections (eg Risk sign-ins, Risk detections)
 
