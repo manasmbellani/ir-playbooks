@@ -216,6 +216,24 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+### Get timeline of object creation in Azure
+
+#### via roadrecon / TokenTacticsv2
+
+```
+# Windows
+cd C:\Users\azureuser\Desktop\opt\TokenTacticsv2\TokenTacticsV2-main
+Import-Module .\TokenTactics.psm1
+Clear-Token -Token All
+Get-AzureToken -Client MSGraph
+$response.access_token
+
+# Kali
+roadrecon plugin road2timeline -f road2recon.csv
+```
+
+https://trustedsec.com/blog/hacking-your-cloud-tokens-edition-2-0
+
 ### Look for unusual Authentication Changes
 
 - Look for enabling of Temporary Access Pass (TAP) for users. In Azure AD, look for changes to the value of `modifiedPropertiesNewValueState`.
