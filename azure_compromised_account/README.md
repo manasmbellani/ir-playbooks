@@ -471,6 +471,8 @@ Operation: Add service principal
 
 ### Detect activity from unusual user agents 
 
+- Look for interesting user agents like azurehound, `python-requests` (for tools like roadrecon ), or axios (for 
+
 #### via Azure AD Graph Activity Logs
 
 ```
