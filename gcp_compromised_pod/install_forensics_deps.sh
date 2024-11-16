@@ -84,7 +84,7 @@ cd /opt/volatility3
 python3 -m virtualenv venv
 source venv/bin/activate
 # Snappy is required for using avml generated binaries
-python3 -m pip install python3-snappy setuptools
+python3 -m pip install setuptools
 python3 setup.py install 
 deactivate
 
