@@ -255,14 +255,20 @@ Use [Get-WinEvtxLogs.ps1](Get-WinEvtxLogs.ps1) script to retrieve the logs on th
 
 ```
 # List all ETW Providers
+python3 vol.py -f /root/samples/106-RedLine/MemoryDump.mem -p /opt/etw-scan/plugins etwscan.etwProvider
 
+# Kali
 # Dump all consumers as EVTL files
 cd /opt/volatility3-patched/
 source venv/bin/activate
 python3 vol.py -f /root/samples/106-RedLine/MemoryDump.mem -p /opt/etw-scan/plugins etwscan.etwConsumer --dump
 deactivate
 
+# Windows
 # For checking network activity, see LwtNetLog ETL files which collects various types of information, including communication packets, DNS access, and DHCP
+# tracefmt.exe Requires visual studio to be installed
+tracerpt.exe LwtNetLog.0xAD8185BCB000.global.etl -o LwtNetLog.0xAD8185BCB000.global.evtx -of EVTX -lr
+tracefmt.exe LwtNetLog.0xAD8185BCB000.global.etl --no-summary
 ```
 
 https://blogs.jpcert.or.jp/en/2024/11/etw_forensics.html
