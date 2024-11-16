@@ -251,6 +251,22 @@ Taken from [here](https://www.forensicfocus.com/articles/windows-drive-acquisiti
 
 Use [Get-WinEvtxLogs.ps1](Get-WinEvtxLogs.ps1) script to retrieve the logs on the device
 
+#### via ETW / volatility3 / jpcert's etw-scan / tracefmt
+
+```
+# List all ETW Providers
+
+# Dump all consumers as EVTL files
+cd /opt/volatility3-patched/
+source venv/bin/activate
+python3 vol.py -f /root/samples/106-RedLine/MemoryDump.mem -p /opt/etw-scan/plugins etwscan.etwConsumer --dump
+deactivate
+
+# For checking network activity, see LwtNetLog ETL files which collects various types of information, including communication packets, DNS access, and DHCP
+```
+
+https://blogs.jpcert.or.jp/en/2024/11/etw_forensics.html
+
 ### Collect Disk Artifacts
 
 #### via Kroll (KAPE)
@@ -2100,6 +2116,10 @@ EventID=22
 Channel = Microsoft-Windows-Sysmon/Operational
 ```
 
+#### via ETW / Volatility3 / JPCERT's etw-scan / tracefmt
+
+See [here](#via-etw--volatility3--jpcerts-etw-scan--tracefmt)
+
 ### Detect unusual Network Connections / Sockets
 
 - Look for unusual outbound connectivity via network connection logs e.g.
@@ -2247,6 +2267,10 @@ source /opt/volatility2/venv/bin/activate
 python2.7 /opt/volatility2/vol.py --profile=Win10x64_19041 -f /root/RanDev.vmem connections
 deactivate
 ```
+
+#### via ETW / Volatility3 / JPCERT's etw-scan / tracefmt
+
+See [here](#via-etw--volatility3--jpcerts-etw-scan--tracefmt)
 
 
 ### Determine installed powershell version
