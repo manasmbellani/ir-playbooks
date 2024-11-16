@@ -94,6 +94,10 @@ cd /opt/volatility3-patched
 git clone https://github.com/JPCERTCC/etw-scan.git /opt/etw-scan
 cat /opt/etw-scan/patch/extensions_init.patch >> /opt/volatility3-patched/volatility3/framework/symbols/windows/extensions/__init__.py
 cat /opt/etw-scan/patch/windows_init.patch >> /opt/volatility3-patched/volatility3/framework/symbols/windows/__init__.py
+source venv/bin/activate
+# Dependency for scanning etw providers for etw-scan
+python3 -m pip install capstone
+deactivate
 
 echo "[*] Installing plyvel..."
 mkdir /opt/plyvel
