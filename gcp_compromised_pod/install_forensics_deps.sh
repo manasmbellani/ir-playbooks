@@ -88,6 +88,13 @@ python3 -m pip install setuptools
 python3 setup.py install 
 deactivate
 
+echo "[*] Installing jpcert's etw-scan volatility plugin by patching volatility..."
+cp -r /opt/volatility3 /opt/volatility3-patched
+cd /opt/volatility3-patched
+git clone https://github.com/JPCERTCC/etw-scan.git /opt/etw-scan
+cat /opt/etw-scan/patch/extensions_init.patch >> /opt/volatility3-patched/volatility3/framework/symbols/windows/extensions/__init__.py
+cat /opt/etw-scan/patch/windows_init.patch >> /opt/volatility3-patched/volatility3/framework/symbols/windows/__init__.py
+
 echo "[*] Installing plyvel..."
 mkdir /opt/plyvel
 cd /opt/plyvel
