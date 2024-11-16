@@ -230,9 +230,34 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+
+### Look for unusual inbound emails with attachments
+
+- Look for unusual domains from which emails were forwarded as they could be delivering phishing or malware
+  
+#### via Azure Microsoft Defender / Microsoft Sentinel / KQL
+
+By default, only visible in Microsoft Defender portal. 
+
+```
+let Timeframe = 30d
+let EmailInformation = EmailEvents
+    | where TimeGenerated > ago(Timeframe)
+    | where DeliveryAction != "Blocked"
+    | where AttachmentCount != "0"
+    | project TimeGenerated, NetworkMessageId, SenderMailFromAddress, SenderFromAddress, SenderDisplayName, ThreatNames;
+EmailInformation
+    | join (EmailAttachmentInfo
+    | project NetworkMessageId, FileName, FileType, FileSize
+) on NetworkMessageId
+| sort by TimeGenerated desc
+```
+
+https://github.com/cyb3rmik3/KQL-threat-hunting-queries/blob/main/02.ThreatDetection/recently-received-emails-with-attachments.md
+
 ### Look for unusual inbound emails
 
-- Look for unusual domains from which emails were forwarded
+- Look for unusual domains from which emails were forwarded as they could be delivering phishing or malware
 
 #### via Azure Microsoft Defender / Microsoft Sentinel / KQL
 
@@ -245,6 +270,8 @@ EmailEvents
 | summarize count() by SenderDomain
 | sort by count_ asc
 ```
+
+https://github.com/cyb3rmik3/KQL-threat-hunting-queries/blob/main/02.ThreatDetection/recently-received-emails-with-attachments.md
 
 ### Get timeline of object creation in Azure
 
