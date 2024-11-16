@@ -230,6 +230,16 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+### Look for unusual links clicked in emails
+
+#### via Azure Microsoft Defender / Microsoft Sentinel / KQL
+
+- Captures Safelinks clicked URls
+
+```
+UrlClickEvents
+| sort by TimeGenerated desc 
+```
 
 ### Look for unusual inbound emails with attachments
 
