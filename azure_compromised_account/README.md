@@ -230,6 +230,22 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+### Look for unusual inbound emails
+
+- Look for unusual domains from which emails were forwarded
+
+#### via Azure Microsoft Defender / Microsoft Sentinel / KQL
+
+By default, only visible in Microsoft Defender portal. 
+
+```
+# Extract the domain name
+EmailEvents
+| extend SenderDomain = extract(@"@(.+)$", 1, SenderFromAddress)
+| summarize count() by SenderDomain
+| sort by count_ asc
+```
+
 ### Get timeline of object creation in Azure
 
 #### via roadrecon / TokenTacticsv2
