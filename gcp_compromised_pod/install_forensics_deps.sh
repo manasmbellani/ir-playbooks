@@ -8,6 +8,7 @@ apt-get -y update && \
     python3 \
     python3-pip \
     python-setuptools \
+    python3-snappy \
     build-essential \
     git \
     unzip \
