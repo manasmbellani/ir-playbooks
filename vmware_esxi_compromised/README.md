@@ -12,6 +12,16 @@ Use [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) for 
 
 ### Enable SSH
 
+#### via vim-cmd
+
+```
+vim-cmd hostsvc/enable_ssh
+```
+
+https://www.trendmicro.com/en_us/research/22/a/analysis-and-Impact-of-lockbit-ransomwares-first-linux-and-vmware-esxi-variant.html
+
+https://github.com/LOLESXi-Project/LOLESXi/blob/main/_lolesxi/Binaries/vim-cmd.md
+
 #### via ESXi UI
 
 Set Manage > Services > TMSH-SSH to `Start` state
