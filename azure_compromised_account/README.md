@@ -471,7 +471,7 @@ Operation: Add service principal
 
 ### Detect activity from unusual user agents 
 
-- Look for interesting user agents like azurehound, `python-requests` (for tools like roadrecon ), or axios (for 
+- Look for interesting user agents like azurehound, `python-requests` (for tools like roadrecon ), axios for AITM BEC or BAV2ROPC for password spraying as described [here](https://fieldeffect.com/blog/field-effect-discovers-m365-adversary-in-the-middle-campaign)
 
 #### via Azure AD Graph Activity Logs
 
