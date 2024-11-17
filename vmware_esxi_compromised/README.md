@@ -258,7 +258,8 @@ grep -r -n -i "logged in as" /var/log/hostd.log
 
 - Look for unusual activity such as vpxa service (`/etc/init.d/vpxa stop`) being stopped as discussed on [trellix blog](https://www.trellix.com/en-au/blogs/research/ransomhouse-am-see/) and [lolesxi bin](https://github.com/LOLESXi-Project/LOLESXi/blob/main/_lolesxi/Binaries/vpxa.md)
 - Look for `vmkfstools` (`vmkfstools -c 10M -d eagerzeroedthick $I/eztDisk > /dev/null`) being executed to increase performance of encryption on disk as described on [bleeping computer](https://www.bleepingcomputer.com/news/security/linux-version-of-qilin-ransomware-focuses-on-vmware-esxi/)
-- 
+- Look for `vm-support` (`vm-support --list-vms`) as described on [trendmicro blog](https://www.trendmicro.com/en_us/research/22/a/analysis-and-Impact-of-lockbit-ransomwares-first-linux-and-vmware-esxi-variant.html)
+  
 #### via /var/log/shell.log
 
 ```
@@ -272,6 +273,14 @@ cat /.ash_history
 ```
 
 ### Check running VMs
+
+#### via vm-support
+
+```
+vm-support --listvm
+```
+
+https://www.trendmicro.com/en_us/research/22/a/analysis-and-Impact-of-lockbit-ransomwares-first-linux-and-vmware-esxi-variant.html
 
 #### via esxcli
 
