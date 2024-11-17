@@ -256,6 +256,9 @@ grep -r -n -i "logged in as" /var/log/hostd.log
 
 ### Check shell commands executed
 
+- Look for unusual activity such as vpxa service (`/etc/init.d/vpxa stop`) being stopped as discussed on [trellix blog](https://www.trellix.com/en-au/blogs/research/ransomhouse-am-see/) and [lolesxi bin](https://github.com/LOLESXi-Project/LOLESXi/blob/main/_lolesxi/Binaries/vpxa.md)
+- Look for `vmkfstools` (`vmkfstools -c 10M -d eagerzeroedthick $I/eztDisk > /dev/null`) being executed to increase performance of encryption on disk as described on [bleeping computer](https://www.bleepingcomputer.com/news/security/linux-version-of-qilin-ransomware-focuses-on-vmware-esxi/)
+- 
 #### via /var/log/shell.log
 
 ```
