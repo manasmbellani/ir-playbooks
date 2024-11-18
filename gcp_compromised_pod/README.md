@@ -507,6 +507,14 @@ protoPayload.methodName:"jobs.create"
 protoPayload.serviceName="k8s.io"
 ```
 
+#### via gcloud
+
+```
+# Check under 'Pod Template' 
+kubectl get jobs
+kubect describe jobs $JOB_NAME
+```
+
 ### Check mutating webhook configuration creations
 
 - Admission controllers are used to control resource creation within a cluster prior to authentication and authorization
