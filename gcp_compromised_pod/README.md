@@ -494,6 +494,19 @@ jsonPayload.message:"startup-script"
 gcloud compute instances describe --zone=us-central1-c 
 ```
 
+### Check for unusual Kubernetes jobs 
+
+- A Job creates one or more pods (the smallest unit of management in Kubernetes, including one or more containers) and ensures that a specified number of them successfully terminate.
+
+#### via GCP Audit Logs / k8s.io
+
+```
+# Review the field protoPayload.request.metadata.annotations."kubectl.kubernetes.io/last-applied-configuration" and look for fields like hostPID, hostNetwork, hostIPC, hostPath and securityContext.privileged: true.
+# For more info, refer to https://github.com/BishopFox/badPods/tree/main/manifests/everything-allowed
+protoPayload.methodName:"jobs.create"
+protoPayload.serviceName="k8s.io"
+```
+
 ### Check mutating webhook configuration creations
 
 - Admission controllers are used to control resource creation within a cluster prior to authentication and authorization
