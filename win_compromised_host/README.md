@@ -3247,3 +3247,9 @@ See [EvtxEcmd](#via-eric-zimmermans-evtxecmd)
 ## Eradication
 
 ## Recovery
+
+### Check which application opens which file extensions in Windows
+
+#### via powershell / Registry 
+
+https://gist.github.com/MHaggis/a5b0af617ae62ded5a2ec4f15a96f4ac
