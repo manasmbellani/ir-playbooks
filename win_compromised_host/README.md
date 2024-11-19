@@ -2787,6 +2787,12 @@ Load artifact [Windows.EventLogs.Hayabusa](https://docs.velociraptor.app/exchang
 
 Recommended by [Stephan Berger](https://manasmbellani2.atlassian.net/browse/SCRUM-467)
 
+#### via Visual Studio Code 
+
+- If `Visual Studio Code` is installed, path where list of all edited files via visual studio will be `C:\Users\*\AppData\Roaming\Code\User\History\`
+
+https://x.com/malmoeb/status/1817953494252327095?s=46&t=WvGY79Umt5enRwgCbi4TQQ
+
 ### Dump process memory
 
 #### via volatility2 / memdump
