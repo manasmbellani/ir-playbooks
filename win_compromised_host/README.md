@@ -1973,17 +1973,26 @@ EventID: 10 (Process Accessed)
 TargetImage: C:\Windows\System32\lsass.exe
 ```
 
-#### via Windows Event Logs / Event ID 4656
+#### via Windows Event Logs / Event ID 4611
 
 ```
-# Process Information.Process ID and .Process Name have the details of the process that attempted to read memory
-# Access Request Information.Accesses has the type of access that was attempted
+# Observe events around this to identify malicious process
 Channel: Security
-EventID: 4656
-Object.Object Type: Process
-Object,Object Name: *\lsass.exe
+EventID: 4611 (A trusted logon process has been registered with the Local Security Authority.)
+Logon Process Name: User32LogonProcesss
+```
+
+#### via Windows Event Logs / Event ID 4673
 
 ```
+# Observe events around this to event
+Channel: Security
+EventID: 4673 (A privileged service was called.)
+Logon Process Name: LsaRegisterLogonProcess()
+Process.Process Name: *\lsass.exe
+```
+
+#### via Windows Event Logs / Event ID 4656
 
 ### WMI Event Consumers Analysis
 
