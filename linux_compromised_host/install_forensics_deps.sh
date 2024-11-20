@@ -215,3 +215,12 @@ cd ..
 make
 make install
 cd $cwd
+
+echo "[*] Installing sysinternalsebpf, sysmon for linux..."
+apt-get -y install libjson-glib-1.0-0 libjson-glib-1.0-common
+curl -sL https://github.com/microsoft/SysinternalsEBPF/releases/download/1.4.0.0/sysinternalsebpf_1.4.0_amd64.deb -o /tmp/sysinternalsebpf_1.4.0_amd64.deb
+dpkg -i /tmp/sysinternalsebpf_1.4.0_amd64.deb
+curl -sL https://github.com/microsoft/SysmonForLinux/releases/download/1.3.3.0/sysmonforlinux_1.3.3_amd64.deb -o /tmp/sysmonforlinux_1.3.3_amd64.deb
+dpkg -i /tmp/sysmonforlinux_1.3.3_amd64.deb
+rm /tmp/sysinternalsebpf_1.4.0_amd64.deb
+rm /tmp/sysmonforlinux_1.3.3_amd64.deb
