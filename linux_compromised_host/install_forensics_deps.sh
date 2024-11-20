@@ -18,12 +18,9 @@ sudo apt-get -y install \
   unzip \
   curl \
   yara \
-  xfce4 \
-  xfce4-goodies \
   exiftool \
   nmap \
   auditd \
-  xrdp \
   tshark \
   python3-virtualenv \
   docker.io
@@ -59,6 +56,12 @@ git clone https://github.com/Neo23x0/signature-base.git /opt/signature-base && \
    find /opt/signature-base -type f -not -iname '*.yar' -not -iname '*.yara' -not -iname 'file-type-signatures.txt' -delete
 
 echo "[*] Enabling RDP service to start at beginning via xrdp..."
+echo "[*] Installing xrdp..."
+sudo apt-get -y update && \
+apt-get -y install \
+  xfce4 \
+  xfce4-goodies \
+  xrdp
 sudo systemctl enable xrdp --now
 update-rc.d xrdp defaults
 
