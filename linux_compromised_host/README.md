@@ -1184,6 +1184,26 @@ Then, use `grep` to search for the key changes in audit log file
 grep -r -n -i --color 'keychange' /var/log/audit.log
 ```
 
+### Monitor for unusual changes to services
+
+#### via auditd / ausearch
+
+```
+# Add the following to /etc/audit/rules.d/audit.rules file and restart auditd service
+# sudo systemctl restart auditd
+-w /etc/systemd/system/ -p wa -k service-config
+-w /etc/init.d/ -p wa -k service-config
+-w /usr/sbin/ -p x -k service-binaries
+-w /var/log/ -p wa -k service-logs
+
+
+
+sudo ausearch -k service-config
+sudo ausearch -k service-binaries
+sudo ausearch -k service-logs
+```
+
+
 ### Look for ssh authorized keys
 
 #### via find
