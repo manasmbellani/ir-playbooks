@@ -1973,6 +1973,18 @@ EventID: 10 (Process Accessed)
 TargetImage: C:\Windows\System32\lsass.exe
 ```
 
+#### via Windows Event Logs / Event ID 4656
+
+```
+# Process Information.Process ID and .Process Name have the details of the process that attempted to read memory
+# Access Request Information.Accesses has the type of access that was attempted
+Channel: Security
+EventID: 4656
+Object.Object Type: Process
+Object,Object Name: *\lsass.exe
+
+```
+
 ### WMI Event Consumers Analysis
 
 To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
