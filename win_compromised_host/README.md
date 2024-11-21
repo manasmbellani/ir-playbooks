@@ -379,12 +379,11 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
-
 ### Detection for unusual Remote / RDP session connections
 
 - Can reveal the RDP connections being made from unusual locations
 - More detections available [here](#detect-rdp-authentication-sessions)
-  
+
 #### via Windows Event Log / 4624
 
 ```
@@ -3280,3 +3279,23 @@ See [EvtxEcmd](#via-eric-zimmermans-evtxecmd)
 #### via powershell / Registry 
 
 https://gist.github.com/MHaggis/a5b0af617ae62ded5a2ec4f15a96f4ac
+
+### Detection for unusual hostnames connecting to systems
+
+- Look for authentication attempts from hostnames (e.g. `DESKTOP-XXX`) OR IP addresses if your company follows the naming convention for hostnames (including in any VPN logs) eg [here](`https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?
+
+#### via VPN logs
+
+Custom VPN logs if logged centrally can capture hostnames. See Stephan-berger's post above
+
+#### via Windows Event Logs / Event ID 4778
+
+See [RDP Auth section](#via-windows-event-log--4778) above
+
+#### via Windows Event Logs / Sysmon Event ID 24
+
+```
+# ClientInfo field contains the remote hostname field from which connection was initiated
+EventID: 24 (Clipboard Changed)
+Channel: Microsoft-Windows-Sysmon/Operational
+```
