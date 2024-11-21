@@ -408,7 +408,7 @@ https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-
 #### via Windows Event Log / 4778
 
 ```
-# Can contain client ip addresses from which RDP session was connected under Additional Information.Client Address
+# Can contain client hostname and client ip addresses from which RDP session was connected under Additional Information.Client Name and Additional Information.Client Address fields respectively
 Channel = Security
 Event ID = 4778 (A session was reconnected to a Window Station)
 ```
