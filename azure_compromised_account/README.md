@@ -230,6 +230,18 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 ## Analysis
 
+### Look for unusual activity in SIEM / Log Analytics 
+
+#### via Microsoft Sentinel / KQL
+
+```
+AzureActivity
+| where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS"
+| extend message_ = tostring(parse_json(Properties).message)
+| extend resource_ = tostring(parse_json(Properties).resource)
+| project TimeGenerated, OperationNameValue, Caller, ResourceId, message_, ActivityStatusValue
+```
+
 ### Look for unusual links clicked in emails
 
 #### via Azure Microsoft Defender / Microsoft Sentinel / KQL
