@@ -1095,6 +1095,12 @@ More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/
 ### Detect for unusual code signing failures in kernel drivers
 
 - Can indicate BYOVD drivers being loaded eg with invalid signature OR being blocked e.g NIMBlackout
+- Look for known bad driver names:
+```
+# EDR Sandblast - https://github.com/0xAnalyst/DefenderATPQueries/blob/main/Defense%20Evasion/EDRSandblast.md
+WN_64.sys
+wnbios.sys
+```
 
 #### via Windows Event ID 3004 / 3023
 
@@ -1102,6 +1108,15 @@ More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/
 Provider = Microsoft-Windows-CodeIntegrity
 Channel = Microsoft-Windows-CodeIntegrity/Operational
 EventID = 3023 (The driver ...\Blackout.sys is blocked from loading as the driver has been revoked by Microsoft) OR EventID = 3004 (kernel driver tried to load with an invalid signature)
+```
+
+#### via Microsoft Windows Defender / KQL / DriverEvents / DriverLoad
+
+```
+# Provides SHA1, SHA256 hashes of the kernel driver and the initiating process
+DeviceEvents
+| where ActionType == "DriverLoad"
+| sort by TimeGenerated desc
 ```
 
 ### Detect for unusual file changes eg Files renamed, Malicious Files Written
