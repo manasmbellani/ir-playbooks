@@ -1451,6 +1451,7 @@ Search for `1.3.6.1.4.1.311.20.2.1` in all logs and focus on certificate service
 ### Detection of unusual authentication attempts / logon attempts
 
 - Look for excessive failed authentication attempts eg password spray or brute-force
+- Look for authentication attempts for users and process (`Process Information.Process Name`) of LogonType=2 (Interactive logon locally) AND Impersonation Level = `Impersonation`. Could be indicative of local runas exploitation e.g. [RunasCs](https://github.com/antonioCoco/RunasCs)
 - Look for PSExec attempts (which is typically `LogonType=5`)
 - Look for non-null source network address as these are likely malicious attempts (`LogonType=3`)
 - Look for authentication attempts from hostnames (e.g. `DESKTOP-XXX`) OR IP addresses if your company which do not follow the naming convention for hostnames including in any VPN logs eg [here](`https://www.linkedin.com/posts/stephan-berger-59575a20a_another-fun-one-the-user-runs-an-installer-activity-7225755841981755392-CnlB/?utm_source=share&utm_medium=member_ios`).  For VPN, see GlobalProtect log field `Machine Name` in format [here](https://docs.paloaltonetworks.com/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/globalprotect-log-fields)
