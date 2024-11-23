@@ -260,9 +260,19 @@ AzureActivity
 
 ### Look for unusual links clicked in emails
 
-#### via Azure Microsoft Defender / Microsoft Sentinel / KQL
-
 - Captures Safelinks clicked URls
+- Look for unusual domains in URLs:
+```
+# https://perception-point.io/blog/phishing-by-design-two-step-attacks-using-microsoft-visio-files/
+.sharepoint.com
+```
+- Look for unusual extensions in URLs:
+```
+# https://perception-point.io/blog/phishing-by-design-two-step-attacks-using-microsoft-visio-files/
+.vsdx
+```
+
+#### via Azure Microsoft Defender / Microsoft Sentinel / KQL
 
 ```
 UrlClickEvents
@@ -278,7 +288,7 @@ UrlClickEvents
 By default, only visible in Microsoft Defender portal. 
 
 ```
-let Timeframe = 30d
+let Timeframe = 30d;
 let EmailInformation = EmailEvents
     | where TimeGenerated > ago(Timeframe)
     | where DeliveryAction != "Blocked"
