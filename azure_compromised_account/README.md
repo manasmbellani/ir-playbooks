@@ -16,6 +16,22 @@ Wait for 15 minutes and then Logs are visible under [Microsoft Entra Admin Cente
 
 Follow steps [here](win_compromised_host#windows) sets up the Windows Forensics instance included with dependencies to perform forensics for Azure.
 
+### Enable Search Query Logging for Exchange and Sharepoint for mailbox accounts
+
+#### via powershell / ExchangeOnlineManagement
+
+- have visibility into search activities across your Microsoft 365 environment mainly Exchange and Sharepoint, including who initiated searches, when, and what types of content they are querying.
+
+```
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Set-Mailbox $USERNAME -AuditOwner @{Add="SearchQueryInitiated"}
+```
+
+https://www.linkedin.com/posts/activity-7263003610668572672-7Yvx/?utm_source=share&utm_medium=member_ios
+
+https://learn.microsoft.com/en-gb/purview/audit-get-started#step-3-enable-searchqueryinitiated-events
+
 ## Identification
 
 ## Containment
