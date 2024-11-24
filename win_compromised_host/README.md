@@ -1252,8 +1252,9 @@ HKLM\System\CurrentControlSet\Control\Lsa\
 # Detect DNSAdmins abuse where ServerLevelPluginDll contains the path to the DLL
 HKLM:\SYSTEM:\CurrentControlSet:\services\DNS\Parameters\ServerLevelPluginDll
 
-# Changes to a service's image path (which binary is executed)
-# Replace the service name in the `ImagePath` 
+# Changes to a service's image path (which binary is executed) which can execute malicious payload
+# Replace the service name in the `ImagePath`. Note usage of `sc` causes services.exe in Sysmon Event ID 13 to generate services.exe executions.
+# Ref: https://github.com/Mr-Un1k0d3r/SCShell
 HKLM\System\CurrentControlSet\Services\*\ImagePath
 ```
 
