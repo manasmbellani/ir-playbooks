@@ -1251,6 +1251,10 @@ HKLM\System\CurrentControlSet\Control\Lsa\
 
 # Detect DNSAdmins abuse where ServerLevelPluginDll contains the path to the DLL
 HKLM:\SYSTEM:\CurrentControlSet:\services\DNS\Parameters\ServerLevelPluginDll
+
+# Changes to a service's image path (which binary is executed)
+# Replace the service name in the `ImagePath` 
+HKLM\System\CurrentControlSet\Services\*\ImagePath
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 13
