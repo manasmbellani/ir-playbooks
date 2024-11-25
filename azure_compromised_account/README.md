@@ -598,6 +598,12 @@ AuditLogs
 
 [Azure Portal](https://portal.azure.com) > `Microsoft Entra ID` > `Properties`
 
+#### via AADInternals / Invoke-AADIntReconAsOutsider
+
+```
+Invoke-AADIntReconAsOutsider -DomainName $O365_DOMAIN
+```
+
 #### via Connect-AzureAD
 
 ```
