@@ -803,6 +803,33 @@ Provider=Microsoft-Windows-Security-Auditing
 
 Folder exists for each service under `HKLM\CurrentControlSet\Services` as explained [thedfirreport.com](https://thedfirreport.com/2024/06/10/icedid-brings-screenconnect-and-csharp-streamer-to-alphv-ransomware-deployment/#persistence)
 
+### Detect unusual network / firewall connections to LDAP ports
+
+- Indicates LDAP enumeration occurring via tools like Bloodhound, SharpHound
+
+#### via Windows Event Logs / Event ID 5156
+
+```
+EventID: 5156 (The Windows Filtering Platform has permitted a connection)
+Channel: Security
+Provider: Microsoft-Windows-Security-Auditing
+(Network Information.Destination Port: 389 OR Network Information.Destination Port: 636)
+```
+
+### Detect unusual group membership enumeration
+
+- Indicates LDAP enumeration occurring via tools like Bloodhound, SharpHound
+
+#### via Windows Event Logs / Event ID 4799
+
+```
+# Observe changes for large number of groups (Group.Group Name) from same process (Process Information.Process Name)
+EventID: 4799 (A security-enabled local group membership was enumerated)
+Channel: Security
+Provider: Microsoft-Windows-Security-Auditing
+Group.Group Name: *
+(Network Information.Destination Port: 389 OR Network Information.Destination Port: 636)
+```
 
 ### Detect unusual file share usage
 
