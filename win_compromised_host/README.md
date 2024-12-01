@@ -1074,6 +1074,9 @@ C:\Users\Administrator\Downloads\explore.exe -> C:\Windows\System32\notepad.exe 
 # https://www.splunk.com/en_us/blog/security/i-pity-the-spool-detecting-printnightmare-cve-2021-34527.html
 C:\Windows\System32\spoolsv.exe -> C:\Windows\System32\rundll.exe
 
+# Remote Monitoring tool seen by threat actors being used in campaigns as posted by Microsoft: https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/#:~:text=Threat%20actors%20misuse%20Quick%20Assist,access%20to%20a%20target%20device.
+QuickAssist.exe
+
 # Look for frequent Remote Management tools executables via https://lolrmm.io/api/rmm_tools.csv
 ```
 
