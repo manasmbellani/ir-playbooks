@@ -2451,7 +2451,7 @@ Filter for `.Zone.Identifer` files especially in Downloads folder in Autopsy
 - Global groups are groups which are created in a domain but can be created in other domains within a forest, whereas local groups are groups which can be created within specific domain
   
 ```
-EventID: 4727 (A security-enabled global group was created) OR EventID: 4731 (A security-enabled local group was created)
+EventID: 4727 (A security-enabled global group was created) OR EventID: 4731 (A security-enabled local group was created) OR EventID: 4735 (A security-enabled local group was changed)
 Channel: Security
 ```
 
