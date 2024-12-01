@@ -379,6 +379,24 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual Appx installation packages
+
+- Can detect installation of Remote Monitoring tools like QuickAssist.exe seen by threat actors being used in campaigns as posted by [microsoft](https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/#:~:text=Threat%20actors%20misuse%20Quick%20Assist,access%20to%20a%20target%20device.)
+
+#### via Windows Event Logs / AppxDeployment Logs / Event ID 327 
+
+```
+Channel = Microsoft-Windows-AppXDeployment/Operational
+EventID = 327 (The following packages will be installed: .... . The following packages will be removed: ...)
+```
+
+#### via Windows Event Logs / AppxDeploymentServer Logs / Event ID 819
+
+```
+Channel = Microsoft-Windows-AppXDeploymentServer/Operational
+EventID = 819 (The following packages will be installed: MicrosoftCorporationII.QuickAssist_2022.509.2259.0_neutral_~_8wekyb3d8bbwe . The following packages will be removed: NULL)
+```
+
 ### Detection for unusual Remote / RDP session connections
 
 - Can reveal the RDP connections being made from unusual locations
