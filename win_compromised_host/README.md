@@ -2444,6 +2444,17 @@ $FolderToCheck="C:\Users\manasbellani"; Get-ChildItem  -Recurse -Path $FolderToC
 
 Filter for `.Zone.Identifer` files especially in Downloads folder in Autopsy
 
+### Look for unusual AD Group creations
+
+#### via Windows Event Logs / Event ID 4727, Event ID 4731
+
+- Global groups are groups which are created in a domain but can be created in other domains within a forest, whereas local groups are groups which can be created within specific domain
+  
+```
+EventID: 4727 (A security-enabled global group was created) OR EventID: 4731 (A security-enabled local group was created)
+Channel: Security
+```
+
 ### Look for unusual memberships for AD Groups
 
 Monitor for membership changes to these key groups: 
