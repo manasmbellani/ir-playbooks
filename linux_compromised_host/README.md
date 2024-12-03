@@ -608,6 +608,14 @@ egrep '^(Package:|Version:)' /var/lib/dpkg/status | awk '{print $2}' | while rea
 
 Taken from [here](https://github.com/clausing/scripts/blob/master/linux-pkgs.sh)
 
+#### via /var/log
+
+```
+cat /var/log/apt
+```
+
+https://medium.com/@adammesser_51095/cloud-digital-forensics-and-incident-response-elastic-kubernetes-service-takeover-leads-to-9553c5424df5
+
 ### Unusual Browsing History Artifacts
 
 Look for suspicious domains
