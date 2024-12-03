@@ -318,6 +318,16 @@ See [build a timeline](#build-a-timeline) section
 
 ## Analysis
 
+### Look for unusual web traffic 
+
+#### via /var/log
+
+```
+cat /var/log/nginx/access.log
+```
+
+https://medium.com/@adammesser_51095/cloud-digital-forensics-and-incident-response-elastic-kubernetes-service-takeover-leads-to-9553c5424df5
+
 ### Determine the default timezone
 
 #### via /etc/localtime
