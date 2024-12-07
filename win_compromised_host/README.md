@@ -379,6 +379,18 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual SQL Server Changes
+
+- Look for reference to `xp_cmdshell` for the SQL Server changes. Eg: [stephan berger](https://www.linkedin.com/posts/stephan-berger-59575a20a_who-actively-monitors-the-application-event-activity-7270898589713809408-QTR7?utm_source=share&utm_medium=member_desktop)
+  
+#### via Windows Event Logs / Event ID 15457
+
+```
+Channel = Microsoft-Windows-SQLServer
+LogName = Application
+EventID = 15457 (SQL Server Configuration Changes)
+```
+
 ### Detection for unusual Appx installation packages
 
 - Can detect installation of Remote Monitoring tools like QuickAssist.exe seen by threat actors being used in campaigns as posted by [microsoft](https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/#:~:text=Threat%20actors%20misuse%20Quick%20Assist,access%20to%20a%20target%20device.)
