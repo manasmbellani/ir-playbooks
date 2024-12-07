@@ -27,6 +27,18 @@ aws s3 cp s3://$BUCKET_NAME/ $LOCAL_DIR --recursive
 
 ## Analysis
 
+### Detect unusual  CloudTrail calls
+
+- Look for unique user agents
+```
+Scout-Suite/5.14.0 md/Botocore#1.35.75 ua/2.0 os/linux#6.10.11-cloud-amd64 md/arch#x86_64 lang/python#3.12.6 md/pyimpl#CPython cfg/retry-mode#legacy Scout Suite/5.14.0 (https://github.com/nccgroup/ScoutSuite)
+```
+- Look for unique source IP address
+
+#### via CloudTrail > UI
+
+Look for unique Cloudtrail unique calls
+
 ### Detect unusual Amazon Bedrock requests
 
 - Amazon Bedrock provides existing LLM models like ChatGPT which can be used e.g. anthropic claude within AWS itself
