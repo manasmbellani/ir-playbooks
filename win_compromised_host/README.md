@@ -403,6 +403,17 @@ EventID: 4722 (A user account was enabled)
 Channel = Security
 ```
 
+#### via Windows Event Logs / Security / Event ID 4738
+
+```
+# Look for Subject.Account Name which performed the action (is it unusual?) on Target Account.Account Name?
+EventID: 4738 (A user account was changed)
+Channel = Security
+Changed Attributes.Old UAC Value = 0x10
+Changed Attributes.New UAC Value = 0x11
+User Account Control: Enabled
+```
+
 ### Detection for unusual Appx installation packages
 
 - Can detect installation of Remote Monitoring tools like QuickAssist.exe seen by threat actors being used in campaigns as posted by [microsoft](https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/#:~:text=Threat%20actors%20misuse%20Quick%20Assist,access%20to%20a%20target%20device.)
