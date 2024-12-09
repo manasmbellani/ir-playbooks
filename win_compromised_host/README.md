@@ -391,6 +391,18 @@ LogName = Application
 EventID = 15457 (SQL Server Configuration Changes)
 ```
 
+### Detection for unusual re-enabling of domain accounts
+
+- Threat actors may enable old accounts with privileged access to evade detections rather than creating new accounts
+  
+#### via Windows Event Logs / Security / Event ID 4722
+
+```
+# Look for Subject.Account Name which performed the action (is it unusual?) on Target Account.Account Name?
+EventID: 4722 (A user account was enabled)
+Channel = Security
+```
+
 ### Detection for unusual Appx installation packages
 
 - Can detect installation of Remote Monitoring tools like QuickAssist.exe seen by threat actors being used in campaigns as posted by [microsoft](https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/#:~:text=Threat%20actors%20misuse%20Quick%20Assist,access%20to%20a%20target%20device.)
