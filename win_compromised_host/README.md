@@ -379,6 +379,18 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual machine accounts
+
+- Exploitation attempts from noPac may involve creation of machine account `https://github.com/Ridter/noPac`
+  
+#### via Windows Event Logs / Event ID 4741
+
+```
+# Attributes.SAM Account Name contains the machine account name, Subject.Account Name contains the user that created the account
+EventID = 4741 (A computer account was created)
+Channel = Security
+```
+
 ### Detection for unusual SQL Server Changes
 
 - Look for reference to `xp_cmdshell` for the SQL Server changes. Eg: [stephan berger](https://www.linkedin.com/posts/stephan-berger-59575a20a_who-actively-monitors-the-application-event-activity-7270898589713809408-QTR7?utm_source=share&utm_medium=member_desktop), [sigma](https://github.com/SigmaHQ/sigma/blob/6fd57da13139643c6fe3e4a23276ca6ae9a6eec7/rules/windows/builtin/application/mssqlserver/win_mssql_xp_cmdshell_change.yml)
