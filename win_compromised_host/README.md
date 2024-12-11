@@ -391,6 +391,22 @@ LogName = Application
 EventID = 15457 (SQL Server Configuration Changes)
 ```
 
+#### via Windows Event Logs / Event ID 33205
+
+- Pre-requisite: expect the MSSQL Audit Policy to be enabled
+- Captures details like stored procedure calls executed when SQL service is started eg persistence. Look for 'sp_procoption' with procedure name in the `statement` field
+
+```
+Channel = Microsoft-Windows-SQLServer
+LogName = Application
+Source = MSSQLSERVER
+EventID = 33205 (SQL Audit Event)
+```
+
+https://docs.logrhythm.com/devices/docs/evid-33205-sql-audit-event
+
+https://www.netspi.com/blog/technical-blog/network-penetration-testing/sql-server-persistence-part-1-startup-stored-procedures/
+
 ### Detection for unusual re-enabling of domain accounts
 
 - Threat actors may enable old accounts with privileged access to evade detections rather than creating new accounts
