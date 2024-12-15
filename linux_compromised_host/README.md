@@ -1194,6 +1194,9 @@ echo "# Custom: Add monitoring for changes to authorized_keys file" >> /etc/audi
 echo "-a always -w /root/.ssh/authorized_keys -p wa -k root_keychange" >> /etc/audit/rules.d/audit.rules
 echo "-a always -w /home/manasbellani/.ssh/authorized_keys -p wa -k user_keychange_mb" >> /etc/audit/rules.d/audit.rules
 echo "-a always -w /home/ubuntu/.ssh/authorized_keys -p wa -k user_keychange_u" >> /etc/audit/rules.d/audit.rules
+echo "-a always -w /root/.ssh/authorized_keys2 -p wa -k root_keychange" >> /etc/audit/rules.d/audit.rules
+echo "-a always -w /home/manasbellani/.ssh/authorized_keys2 -p wa -k user_keychange_mb" >> /etc/audit/rules.d/audit.rules
+echo "-a always -w /home/ubuntu/.ssh/authorized_keys2 -p wa -k user_keychange_u" >> /etc/audit/rules.d/audit.rules
 ```
 
 Then, use `grep` to search for the key changes in audit log file
@@ -1201,6 +1204,8 @@ Then, use `grep` to search for the key changes in audit log file
 ```
 grep -r -n -i --color 'keychange' /var/log/audit.log
 ```
+
+https://x.com/malmoeb/status/1867329453354860718 (`authorized_keys2`)
 
 ### Monitor for unusual changes to services
 
