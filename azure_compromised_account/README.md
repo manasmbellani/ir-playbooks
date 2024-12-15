@@ -231,6 +231,8 @@ Import-Module .\TokenTactics.psm1
 Clear-Token -Token All
 Get-AzureToken -Client MSGraph
 $response.access_token
+# Alternatively, on Kali
+roadrecon auth --device-code
 
 # Kali
 roadrecon plugin policies -f road2recon.csv
@@ -332,6 +334,8 @@ Import-Module .\TokenTactics.psm1
 Clear-Token -Token All
 Get-AzureToken -Client MSGraph
 $response.access_token
+# Alternatively, on Kali
+roadrecon auth --device-code
 
 # Kali
 roadrecon plugin road2timeline -f road2recon.csv
