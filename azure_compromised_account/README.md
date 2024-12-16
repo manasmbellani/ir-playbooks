@@ -107,6 +107,17 @@ Taken from [here](https://community.spiceworks.com/t/office-365-block-emails-con
 
 ## Collection
 
+### Checking if Unified Audit Logging (UAL) is enabled
+
+```
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnlineManagement
+Get-AdminAuditLogConfig |Select-Object -ExpandProperty UnifiedAuditLogIngestionEnabled
+Get-MailboxAuditBypassAssociation -ResultSize unlimited | Format-Table Name,AuditBypassEnabled
+```
+
+https://x.com/malmoeb/status/1866841744806973653
+
 ### Collect Azure AD Audit Logs (Sign-In, Directory Audit)
 
 #### via Powershell/AzureADPreview module
