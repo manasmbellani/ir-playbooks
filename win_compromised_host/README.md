@@ -1252,6 +1252,11 @@ Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 # Use `Velociraptor / DetectRaptor / BinaryRename.template` to detect this (see below)
 
 # Look for .sys driver files being written to disk where TargetfileName in Windows Event ID 11 contains `.sys` e.g. NIMBlackout OR `DeviceFileEvents` / FileName contains .sys
+
+# Look for .RDP files being created in Outlook Attachments Folder \Content.Outlook\ in AppData\Windows which indicates Nobelium spearphishing using RDP files
+# https://github.com/Neo23x0/signature-base/blob/master/iocs/filename-iocs.txt#L4422
+# https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/
+\\Content\.Outlook\\[A-Z0-9]{8}\\[^\\]{1,255}\.rdp$
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 11
