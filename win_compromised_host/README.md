@@ -2579,6 +2579,9 @@ renamed processes masquerading as `conhost.exe` or `cmd.exe` but in reality are 
 
 # Check SHA256, SHA512 hashes for the processes / command lines that are executed to detect if binary files were renamed
 
+# Look for execution of lolapps eg Greenshot, Dropbox, WinSCP
+https://lolapps-project.github.io/lolapps
+
 # Look for download attempts via webdav which can be done for malware. See https://dfir.ch/posts/today_i_learned_webdav_cache/#tfs_dav
 rundll32.exe C:\Windows\system32\davclnt.dll,DavSetCookie 216.9.224.58@5555 http://216.9.224.58:5555/
 ```
