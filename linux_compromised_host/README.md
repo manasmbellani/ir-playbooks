@@ -379,6 +379,16 @@ cat /var/lib/dhcp
 
 ```
 
+### Look for unusual missing packages
+
+- `tmate` can leave indicators that there are outdated binaries. https://dfir.ch/posts/tmate_as_a_backdoor/
+
+#### via /var/log
+
+```
+cat /var/log/unattended-upgrades/unattended-upgrades-dpkg.log
+```
+
 ### Look for unusual commands / processes / command lines executed
 
 - Interesting processes to look for: 
@@ -595,7 +605,9 @@ iptables -L -n
 uptime
 ```
 
-### Getting installed packages
+### Getting unusual installed packages
+
+- Can find signs of persistence eg tmate tool used for instant terminal sharing: https://dfir.ch/posts/tmate_as_a_backdoor/
 
 #### via /var/lib folder
 
@@ -611,7 +623,11 @@ Taken from [here](https://github.com/clausing/scripts/blob/master/linux-pkgs.sh)
 #### via /var/log
 
 ```
-cat /var/log/apt
+# contains Commands run to install packages
+cat /var/log/apt/history.log
+
+# contains Stdout of commands run
+cat /var/log/apt/term.log
 ```
 
 https://medium.com/@adammesser_51095/cloud-digital-forensics-and-incident-response-elastic-kubernetes-service-takeover-leads-to-9553c5424df5
@@ -878,9 +894,16 @@ See `/proc/$PID/exe`
 
 Also, seen in this article: https://x.com/CraigHRowland/status/1802850025443336414
 
-### List running processes
+### List unusual running processes
 
-Identify unusual processes and processes running from suspicious locations such as from `/tmp`, `/var/tmp`, `/dev/shm`
+- Identify unusual processes and processes running from suspicious locations such as from `/tmp`, `/var/tmp`, `/dev/shm`
+- Identify unusual processes which can be used for persistence eg tmate. https://dfir.ch/posts/tmate_as_a_backdoor/
+
+#### via ps aux
+
+```
+ps aux
+```
 
 #### via volatility3 / pslist
 
@@ -1295,7 +1318,25 @@ stat test.txt
 
 https://www.inversecos.com/2022/08/detecting-linux-anti-forensics.html?m=1
 
-### Check for network activity
+### Check for unusual SSH connections
+
+- Presence of `outgoing` SSH connections that looks unusual can indicate tmate persistence activity. https://dfir.ch/posts/tmate_as_a_backdoor/
+  
+#### via lsof 
+
+```
+lsof -p $PROCESS_ID | grep -i ":22"
+```
+
+### Check for unusual network activity
+
+#### via /proc/net/unix
+
+- Presence of `tmate` within the unix file indicates Unix networking activity related to tmate persistence https://dfir.ch/posts/tmate_as_a_backdoor/
+
+```
+cat /proc/net/unix | grep -i tmate
+```
 
 #### via lsof 
 
