@@ -1267,6 +1267,7 @@ Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 
 # Look for files created under web root folders eg for proxyshell
 # https://m365internals.com/2022/10/18/hunting-and-responding-to-proxyshell-attacks/
+# https://github.com/rod-trent/SentinelKQL/blob/master/ProxyShell.txt
 C:\\inetpub\\wwwroot\\aspnet_client
 ```
 
