@@ -770,6 +770,15 @@ if(-Not (Test-Path "$INSTALL_LOCATION\mo2007")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\mo2007\mo2007.zip")
 }
 
+if(-Not (Test-Path "$INSTALL_LOCATION\Trawler")) {
+    Write-Host "[*] Making directory Trawler..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Trawler"
+
+    Write-Host "[*] Downloading Trawler..."
+    $url = "https://github.com/joeavanzato/Trawler/archive/refs/heads/main.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Trawler\Trawler.zip")
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     Write-Host "[*] Making directory azcli..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\azcli"
@@ -840,3 +849,4 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
     # $command = '& gpupdate /force'
     # Invoke-Expression "$command"
 }
+
