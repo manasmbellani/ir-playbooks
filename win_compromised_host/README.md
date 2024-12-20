@@ -379,6 +379,13 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Detection for unusual web requests in web logs
+
+#### via IIS server
+
+- Look for unusual web requests to `/autodiscover/autodiscover.json` as seen in `C:\inetpub\logs\LogFiles` which can be sign of proxyshell: https://m365internals.com/2022/10/18/hunting-and-responding-to-proxyshell-attacks/
+- Look for unusual web requests in `C:\Program Files\Microsoft\Exchange Server\V15\Logging\HttpProxy\Autodiscover` to identify proxyshell attempts: https://m365internals.com/2022/10/18/hunting-and-responding-to-proxyshell-attacks/
+
 ### Detection for unusual machine accounts
 
 - Exploitation attempts from noPac may involve creation of machine account `https://github.com/Ridter/noPac`
@@ -1257,6 +1264,10 @@ Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 # https://github.com/Neo23x0/signature-base/blob/master/iocs/filename-iocs.txt#L4422
 # https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/
 \\Content\.Outlook\\[A-Z0-9]{8}\\[^\\]{1,255}\.rdp$
+
+# Look for files created under web root folders eg for proxyshell
+# https://m365internals.com/2022/10/18/hunting-and-responding-to-proxyshell-attacks/
+C:\\inetpub\\wwwroot\\aspnet_client
 ```
 
 #### via Windows Event Logs / Sysmon / Event ID 11
