@@ -460,7 +460,14 @@ service --status-all
 systemctl list-unit-files
 ```
 
-### Look for rootkits
+### Look for unusual kernel modules or rootkits
+
+#### via dmesg
+
+```
+# Will return values like "Starting modprobe@configfs.service - Load Kernel Module configfs..."
+dmesg | grep -i module
+```
 
 #### via rkhunter
 
