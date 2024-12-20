@@ -777,6 +777,12 @@ if(-Not (Test-Path "$INSTALL_LOCATION\Trawler")) {
     Write-Host "[*] Downloading Trawler..."
     $url = "https://github.com/joeavanzato/Trawler/archive/refs/heads/main.zip"
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Trawler\Trawler.zip")
+
+    Write-Host "[*] Extracting Trawler zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\Trawler\Trawler.zip" -DestinationPath "$INSTALL_LOCATION\Trawler"
+
+    Write-Host '[*] Removing Trawler zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\Trawler\Trawler.zip"
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
