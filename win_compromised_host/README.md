@@ -962,6 +962,23 @@ Look for keyword in file paths e.g.  `E:\.....png`
 
 ### Detect unusual startup programs aka autoruns
 
+#### via trawler
+
+```
+# Recommend running on a golden image and then comparing the differences
+cd C:\Users\azureuser\Desktop\opt\Trawler\Trawler-main
+.\trawler.ps1
+```
+
+#### via persistencesniper
+
+```
+# Recommend running on a golden image and then comparing the differences
+cd C:\Users\azureuser\Desktop\opt\PersistenceSniper\PersistenceSniper-main\PersistenceSniper
+Import-Module .\PersistenceSniper.psd1
+Find-AllPersistence
+```
+
 #### via sysinternals / autorunsc64.exe
 
 ```
