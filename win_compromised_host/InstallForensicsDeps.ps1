@@ -785,6 +785,22 @@ if(-Not (Test-Path "$INSTALL_LOCATION\Trawler")) {
     Remove-Item -Path "$INSTALL_LOCATION\Trawler\Trawler.zip"
 }
 
+if(-Not (Test-Path "$INSTALL_LOCATION\PersistenceSniper")) {
+    Write-Host "[*] Making directory PersistenceSniper..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\PersistenceSniper"
+
+    Write-Host "[*] Downloading PersistenceSniper..."
+    $url = "https://github.com/last-byte/PersistenceSniper/archive/refs/heads/main.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\PersistenceSniper\PersistenceSniper.zip")
+
+    Write-Host "[*] Extracting PersistenceSniper zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\PersistenceSniper\PersistenceSniper.zip" -DestinationPath "$INSTALL_LOCATION\PersistenceSniper"
+
+    Write-Host '[*] Removing PersistenceSniper zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\PersistenceSniper\PersistenceSniper.zip"
+}
+
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     Write-Host "[*] Making directory azcli..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\azcli"
