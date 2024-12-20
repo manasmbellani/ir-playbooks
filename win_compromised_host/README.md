@@ -1465,6 +1465,14 @@ Launch `certsrv.msc` > Look at `issued certificates` > identify certificates tha
 
 Taken from [here](https://www.aceresponder.com/learn/adcs)
 
+#### via Windows Event Logs / Windows Filtering Event ID 5156
+
+```
+# Monitor for unusual activity to 'Network Information.Destination Address' and see who authenticated from that IP, the source workstation (eg Event ID 4624, 4776), etc.
+EventID: 5156 (The Windows Filtering Platform has permitted a connection)
+Application Information.Application Name: *\system32\certsrv.exe
+```
+
 #### via Windows Event Logs / Object Access (4887)
 
 Pre-requiste: Requires the Windows Event Logging to be turned on.
