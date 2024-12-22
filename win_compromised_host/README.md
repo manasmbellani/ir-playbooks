@@ -379,6 +379,17 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Collect windows notifications
+
+#### via Windows\Notifications folder, SQLiteBrowser
+
+```
+# View as an SQLITE database
+\Users\\AppData\Local\Microsoft\Windows\Notifications
+```
+
+https://www.hecfblog.com/2018/08/daily-blog-440-windows-10-notifications.html
+
 ### Detection for unusual web requests in web logs
 
 #### via IIS server
