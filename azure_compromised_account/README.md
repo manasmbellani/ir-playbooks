@@ -165,6 +165,14 @@ More info at [crowdstrike](https://github.com/CrowdStrike/CRT)
 
 Can help detect users with MFA enabled, MFA disabled, phone number and the type of MFA
 
+#### via Microsoft-Analyzer-Suite / Microsoft-Extractor-Suite
+
+Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first and extract `Get-MFA` referring to the guides below
+
+https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
+
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
+
 #### via Powershell / Connect-MsolService
 
 ```
@@ -259,9 +267,12 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 #### via Microsoft-Analyzer-Suite / Microsoft-Extractor-Suite
 
-```
+Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first and extract `Get-RiskyDetections` and `Get-RiskyUsers` referring to the guides below
 
-```
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
+
+https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
+
 
 ## Analysis
 
@@ -912,15 +923,16 @@ Search-UnifiedAuditLog -StartDate "2024-06-25 03:30:00Z" -EndDate "2024-06-25 06
 
 #### via Microsoft-Extractor-Suite / Microsoft-Analyzer-Suite
 
-Follow steps [here](#extract-azure-unified-audit-logs) to configure the suites first
+Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first
 
 ```
-mkdir C:\Windows\Temp\UAL
-Get-ADAuditLogs -startDate 2023-04-12 -endDate 2023-04-12 -outputDir C:\Windows\Temp\UAL -MergeOutput
-.\UAL-Analyzer.ps1 -Path C:\Windows\Temp\UAL\UAL-20241101120000.csv -OutputDir C:\Windows\Temp
+C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
+mkdir C:\Windows\Temp\TransportRules
+Get-TransportRules -OutputDir C:\Windows\Temp\TransportRules
+ .\TransportRules-Analyzer.ps1 -Path C:\Windows\Temp\TransportRules-Analyzer\TransportRules\XLSX\TransportRules.xlsx -OutputDir C:\Windows\Temp
 ```
 
-https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActiveDirectoryAuditLog.html
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
 
 https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
 
@@ -1030,17 +1042,19 @@ Get-UALStatistics -UserIds manasbellani@testgcpbusiness12345.onmicrosoft.com -St
 ```
 # Initialize and authenticate
 Import-Module Microsoft-Extractor-Suite
-cd C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
+
 Connect-M365
 Connect-AzureAz
 Connect-AzureAD
 
 mkdir C:\Windows\Temp\UAL
 Get-ADAuditLogs -startDate 2023-04-12 -endDate 2023-04-12 -outputDir C:\Windows\Temp\UAL -MergeOutput
-.\UAL-Analyzer.ps1 -Path C:\Windows\Temp\UAL\UAL-20241101120000.csv -OutputDir C:\Windows\Temp
+
+cd C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
+.\UAL-Analyzer.ps1 -Path C:\Windows\Temp\UAL\Merged\UAL-Combined.csv -OutputDir C:\Windows\Temp
 ```
 
-https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActiveDirectoryAuditLog.html
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
 
 https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
 
