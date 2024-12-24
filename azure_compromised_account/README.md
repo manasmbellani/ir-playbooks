@@ -954,7 +954,7 @@ Get-MailboxPermission -Identity $EMAIL_ID -IncludeSoftDeletedUserPermissions -In
 Search-UnifiedAuditLog -StartDate "2024-06-24 08:20:00" -EndDate "2024-06-24 08:30:00"
 ```
 
-### Extract Activity Logs
+### Extract Azure Activity Logs
 
 #### via Microsoft-Extractor-Suite
 
