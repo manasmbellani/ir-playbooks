@@ -904,6 +904,21 @@ Get-TransportRule -Filter '{Description -like "*$EMAIL_ID*"}' | Format-List
 Search-UnifiedAuditLog -StartDate "2024-06-25 03:30:00Z" -EndDate "2024-06-25 06:32:00Z" -Operations New-TransportRule
 ```
 
+#### via Microsoft-Extractor-Suite / Microsoft-Analyzer-Suite
+
+Follow steps [here](#extract-azure-unified-audit-logs) to configure the suites first
+
+```
+mkdir C:\Windows\Temp\UAL
+Get-ADAuditLogs -startDate 2023-04-12 -endDate 2023-04-12 -outputDir C:\Windows\Temp\UAL -MergeOutput
+.\UAL-Analyzer.ps1 -Path C:\Windows\Temp\UAL\UAL-20241101120000.csv -OutputDir C:\Windows\Temp
+```
+
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActiveDirectoryAuditLog.html
+
+https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
+
+
 ### Determine in Microsoft 365 who received the emails
 
 See [here](#extract-microsoft-365-emails-for-analysis)
@@ -953,6 +968,26 @@ Get-MailboxPermission -Identity $EMAIL_ID -IncludeSoftDeletedUserPermissions -In
 # Monitor 'AuditData > AppAccessContext > UserKey'
 Search-UnifiedAuditLog -StartDate "2024-06-24 08:20:00" -EndDate "2024-06-24 08:30:00"
 ```
+
+### Extract Azure Unified Audit Logs
+
+#### via Microsoft-Extractor-Suite / Microsoft-Analyzer-Suite
+
+```
+# Initialize and authenticate
+Import-Module Microsoft-Extractor-Suite
+cd C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
+Connect-M365
+Connect-AzureAz
+
+mkdir C:\Windows\Temp\UAL
+Get-ADAuditLogs -startDate 2023-04-12 -endDate 2023-04-12 -outputDir C:\Windows\Temp\UAL -MergeOutput
+.\UAL-Analyzer.ps1 -Path C:\Windows\Temp\UAL\UAL-20241101120000.csv -OutputDir C:\Windows\Temp
+```
+
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActiveDirectoryAuditLog.html
+
+https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
 
 ### Extract Azure Activity Logs
 
