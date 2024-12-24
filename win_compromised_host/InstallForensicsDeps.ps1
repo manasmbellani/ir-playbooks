@@ -815,6 +815,14 @@ if(-Not (Test-Path "$INSTALL_LOCATION\MemProcFS")) {
     Remove-Item -Path "$INSTALL_LOCATION\MemProcFS\MemProcFS.zip"
 }
 
+if(-Not (Test-Path "$INSTALL_LOCATION\Dokan")) {
+    Write-Host "[*] Making directory Dokan..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Dokan"
+
+    Write-Host "[*] Downloading Dokan..."
+    $url = "https://github.com/dokan-dev/dokany/releases/download/v2.2.0.1000/DokanSetup.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Dokan\DokanSetup.exe")
+}
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     Write-Host "[*] Making directory azcli..."
