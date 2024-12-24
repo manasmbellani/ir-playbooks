@@ -132,6 +132,17 @@ Get-MgAuditLogSignIn -All | Format-List | more
 Get-MgAuditLogDirectoryAudit -All | Format-List | more
 ```
 
+#### via Microsoft-Extractor-Suite / Microsoft-Analyzer-Suite
+
+Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first
+
+```
+C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
+mkdir C:\Windows\Temp\SignIns
+Get-TransportRules -OutputDir C:\Windows\Temp\SignIns
+ .\TransportRules-Analyzer.ps1 -Path C:\Windows\Temp\TransportRules-Analyzer\TransportRules\XLSX\TransportRules.xlsx -OutputDir C:\Windows\Temp
+```
+
 ### Collect Azure Activity Logs
 
 See [here](#extract-activity-logs)
@@ -267,12 +278,11 @@ If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/Ide
 
 #### via Microsoft-Analyzer-Suite / Microsoft-Extractor-Suite
 
-Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first and extract `Get-RiskyDetections` and `Get-RiskyUsers` referring to the guides below
-
-https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
+Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first and extract `Get-ADSignInLogs`, `ADSignInLogsGraph-Analyzer` referring to the guides below
 
 https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
 
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
 
 ## Analysis
 
