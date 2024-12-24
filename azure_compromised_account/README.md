@@ -969,26 +969,6 @@ Get-MailboxPermission -Identity $EMAIL_ID -IncludeSoftDeletedUserPermissions -In
 Search-UnifiedAuditLog -StartDate "2024-06-24 08:20:00" -EndDate "2024-06-24 08:30:00"
 ```
 
-### Extract Azure Unified Audit Logs
-
-#### via Microsoft-Extractor-Suite / Microsoft-Analyzer-Suite
-
-```
-# Initialize and authenticate
-Import-Module Microsoft-Extractor-Suite
-cd C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
-Connect-M365
-Connect-AzureAz
-
-mkdir C:\Windows\Temp\UAL
-Get-ADAuditLogs -startDate 2023-04-12 -endDate 2023-04-12 -outputDir C:\Windows\Temp\UAL -MergeOutput
-.\UAL-Analyzer.ps1 -Path C:\Windows\Temp\UAL\UAL-20241101120000.csv -OutputDir C:\Windows\Temp
-```
-
-https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActiveDirectoryAuditLog.html
-
-https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
-
 ### Extract Azure Activity Logs
 
 #### via Microsoft-Extractor-Suite
@@ -1015,7 +995,7 @@ Get-AzLog -StartTime 2024-05-08
 $logs | ConvertTo-Json
 ```
 
-### Extract Microsoft 365 Unified Access Logs (UAL)
+### Extract Microsoft 365 / Azure Unified Audit Logs (UAL)
 
 #### via Microsoft Compliance / Purview
 
@@ -1039,10 +1019,25 @@ Connect-M365
 Get-UALStatistics -UserIds manasbellani@testgcpbusiness12345.onmicrosoft.com -StartDate 2024-05-08 -Output JSON
 ```
 
+#### via Microsoft-Extractor-Suite / Microsoft-Analyzer-Suite
+
 ```
+# Initialize and authenticate
+Import-Module Microsoft-Extractor-Suite
+cd C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
 Connect-M365
-Get-UALAll -UserIds manasbellani@testgcpbusiness12345.onmicrosoft.com -StartDate 2024-05-08 -Output JSON
+Connect-AzureAz
+Connect-AzureAD
+
+mkdir C:\Windows\Temp\UAL
+Get-ADAuditLogs -startDate 2023-04-12 -endDate 2023-04-12 -outputDir C:\Windows\Temp\UAL -MergeOutput
+.\UAL-Analyzer.ps1 -Path C:\Windows\Temp\UAL\UAL-20241101120000.csv -OutputDir C:\Windows\Temp
 ```
+
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/functionality/AzureActiveDirectoryAuditLog.html
+
+https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
+
 
 ```
 Connect-M365
