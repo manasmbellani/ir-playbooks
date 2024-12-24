@@ -754,6 +754,24 @@ Get-MgApplication
 
 Taken from here: [1](https://learn.microsoft.com/en-us/answers/questions/270680/app-registration-vs-enterprise-applications), [2](https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing#investigate-each-appid)
 
+### Detect unusual oauth permissions assigned to apps
+
+- In an OAuth abuse attack, a victim authorizes a third-party application to access their account. Once authorized, the application accesses the user’s data without the need for credentials. The user receives a message to accept the application with its requested API permissions. After the user selects accept, the threat actor has control of the user’s account.
+
+#### via Microsoft-Analyzer-Suite / Microsoft-Extractor-Suite
+
+Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first and extract `Get-OAuthPermissions`  and analyze it via `OAuthPermissions-Analyzer.ps1`
+
+```
+cd C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main
+Get-OAuthPermissions -ShowProgress -OutputDir C:\Windows\Temp
+.\OAuthPermissions-Analyzer.ps1 -Path C:\Windows\Temp\24122024225602-OAuthPermissions.csv -OutputDir C:\Windows\Temp
+```
+
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
+
+https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
+
 ### Detect Unusual Credentials such as Certificates, client secrets being added
 
 - Detects `Oauth App Hijacking`: If attacker is able to compromise the app itself by accessing existing secret or certificate / adding new secret or certificate, then they can act as the app itself doesn't require the user to authenticate / consent to getting permissions
