@@ -2731,6 +2731,13 @@ See [here](#via-volatility3--windowsinfoinfo)
 
 ### Detect code injections / malware / hidden DLLs running in processes
 
+#### via MemProcFS / Dokan
+
+Follow steps [here](#via-memprocfs--dokan-1) to scan the memory sample, and then wait for `forensic\progress_percent.txt` file to be `100`.
+Then, view the file under `forensic\findevil\findevil.txt` once progress is complete to identify malicious processes.
+
+https://github.com/ufrisk/MemProcFS/wiki/FS_FindEvil
+
 #### via volatility3 / malfind
 
 ```
@@ -2952,6 +2959,19 @@ deactivate
 - Command Scripting Interpreter (e.g. powershell, bash)
 - Scheduled Jobs (e.g. scheduled tasks)
 - File Opened / Creations
+
+
+#### via MemProcFS / Dokan
+
+- Builds a timeline of all actions performed in `forensics` mode from memory image
+
+```
+# After executing these commands, Physical Memory will be available as file objects under This PC > Network Locations > M: 
+cd C:\Users\azureuser\Desktop\opt\MemProcFS
+MemProcFS.exe -forensic 1 -license-accept-elastic-license-2-0 -f $MEMORY_IMAGE
+```
+
+A list of available folders is available here: https://github.com/ufrisk/MemProcFS/wiki/FS_FindEvil
 
 #### via volatility3 / timeliner.Timeliner
 
