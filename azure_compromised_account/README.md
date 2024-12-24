@@ -257,6 +257,12 @@ https://trustedsec.com/blog/hacking-your-cloud-tokens-edition-2-0
 
 If enabled, available here: https://portal.azure.com/#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/RiskDetections
 
+#### via Microsoft-Analyzer-Suite / Microsoft-Extractor-Suite
+
+```
+
+```
+
 ## Analysis
 
 ### Look for unusual activity in SIEM / Log Analytics 
