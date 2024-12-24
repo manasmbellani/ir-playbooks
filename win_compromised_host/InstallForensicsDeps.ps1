@@ -7,6 +7,7 @@
         * Upload DetectRaptorVQL.zip in detectraptor folder manually in Velociraptor GUI through 'Artifacts' icon 
     	* Install Microsoft Office 2007 using key in my-notes
      	* Install Dokan under 'C:\Users\azureuser\Desktop\opt\Dokan\DokanSetup.exe' manually
+      	* Add token from ipinfo.io website under 'C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main\Config.ps1'
         * Ensure that additional logging is setup as defined in README.md#scenario-setup especially for ADCS
         * If error of .net6 from EZ Tools, open one of the binaries and install .NET version via the dialog box shown
 	* Configure Windows visual studio manually with C# and C++ desktop tools via $INSTALL_LOCATION\VisualStudio\vs_community.exe
@@ -58,6 +59,12 @@ if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
     Install-Module -Name Microsoft.Graph -Force -Confirm:$false
 }
 
+Write-Host "[*] Checking if we need to install ImportExcel module..."
+if (-Not (Get-InstalledModule -Name ImportExcel )) {
+    Write-Host "[*] Installing 'ImportExcel' module..."
+    #Required for Microsoft-Analyzer-Suite to process Excel sheets without 
+    Install-Module -Name ImportExcel -Force -Confirm:$false
+}
 
 Write-Host "[*] Checking if we need to install AzureADIncidentResponse module..."
 if (-Not (Get-InstalledModule -Name AzureADIncidentResponse )) {
