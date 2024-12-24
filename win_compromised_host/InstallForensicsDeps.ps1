@@ -62,7 +62,7 @@ if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
 Write-Host "[*] Checking if we need to install ImportExcel module..."
 if (-Not (Get-InstalledModule -Name ImportExcel )) {
     Write-Host "[*] Installing 'ImportExcel' module..."
-    #Required for Microsoft-Analyzer-Suite to process Excel sheets without 
+    #Required for Microsoft-Analyzer-Suite to process Excel sheets without Microsoft Excel installed 
     Install-Module -Name ImportExcel -Force -Confirm:$false
 }
 
