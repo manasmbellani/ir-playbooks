@@ -800,6 +800,21 @@ if(-Not (Test-Path "$INSTALL_LOCATION\PersistenceSniper")) {
     Remove-Item -Path "$INSTALL_LOCATION\PersistenceSniper\PersistenceSniper.zip"
 }
 
+if(-Not (Test-Path "$INSTALL_LOCATION\MemProcFS")) {
+    Write-Host "[*] Making directory MemProcFS..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\MemProcFS"
+
+    Write-Host "[*] Downloading MemProcFS..."
+    $url = "https://github.com/ufrisk/MemProcFS/releases/download/v5.13/MemProcFS_files_and_binaries_v5.13.3-win_x64-20241218.zip"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\MemProcFS\MemProcFS.zip")
+
+    Write-Host "[*] Extracting MemProcFS zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\MemProcFS\MemProcFS.zip" -DestinationPath "$INSTALL_LOCATION\MemProcFS"
+
+    Write-Host '[*] Removing MemProcFS zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\MemProcFS\MemProcFS.zip"
+}
+
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     Write-Host "[*] Making directory azcli..."
