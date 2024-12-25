@@ -244,6 +244,18 @@ Taken from: https://m365internals.com/2021/04/17/incident-response-in-a-microsof
 
 ### Collect Azure Conditional Access Policies
 
+#### via Microsoft-Extractor-Suite
+
+Follow steps [here](#extract-microsoft-365--azure-unified-audit-logs-ual) to configure the suites first and extract `Get-ConditionalAccessPolicies` referring to the guides below
+
+```
+Get-ConditionalAccessPolicies -OutputDir C:\Windows\Temp
+```
+
+https://github.com/evild3ad/Microsoft-Analyzer-Suite?tab=readme-ov-file
+
+https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Installation.html
+
 #### via AzureADIncidentResponse
 
 ```
