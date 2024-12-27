@@ -290,6 +290,15 @@ deactivate
 
 https://github.com/decalage2/oletools/wiki/oleid
 
+#### via olevba 
+
+```
+cd /opt/oletools
+source venv/bin/activate
+olevba ~/samples/qakbot-malware-sample/qakbot.xlsx
+deactivate
+```
+
 ### Look for sector in a file
 
 #### via olemap
