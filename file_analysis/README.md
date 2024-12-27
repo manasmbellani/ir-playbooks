@@ -299,6 +299,8 @@ olevba ~/samples/qakbot-malware-sample/qakbot.xlsx
 deactivate
 ```
 
+https://github.com/decalage2/oletools/wiki/olevba
+
 ### Look for sector in a file
 
 #### via olemap
