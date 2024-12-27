@@ -227,3 +227,12 @@ curl -sL https://github.com/microsoft/SysmonForLinux/releases/download/1.3.3.0/s
 dpkg -i /tmp/sysmonforlinux_1.3.3_amd64.deb
 rm /tmp/sysinternalsebpf_1.4.0_amd64.deb
 rm /tmp/sysmonforlinux_1.3.3_amd64.deb
+
+
+echo "[*] Installing oletools..."
+mkdir /opt/oletools
+cd /opt/oletools
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 -m pip install -U oletools[full]
+deactivate
