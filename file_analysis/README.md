@@ -40,7 +40,7 @@ strings -el bin.exe
 strings -eL bin.exe
 ```
 
-### Look for exif data
+### Look for exif data / metadata
 
 - Can be very useful for analysing `.lnk` files as well
   
@@ -275,3 +275,104 @@ unzip $FILENAME.zip
 # In Windows, findstr /I /S *
 grep -r -n -i -o -E "https?://" .
 ```
+
+### Look for malicious macros in the files
+
+#### via oleid
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg oleid -a ~/samples/qakbot-malware-sample/qakbot.xlsx
+oleid -a $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/oleid
+
+### Look for sector in a file
+
+#### via olemap
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg olemap -a ~/samples/qakbot-malware-sample/qakbot.xlsx
+olemap -a $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/olemap
+
+#### via mraptor
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg mraptor ~/samples/qakbot-malware-sample/qakbot.xlsx
+mraptor $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/mraptor
+
+### Look for malicious DDE Links 
+
+- Eg DDEAuto in files
+
+#### via msodde
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg msodde -a ~/samples/qakbot-malware-sample/qakbot.xlsx
+msodde -a $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/msodde
+
+### Explore content & extract content of Office / OLE files
+
+
+#### via oledump
+
+- Easily identifies macros for you with letter 'm' or 'M'
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# Lists all possible macros
+python3 /opt/DidierStevensSuite/DidierStevensSuite/oledump.py ~/samples/qakbot-malware-sample/qakbot.xlsx
+# Extract the macro
+# Eg python3 /opt/DidierStevensSuite/DidierStevensSuite/oledump.py -v -s15 ~/samples/qakbot-malware-sample/qakbot.xlsx
+python3 /opt/DidierStevensSuite/DidierStevensSuite/oledump.py -v -s$MACRO_ID $MALWARE_SAMPLE_FILE
+deactivate
+```
+
+https://blog.didierstevens.com/programs/oledump-py/
+
+#### via oledir
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg msodde -a ~/samples/qakbot-malware-sample/qakbot.xlsx
+oledir -a $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/oledir
+
+### Look for metadata for file
+
+#### via olemeta
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg olemeta -a ~/samples/qakbot-malware-sample/qakbot.xlsx
+olemeta -a $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/olemeta
