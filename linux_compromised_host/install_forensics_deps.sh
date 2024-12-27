@@ -236,3 +236,9 @@ python3 -m virtualenv venv
 source venv/bin/activate
 python3 -m pip install -U oletools[full]
 deactivate
+
+echo "[*] Installing DidierStevensSuite..."
+mkdir /opt/DidierStevensSuite
+cd /opt/DidierStevensSuite
+curl -sL https://didierstevens.com/files/software/DidierStevensSuite.zip -o /tmp/DidierStevensSuite.zip
+unzip /tmp/DidierStevensSuite.zip
