@@ -36,6 +36,14 @@ https://learn.microsoft.com/en-gb/purview/audit-get-started#step-3-enable-search
 
 ## Containment
 
+### Disable the applications for al user
+
+#### via Azure Portal UI
+
+Visit Portal UI > Enterprise Applications > Open specific app > Set `Enabled for users to sign-in` > No
+
+https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-compromised-malicious-app
+
 ### Remove the delegated permissions for any partner granted access
 
 Visit Admin Center > Partners via link [here](https://admin.microsoft.com/#/partners)
