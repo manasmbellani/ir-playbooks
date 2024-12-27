@@ -387,3 +387,45 @@ deactivate
 ```
 
 https://github.com/decalage2/oletools/wiki/olemeta
+
+#### via oletimes
+
+- Returns creation and modification time for streams in the file
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg oletimes ~/samples/qakbot-malware-sample/qakbot.xlsx
+oletimes $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/oletimes
+
+### Look and extract flash objects in file
+
+#### via pyxswf
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg pyxswf ~/samples/qakbot-malware-sample/qakbot.xlsx
+pyxswf $SAMPLE_FILE
+# Extract flash object
+pyxswf -x $SAMPLE_FILE
+deactivate
+```
+
+https://github.com/decalage2/oletools/wiki/pyxswf
+
+### Extract OLE objects from RTF files
+
+```
+cd /opt/oletools
+source venv/bin/activate
+# eg rtfobj ~/samples/qakbot-malware-sample/qakbot.xlsx
+rtfobj $SAMPLE_FILE
+# Extract OLE object from RTF file with the ID from command above
+rtfobj -s $OBJ_ID $SAMPLE_FILE
+deactivate
+```
