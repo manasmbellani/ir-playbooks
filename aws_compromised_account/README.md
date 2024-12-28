@@ -34,6 +34,7 @@ aws s3 cp s3://$BUCKET_NAME/ $LOCAL_DIR --recursive
 Scout-Suite/5.14.0 md/Botocore#1.35.75 ua/2.0 os/linux#6.10.11-cloud-amd64 md/arch#x86_64 lang/python#3.12.6 md/pyimpl#CPython cfg/retry-mode#legacy Scout Suite/5.14.0 (https://github.com/nccgroup/ScoutSuite)
 ```
 - Look for unique source IP address
+- Look for GetBucketVersioning and PutBucketVersioning calls as it may indicate threat actors planning to deploy ransomware. Link: https://www.linkedin.com/posts/brandon-ledyard-92b954129_advice-for-detection-and-prevention-of-activity-7244042056178761730-KdwU?utm_source=share&utm_medium=member_desktop
 
 #### via CloudTrail > UI
 
