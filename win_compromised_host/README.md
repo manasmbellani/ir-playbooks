@@ -3202,6 +3202,9 @@ Look for any applications running as servers and that could be exploited eg
 ```
 # Indicative of cloudburst powershell-based malware as described here: https://cloud.google.com/blog/topics/threat-intelligence/lightshow-north-korea-unc2970/
 C:\Program Files (x86)\Microsoft Intune Management Extension\Policies\Scripts
+
+# Look for apps from Ruler Project which has a number of persistence based apps eg LogMeIn
+https://ruler-project.github.io/ruler-project/RULER/remote/LogMeIn/
 ```
 
 #### via wmic
