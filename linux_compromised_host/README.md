@@ -772,6 +772,36 @@ head -1 maps
 dd if=mem bs=1 skip=$((0x56218f564000)) count=1000 of=/tmp/exec2
 ```
 
+#### via tsk_recover
+
+- Supports following image types for linux:
+```
+raw (Single or split raw file (dd))
+aff (Advanced Forensic Format)
+afd (AFF Multiple File)
+afm (AFF with external metadata)
+afflib (All AFFLIB image formats (including beta ones))
+ewf (Expert Witness Format (EnCase))
+vmdk (Virtual Machine Disk (VmWare, Virtual Box))
+vhd (Virtual Hard Drive (Microsoft))
+```
+
+```
+tsk_recover $IMAGE $OUTPUT_DIR
+```
+
+https://sansorg.egnyte.com/dl/N7FBvRlAm4
+
+#### via foremost
+
+https://sansorg.egnyte.com/dl/N7FBvRlAm4
+
+#### via photorec
+
+- Will use a Linux UI for data recovery
+
+https://sansorg.egnyte.com/dl/N7FBvRlAm4
+
 ### Scan for malware from disk
 
 #### via velociraptor / DetectRaptorVQL
