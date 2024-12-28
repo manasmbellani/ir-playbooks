@@ -379,6 +379,16 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Get the Cookies from various Browsers such as Internet Explorer, Google Chrome
+
+#### 
+
+```
+dir C:\Users\*\AppData\Local\Microsoft\Windows\INetCookies
+dir C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies
+dir C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies\Low
+```
+
 ### Collect windows notifications
 
 #### via Windows\Notifications folder, SQLiteBrowser
