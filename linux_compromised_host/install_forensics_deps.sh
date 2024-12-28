@@ -242,3 +242,9 @@ mkdir /opt/DidierStevensSuite
 cd /opt/DidierStevensSuite
 curl -sL https://didierstevens.com/files/software/DidierStevensSuite.zip -o /tmp/DidierStevensSuite.zip
 unzip /tmp/DidierStevensSuite.zip
+
+echo "[*] Installing foremost for file recovery..."
+apt-get -y install foremost
+
+echo "[*] Installing photorec (testdisk) for file recovery..."
+apt-get -y install testdisk
