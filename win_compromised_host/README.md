@@ -990,6 +990,14 @@ Import-Module .\PersistenceSniper.psd1
 Find-AllPersistence
 ```
 
+#### via wmic
+
+```
+wmic startup list full
+```
+
+https://www.jaiminton.com/cheatsheet/DFIR/#recentdocs-information
+
 #### via sysinternals / autorunsc64.exe
 
 ```
