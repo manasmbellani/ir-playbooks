@@ -247,6 +247,14 @@ C:\Users\Administrator\Desktop\opt\EZTools\net6\EZViewer\EZViewer.exe > Select f
 
 ## Linux .elf file
 
+### Analyze system calls and identify IOCs
+
+```
+strace $BIN_NAME
+```
+
+https://dfir.ch/posts/strace/
+
 ## Microsoft Lnk file
 
 ### Get relative file path and absolute path pointed by .lnk files without opening file
