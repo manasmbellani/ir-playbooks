@@ -952,9 +952,10 @@ EventID=5145
 Provider=Microsoft-Windows-Security-Auditing
 ```
 
-### Detect unusual usb device insertions
+### Detect unusual usb device insertions OR an external device
 
-Can display malicious disks being inserted into the device
+- Can display malicious USB drives / USB disks being inserted into the device eg `TinyPilot` has vendor as `TinyPilot`: https://tinypilotkvm.com/faq/target-detect-tinypilot/
+- Can also detect via `EventID 6416` the introduction of a `A Generic Plug 'n Play Monitor` eg TinyPilot: https://tinypilotkvm.com/faq/target-detect-tinypilot/
 
 #### via Windows Event Audit Logs / EventID 1006
 
@@ -974,6 +975,8 @@ Detects USB Device Name, USB Device ID
 EventID=6416
 Provider=Microsoft-Windows-Security-Auditing
 ```
+
+https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-6416
 
 More info [here](https://www.manageengine.com/products/active-directory-audit/process-tracking-events/event-id-6416.html#:~:text=When%20the%20system%20recognizes%20a,event%20ID%206416%20is%20logged.)
 
