@@ -371,6 +371,14 @@ Location on disk: `C:\Users\*\AppData\Local\CoreAIPlatform.00\UKP\*\`
 
 Details about each SQLITE table: https://cybercx.com.au/blog/forensic-applications-of-microsoft-recall/
 
+### Collect variety of 
+
+#### via LiveResponse / Bert Jan's DFIR Script
+
+https://github.com/Bert-JanP/Incident-Response-Powershell/blob/main/DFIR-Script.ps1
+
+https://kqlquery.com/posts/leveraging-live-response/
+
 ## Analysis
 
 This section covers a variety of techniques which can be used for both live and offline analysis.
