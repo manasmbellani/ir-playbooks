@@ -371,9 +371,9 @@ Location on disk: `C:\Users\*\AppData\Local\CoreAIPlatform.00\UKP\*\`
 
 Details about each SQLITE table: https://cybercx.com.au/blog/forensic-applications-of-microsoft-recall/
 
-### Collect variety of 
+### Collect variety of indicators from device
 
-#### via LiveResponse / Bert Jan's DFIR Script
+#### via powershell / Defender Live Response / Bert Jan's DFIR Script
 
 https://github.com/Bert-JanP/Incident-Response-Powershell/blob/main/DFIR-Script.ps1
 
