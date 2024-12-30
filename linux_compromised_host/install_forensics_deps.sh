@@ -249,3 +249,11 @@ apt-get -y install foremost
 
 echo "[*] Installing photorec (testdisk) for file recovery..."
 apt-get -y install testdisk
+
+echo "[*] Installing CVE Prioritizer..."
+git clone https://github.com/TURROKS/CVE_Prioritizer.git /opt/CVE_Prioritizer
+cd /opt/CVE_Prioritizer
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+deactivate
