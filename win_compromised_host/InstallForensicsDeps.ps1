@@ -854,6 +854,22 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     sleep "$SLEEP_TIME"
 }
 
+If (-Not (Test-Path "$INSTALL_LOCATION\flag-certservice-audit")) {
+    Write-Host "[*] Making flag-certservice-audit to state that audit logging has been configured for ADCS..."
+    New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-certservice-audit"
+
+    Write-Host "[*] Enabling auditing for ADCS..."
+    $command = '& certutil -setreg CA\AuditFilter 127'
+    Invoke-Expression "$command"
+    
+    Write-Host "[*] Restarting certsvc service for auditing of ADCS to take effect..."
+    $command = '& net stop certsvc'
+    Invoke-Expression "$command"
+
+    $command = '& net start certsvc'
+    Invoke-Expression "$command"
+}
+    
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
     Write-Host "[*] Making flag-audit-config to state that audit logging has been configured..."
     New-Item -ItemType File -Path "$INSTALL_LOCATION\flag-audit-config"
@@ -897,6 +913,7 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
     Write-Host "[*] Showing all configured audit logging policies..."
     $command = '& auditpol /get /category:*'
     Invoke-Expression "$command"
+
 
     # Write-Host "[*] Showing all configured audit logging policies..."
     # $command = '& gpupdate /force'
