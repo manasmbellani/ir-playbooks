@@ -1516,7 +1516,7 @@ EventID = 91
 Description = "*Creating WSMan shell*"
 ```
 
-### Detection of unusual ADCS certificate requests / Active Directory Certificate Services Abuse - SAN Template Certificates (ESC1)
+### Detection of unusual ADCS certificate requests / Active Directory Certificate Services Abuse - SAN Template Certificates (ESC1/ESC3)
 
 - Typically, Extended Key Usage (EKU) attributes are used to define how a Public-private key pair generate for a user  can be used.
 - Compromise Type 1: If attacker steals Bob’s private key and certificate, and the certificate has an authentication EKU, the attacker can authenticate to the AD domain without knowing Bob’s password
@@ -1542,7 +1542,7 @@ EventID: 5156 (The Windows Filtering Platform has permitted a connection)
 Application Information.Application Name: *\system32\certsrv.exe
 ```
 
-#### via Windows Event Logs / Object Access (4887)
+#### via Windows Event Logs / Object Access (4886)
 
 Pre-requiste: Requires the Windows Event Logging to be turned on.
 
@@ -1551,7 +1551,20 @@ Pre-requiste: Requires the Windows Event Logging to be turned on.
 EventID = 4886 ("Certificate Services received a certificate request.")
 Channel = Security
 ```
+  
+#### via Windows Audit Event Logs / ID 4768
 
+- Could be useful to detect to detect certificate based authentication and compromise attempts for ESC1 and other ADCS vulnerabilities
+- Happens when authentication is performed via a certificate obtained via ESC3 
+  
+```
+# Certificate Information.Certificate Serial Name, Certificate Information.Thumbprint has the details
+# Account Information.Account Name has the details as well of the account for which the certificate was requested
+EventID = 4768 (A Kerberos authentication ticket (TGT) was requested.)
+Channel = Security
+Description = A Kerberos Authentication Ticket was requested
+Additional Information.Pre-Authentication Type=16 ('Request sent to KDC in Smart Card authentication scenarios.') OR Certificate Information.Certificate Issuer Name = *
+```
 
 #### via Windows Event Logs / Object Access (4887)
 
@@ -1614,21 +1627,6 @@ Service Information.Service Name = krbtgt
 ```
 
 https://www.hackthebox.com/blog/as-rep-roasting-detection
-
-### Look for certificate based authentication from certificates for ADCS
-
-- Could be useful to detect to detect certificate based authentication and compromise attempts for ESC1 and other ADCS vulnerabilities
-  
-#### via Windows Audit Event Logs / ID 4768
-
-```
-# Certificate Information.Certificate Serial Name, Certificate Information.Thumbprint has the details
-# Account Information.Account Name has the details as well of the account for which the certificate was requested
-EventID = 4768
-Channel = Security
-Description = A Kerberos Authentication Ticket was requested
-Certificate Information.Certificate Issuer Name = *
-```
 
 ### Detection of Active Directory Certificate Services Abuse - Any Purpose EKU (ESC2)
 
