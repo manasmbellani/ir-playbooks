@@ -868,6 +868,9 @@ If (-Not (Test-Path "$INSTALL_LOCATION\flag-certservice-audit")) {
 
     $command = '& net start certsvc'
     Invoke-Expression "$command"
+
+    Write-Host "[*] Validating CA/AuditFilter setting..."
+    certutil -getreg CA\AuditFilter
 }
     
 If (-Not (Test-Path "$INSTALL_LOCATION\flag-audit-config")) {
