@@ -306,6 +306,17 @@ https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Inst
 
 ## Analysis
 
+### Look for unusual addition of members to Azure Roles
+
+- Indicative of Privilege Escalation
+
+#### via Azure Microsoft Defender / Microsoft Sentinel / AuditLogs / KQL
+```
+AuditLogs 
+| where ActivityDisplayName == "Add member to role" 
+| project TimeGenerated, InitiatedBy, TargetResources, ActivityDisplayName, Result
+```
+
 ### Look for unusual activity in SIEM / Log Analytics 
 
 #### via Microsoft Sentinel / KQL
