@@ -313,7 +313,7 @@ https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Inst
 #### via Azure Microsoft Defender / Microsoft Sentinel / AuditLogs / KQL
 ```
 AuditLogs 
-| where ActivityDisplayName == "Add member to role" 
+| where ActivityDisplayName == "Add member to role" or ActivityDisplayName == "Add eligible member to role" 
 | project TimeGenerated, InitiatedBy, TargetResources, ActivityDisplayName, Result
 ```
 
