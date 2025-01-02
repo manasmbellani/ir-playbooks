@@ -389,7 +389,7 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 
 ### Get the Cookies from various Browsers such as Internet Explorer, Google Chrome
 
-#### 
+#### via dir
 
 ```
 dir C:\Users\*\AppData\Local\Microsoft\Windows\INetCookies
@@ -397,7 +397,7 @@ dir C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies
 dir C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies\Low
 ```
 
-### Collect windows notifications
+### Collect any unusual windows notifications
 
 #### via Windows\Notifications folder, SQLiteBrowser
 
@@ -407,6 +407,12 @@ dir C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies\Low
 ```
 
 https://www.hecfblog.com/2018/08/daily-blog-440-windows-10-notifications.html
+
+### Detect ANYTHING unusual
+
+#### via mthcht's Threat Hunting keywords
+
+https://mthcht.github.io/ThreatHunting-Keywords/
 
 ### Detection for unusual web requests in web logs
 
