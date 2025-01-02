@@ -1267,19 +1267,28 @@ More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/
 
 - Initiate the artifact `DetectRaptor.Windows.Detection.LolDriversMalicious` or `DetectRaptor.Windows.Detection.LolDriversVulnerable` for detecting drivers known to be malicious or vulnerable based on Amcache entries
 
-### Detect for unusual code signing failures in kernel drivers
+### Detect for unusual drivers being loaded
 
-- Can indicate BYOVD drivers being loaded eg with invalid signature OR being blocked e.g NIMBlackout
 - Look for known bad driver names:
 ```
 # EDR Sandblast - https://github.com/0xAnalyst/DefenderATPQueries/blob/main/Defense%20Evasion/EDRSandblast.md
 WN_64.sys
 wnbios.sys
 ```
+- Look for potential bad driver names linked with Loldrivers: https://www.loldrivers.io/drivers/8d97bb7f-e009-4dc7-ab9d-fde293e679dc/ being loaded
+
+#### via Windows Sysmon Event ID 6 
+
+```
+# Look for ImageLoaded, Hashes, Signature (Signed By) and SignatureStatus
+Event ID = 6 (Driver Loaded)
+Channel = Microsoft-Windows-Sysmon/Operational
+```
 
 #### via Windows Event ID 3004 / 3023
 
 ```
+# Detect for unusual code signing failures in kernel drivers which can indicate BYOVD drivers being loaded with invalid signatures or being blocked e.g NIMBlackout
 Provider = Microsoft-Windows-CodeIntegrity
 Channel = Microsoft-Windows-CodeIntegrity/Operational
 EventID = 3023 (The driver ...\Blackout.sys is blocked from loading as the driver has been revoked by Microsoft) OR EventID = 3004 (kernel driver tried to load with an invalid signature)
