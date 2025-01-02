@@ -306,6 +306,12 @@ https://microsoft-365-extractor-suite.readthedocs.io/en/latest/installation/Inst
 
 ## Analysis
 
+### Detect ANYTHING unusual
+
+#### via mthcht's Threat Hunting keywords
+
+https://mthcht.github.io/ThreatHunting-Keywords/
+
 ### Look for unusual addition of members to Azure Roles
 
 - Indicative of Privilege Escalation
