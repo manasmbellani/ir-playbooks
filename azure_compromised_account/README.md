@@ -628,11 +628,13 @@ Typically, we should see the requests to the following logs:
 ```
 https://graph.microsoft.com/beta/servicePrincipals/APPID/owners
 https://graph.microsoft.com/v1.0/roleManagement/directory
+https://graph.microsoft.com/beta/devices/APPID/registeredOwners
 https://graph.microsoft.com/v1.0/servicePrincipals/APPID/appRoleAssignedTo
 https://graph.microsoft.com/v1.0/organization
 https://graph.microsoft.com/v1.0/groups
 https://graph.microsoft.com/v1.0/applications
 https://graph.microsoft.com/beta/groups/APPID/owners
+https://graph.microsoft.com/beta/groups/APPID/members
 https://graph.microsoft.com/v1.0/servicePrincipals
 https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
 https://graph.microsoft.com/v1.0/devices
