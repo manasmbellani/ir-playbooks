@@ -318,6 +318,13 @@ See [build a timeline](#build-a-timeline) section
 
 ## Analysis
 
+### Detect ANYTHING unusual in logs
+
+#### via mthcht's Threat Hunting keywords
+
+https://mthcht.github.io/ThreatHunting-Keywords/
+
+
 ### Look for unusual web traffic 
 
 #### via /var/log
