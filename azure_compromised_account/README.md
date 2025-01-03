@@ -610,7 +610,9 @@ SigninLogs
 | sort by countUserAgent
 ```
 
-### Detect unusual recon activity for AzureHound
+### Detect unusual recon activity for AzureHound, PurpleKnight
+
+- Detects unusual activity like AzureHound, 
 
 #### via Azure AD Graph Activity Logs
 
@@ -627,8 +629,10 @@ MicrosoftGraphActivityLogs
 Typically, we should see the requests to the following logs:
 ```
 https://graph.microsoft.com/beta/servicePrincipals/APPID/owners
+https://graph.microsoft.com/beta/servicePrincipals/APPID/appRoleAssignments
 https://graph.microsoft.com/v1.0/roleManagement/directory
 https://graph.microsoft.com/beta/devices/APPID/registeredOwners
+https://graph.microsoft.com/version/directoryObjects/<UUID>
 https://graph.microsoft.com/v1.0/servicePrincipals/APPID/appRoleAssignedTo
 https://graph.microsoft.com/v1.0/organization
 https://graph.microsoft.com/v1.0/groups
@@ -643,7 +647,7 @@ https://graph.microsoft.com/beta/applications/APPID/owners
 https://graph.microsoft.com/beta/groups/APPID/members
 ```
 
-Taken from [here](https://cloudbrothers.info/en/detect-threats-microsoft-graph-logs-part-1/)
+More info: https://cloudbrothers.info/en/detect-threats-microsoft-graph-logs-part-1/#purple-knight
 
 ### Detect unusual password resets, including self-service
 
