@@ -3189,6 +3189,16 @@ Tool at [github.com](https://github.com/MarkBaggett/srum-dump)
 C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
 ```
 
+#### via shimcache / eric zimmerman's registry explorer, RECmd
+
+```
+# After launching registry explorer, open C:\Windows\system32\config\SYSTEM: HKLM\SYSTEM\ControlSet001\Control\Session Manager\AppCompatCache
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6\RegistryExplorer
+RegistryExplorer.exe 
+```
+
+More info: https://www.linkedin.com/pulse/windows-incident-response-appcompatcache-taz-wake-gvnae/
+
 #### via RDP Bitmap cache / bmc-tools 
 
 - Typical location: ` C:\Users\<username>\AppData\Local\Microsoft\Terminal Server Client\Cache`
