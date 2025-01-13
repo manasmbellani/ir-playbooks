@@ -2220,12 +2220,6 @@ Process.Process Name: *\lsass.exe
 
 #### via Windows Event Logs / Event ID 4656
 
-### WMI Event Consumers Analysis
-
-To detect malicious event consumers, we can use `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
-
-Alternatively, SysInternals `AutoRuns` can be used to detect WMI consumers, filters from the WMI tab and also delete them.
-
 ### Operating System Information / Banners
 
 #### via volatility3 / windows.info.Info
@@ -3356,7 +3350,29 @@ python3 /opt/volatility3/vol.py -f /root/RanDev.vmem windows.registry.hivelist.H
 deactivate
 ```
 
-### WMI Event Consumers Analysis
+### Detect unusual WMI Event Consumers Activity
+
+#### via Sysinternals / Autorunsc
+
+```
+C:\Users\azureuser\Desktop\opt\SysinternalsSuite
+.\autorunsc64.exe -accepteula
+```
+
+#### via velociraptor / PermanentWMIEvents
+
+Client Artifact to hunt in Velociraptor is `Windows.Persistence.PermanentWMIEvents`
+
+#### via velociraptor / Autoruns
+
+Client Artifact to hunt in Velociraptor is `Windows.SysInternals.Autoruns`
+
+#### via Windows Event Logs / Sysmon / Event ID 19,20,21
+
+```
+Channel=Microsoft-Windows-Sysmon/Operational
+EventID=19 (WmiEventFilter activity detected) OR 20 (WmiEventConsumer activity detected) OR 21 (WmiEventConsumerToFilter activity detected)
+```
 
 #### via wmi-parser / chainsaw
 
@@ -3374,6 +3390,10 @@ If Sysmon is installed, then WMI Event Consumers will also appear in the sysmon 
 .\chainsaw.exe search -t 'Event.System.EventID: =20' -t 'Event.System.Channel: Microsoft-Windows-Sysmon/Operational' C:\Windows\System32\winevt\Logs
 .\chainsaw.exe search -t 'Event.System.EventID: =21' -t 'Event.System.Channel: Microsoft-Windows-Sysmon/Operational' C:\Windows\System32\winevt\Logs
 ```
+
+#### via WMIExplorer 
+
+To detect malicious event consumers, we can leverage `WMIExplorer` GUI to examine the current machine's WMI Event Consumers and filters that are feeding the consumers to execute an action.
 
 ### Google Chrome Notifications
 
