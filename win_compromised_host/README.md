@@ -3190,8 +3190,9 @@ Tool at [github.com](https://github.com/MarkBaggett/srum-dump)
 
 .\RawCopy64.exe /FileNamePath:C:\Windows\System32\config\SYSTEM /OutputPath:C:\Windows\Temp /OutputName:SYSTEM
 
-# Run app compat cache parser
-C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
+# Run app compat cache parser (try without --nl first to not ignore dirty hives)
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6\
+.\AppCompatCacheParser.exe -f C:\Windows\Temp\SYSTEM --csv C:\Windows\Temp --csvf C:\Windows\Temp\appcompatcacheparser.csv --nl
 ```
 
 #### via shimcache / eric zimmerman's registry explorer, RECmd
