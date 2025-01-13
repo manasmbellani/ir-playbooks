@@ -379,6 +379,16 @@ https://github.com/Bert-JanP/Incident-Response-Powershell/blob/main/DFIR-Script.
 
 https://kqlquery.com/posts/leveraging-live-response/
 
+### Copying locked files
+
+#### via RawCopy
+
+https://whatsoftware.com/copy-locked-file-in-use-with-hobocopy/
+
+#### via various methods
+
+https://whatsoftware.com/copy-locked-file-in-use-with-hobocopy/
+
 ## Analysis
 
 This section covers a variety of techniques which can be used for both live and offline analysis.
