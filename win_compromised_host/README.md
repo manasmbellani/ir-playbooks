@@ -3355,7 +3355,7 @@ deactivate
 #### via Sysinternals / Autorunsc
 
 ```
-C:\Users\azureuser\Desktop\opt\SysinternalsSuite
+C:\Users\azureuser\Desktop\opt\sysinternals
 .\autorunsc64.exe -accepteula
 ```
 
