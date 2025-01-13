@@ -832,6 +832,21 @@ if(-Not (Test-Path "$INSTALL_LOCATION\Dokan")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Dokan\DokanSetup.exe")
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\RawCopy")) {
+    Write-Host "[*] Making directory RawCopy..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\RawCopy"
+
+    Write-Host "[*] Downloading RawCopy..."
+    $url =  "https://github.com/jschicht/RawCopy/archive/refs/heads/master.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\RawCopy\RawCopy.zip")
+
+    Write-Host "[*] Extracting RawCopy zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\RawCopy\RawCopy.zip" -DestinationPath "$INSTALL_LOCATION\RawCopy"
+
+    Write-Host '[*] Removing RawCopy zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\RawCopy\RawCopy.zip"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     Write-Host "[*] Making directory azcli..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\azcli"
