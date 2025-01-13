@@ -319,7 +319,7 @@ https://mthcht.github.io/ThreatHunting-Keywords/
 #### via Azure Microsoft Defender / Microsoft Sentinel / AuditLogs / KQL
 ```
 AuditLogs 
-| where ActivityDisplayName == "Add member to role" or ActivityDisplayName == "Add eligible member to role" 
+| where ActivityDisplayName contains "Add member to role" or ActivityDisplayName == "Add eligible member to role"
 | project TimeGenerated, InitiatedBy, TargetResources, ActivityDisplayName, Result
 ```
 
