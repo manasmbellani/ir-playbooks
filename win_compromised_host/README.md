@@ -3180,12 +3180,17 @@ Velociraptor > Hunt > `Windows.Forensics.Srum`
 
 Tool at [github.com](https://github.com/MarkBaggett/srum-dump)
 
-#### via shimcache / eric zimmerman's appcompatcacheparser
+#### via shimcache / rawcopy / eric zimmerman's appcompatcacheparser
 
 - Application Compatibility Cache
 - Keeps track of application compatibility with the OS and tracks all applications launched on the machineRegistry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompatibility\AppcompatCache`
 
 ```
+# Create a copy of the SYSTEM locked file via rawcopy if looking at live system
+
+.\RawCopy64.exe /FileNamePath:C:\Windows\System32\config\SYSTEM /OutputPath:C:\Windows\Temp /OutputName:SYSTEM
+
+# Run app compat cache parser
 C:\Users\Administrator\Desktop\opt\EZTools\net6\AppCompatCacheParser.exe -f C:\Windows\System32\config\SYSTEM --csv C:\Windows\Temp --csvf appcompatcacheparser.csv
 ```
 
