@@ -391,7 +391,8 @@ https://whatsoftware.com/copy-locked-file-in-use-with-hobocopy/
 
 #### via KAPE
 
-- KAPE knows how to get data out of system locked files, locked files in general
+KAPE knows how to get data out of system locked files, locked files in general. See [here](#via-kroll-kape)
+
 
 ## Analysis
 
