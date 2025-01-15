@@ -580,12 +580,12 @@ Taken from [here](https://askubuntu.com/questions/325491/how-to-properly-display
 
 ### Look for unusual processes
 
+- `/bin/bash -i` (known to be a possible reverse shell if '-i' is in use, requires further investigation). Taken from: https://x.com/CraigHRowland/status/1802850025443336414
+- Look for `bash` being invoked by `python`. Taken from: https://dfir.ch/posts/publish_python_pth_extension/
+  
 #### via ps
 
 ```
-# E.g. for things like
-#   /bin/bash -i (known to be a possible reverse shell if '-i' is in use, requires further investigation)
-#   https://x.com/CraigHRowland/status/1802850025443336414
 ps aux 
 ```
 
