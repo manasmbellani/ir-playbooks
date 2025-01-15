@@ -52,6 +52,12 @@ if (-Not (Get-InstalledModule -Name Hawk )) {
     Install-Module -Name Hawk -Force -Confirm:$false
 }
 
+Write-Host "[*] Checking if we need to install MsrcSecurityUpdates module..."
+if (-Not (Get-InstalledModule -Name MsrcSecurityUpdates )) {
+    Write-Host "[*] Installing 'MsrcSecurityUpdates' module..."
+    Install-Module -Name MsrcSecurityUpdates -Force -Confirm:$false
+}
+
 Write-Host "[*] Checking if we need to install Microsoft.Graph module..."
 if (-Not (Get-InstalledModule -Name Microsoft.Graph )) {
     Write-Host "[*] Installing 'Microsoft.Graph' module..."
