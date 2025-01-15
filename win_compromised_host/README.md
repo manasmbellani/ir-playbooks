@@ -389,6 +389,10 @@ https://whatsoftware.com/copy-locked-file-in-use-with-hobocopy/
 
 https://whatsoftware.com/copy-locked-file-in-use-with-hobocopy/
 
+#### via KAPE
+
+- KAPE knows how to get data out of system locked files, locked files in general
+
 ## Analysis
 
 This section covers a variety of techniques which can be used for both live and offline analysis.
