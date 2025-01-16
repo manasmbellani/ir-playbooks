@@ -1184,9 +1184,9 @@ DumpIt.exe
 # Taken from: https://labs.withsecure.com/publications/attack-detection-fundamentals-discovery-and-lateral-movement-lab-5
 wmiprvse.exe
 
-# Look for -Embedding command line argument as it may indicate DComExec.py execution
-# https://github.com/manasmbellani/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md
-mmc.exe 
+# Look for -Embedding command line argument as it may indicate DComExec.py execution. More info: https://github.com/manasmbellani/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md
+# Look for DRSAT.exe in the parent process which can indicate invocation bypassing requirements of being domain-joined machine (using stored TGT from non-domain joined machine). More info: https://github.com/CCob/DRSAT
+mmc.exe
 
 # Indications of firewall being manipulated to open firewall ports
 # Eg. for RDP based lateral movement: https://github.com/manasmbellani/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md
@@ -1261,6 +1261,8 @@ Channel = Security
 - Use the `DetectRaptor.Windows.Detection.MFT` to search for the files written to disk in the past or present
 
 ### Detect for unusual process injections / migration into another process
+
+- Can also detect tools like Disconnected-RSAT: https://github.com/CCob/DRSAT which launches mmc.exe, GPT.exe.
 
 #### via Windows Sysmon Event Logs / Process Create (Event ID 1)
 
