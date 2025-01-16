@@ -1195,7 +1195,8 @@ netsh
 # See detection [here](#detection-of-winrm-shell--powershell-remote-session) for Windows Powershell remoting
 wsmprovhost.exe
 
-# Ransomware related command eg sc config "Netbackup Legacy Network service" start= disabled	
+# Ransomware related command eg sc config "Netbackup Legacy Network service" start= disabled
+# Assignment of unusual permissions on service control manager eg `sc.exe sdset scmanager D:(A;;KA;;;WD)`. More info: https://0xv1n.github.io/posts/scmanager/
 sc
 
 # Ransomware command lines e.g. `bcdedit   /set {default}`, bcdedit   /set {default} recoveryenabled No to disable automatic repair
