@@ -3558,6 +3558,22 @@ bulk_extractor -E wordlist -o /tmp/bulk_extractor $DISK_PATH
 ```
 The above command creates a `wordlist_dedup_1.txt` which can be used for brute-forcing. More info is available [here](https://www.raedts.biz/forensics/building-wordlists-forensic-images/).
 
+### Analyse the file contents in Recycle Bin
+
+#### via RBCmd
+
+```
+# Get SID
+wmic useraccount get name,sid
+whoami /user
+
+# Analyse all metadata $I files in the given Recycle bin subdirectory and store results
+# $R with same following ID as $I has the contents
+C:\Users\azureuser\Desktop\opt\EZTools\net6\RBCmd.exe -d C:\$Recycle.Bin\$SID\ --csv C:\Windows\Temp\out
+```
+
+https://www.precysec.com/post/how-to-recover-deleted-files-windows-recycle-bin-forensics
+
 ### Detect time the system was turned on / off (timeline)
 
 #### via TurnedOnTimesView
