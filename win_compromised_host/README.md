@@ -1287,6 +1287,13 @@ More info [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/win32/
 - Amcache stores the time, programs executed with SHA1 hash of the first 21MB of the programs run
 - Can be used to detect unusual drivers being run based on the SHA1 hash via DetectRaptor artifacts (see below)
 
+#### via EZTools / AmcacheParser
+
+```
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6
+.\AmcacheParser.exe -f C:\Windows\AppCompat\Programs\Amcache.hve --csv C:\Windows\Temp
+```
+
 #### via velociraptor / DetectRaptor.Windows.Detection.LolDriversMalicious / DetectRaptor.Windows.Detection.LolDriversVulnerable
 
 - Initiate the artifact `DetectRaptor.Windows.Detection.LolDriversMalicious` or `DetectRaptor.Windows.Detection.LolDriversVulnerable` for detecting drivers known to be malicious or vulnerable based on Amcache entries
