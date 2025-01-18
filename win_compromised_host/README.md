@@ -275,6 +275,16 @@ https://blogs.jpcert.or.jp/en/2024/11/etw_forensics.html
 
 ### Collect Disk Artifacts
 
+#### via Velociraptor / Offline Collector
+
+```
+# Specify the Device to run artifact search on
+# Then load on to a velociraptor server / gui via Server Artifacts > Server.Utils.ImportCollection
+.\velociraptor.exe -v artifacts collect Windows.KapeFiles.Targets --output TriageFile.zip --args Device="C:,D:" --args KapeTriage=Y --args _SANS_Triage=Y --args Notepad=Y --args MemoryFiles=Y
+```
+
+https://docs.velociraptor.app/docs/offline_triage/
+
 #### via Kroll (KAPE)
 
 KAPE can also be run from a USB stick as described [here](https://threatintelligencelab.com/tools/step-by-step-guide-to-forensically-acquiring-logs-with-kape/#:~:text=Insert%20USB%20Drive%3A%20Plug%20the,selecting%20%E2%80%9C%20Run%20as%20Administrator%20%E2%80%9C.)
