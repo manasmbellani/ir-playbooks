@@ -1314,6 +1314,8 @@ cd C:\Users\azureuser\Desktop\opt\EZTools\net6
 .\AmcacheParser.exe -f C:\Windows\AppCompat\Programs\Amcache.hve --csv C:\Windows\Temp
 ```
 
+https://thesecuritynoob.com/dfir-tools/dfir-tools-amcacheparser-what-is-it-how-to-use/
+
 #### via velociraptor / DetectRaptor.Windows.Detection.LolDriversMalicious / DetectRaptor.Windows.Detection.LolDriversVulnerable
 
 - Initiate the artifact `DetectRaptor.Windows.Detection.LolDriversMalicious` or `DetectRaptor.Windows.Detection.LolDriversVulnerable` for detecting drivers known to be malicious or vulnerable based on Amcache entries
