@@ -275,15 +275,25 @@ https://blogs.jpcert.or.jp/en/2024/11/etw_forensics.html
 
 ### Collect Disk Artifacts
 
-#### via Velociraptor / Offline Collector
+#### via Velociraptor Offline Collector / plaso
 
 ```
 # Specify the Device to run artifact search on
 # Then load on to a velociraptor server / gui via Server Artifacts > Server.Utils.ImportCollection
 .\velociraptor.exe -v artifacts collect Windows.KapeFiles.Targets --output TriageFile.zip --args Device="C:,D:" --args KapeTriage=Y --args _SANS_Triage=Y --args Notepad=Y --args MemoryFiles=Y
+
+# We can then run processing on the triage file on a system with plaso installed
+mkdir ~/triagefile
+mv TriageFile.zip ~/triagefile
+unzip TriageFile.zip
+docker run --rm -it -v ~/triagefile:/data log2timeline/plaso log2timeline --storage-file /data/host.plaso /data/uploads/auto/C%3A
+# Convert results to CSV from .plaso file to view in TimelineExplorer
+docker run -v ~/triagefile:/data log2timeline/plaso psort -o l2tcsv -w /data/timeline.csv /data/host.plaso
 ```
 
 https://docs.velociraptor.app/docs/offline_triage/
+
+https://fiskeren.github.io/posts/deadhostinvestigation/
 
 #### via Kroll (KAPE)
 
