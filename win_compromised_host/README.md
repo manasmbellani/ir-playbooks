@@ -3203,6 +3203,13 @@ cd C:\Users\azureuser\Desktop\opt\EZTools\net6\RegistryExplorer
 RegistryExplorer.exe > Open the C:\Users\<Username>\NTUser.Dat file > Open the registry key path listed above
 ```
 
+#### via prefetch / eric zimmerman's pecmd
+
+```
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6
+PECmd.exe -d C:\Users\azureuser\Desktop\opt\plaso\plaso-20240308\test_data --csv C:\Windows\Temp
+```
+
 #### via srum.db / eric zimmerman's srumecmd
 
 - `System Resource Utilization Monitor`
