@@ -3658,6 +3658,16 @@ See example [here](#via-wmi-parser--chainsaw)
 
 See [EvtxEcmd](#via-eric-zimmermans-evtxecmd)
 
+### Mount volume shadow copies for analysis
+
+#### via Eric Zimmerman's VSCMount.exe
+
+```
+# Simply delete C:\VssRoot folder, when analysis is complete
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6
+VSCMount.exe --dl C --mp C:\VssRoot --debug
+```
+
 ## Eradication
 
 ## Recovery
