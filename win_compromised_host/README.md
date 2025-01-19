@@ -3372,6 +3372,8 @@ https://www.hackingarticles.in/forensic-investigation-shellbags/
 
 ### Analyse PageFile.sys, swapfile.sys files
 
+- Note, one may require `Access FTK Imager` to view the pagefile or swapfile.sys files
+  
 #### via strings 
 
 ```
