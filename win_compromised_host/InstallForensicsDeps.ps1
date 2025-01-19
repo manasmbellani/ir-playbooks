@@ -4,7 +4,8 @@
     Run in Windows Powershell v5.1
 
     Additional Steps:
-        * Upload DetectRaptorVQL.zip in detectraptor folder manually in Velociraptor GUI through 'Artifacts' icon 
+        * Install FTKImager.exe in C:\Users\azureuser\Desktop\opt\FTKImager
+	* Upload DetectRaptorVQL.zip in detectraptor folder manually in Velociraptor GUI through 'Artifacts' icon 
     	* Install Microsoft Office 2007 using key in my-notes
      	* Install Dokan under 'C:\Users\azureuser\Desktop\opt\Dokan\DokanSetup.exe' manually
       	* Add token from ipinfo.io website under 'C:\Users\azureuser\Desktop\opt\Microsoft-Analyzer-Suite\Microsoft-Analyzer-Suite-main\Config.ps1'
@@ -834,7 +835,7 @@ if(-Not (Test-Path "$INSTALL_LOCATION\FTKImager")) {
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\FTKImager"
 
     Write-Host "[*] Downloading FTKImager..."
-    $url = "https://github.com/manasmbellani/splunkfiles/blob/master/AccessData_FTK_Imager_4.7.1.exe"
+    $url = "https://github.com/manasmbellani/splunkfiles/raw/refs/heads/master/AccessData_FTK_Imager_4.7.1.exe"
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\FTKImager\FTKImager.exe")
 }
 
