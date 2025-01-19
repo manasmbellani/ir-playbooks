@@ -3369,6 +3369,21 @@ C:\Users\azureuser\Desktop\opt\EZTools\net6\ShellBagsExplorer\ShellBagsExplorer.
 Then follow the guide in the link below to do the analysis: 
 https://www.hackingarticles.in/forensic-investigation-shellbags/
 
+
+### Analyse PageFile .sys file
+
+#### via strings 
+
+```
+# Look for paths, environment variables, URLs, email addresses
+strings pagefile.sys | grep -i "^[a-z]:\\\\" | sort | uniq | less
+strings pagefile.sys | grep -i "^[a-zA-Z09_]*=.*" | sort -u | uniq | less
+strings pagefile.sys | egrep "^https?://" | sort | uniq | less
+strings pagefile.sys | egrep '([[:alnum:]_.-]{1,64}+@[[:alnum:]_.-]{2,255}+?\.[[:alpha:].]{2,4})' 
+```
+
+https://andreafortuna.org//2019/04/17/how-to-extract-forensic-artifacts-from-pagefile-sys/
+
 ### List Windows Registry Keys
 
 #### via volatility2 / hivelist
