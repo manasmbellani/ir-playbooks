@@ -3349,9 +3349,27 @@ dir /b /s C:\Windows\System32 | findstr /I "\.log"
 dir /b /s C:\Windows\System32 | findstr /I "\.txt" | findstr /I log
 ```
 
+### List recently accessed files or folders
+
+#### via Shellbags / Eric Zimmerman's SBEcmd
+
+```
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6
+# Specify Location of the NTUSER.dat files - typically, C:\Users\$USERNAME\NTUSER.dat
+SBECmd.exe -d C:\Users\azureuser --csv C:\Windows\Temp
+```
+
+https://www.hackingarticles.in/forensic-investigation-shellbags/
+
+#### via Shellbags / Eric Zimmerman's ShellBag Explorer
+
+```
+C:\Users\azureuser\Desktop\opt\EZTools\net6\ShellBagsExplorer\ShellBagsExplorer.exe
+```
+Then follow the guide in the link below to do the analysis: 
+https://www.hackingarticles.in/forensic-investigation-shellbags/
 
 ### List Windows Registry Keys
-
 
 #### via volatility2 / hivelist
 
