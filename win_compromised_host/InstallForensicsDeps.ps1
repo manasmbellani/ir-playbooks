@@ -829,6 +829,15 @@ if(-Not (Test-Path "$INSTALL_LOCATION\MemProcFS")) {
     Remove-Item -Path "$INSTALL_LOCATION\MemProcFS\MemProcFS.zip"
 }
 
+if(-Not (Test-Path "$INSTALL_LOCATION\FTKImager")) {
+    Write-Host "[*] Making directory FTKImager..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\FTKImager"
+
+    Write-Host "[*] Downloading FTKImager..."
+    $url = "https://github.com/manasmbellani/splunkfiles/blob/master/AccessData_FTK_Imager_4.7.1.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\FTKImager\FTKImager.exe")
+}
+
 if(-Not (Test-Path "$INSTALL_LOCATION\Dokan")) {
     Write-Host "[*] Making directory Dokan..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\Dokan"
