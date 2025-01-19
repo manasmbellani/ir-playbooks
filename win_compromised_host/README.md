@@ -3370,7 +3370,7 @@ Then follow the guide in the link below to do the analysis:
 https://www.hackingarticles.in/forensic-investigation-shellbags/
 
 
-### Analyse PageFile .sys file
+### Analyse PageFile.sys, swapfile.sys files
 
 #### via strings 
 
