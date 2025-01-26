@@ -29,6 +29,7 @@ aws s3 cp s3://$BUCKET_NAME/ $LOCAL_DIR --recursive
 
 ### Detect unusual  CloudTrail calls
 
+- Look for well-known, anomalous CloudTrail events as described in TrailDiscoverer: https://traildiscover.cloud/
 - Look for unique user agents
 ```
 Scout-Suite/5.14.0 md/Botocore#1.35.75 ua/2.0 os/linux#6.10.11-cloud-amd64 md/arch#x86_64 lang/python#3.12.6 md/pyimpl#CPython cfg/retry-mode#legacy Scout Suite/5.14.0 (https://github.com/nccgroup/ScoutSuite)
