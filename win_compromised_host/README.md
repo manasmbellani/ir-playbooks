@@ -1182,7 +1182,8 @@ type C:\Users\azureuser\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\
 
 ### Detect for unusual processes and parent processes created
 
-- Identify signs of lateral movement via various tools such as `imapcket` via Parent Command Line and Command Line as documented in Purp1eW0lf's notes: https://github.com/Purp1eW0lf/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md
+- Identify signs of lateral movement via various tools such as `impacket` via Parent Command Line and Command Line as documented in Purp1eW0lf's notes: https://github.com/Purp1eW0lf/Blue-Team-Notes/blob/main/Examples%20Of%20Lateral%20movement.md
+- Look for suspicious LOLBAS Binaries or scripts: https://lolbas-project.github.io/lolbas/Binaries/ eg `tttracer.exe`
 - Processes and parent process names to look for:
 ```
 powershell.exe
