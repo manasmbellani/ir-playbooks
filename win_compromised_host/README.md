@@ -432,6 +432,15 @@ dir C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies
 dir C:\Users\*\AppData\Roaming\Microsoft\Windows\Cookies\Low
 ```
 
+### Detect unsual attack surface reduction rule triggers
+
+#### via Windows Event Logs / Security / EventID 5007,1121,1122
+
+```
+EventID = 5007 (Event when Defender's settings are changed) OR 1121	(Event when rule fires in Block-mode) OR 1122	(Event when rule fires in Audit-mode)
+Channel = Microsoft-Windows-Windows Defender/Operational
+```
+
 ### Collect any unusual windows notifications
 
 #### via Windows\Notifications folder, SQLiteBrowser
