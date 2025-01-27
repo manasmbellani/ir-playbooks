@@ -2435,6 +2435,8 @@ See [here](#via-etw--volatility3--jpcerts-etw-scan--tracefmt)
 
 ### Detect unusual Network Connections / Sockets
 
+- Look for unusual connectivity to domains that setup tunnels which can be used for data exfiltration or internal access to environment eg Visual Studio Tunnels: https://lottunnels.github.io/
+
 - Look for unusual outbound connectivity via network connection logs e.g.
 
 ```
