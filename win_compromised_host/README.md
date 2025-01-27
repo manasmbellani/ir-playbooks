@@ -441,6 +441,16 @@ EventID = 5007 (Event when Defender's settings are changed) OR 1121	(Event when 
 Channel = Microsoft-Windows-Windows Defender/Operational
 ```
 
+https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction#review-attack-surface-reduction-events-in-windows-event-viewer
+
+#### via Microsoft Defender Audit Logs / KQL / DeviceEvents
+
+```
+DeviceEvents
+| where ActionType startswith 'Asr'
+```
+https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction#review-attack-surface-reduction-events-in-windows-event-viewer
+
 ### Collect any unusual windows notifications
 
 #### via Windows\Notifications folder, SQLiteBrowser
