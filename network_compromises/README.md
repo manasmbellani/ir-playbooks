@@ -25,3 +25,4 @@ Filter for `dns` in wireshark
 ### Detect unusual network HTTP paths
 - Look for suspicious HTTP Paths to which requests are made eg `/updater.ps1`. Useful when combined with user agent string analysis
 
+#### via Wireshark
