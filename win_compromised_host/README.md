@@ -1195,6 +1195,8 @@ wscript.exe
 mshta.exe
 cmd.exe
 pwsh.exe
+# Eg Disabling of system restore by ransomware threat actors `schtasks.exe /change /TN "\Microsoft\Windows\SystemRestore\SR" /disable`
+# Ref: SANS-608 Ransomware: Detect the Precursors)
 schtasks.exe
 scrcons.exe
 regsvr32.exe
