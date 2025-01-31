@@ -848,6 +848,36 @@ if(-Not (Test-Path "$INSTALL_LOCATION\Dokan")) {
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\Dokan\DokanSetup.exe")
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\chainsawRepo")) {
+    Write-Host "[*] Making directory chainsawRepo..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\chainsawRepo"
+
+    Write-Host "[*] Downloading chainsawRepo..."
+    $url =  "https://github.com/WithSecureLabs/chainsaw/archive/refs/heads/master.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\chainsawRepo\chainsawRepo.zip")
+
+    Write-Host "[*] Extracting chainsawRepo zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\chainsawRepo\chainsawRepo.zip" -DestinationPath "$INSTALL_LOCATION\chainsawRepo"
+
+    Write-Host '[*] Removing chainsawRepo zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\chainsawRepo\chainsawRepo.zip"
+}
+
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\TakaJo")) {
+    Write-Host "[*] Making directory TakaJo..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\TakaJo"
+
+    Write-Host "[*] Downloading TakaJo..."
+    $url =  "https://github.com/Yamato-Security/takajo/releases/download/v2.7.1/takajo-2.7.1-win-x64.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\TakaJo\TakaJo.zip")
+
+    Write-Host "[*] Extracting TakaJo zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\TakaJo\TakaJo.zip" -DestinationPath "$INSTALL_LOCATION\TakaJo"
+
+    Write-Host '[*] Removing TakaJo zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\TakaJo\TakaJo.zip"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\RawCopy")) {
     Write-Host "[*] Making directory RawCopy..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\RawCopy"
