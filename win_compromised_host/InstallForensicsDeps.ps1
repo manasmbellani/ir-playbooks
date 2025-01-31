@@ -712,7 +712,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\hayabusa")) {
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\hayabusa"
     
     Write-Host "[*] Downloading hayabusa..."
-    $url = "https://github.com/Yamato-Security/hayabusa/releases/download/v2.16.0/hayabusa-2.16.0-win-x64.zip"
+    $url = "https://github.com/Yamato-Security/hayabusa/releases/download/v3.0.1/hayabusa-3.0.1-win-x64-live-response.zip"
     (New-Object System.Net.WebClient).DownloadFile($url, "$INSTALL_LOCATION\hayabusa\hayabusa.zip")
 
     Write-Host "[*] Extracting hayabusa zip file..."
