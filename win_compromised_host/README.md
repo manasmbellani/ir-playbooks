@@ -3321,6 +3321,26 @@ python .\bmc-tools.py -d "C:\Users\azureuser\Downloads"  -s "C:\Users\azureuser\
 velociraptor > hunt > windows.forensics.rdpcache
 ```
 
+#### via Windows Registry / Background Activity Monitor (BAM) Artifact / Velociraptor / Windows.Forensics.BAM
+
+```
+velociraptor > hunt > Windows.Forensics.Bam
+```
+
+
+#### via Windows Registry / Eric Zimmerman's Tools
+
+- Captures the application execution and the last execution time for each user's SID
+  
+```
+C:\Users\azureuser\Desktop\opt\EZTools\net6\RegistryExplorer\RegistryExplorer.exe > Open `SYSTEM` registry
+```
+
+Registry Keys to monitor:
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\bam\UserSettings\*
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\bam\State\UserSettings\*
+```
 
 #### via Windows Defender Logs
 
