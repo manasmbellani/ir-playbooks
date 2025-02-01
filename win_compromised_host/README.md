@@ -1412,6 +1412,10 @@ Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 C:\\inetpub\\wwwroot\\aspnet_client
 ```
 
+#### via Windows Event Logs / Velociraptor / Windows.Carving.USN Artifact
+
+See `Velociraptor` > Client Artifacts > `Windows.Carving.USN` artifact
+
 #### via Windows Event Logs / Sysmon / Event ID 11
 
 ```
