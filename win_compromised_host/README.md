@@ -1738,6 +1738,13 @@ Search for `1.3.6.1.4.1.311.20.2.1` in all logs and focus on certificate service
 - Look for overpass-the-hash attempts as described [here](https://detection.fyi/sigmahq/sigma/windows/builtin/security/account_management/win_security_overpass_the_hash/)
 - To identify brute-force sweeps e.g. SMB sweep / password spray, Look for logon for a username across multiple hosts in a short period of time
 
+#### via Windows Event Logs / hayabusa / 4624, 4625
+
+```
+cd C:\Users\azureuser\Desktop\opt\hayabusa
+.\hayabusa-3.0.1-win-x64.exe logon-summary --directory C:\Windows\System32\winevt\Logs
+```
+
 #### via Windows Event Logs / 4624, 4625
 
 ```
