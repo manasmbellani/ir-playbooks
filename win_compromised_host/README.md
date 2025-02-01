@@ -1412,9 +1412,20 @@ Search: event.code:11 AND winlog.event_data.TargetFilename: "E:"
 C:\\inetpub\\wwwroot\\aspnet_client
 ```
 
-#### via Windows Event Logs / Velociraptor / Windows.Carving.USN Artifact
+#### via Windows USN Journal / Velociraptor / Windows.Carving.USN Artifact
 
-See `Velociraptor` > Client Artifacts > `Windows.Carving.USN` artifact
+- File Carving can be unreliable, it gets rotate within a day too
+- See `Velociraptor` > Client Artifacts > `Windows.Carving.USN` artifact
+
+More info: https://docs.velociraptor.app/blog/2021/2021-06-16-carving-usn-journal-entries-72d5c66971da/
+
+#### via Windows USN Journal / Velociraptor / parse_usn
+
+```
+SELECT * FROM parse_usn(device="C:/") WHERE FullPath =~ "test.txt" LIMIT 10
+```
+
+https://docs.velociraptor.app/blog/2020/2020-11-13-the-windows-usn-journal-f0c55c9010e/
 
 #### via Windows Event Logs / Sysmon / Event ID 11
 
