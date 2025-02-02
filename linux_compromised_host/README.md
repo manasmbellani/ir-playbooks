@@ -705,12 +705,25 @@ find -ctime -3
 
 ### Show Disk Details
 
+#### via df
+
+```
+df -Th
+```
+
+#### via cat /etc/fstab
+
+```
+cat /etc/fstab
+```
+
 #### via fsstat / dumpe2fs
 
 Analyse the mounted disk including the type of attached filesystem via `fsstat` or `dumpe2fs` for (ext2/3/4 volumes): 
 
 ```
 # View the output to see disk type eg. ext4
+# Use `fsstat -f list` to identify supported file systems that can be detected
 fsstat /dev/sdb1
 
 # For ext 2/3/4 volumes
