@@ -3433,7 +3433,11 @@ cd C:\Users\azureuser\Desktop\opt\EZTools\net6
 LECmd.exe -d C:\Users\azureuser\Desktop --csv C:\Windows\Temp --mp
 ```
 
+#### via velociraptor / Windows.Forensics.Lnk Artifact
 
+```
+C:\Users\azureuser\Desktop\opt\velociraptor\velociraptor.exe > Client Artifacts > Windows.Forensics.Lnk
+```
 
 ### List recently accessed files or folders
 
