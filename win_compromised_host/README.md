@@ -3416,6 +3416,25 @@ dir /b /s C:\Windows\System32 | findstr /I "\.log"
 dir /b /s C:\Windows\System32 | findstr /I "\.txt" | findstr /I log
 ```
 
+### Look for unusual LNK files
+
+#### via dir
+
+```
+cd C:
+dir /b /s | findstr /I "*.lnk*"
+```
+
+#### via Eric Zimmerman's LECmd
+
+```
+# View CSV in Timeline explorer from Eric Zimmerman's
+cd C:\Users\azureuser\Desktop\opt\EZTools\net6
+LECmd.exe -d C:\Users\azureuser\Desktop --csv C:\Windows\Temp --mp
+```
+
+
+
 ### List recently accessed files or folders
 
 ### via Jump Lists / Eric Zimmerman's JLECmd
