@@ -3418,6 +3418,15 @@ dir /b /s C:\Windows\System32 | findstr /I "\.txt" | findstr /I log
 
 ### List recently accessed files or folders
 
+### via Jump Lists / Eric Zimmerman's JLECmd
+
+```
+# View the results / CSV files via Timeline Explorer
+C:\Users\azureuser\Desktop\opt\EZTools\net6
+.\JLECmd.exe -d C:\Users\azureuser\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\ --mp --csv C:\Windows\Temp
+.\JLECmd.exe -d C:\Users\azureuser\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations\ --mp --csv C:\Windows\Temp
+```
+
 #### via Shellbags / Eric Zimmerman's SBEcmd
 
 ```
