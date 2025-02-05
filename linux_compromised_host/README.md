@@ -711,9 +711,17 @@ find -ctime -3
 df -Th
 ```
 
+#### via lvdisplay
+
+```
+# If command not found, then not a LVM2 volume
+lvdisplay
+```
+
 #### via cat /etc/fstab
 
 ```
+# Note that the presence of /dev/mapper (and not UUID=) may indicate LVM2 volume
 cat /etc/fstab
 ```
 
