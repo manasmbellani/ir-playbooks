@@ -685,6 +685,15 @@ cat ~/.viminfo
 cat  ~/.local/share/recently-used.xbel
 ```
 
+### Get file timestamp
+
+#### via stat / debugfs
+
+```
+ls -i $FILE
+debugfs -R 'stat <$IO_NUM>' $DISK_PARTITION (where $FILE exists)
+```
+
 ### Files Recently Changed
 
 Can be indicative of unusual activity from threat actor
