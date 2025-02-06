@@ -24,7 +24,8 @@ sudo apt-get -y install \
   tshark \
   python3-virtualenv \
   docker.io \
-  strace
+  strace \
+  wtmpdb
 
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
