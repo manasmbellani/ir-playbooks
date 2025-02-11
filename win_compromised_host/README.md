@@ -767,11 +767,12 @@ https://www.splunk.com/en_us/blog/security/named-pipe-threats.html
 ### Detection for unusual active directory (AD) services changes
 
 - Can detect changes to Active Directory Group Services
-
+- Can detect Resource-based constraint delegation if `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute is being changed via `Attribute.LDAP Display Name` as described here: https://swolfsec.github.io/2023-11-29-Detecting-Resource-Based-Constrained-Delegation/
+  
 #### via Windows Audit Event Logs / 5136
 
 ```
-# Look for changes from unusual 'Subject.Account Name' 
+# Look for changes from unusual 'Subject.Account Name'
 EventID = 5136 (A directory service object was modified)
 Channel = Security
 ```
