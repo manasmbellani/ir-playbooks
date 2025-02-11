@@ -768,12 +768,20 @@ https://www.splunk.com/en_us/blog/security/named-pipe-threats.html
 
 - Can detect changes to Active Directory Group Services
 - Can detect Resource-based constraint delegation if `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute is being changed via `Attribute.LDAP Display Name` as described here: https://swolfsec.github.io/2023-11-29-Detecting-Resource-Based-Constrained-Delegation/
+- If `Operation.Name` is set to `msDS-AllowedToActOnBehalfOfOtherIdentity` `{3f78c3e5-f79a-46bd-a0b8-9d18116ddc79}` as listed here: https://learn.microsoft.com/en-us/windows/win32/adschema/a-msds-allowedtoactonbehalfofotheridentity for Event ID `4662`, then that can also indicate Resource-based Constrained Delegation Exploitation Attempt as described here: https://www.fortalicesolutions.com/posts/hunting-resource-based-constrained-delegation-in-active-directory
   
 #### via Windows Audit Event Logs / 5136
 
 ```
 # Look for changes from unusual 'Subject.Account Name'
 EventID = 5136 (A directory service object was modified)
+Channel = Security
+```
+
+#### via Windows Audit Event Logs / 4662 
+
+```
+EventID = 4662  (An operation was performed on an object)
 Channel = Security
 ```
 
@@ -1845,11 +1853,11 @@ EventID = 7036 (The PSEXESVC service entered the running state.)
 Channel = System
 ```
 
-### Detection of Active Directory Certificate Services Abuse - Template Modification (ESC4)
+### Detection of Active Directory Certificate Services Abuse - Template Modification (ESC4), Other Attacks
 
 - Since templates are securable AD objects, an attacker with control can abuse them like any other AD object.
     - Eg. an attacker can effectively make a template vulnerable to ESC1 and request a user with a SAN. ESC1 behavior is set by the CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT flag in the template’s ms-PKI-Certificate-Name-Flag property.
-
+  
 #### via Windows Event Logs / 4900 (Changes to Certificate Security Descriptor / ACL)
 
 ```
