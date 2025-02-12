@@ -126,6 +126,16 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+### Look for unusual deleted files
+
+#### via ls / ~/.Trash
+
+The deleted files are stored in `~/.Trash` folder
+
+```
+ls -lah ~/.Trash
+```
+
 ### Look for malware 
 
 #### via velocirpator / DetectRaptor
