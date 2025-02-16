@@ -126,6 +126,20 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+### Look for Timezone
+
+#### via /etc/localtime
+
+```
+cat /etc/localtime
+```
+
+#### via GlobalPreferences
+
+```
+plutil -p /Library/Preferences/.GlobalPreferences.plist
+```
+
 ### Look for unusual deleted files
 
 #### via ls / ~/.Trash
