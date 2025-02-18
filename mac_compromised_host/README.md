@@ -129,6 +129,18 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+### Detect unusual activity in logs
+
+#### via console / live response
+
+Search for `Console` app and launch it
+
+#### via syslog / live response
+
+```
+syslog -f *.asl
+```
+
 ### Detect Last Logon Times
 
 #### via `last`
