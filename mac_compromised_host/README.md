@@ -126,6 +126,14 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+### Last Logon Timeframe
+
+#### via `last`
+
+```
+last
+```
+
 ### Look for Timezone
 
 #### via /etc/localtime
