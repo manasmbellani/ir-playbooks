@@ -106,9 +106,11 @@ E.g To search via `grep`
 ~/Library/Logs
 /Library/Logs
 /var/run
+# View via `syslog` command eg `syslog -f *.asl`
+/var/log/asl/*.asl
 ```
 
-### Artifacts Collectio
+### Artifacts Collection
 
 #### via uac
 
@@ -124,9 +126,10 @@ cd /opt/automactc
 automactc.py -m all -fmt json 
 ```
 
+
 ## Analysis
 
-### Last Logon Timeframe
+### Detect Last Logon Times
 
 #### via `last`
 
