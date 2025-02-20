@@ -879,7 +879,7 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\TakaJo")) {
 }
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\macos-UnifiedLogs")) {
-    Write-Host "[*] Making directory TakaJo..."
+    Write-Host "[*] Making directory macos-UnifiedLogs..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\macos-UnifiedLogs"
 
     Write-Host "[*] Downloading macos-UnifiedLogs..."
