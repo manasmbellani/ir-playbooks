@@ -878,6 +878,21 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\TakaJo")) {
     Remove-Item -Path "$INSTALL_LOCATION\TakaJo\TakaJo.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\macos-UnifiedLogs")) {
+    Write-Host "[*] Making directory TakaJo..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\macos-UnifiedLogs"
+
+    Write-Host "[*] Downloading macos-UnifiedLogs..."
+    $url =  "https://github.com/mandiant/macos-UnifiedLogs/releases/download/v0.1.1/unifiedlog_iterator-v0.1.1-x86_64-pc-windows-msvc.zip"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\macos-UnifiedLogs\macos-UnifiedLogs.zip")
+
+    Write-Host "[*] Extracting macos-UnifiedLogs zip file..."
+    Expand-Archive -Path "$INSTALL_LOCATION\macos-UnifiedLogs\macos-UnifiedLogs.zip" -DestinationPath "$INSTALL_LOCATION\macos-UnifiedLogs"
+
+    Write-Host '[*] Removing macos-UnifiedLogs zip file...'
+    Remove-Item -Path "$INSTALL_LOCATION\macos-UnifiedLogs\macos-UnifiedLogs.zip"
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\RawCopy")) {
     Write-Host "[*] Making directory RawCopy..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\RawCopy"
