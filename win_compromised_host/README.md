@@ -3453,13 +3453,17 @@ C:\Users\azureuser\Desktop\opt\velociraptor\velociraptor.exe > Client Artifacts 
 #### via Notepad++ Artifacts
 
 The following file contains the file being edited in a Notepad++ session (if a session was loaded when editing in notepad++). 
-Backup files are also available under `backup` folder.
+
 
 ```
 C:\Users\%USERNAME%\AppData\Roaming\Notepad++\session.xml
 ```
 
-https://forensafe.com/blogs/windows_notepad++.html
+Backup files are also available under `backup` folder which are basically files that were edited within notepad++ for session
+
+More Info: 
+- https://ogmini.github.io/2025/02/09/Notepad++-Documenting-Digital-Artifacts-Part-2.html
+- https://forensafe.com/blogs/windows_notepad++.html
 
 ### via Jump Lists / Eric Zimmerman's JLECmd
 
