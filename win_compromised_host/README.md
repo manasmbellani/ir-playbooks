@@ -422,6 +422,14 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Analyse the Clipboard contents and modify
+
+#### via Edit-Clipboard-Contents
+
+```
+C:\Users\azureuser\Desktop\opt\Edit-Clipboard-Contents\Edit-Clipboard-Contents.exe
+```
+
 ### Get the Cookies from various Browsers such as Internet Explorer, Google Chrome
 
 #### via dir
