@@ -8,6 +8,10 @@ Refer to the forensics servers setup [here](../gcp_compromised_pod/install_foren
 
 ## Common
 
+### Analyse the Clipboard Contents and Modify 
+
+For Windows, see [here](../win_compromised_host/README.md#analyse-the-clipboard-contents-and-modify)
+
 ### Determine file type
 
 #### via file
