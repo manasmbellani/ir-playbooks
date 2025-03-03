@@ -908,6 +908,15 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\RawCopy")) {
     Remove-Item -Path "$INSTALL_LOCATION\RawCopy\RawCopy.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\Edit-Clipboard-Contents")) {
+    Write-Host "[*] Making directory Edit-Clipboard-Contents..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\Edit-Clipboard-Contents"
+
+    Write-Host "[*] Downloading Edit-Clipboard-Contents..."
+    $url =  "https://github.com/ThioJoe/Edit-Clipboard-Contents/releases/download/v1.6.2/EditClipboardContents_1.6.2.exe"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\Edit-Clipboard-Contents\Edit-Clipboard-Contents.exe")
+}
+
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azcli")) {
     Write-Host "[*] Making directory azcli..."
     New-item -ItemType Directory -Path "$INSTALL_LOCATION\azcli"
