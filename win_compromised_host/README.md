@@ -430,6 +430,8 @@ Note that majority of the steps described in `Offline / Disk Analysis` could be 
 C:\Users\azureuser\Desktop\opt\Edit-Clipboard-Contents\Edit-Clipboard-Contents.exe
 ```
 
+https://github.com/ThioJoe/Edit-Clipboard-Contents
+
 ### Get the Cookies from various Browsers such as Internet Explorer, Google Chrome
 
 #### via dir
