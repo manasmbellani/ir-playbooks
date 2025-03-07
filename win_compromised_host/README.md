@@ -1387,6 +1387,8 @@ Event ID = 7045 (A service was installed in the system)
 Service Type = "kernel mode driver"
 ```
 
+https://research.splunk.com/endpoint/9216ef3d-066a-4958-8f27-c84589465e62/
+
 #### via Windows Event ID 3004 / 3023
 
 ```
