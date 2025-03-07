@@ -1379,6 +1379,14 @@ Event ID = 6 (Driver Loaded)
 Channel = Microsoft-Windows-Sysmon/Operational
 ```
 
+#### via Windows Event Logs 7045
+
+```
+# Look for 'Service File Name' for path which may be suspicious if outside C:\Windows\System32 paths (uncommon paths as an example)
+Event ID = 7045 (A service was installed in the system)
+Service Type = "kernel mode driver"
+```
+
 #### via Windows Event ID 3004 / 3023
 
 ```
