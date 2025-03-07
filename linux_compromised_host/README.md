@@ -1071,6 +1071,19 @@ find /etc/*cron* -type f
 
 Review the key artifacts to explore [here](../win_compromised_host/README.md#build-a-timeline)
 
+#### via fjta
+
+- Works only on journal files for specific disk types e.g. ext4, xfs
+
+```
+cd /opt/fjta
+source venv/bin/activate
+python3 fjta.py -i ~/samples/106-RedLine/MemoryDump.mem | jq
+deactivate
+```
+
+https://github.com/mnrkbys/fjta?tab=readme-ov-file
+
 #### via fls / mactime
 
 ```
