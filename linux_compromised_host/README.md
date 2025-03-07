@@ -1084,6 +1084,8 @@ deactivate
 
 https://github.com/mnrkbys/fjta?tab=readme-ov-file
 
+https://www.linkedin.com/posts/taswake_linux-linux-dfir-activity-7300435425930760192-VnLU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAXHSykBU1F4JeddNMxDcw37X1yCLor-vow
+
 #### via fls / mactime
 
 ```
