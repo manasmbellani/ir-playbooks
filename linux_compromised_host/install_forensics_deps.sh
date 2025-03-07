@@ -258,3 +258,16 @@ python3 -m virtualenv venv
 source venv/bin/activate
 python3 -m pip install -r requirements.txt
 deactivate
+
+echo "[*] Installing pytsk, construct, Forensics Journal Timeline Analyzer (fjta)..."
+git clone https://github.com/construct/construct /opt/construct
+git clone https://github.com/mnrkbys/fjta /opt/fjta
+cd /opt/fjta
+apt-get -y install automake libtool
+python3 -m virtualenv venv
+source venv/bin/activate
+cd /opt/construct
+python3 -m pip install setuptools
+python3 setup.py install
+python3 -m pip install pytsk3
+deactivate
