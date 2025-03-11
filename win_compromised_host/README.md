@@ -3434,6 +3434,9 @@ Common location for logs:
 - Symantec Endpoint Protection: `C:\ProgramData\Symantec\Symantec Endpoint Protection\CurrentVersion\Data\Logs`: Leverage [SEParser](https://github.com/Beercow/SEPparser) to extract packets from Firewall Packet log, Parse ccSubSDK data into csv reports, Extract potential binary blobs from ccSubSDK, Parse VBN files into csv reports, etc.
 
 - Intune Management Extension: `C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\IntuneManagementExtension-YYYYMMDD-HHMMSS.log` can indicate powershell scripts being identified via Intune (sometimes malicious) as described by Mandiant [here](https://cloud.google.com/blog/topics/threat-intelligence/lightshow-north-korea-unc2970/) > `Reaching for the Clouds: Intune with CLOUDBURST`
+
+- For Wordpress, can extract the plugins and their versions incase they may have been exploited in the past: `Get-WordPressPlugin -PluginFolder "C:\capture\htdocs\wordpress\wp-content\plugins" | Format-Table -AutoSize` . More info: https://gist.github.com/darkoperator/606b68db569c2d030699e8548c119471
+
   
 #### via dir / C: / System32 logs
 
