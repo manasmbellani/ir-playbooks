@@ -3834,6 +3834,13 @@ $events = Get-WinEvent -Path .\LsassDump.evtx |Where-Object {$_.ID -eq 10}
 $events |Where-Object {$_.Properties[8].Value -Like '*Lsass*'} |Format-List
 ```
 
+#### via hayabusa
+
+```
+cd /opt/hayabusa
+./hayabusa search -d /root/samples/winlogs --keyword ".ps1" --keyword "bat"
+```
+
 #### via chainsaw
 
 See example [here](#via-wmi-parser--chainsaw)
