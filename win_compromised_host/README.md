@@ -422,6 +422,17 @@ In case of live analysis, we have ability to connect a USB stick to the containe
 
 Note that majority of the steps described in `Offline / Disk Analysis` could be performed in `Live Analysis` as well by copying the binaries to the USB stick and attaching it to the compromised instance.
 
+### Analyse unusual uncommon event IDs
+
+- Could be indicative of suspicious activities
+
+#### via hayabusa / eid-metrics
+
+```
+# Specify single .evtx file via -f OR directory for all .evtx files
+./hayabusa eid-metrics -d /root/samples/winlogs | less -R 
+```
+
 ### Analyse the Clipboard contents and modify
 
 #### via Edit-Clipboard-Contents
