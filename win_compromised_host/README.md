@@ -1186,6 +1186,18 @@ Channel = Microsoft-Windows-Powershell/Operational
 
 See [here](#detect-for-unusual-processes-and-parent-processes-created)
 
+#### via scriptblocks / hayabusa / takajo
+
+- To detect malicious script blocks automatically
+
+```
+cd /opt/hayabusa
+./hayabusa json-timeline -L -d ~/samples/winlogs -o /tmp/jsontimeline.jsonl
+
+cd /opt/takajo
+./takajo extract-scriptblocks -t /tmp/jsontimeline.jsonl -l high -o /tmp/results
+```
+
 #### via powershell scriptblock logging / event ID 4104
 
 ```
@@ -1332,7 +1344,7 @@ Channel = Security
 - Detects for unusual processes and parent processes created such as RMM tools, AD using regex
 - Use the `DetectRaptor.Windows.Detection.MFT` to search for the files written to disk in the past or present
 
-#### via hayabusa / takajo
+#### via hashes / hayabusa / takajo
 
 - To check the virustotal for suspicious hashes, can consolidate all suspicious hashes
 
@@ -1342,6 +1354,16 @@ cd /opt/hayabusa
 
 cd /opt/takajo
 ./takajo list-hashes -t /tmp/jsontimeline.jsonl -o /tmp/hashes.txt
+```
+
+#### via suspicious process / hayabusa / takajo 
+
+```
+cd /opt/hayabusa
+./hayabusa json-timeline -L -d ~/samples/winlogs -o /tmp/jsontimeline.jsonl
+
+cd /opt/takajo
+./takajo timeline-suspicious-processes -t /tmp/jsontimeline.jsonl -o /tmp/sus_process.csv
 ```
 
 ### Detect for unusual process injections / migration into another process
