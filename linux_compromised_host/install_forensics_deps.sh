@@ -282,6 +282,7 @@ chmod +x hayabusa
 rm /tmp/hayabusa.zip
 
 echo "[*] Installing takajo for linux..."
+apt-get -y install libpcre3 libpcre3-dev
 mkdir /opt/takajo
 cd /opt/takajo
 curl -sL https://github.com/Yamato-Security/takajo/releases/download/v2.8.0/takajo-2.8.0-lin-x64-gnu.zip -o /tmp/takajo.zip
