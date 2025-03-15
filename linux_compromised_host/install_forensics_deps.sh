@@ -271,3 +271,13 @@ python3 -m pip install setuptools
 python3 setup.py install
 python3 -m pip install pytsk3
 deactivate
+
+echo "[*] Installing hayabusa for linux..."
+mkdir /opt/hayabusa
+cd /opt/hayabusa
+curl -sL https://github.com/Yamato-Security/hayabusa/releases/download/v3.1.1/hayabusa-3.1.1-lin-x64-gnu.zip -o /tmp/hayabusa.zip
+unzip /tmp/hayabusa.zip
+mv hayabusa-* hayabusa
+chmod +x hayabusa
+rm /tmp/hayabusa.zip
+
