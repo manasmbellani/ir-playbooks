@@ -1809,6 +1809,15 @@ AuthenticationPackageName = Negotiate
 
 Taken from [here](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625#_Ref433822321)
 
+#### via haybusa
+
+```
+cd /opt/hayabusa
+./hayabusa logon-summary -f /root/samples/winlogs/Security.evtx
+```
+
+https://github.com/Yamato-Security/hayabusa/releases/tag/v3.1.1
+
 #### via Windows Event Logs / 4771, 4776
 
 - Very good for identification of password brute-force attempts via tools like kerbrute, crackmapexec
