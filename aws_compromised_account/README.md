@@ -41,6 +41,12 @@ Scout-Suite/5.14.0 md/Botocore#1.35.75 ua/2.0 os/linux#6.10.11-cloud-amd64 md/ar
 
 Look for unique Cloudtrail unique calls
 
+#### via ctsummarize / jq
+
+Captures user agents, access keys and write-based API events based to a file
+
+https://gist.github.com/joswr1ght/081cd79e19427b210efe565784ba08c8
+
 ### Detect unusual Amazon Bedrock requests
 
 - Amazon Bedrock provides existing LLM models like ChatGPT which can be used e.g. anthropic claude within AWS itself
