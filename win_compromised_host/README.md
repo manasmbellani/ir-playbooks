@@ -3172,6 +3172,9 @@ deactivate
 - Scheduled Jobs (e.g. scheduled tasks)
 - File Opened / Creations
 
+#### via Get-MiniTimeline on mounted disk 
+
+https://github.com/evild3ad/Get-MiniTimeline
 
 #### via MemProcFS / Dokan
 
@@ -3232,6 +3235,7 @@ cd C:\Users\Administrator\Desktop\opt\hayabusa
 # Default folder for Windows Event logs: C:\Windows\System32\winevt\Logs
 # Use `-U` for UTC time format and use `-f` for a single .evtx file when building a timeline
 .\hayabusa-2.16.0-win-x64.exe csv-timeline -d C:\Windows\Temp\Logs -o C:\Windows\Temp\results.csv
+.\hayabusa-2.16.0-win-x64.exe json-timeline -L -d C:\Windows\Temp\Logs -o C:\Windows\Temp\results.jsonl
 ```
 
 #### via velociraptor / windows.eventlogs.hayabusa
