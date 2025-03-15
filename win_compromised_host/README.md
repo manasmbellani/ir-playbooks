@@ -3185,6 +3185,7 @@ cd C:\Users\Administrator\Desktop\opt\hayabusa
 .\hayabusa-2.16.0-win-x64.exe update-rules
 # Scan the log files and also build a timeline that can be opened in Timeline Explorer, Excel or Timesketch?
 # Default folder for Windows Event logs: C:\Windows\System32\winevt\Logs
+# Use `-U` for UTC time format and use `-f` for a single .evtx file when building a timeline
 .\hayabusa-2.16.0-win-x64.exe csv-timeline -d C:\Windows\Temp\Logs -o C:\Windows\Temp\results.csv
 ```
 
