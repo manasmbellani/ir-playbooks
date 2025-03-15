@@ -281,3 +281,11 @@ mv hayabusa-* hayabusa
 chmod +x hayabusa
 rm /tmp/hayabusa.zip
 
+echo "[*] Installing tajako for linux..."
+mkdir /opt/tajako
+cd /opt/tajako
+curl -sL https://github.com/Yamato-Security/takajo/releases/download/v2.8.0/takajo-2.8.0-lin-x64-gnu.zip -o /tmp/tajako.zip
+unzip /tmp/tajako.zip
+mv tajako-* tajako
+chmod +x tajako
+rm /tmp/tajako.zip
