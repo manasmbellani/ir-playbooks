@@ -27,6 +27,10 @@ sudo apt-get -y install \
   strace \
   wtmpdb
 
+echo "[*] Installing macos forensics tool..."
+# libplist-utils - for parsing plist files via plistutil
+apt-get -y install libplist-utils
+
 echo "[*] Install basic python deps..." 
 python3 -m pip install virtualenv
   
