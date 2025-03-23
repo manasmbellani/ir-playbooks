@@ -1084,7 +1084,7 @@ Look for keyword in file paths e.g.  `E:\.....png`
 
 #### via MountPoints2 Registry Key
 
-Helps to identify unusual MountPoints2 Registry keys
+Helps to identify unusual MountPoints2 Registry keys as present in `C:\Users\$USERNAME\NTUSER.DAT` registry file
 
 ```
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
