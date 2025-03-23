@@ -3379,6 +3379,7 @@ Tool at [github.com](https://github.com/MarkBaggett/srum-dump)
 
 #### via shimcache / rawcopy / eric zimmerman's appcompatcacheparser
 
+- *Note*: `Shimcache` captures the last time the binary was modified - not the last time it was executed
 - Application Compatibility Cache
 - Keeps track of application compatibility with the OS and tracks all applications launched on the machineRegistry is Located in `SYSTEM\CurrentControlSet\Control\SessionManager\Appcompatibility\AppcompatCache`
 
