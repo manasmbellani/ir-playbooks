@@ -1082,6 +1082,14 @@ More info [here](https://www.manageengine.com/products/active-directory-audit/pr
 
 Look for keyword in file paths e.g.  `E:\.....png` 
 
+#### via MountPoints2 Registry Key
+
+Helps to identify unusual MountPoints2 Registry keys
+
+```
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
+```
+
 ### Detect unusual startup programs aka autoruns
 
 #### via trawler
