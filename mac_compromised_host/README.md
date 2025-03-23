@@ -129,6 +129,13 @@ automactc.py -m all -fmt json
 
 ## Analysis
 
+### Detect Macbook version in use
+
+```
+# Use `ProductVersion` field
+plutil -p /System/Library/CoreServices/SystemVersion.plist
+```
+
 ### Detect unusual activity in logs
 
 #### via console / live response
