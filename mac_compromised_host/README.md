@@ -160,7 +160,10 @@ cat /etc/localtime
 #### via GlobalPreferences
 
 ```
+# On Macbook
 plutil -p /Library/Preferences/.GlobalPreferences.plist
+# On Linux where /tmp/test.txt has '/Library/Preferences/.GlobalPreferences.plist'
+plistutil -p /tmp/test.txt
 ```
 
 ### Look for unusual deleted files
