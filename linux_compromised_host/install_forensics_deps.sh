@@ -70,6 +70,8 @@ apt-get -y install \
   xrdp
 sudo systemctl enable xrdp --now
 update-rc.d xrdp defaults
+# To ensure that the default pem keys can be read
+adduser xrdp ssl-cert
 
 echo "[*] Install volatility2..."
 apt-get -y install python2.7
