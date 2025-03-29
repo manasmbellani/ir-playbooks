@@ -305,6 +305,8 @@ cd C:\Users\Administrator\Desktop\opt\kape\KAPE
 
 # Perform most important file collection on a disk to a specific destination. Leverage .\gkape.exe to build the command (without 'Flush' ideally)
 .\kape.exe --tsource C: --tdest C:\Windows\Temp --target !SANS_Triage --gui
+## If using vhdx file format, leverage the following command:
+.\kape.exe --tsource C: --tdest C:\Windows\Temp\kape --tflush --target !SANS_Triage --vhdx test --gui
 ```
 
 See [FTK Imager](#via-ftk-imager) for more information on how to create disk images (AD1) .
