@@ -294,3 +294,6 @@ unzip /tmp/takajo.zip
 mv takajo-* takajo
 chmod +x takajo
 rm /tmp/takajo.zip
+
+echo "[*] Installing burpsuite..."
+apt-get -y install burpsuite
