@@ -299,3 +299,12 @@ rm /tmp/takajo.zip
 
 echo "[*] Installing burpsuite..."
 apt-get -y install burpsuite
+
+
+echo "[*] Installing ExtAnalysis..."
+git clone https://github.com/Tuhinshubhra/ExtAnalysis /opt/ExtAnalysis
+cd /opt/ExtAnalysis
+python3 -m virtualenv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+deactivate
