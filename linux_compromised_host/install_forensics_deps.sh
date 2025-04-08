@@ -25,7 +25,8 @@ sudo apt-get -y install \
   python3-virtualenv \
   docker.io \
   strace \
-  wtmpdb
+  wtmpdb \
+  npm
 
 echo "[*] Installing macos forensics tool..."
 # libplist-utils - for parsing plist files via plistutil
@@ -308,3 +309,6 @@ python3 -m virtualenv venv
 source venv/bin/activate
 python3 -m pip install -r requirements.txt
 deactivate
+
+echo "[*] Installing retire.js..."
+npm install -g retire
