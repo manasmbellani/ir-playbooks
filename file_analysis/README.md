@@ -214,6 +214,13 @@ https://www.upguard.com/blog/how-to-decrypt-ransomware
 
 ### Detect Malware signatures
 
+#### via codebase-scanner
+
+```
+# codebase-scanner local ~/opt/ExtAnalysis/lab/samltracer
+codebase-scanner local $FOLDER
+```
+
 #### via loki
 
 ```
