@@ -57,7 +57,14 @@ sudo ./install_forensics_deps.sh
 
 To setup RDP, setup the password for the user USERNAME:
 ```
+# passwd azureuser
 passwd $USERNAME
+```
+
+Also, reboot after the implementation to ensure that `xfce4` is used when next connecting:
+
+```
+reboot
 ```
 
 Use `firefox` and RDP to access the websites via the username and password set via `passwd` as described in the steps above.
