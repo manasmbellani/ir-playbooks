@@ -946,6 +946,12 @@ Taken from [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-
 # Chrome
 ```
 
+#### via Windows Search Index / sidr 
+
+The Internet Explorer and Edge History Report will contain URL browsing activity.
+
+See [here](https://www.aon.com/en/insights/cyber-labs/windows-search-index-the-forensic-artifact-youve-been-searching-for)
+
 ### Detection for creation of unusual Shadow Copies
 
 Can detect the following scenarios: 
@@ -3585,6 +3591,11 @@ C:\Users\azureuser\Desktop\opt\EZTools\net6\ShellBagsExplorer\ShellBagsExplorer.
 Then follow the guide in the link below to do the analysis: 
 https://www.hackingarticles.in/forensic-investigation-shellbags/
 
+#### via Windows Search Index / sidr 
+
+`ActivityHistory` feature tracks file opening on a per-user basis, which can provide investigators with evidence of file knowledge and user account attribution for suspicious activity such as a user opening files using select programs.
+
+See [here](https://www.aon.com/en/insights/cyber-labs/windows-search-index-the-forensic-artifact-youve-been-searching-for)
 
 ### Analyse PageFile.sys, swapfile.sys files
 
