@@ -329,6 +329,17 @@ if (-Not (Test-Path -Path "$INSTALL_LOCATION\PingCastle")) {
     Remove-Item -Path "$INSTALL_LOCATION\PingCastle\PingCastle.zip"
 }
 
+if (-Not (Test-Path -Path "$INSTALL_LOCATION\sidr")) {
+    Write-Host "[*] Making directory sidr for Search Index DB Reporter..."
+    New-item -ItemType Directory -Path "$INSTALL_LOCATION\PingCastle"
+
+    Write-Host "[*] Downloading sidr..."
+    $url =  "https://github.com/strozfriedberg/sidr/releases/download/v0.9.2/sidr.exe"
+    (New-Object System.Net.WebClient).DownloadFile("$url", "$INSTALL_LOCATION\sidr\sidr.exe")
+
+    Write-Host '[*] Removing sidr.exe file...'
+    Remove-Item -Path "$INSTALL_LOCATION\sidr\sidr.exe"
+}
 
 if (-Not (Test-Path -Path "$INSTALL_LOCATION\azurehound")) {
     Write-Host "[*] Making directory azurehound..."
