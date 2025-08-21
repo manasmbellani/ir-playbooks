@@ -102,7 +102,7 @@ Visit the Organization > Settings > Archive > Logs > Audit Logs
 
 #### via Github API Logs
 
-Replace `$organization` with Github token - this will provide 100 items per page.
+Replace `$organization` with appropriate organization name and `$github_token` with the approriate Github token for the Organization - this will provide 100 items per page.
 ```
 # Call this again with the specified cursor returned in response
 curl -L \
