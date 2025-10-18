@@ -1,6 +1,8 @@
 #!/bin/bash
 # Script to be run on Ubuntu 22.04 instance
 
+cwd=$(pwd)
+
 echo "[*] Install basic dev tools..."
 apt-get -y update && \
   apt-get -y install \
@@ -128,4 +130,11 @@ mkdir /opt/dwarf2json
 curl -sL https://github.com/volatilityfoundation/dwarf2json/releases/download/v0.8.0/dwarf2json-linux-amd64 -o /opt/dwarf2json/dwarf2json
 chmod +x /opt/dwarf2json/dwarf2json
 
+echo "[*] Installing azcopy..."
+curl -sL https://github.com/Azure/azure-storage-azcopy/releases/download/v10.30.1/azcopy_linux_amd64_10.30.1.tar.gz -o /tmp/azcopy.tar.gz
+cd /tmp
+tar xzvf /tmp/azcopy.tar.gz
+chmod +x azcopy_linux_amd64*/azcopy
+mv azcopy_linux_amd64*/azcopy /usr/local/bin
+cd $cwd
 
