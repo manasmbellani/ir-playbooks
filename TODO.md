@@ -3,4 +3,5 @@
 - OWASP Defender for DNS
 - OWASP Defender for AI
 - Microsoft AI Red Team Notes: https://learn.microsoft.com/en-us/security/ai-red-team/
+- FinBot Agentic AI Challenge: https://genai.owasp.org/resource/finbot-agentic-ai-capture-the-flag-ctf-application/
 - Other OWASP Defender Services
